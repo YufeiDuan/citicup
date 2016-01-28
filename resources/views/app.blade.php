@@ -8,7 +8,6 @@
 		<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
 		
 		<!-- Fonts -->
-		<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
@@ -20,25 +19,17 @@
 		<nav class="navbar navbar-default">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<a class="navbar-brand" href="#">CitiCup</a>
+					<a class="navbar-brand" href="/home">CitiCup</a>
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<!--
-					<ul class="nav navbar-nav">
-							<li><a href="{{ url('/') }}">Home</a></li>
-					</ul>
-					-->
 					<ul class="nav navbar-nav navbar-right">
-						@if (Auth::guest())
-						<!--<li><a href="{{ url('/auth/login') }}">Login</a></li>
-						<li><a href="{{ url('/auth/register') }}">Register</a></li>
-						-->
-						@else
+						<li>
+							<a href="/home">{{ $name }} 团队，您好！</a>
+						</li>
 						<li>
 							<a href="{{ url('/auth/logout') }}">登出</a>
-							<!-- 您好,{{ Auth::user()->name }} -->
+							
 						</li>
-						@endif
 						
 					</ul>
 				</div>

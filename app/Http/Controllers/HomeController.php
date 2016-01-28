@@ -1,5 +1,11 @@
 <?php namespace App\Http\Controllers;
 
+use Auth;
+use Session;
+use App\Team;
+
+use App\Http\Controllers\Controller;
+
 class HomeController extends Controller {
 
 	/*
@@ -20,7 +26,7 @@ class HomeController extends Controller {
 	 */
 	public function __construct()
 	{
-		//$this->middleware('auth');
+		$this->middleware('auth');
 	}
 
 	/**
@@ -30,7 +36,10 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-		return view('home');
+		$user = Auth::user();
+		$team = Team::where('authen_id','=',$user->id)->firstOrFail();
+		Session::put('team',$team);
+		return view('home')->withName($team->name);
 	}
 
 }

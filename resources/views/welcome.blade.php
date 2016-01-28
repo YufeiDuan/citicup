@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>2016花旗杯大赛</title>
+		<title>2016花旗杯</title>
 		
 		<!--<link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>-->
 
@@ -55,7 +55,6 @@
 			<div class="login_box">
 					@if (count($errors) > 0)
 						<div class="alert alert-danger">
-							输入有误。
 							<ul>
 								@foreach ($errors->all() as $error)
 									<li>{{ $error }}</li>

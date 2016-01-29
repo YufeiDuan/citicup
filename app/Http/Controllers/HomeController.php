@@ -37,7 +37,7 @@ class HomeController extends Controller {
 	public function index()
 	{
 		$user = Auth::user();
-		$team = Team::where('authen_id','=',$user->id)->firstOrFail();
+		$team = Auth::user()->team;
 		Session::put('team',$team);
 		return view('home')->withName($team->name);
 	}

@@ -24,6 +24,9 @@
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
 						<li>
+							
+						</li>
+						<li>
 							<a href="/home">{{ $name }} 团队，您好！</a>
 						</li>
 						<li>

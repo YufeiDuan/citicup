@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use Auth;
+use View;
 use Session;
 use App\Team;
 
@@ -36,10 +37,12 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-		$user = Auth::user();
 		$team = Auth::user()->team;
+		$count = $team->unreadcount();
 		Session::put('team',$team);
-		return view('home')->withName($team->name);
+		Session::put('data',['count'=>$count,'name'=>$team->name]);
+		View::share('data',['count'=>$count,'name'=>$team->name]);
+		return view('home');
 	}
 
 }

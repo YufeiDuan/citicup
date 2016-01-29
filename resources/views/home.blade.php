@@ -1,13 +1,13 @@
 <p>@extends('app')
     @section('content')
-    <link rel="stylesheet" href="css/menu.css" type="text/css" />
+    <link rel="stylesheet" href="/css/menu.css" type="text/css" />
     <div class="container">
         <div class="row">
             <div class="col-xs-3">
                 
-            <ul id="main-nav" class="nav nav-tabs nav-stacked" style="">
+            <ul id="main-nav" class="nav nav-tabs nav-stacked">
                 <li>
-                    <a href="/team/team" class="nav-header collapsed" data-toggle="collapse">
+                    <a href="{{ url('/team/team') }}">
                         <i class="glyphicon glyphicon-user"></i>
                         团队组建
                     </a>

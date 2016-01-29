@@ -20,5 +20,6 @@ Route::get('home', 'HomeController@index');
 Route::controllers([
 	'auth' => 'LoginController',
 	'team' => 'TeamController',
+	'logo' => 'LogoController',
 	//'password' => 'Auth\PasswordController',
 ]);

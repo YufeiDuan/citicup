@@ -31,10 +31,18 @@ class AuthenTableSeeder extends Seeder {
 
         Team::Create([
             'id'        =>1,
+            'name'      =>'举办方',
+            'univ_id'   =>2135,
+            'title'     =>'CitiCup',
+            'logo'      =>'1.jpg',
+        ]);
+
+        Team::Create([
+            'id'        =>2,
             'name'      =>'张三lisi王5',
             'univ_id'   =>2135,
             'title'     =>'红鲤鱼与绿鲤鱼',
-            'logo'      =>'logos/1.jpg',
+            'logo'      =>'1.jpg',
             'authen_id'   =>1,
         ]);
 
@@ -49,7 +57,7 @@ class AuthenTableSeeder extends Seeder {
             'degree'    =>'2',
             'year_entry'=>2015,
             'email'     =>'xminor@163.com',
-            'team_id'   =>1,
+            'team_id'   =>2,
             'leader'    =>true,
         ]);
 
@@ -64,7 +72,7 @@ class AuthenTableSeeder extends Seeder {
             'degree'    =>'2',
             'year_entry'=>2015,
             'email'     =>'xminor2@163.com',
-            'team_id'   =>1,
+            'team_id'   =>2,
             'leader'    =>false,
         ]);
 
@@ -74,7 +82,7 @@ class AuthenTableSeeder extends Seeder {
             'univ_id'   =>2135,
             'college'   =>'软件学院',
             'email'     =>'zhang@mail.xjtu.edu.cn',
-            'team_id'   =>1,
+            'team_id'   =>2,
         ]);
     }
 

@@ -19,7 +19,7 @@ class CreateMailsTable extends Migration {
 			$table->foreign('from_id')->references('id')->on('teams');
 			$table->integer('to_id')->unsigned();
 			$table->foreign('to_id')->references('id')->on('teams');
-			$table->timestamp('time');
+			$table->timestamps();
 			$table->string('subject');
 			$table->string('content');
 			$table->boolean('flag_read');

@@ -6,4 +6,8 @@ class Member extends Model {
 
 	//
 	public $timestamps = false;
+
+	public function univ(){
+		return $this->belongsTo('App\Univ');
+	}
 }

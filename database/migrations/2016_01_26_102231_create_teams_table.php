@@ -20,7 +20,7 @@ class CreateTeamsTable extends Migration {
 			$table->foreign('univ_id')->references('id')->on('univs');
 			$table->string('title',50)->nullable();
 			$table->string('logo',50);
-			$table->integer('authen_id')->unsigned();
+			$table->integer('authen_id')->unsigned()->nullable();
 			$table->foreign('authen_id')->references('id')->on('authens');
 		});
 	}

@@ -15,6 +15,8 @@ Route::get('/', 'WelcomeController@index');
 
 Route::get('home', 'HomeController@index');
 
+Route::get('team', 'TeamController@getTeam');
+
 //Route::post('login','LoginController@authenticate');
 
 Route::controllers([

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Response;
 use Session;
 
-class LogoController extends Controller {
+class LogoController extends AuthBaseController {
 
 	public function getPic(){
 

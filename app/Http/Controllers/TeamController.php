@@ -12,7 +12,7 @@ use App\Member;
 use App\Teacher;
 
 
-class TeamController extends Controller {
+class TeamController extends AuthBaseController {
 
 	public function getTeam(){
 
@@ -26,6 +26,4 @@ class TeamController extends Controller {
 
 		return view('team',["team"=>$team,"members"=>$members,"teachers"=>$teachers,"univname"=>$univ->name]);
 	}
-
-
 }

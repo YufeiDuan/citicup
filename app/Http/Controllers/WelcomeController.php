@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
-use Storage;
+//use Storage;
+//use Image;
 use App\Area;
 use App\Univ;
 
@@ -40,6 +41,16 @@ class WelcomeController extends Controller {
 		//$str.=Area::find(11)->univs->toJson();	
 
 		Storage::disk('local')->put('school.js', $str);
+		
+		// open an image file
+		$img = Image::make('img/main.jpg');
+		 
+		// resize image instance
+		$img->resize(320, 240);
+		 
+		 
+		// save image in desired format
+		$img->save('bar.jpg');
 		*/
 		return view('welcome');
 	}

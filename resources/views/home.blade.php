@@ -7,7 +7,7 @@
                 
             <ul id="main-nav" class="nav nav-tabs nav-stacked">
                 <li>
-                    <a href="{{ url('/team/index') }}">
+                    <a href="{{ url('/team') }}">
                         <i class="glyphicon glyphicon-user"></i>
                         团队组建
                     </a>

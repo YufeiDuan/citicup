@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use Response;
 use Session;
 
-class LogoController extends AuthBaseController {
+class LogoController extends Controller {
 
-	public function getPic(){
+	public function index(){
 
 		$filepath = storage_path().'/app/logos/'.Session::get('team')->logo;
 		return Response::download($filepath,'logo.jpg');

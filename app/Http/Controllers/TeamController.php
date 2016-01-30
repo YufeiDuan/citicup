@@ -12,9 +12,9 @@ use App\Member;
 use App\Teacher;
 
 
-class TeamController extends AuthBaseController {
+class TeamController extends Controller {
 
-	public function getTeam(){
+	public function show(){
 
 		View::share('data',Session::get('data'));
 
@@ -24,6 +24,6 @@ class TeamController extends AuthBaseController {
 		$teacher_count = $teachers->count();
 		$univ = $team->univ;
 
-		return view('team',["team"=>$team,"members"=>$members,"teachers"=>$teachers,"univname"=>$univ->name]);
+		return view('team',["team"=>$team,"members"=>$members,"teachers"=>$teachers,"univ"=>$univ]);
 	}
 }

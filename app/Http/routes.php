@@ -15,13 +15,29 @@ Route::get('/', 'WelcomeController@index');
 
 Route::get('home', 'HomeController@index');
 
-Route::get('team', 'TeamController@getTeam');
-
 //Route::post('login','LoginController@authenticate');
 
 Route::controllers([
 	'auth' => 'LoginController',
+]);
+
+Route::group(['prefix' => '/', 'middleware' => 'auth'], function()
+{
+	Route::get('logo','LogoController@index');
+	Route::resource('team', 'TeamController');
+	/*
+	Route::controllers([
 	'team' => 'TeamController',
 	'logo' => 'LogoController',
 	//'password' => 'Auth\PasswordController',
-]);
+	]);
+	*/
+});
+
+
+/*Route::controllers([
+	'auth' => 'LoginController',
+	'team' => 'TeamController',
+	'logo' => 'LogoController',
+	//'password' => 'Auth\PasswordController',
+]);*/

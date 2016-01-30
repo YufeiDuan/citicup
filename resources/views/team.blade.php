@@ -1,22 +1,41 @@
 <p>@extends('home')
 	@section('rightcontent')
 	<script src="/js/team.js"></script>
+	<script src="/js/school.js"></script>
+	<script src="/js/choose_school.js"></script>
 	<link rel="stylesheet" href="/css/team.css" type="text/css" />
+
 	<div class="container">
+		<div class="row">
+			<div id="choose-box-wrapper">
+				<div id="choose-box">
+					<div id="choose-box-title">
+						<span>选择学校</span>
+					</div>
+					<div id="choose-a-province">
+					</div>
+					<div id="choose-a-school">
+					</div>
+					<div id="choose-box-bottom">
+						<input type="botton" onclick="hide()" value="关闭" />
+					</div>
+				</div>
+			</div>
+		</div>
 		<div class="row">
 			团队信息 <a href="#" onclick="display()">修改</a>
 		</div>
 		<div class="row">
 			<div class="col-xs-3">
 				<div>
-					<img src="/logo/pic">
+					<img src="/logo">
 				</div>
 				<div>
 					<button id="upload" type="button">选择头像</button>
 				</div>
 			</div>
 			<div class="col-xs-5">
-				<form action="" method="post">
+				<form action="/team/" method="post">
 				<table class="table">
 				<tr class="row"></tr>
 				<tr class="row">
@@ -27,9 +46,9 @@
 				</tr>
 				<tr class="row">
 					<td>所属高校：</td>
-					<td class="hrefselect	">
-						{{$univname}}
-						<a href="" onClick="">选择</a>
+					<td class="hrefselect">
+						<input type="text" name="school" id="school-name" value="{{$univ->name}}" onclick="pop()">
+						<input type="hidden" id="univ_sel" name="univ_sel" value="{{$univ->id}}">
 					</td>
 
 				</tr>
@@ -41,7 +60,7 @@
 				</tr>
 			</table>
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
-			<input type="submit" id="save" value="保存">
+			<input type="submit" id="save" value="保存" onclick="save()">
 		</form>
 		</div>
 	</div>

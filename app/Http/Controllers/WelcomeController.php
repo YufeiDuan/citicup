@@ -1,5 +1,9 @@
 <?php namespace App\Http\Controllers;
 
+use Storage;
+use App\Area;
+use App\Univ;
+
 class WelcomeController extends Controller {
 
 	/*
@@ -30,6 +34,13 @@ class WelcomeController extends Controller {
 	 */
 	public function index()
 	{
+		/*
+		$str = 'var schoool_list = ';
+		$str.=Area::with('univs')->get()->toJson();
+		//$str.=Area::find(11)->univs->toJson();	
+
+		Storage::disk('local')->put('school.js', $str);
+		*/
 		return view('welcome');
 	}
 

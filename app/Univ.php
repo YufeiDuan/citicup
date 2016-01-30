@@ -9,6 +9,8 @@ class Univ extends Model {
 	//
 	public $timestamps = false;
 
+	protected $hidden = ['area_id'];
+
 	public function teams(){
 		return $this->hasMany('App\Team');
 	}

@@ -7,7 +7,7 @@ use App\Team;
 
 use App\Http\Controllers\Controller;
 
-class HomeController extends AuthBaseController {
+class HomeController extends Controller {
 
 	/*
 	|--------------------------------------------------------------------------

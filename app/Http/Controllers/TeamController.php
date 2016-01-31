@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use View;
 use Session;
+use Storage;
 use Input;
 use Image;
 use Redirect;
@@ -22,6 +23,7 @@ class TeamController extends Controller {
 		View::share('data',Session::get('data'));
 
 		$team = Session::get('team');
+		$team = Team::find($team->id);
 		$members = $team->members;
 		$teachers = $team->teachers;
 
@@ -43,22 +45,23 @@ class TeamController extends Controller {
 		$logopath =date("Y").date("m").date("d").date("H").date("i").date("s").rand(100, 999).".jpg";
 		
 		
-		try
+		if(Input::hasFile('upload'))
 		{
+			Storage::delete('logos/'.$team->logo);
 			$file = Input::file('upload');
 			$path = $file->move(storage_path().'/app/logos',$logopath);
-
 	  		Image::make($path)->resize(200, 200)->save($path);
-
+	  		//chmod($path,0666);
 			$team->logo = $logopath;
-		}
-		catch (Exception $e) {
-			
+
 		}
 
-		$team->save();
-		
-		return Redirect::to('/team');
-
+		if($team->save()){
+			return Redirect::to('/team');
+		}else{
+			return Redirect::to('/team')->withErrors('修改失败！');
+		}
 	}
+
+	
 }

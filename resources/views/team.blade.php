@@ -25,13 +25,13 @@
 			团队信息 <a href="#" onclick="display()">修改</a>
 		</div>
 		<div class="row">
-			<form action="{{ URL('/team/1') }}" method="post" enctype="multipart/form-data">
+			<form action="{{ URL('/team/1') }}" method="post" enctype="multipart/form-data" name="formchange" onsubmit="return(check())">
 				<div class="col-xs-3">
 					<div>
 						<img src="/logo">
 					</div>
 					<div>
-						<input id="upload" type="file" name="upload" value="选择头像">
+						<input id="upload" type="file" name="upload" value="" accept=".jpg,.jpeg,.png">
 					</div>
 				</div>
 				<div class="col-xs-5">
@@ -40,7 +40,8 @@
 					<tr class="row">
 						<td>团队名称：</td>
 						<td>
-							<input type="text" name="team_name" id="team_name" value="{{$team->name}}"/>
+							<input type="text" name="team_name" id="team_name" value="{{$team->name}}" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5\@\.]/g,'')" onblur="if(this.value.replace(/^ +| +$/g,'')=='')alert('不能为空!')" maxlength="20"/>
+							<span class="tips">不超过20个字符</span>
 						</td>
 					</tr>
 					<tr class="row">
@@ -53,7 +54,8 @@
 					<tr class="row">
 						<td>参赛题目：</td>
 						<td>
-							<input type="text" name="team_title" id="team_title" value="{{$team->title}}"/>
+							<input type="text" name="team_title" id="team_title" value="{{$team->title}}" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5\@\.]/g,'')" onblur="if(this.value.replace(/^ +| +$/g,'')=='')alert('不能为空!')" maxlength="30"/>
+							<span class="tips">不超过30个字符</span>
 						</td>
 					</tr>
 				</table>
@@ -105,8 +107,8 @@
 					队员
 				</td>
 				<td class="col-xs-2">
-					<a href="{{ URL('admin/members/'.$member->id.'/edit') }}" class="btn btn-success">编</a>
-					<form action="{{ URL('admin/members/'.$member->id) }}" method="POST" style="display: inline;">
+					<a href="{{ URL('member/'.$member->id.'/edit') }}" class="btn btn-success">改</a>
+					<form action="{{ URL('member/'.$member->id) }}" method="POST" style="display: inline;">
 						<input name="_method" type="hidden" value="DELETE">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						<button type="submit" class="btn btn-danger">删</button>
@@ -130,8 +132,8 @@
 					指导老师
 				</td>
 				<td class="col-xs-1">
-					<a href="{{ URL('admin/members/'.$member->id.'/edit') }}" class="btn btn-success">编</a>
-					<form action="{{ URL('admin/members/'.$member->id) }}" method="POST" style="display: inline;">
+					<a href="{{ URL('teacher/'.$teacher->id.'/edit') }}" class="btn btn-success">编</a>
+					<form action="{{ URL('teacher/'.$member->id) }}" method="POST" style="display: inline;">
 						<input name="_method" type="hidden" value="DELETE">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						<button type="submit" class="btn btn-danger">删</button>

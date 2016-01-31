@@ -25,6 +25,7 @@ Route::group(['prefix' => '/', 'middleware' => 'auth'], function()
 {
 	Route::get('logo','LogoController@index');
 	Route::resource('team', 'TeamController');
+	Route::resource('member','MemberController');
 	/*
 	Route::controllers([
 	'team' => 'TeamController',

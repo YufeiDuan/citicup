@@ -7,6 +7,7 @@ window.onload=function(){
 	$('#save').hide();
 	$('#school-name').attr("disabled","disabled");
 	$('#school-name').removeAttr("onclick");
+	$('.tips').hide();
 	team_name = $("#team_name").attr('value');
 	team_title = $("#team_title").attr('value');
 	school_name = $("#school-name").attr('value');
@@ -21,6 +22,7 @@ function display(){
 		$('#save').show();
 		$("#school-name").attr("disabled",false);
 		$('#school-name').attr("onclick","pop()");
+		$('.tips').show();
 		tag=0;
 	}else{
 		$("#team_name").attr("disabled","disabled");
@@ -29,6 +31,7 @@ function display(){
 		$("#team_title").val(team_title);
 		$("#upload").hide();
 		$('#save').hide();
+		$('.tips').hide();
 		$('#school-name').attr("disabled","disabled");
 		$('#school-name').removeAttr("onclick");
 		tag=1;
@@ -40,4 +43,16 @@ function save(){
 	team_name = $("#team_name").attr('value');
 	team_title = $("#team_title").attr('value');
 	school_name = $("#school-name").attr('value');
+}
+
+function check(){
+	var type=formchange.upload.value.match(/^(.*)(\.)(.{1,8})$/)[3];
+	type=type.toUpperCase();
+	if(type=="JPG" || type=="JPEG" || type=="PNG"){
+	   return true;
+	}
+	else{
+	   alert("请选择jpg,jpeg,png类型图片");
+	   return false;
+	}
 }

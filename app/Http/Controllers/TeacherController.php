@@ -12,13 +12,13 @@ use Image;
 use Redirect;
 
 use App\Team;
-use App\Member;
+use App\Teacher;
 
-class MemberController extends Controller {
+class TeacherController extends Controller {
 
 	public function edit($id){
 		View::share('data',Session::get('data'));
-		return view('member.edit')->withMember(Member::find($id));
+		return view('teacher.edit')->withTeacher(Teacher::find($id));
 	}
 
 	public function update(Request $request,$id){
@@ -27,18 +27,12 @@ class MemberController extends Controller {
 		
 		$this->validate($request, [
 			'name' => 'required',
-			'sex' => 'required',
 			'univ_id'=>'required',
 			'college' => 'required',
-			'major' => 'required',
-			'id_num' => 'required',
-			'stu_num' => 'required',
-			'degree' => 'required',
-			'year_entry' => 'required',
 			'email' => 'required',
 		]);
 
-		if (Member::where('id', $id)->update(Input::only(['name', 'sex','univ_id','college','major','id_num','stu_num','degree','year_entry','email']))) {
+		if (Teacher::where('id', $id)->update(Input::only(['name','univ_id', 'college','email']))) {
 			return Redirect::to('/team');
 		} else {
 			return Redirect::to('/team')->withErrors('更新失败！');
@@ -48,8 +42,8 @@ class MemberController extends Controller {
 
 	public function destroy($id)
 	{
-		$member = Member::find($id);
-		$member->delete();
+		$teacher = Teacher::find($id);
+		$teacher->delete();
 
 		return Redirect::to('/team');
 	}

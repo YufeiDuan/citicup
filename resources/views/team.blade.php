@@ -132,7 +132,7 @@
 					指导老师
 				</td>
 				<td class="col-xs-1">
-					<a href="{{ URL('teacher/'.$teacher->id.'/edit') }}" class="btn btn-success">编</a>
+					<a href="{{ URL('teacher/'.$teacher->id.'/edit') }}" class="btn btn-success">改</a>
 					<form action="{{ URL('teacher/'.$member->id) }}" method="POST" style="display: inline;">
 						<input name="_method" type="hidden" value="DELETE">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">

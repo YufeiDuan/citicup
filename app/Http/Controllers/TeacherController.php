@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use Auth;
 use View;
 use Session;
 use Storage;
@@ -17,13 +18,17 @@ use App\Teacher;
 class TeacherController extends Controller {
 
 	public function edit($id){
-		View::share('data',Session::get('data'));
+		$team = Auth::user()->team;
+		$count = $team->unreadcount();
+		View::share('data',['count'=>$count,'name'=>$team->name]);
 		return view('teacher.edit')->withTeacher(Teacher::find($id));
 	}
 
 	public function update(Request $request,$id){
 		
-		View::share('data',Session::get('data'));
+		$team = Auth::user()->team;
+		$count = $team->unreadcount();
+		View::share('data',['count'=>$count,'name'=>$team->name]);
 		
 		$this->validate($request, [
 			'name' => 'required',

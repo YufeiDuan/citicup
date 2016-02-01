@@ -75,7 +75,7 @@
 		</div>
 	</div>
 	<div class="row">
-		成员信息 <a href="{{url('#')}}">添加</a>
+		成员信息 <a href="{{url('/team/add')}}">添加</a>
 	</div>
 	<div class="row">
 		<table class="table table-striped">

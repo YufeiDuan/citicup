@@ -68,6 +68,10 @@ class TeamController extends Controller {
 			return Redirect::to('/team')->withErrors('修改失败！');
 		}
 	}
+	public function __construct()
+    {
+        $this->middleware('teamstate');
+    }
 
 	
 }

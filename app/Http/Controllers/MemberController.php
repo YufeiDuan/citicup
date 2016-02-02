@@ -83,4 +83,9 @@ class MemberController extends Controller {
 
 		return Redirect::to('/team');
 	}
+	public function __construct()
+    {
+        $this->middleware('teamstate');
+    }
+}
 }

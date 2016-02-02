@@ -133,7 +133,8 @@
 				</td>
 				<td class="col-xs-1">
 					<a href="{{ URL('teacher/'.$teacher->id.'/edit') }}" class="btn btn-success">改</a>
-					<form action="{{ URL('teacher/'.$member->id) }}" method="POST" style="display: inline;">
+					<form action="{{ URL('teacher/'.$teacher->id) }}" method="POST" style="display: inline;" onsubmit="return(delcheck())">
+						<input type="hidden" id="teacher_count" value="{{$teachers->count()}}">
 						<input name="_method" type="hidden" value="DELETE">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						<button type="submit" class="btn btn-danger">删</button>

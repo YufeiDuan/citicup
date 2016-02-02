@@ -2,7 +2,7 @@
     @section('rightcontent')
     <script src="/js/memberadd.js"></script>
     <script src="/js/school.js"></script>
-    <script src="/js/choose_school.js"></script>
+    <script src="/js/choose_school_two.js"></script>
     <link rel="stylesheet" href="/css/team.css" type="text/css" />
     <div class="container">
         <div class="row">
@@ -32,8 +32,8 @@
 </ul>
 <div id="myTabContent" class="tab-content">
    <div class="tab-pane fade in active" id="member">
-      <form action="{{ URL('/member') }}" method="POST" onsubmit="return(check())" name="formaddm">
-            <input name="_method" type="hidden" value="PUT">
+      <form action="{{ URL('/member') }}" method="POST" onsubmit="return(checkadd())" name="formaddm">
+            
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             姓名: <input type="text" name="name" class="form-control" required="required" value="" maxLength="10">
             <br>
@@ -42,8 +42,8 @@
                       <option value="0">女</option>
                   </select>
             <br>
-            学校: <input type="text" name="school" id="school-name" value="点击选择" onclick="pop()" readonly="readonly" class="form-control">
-
+            学校: <input type="text" name="school" id="school-name" value="点击选择" onclick="pop()" class="form-control" required="required">
+            <input type="hidden" id="univ_sel" name="univ_id" value="" required="required">
             <br>
             学院:<input type="text" name="college" class="form-control" required="required" value="" maxLength="20" required="required">
             <br> 
@@ -69,9 +69,9 @@
                         <option value="2010">2010</option>
                         <option value="2009">2009</option>
                         <option value="2008">2008</option>
-                        <option value="2007">2008</option>
-                        <option value="2006">2008</option>
-                        <option value="2005">2008</option>
+                        <option value="2007">2007</option>
+                        <option value="2006">2006</option>
+                        <option value="2005">2005</option>
                   </select>
             <br>
             Email: <input type="text" name="email" class="form-control" required="required" value="" required="required">
@@ -81,12 +81,12 @@
         </form>
    </div>
    <div class="tab-pane fade" id="teacher">
-      <form action="{{ URL('/teacher') }}" method="POST" name="formaddt">   
-            <input name="_method" type="hidden" value="PUT">
+      <form action="{{ URL('/teacher') }}" method="POST" name="formaddt" onsubmit="return(check())">   
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             姓名: <input type="text" name="name" class="form-control" required="required" value="" maxLength="10">
             <br>
-            学校: <input type="text" name="school" id="school-name" value="点击选择" onclick="pop()" readonly="readonly" class="form-control">
+            学校: <input type="text" name="school" id="school-namet" value="点击选择" onclick="pop()" readonly="readonly" class="form-control">
+            <input type="hidden" id="univ_selt" name="univ_id" value="" required="required">
 
             <br>
             学院:<input type="text" name="college" class="form-control" required="required" value="" maxLength="20" required="required">
@@ -99,17 +99,13 @@
         </form>
    </div>
 </div>
+
 <script>
-   $(function () {
-      $('#myTab li:eq(1) a').tab('show');
-   });
-</script>    
+    $(function () {
+    $('#myTab li:eq(1) a').tab('show');
+});
 
-
-        
-
-
-
+</script>
 
 @endsection
 </p>

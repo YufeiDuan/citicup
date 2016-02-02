@@ -24,6 +24,31 @@ class MemberController extends Controller {
 		return view('member.edit')->withMember(Member::find($id));
 	}
 
+	public function store(){
+		if (Member::where('id_num',Input::get('id_num'))->count()>0) {
+			return Redirect::to('/team')->withErrors('身份证号已被注册，若有疑问，请联系管理员。');
+		}
+		$member = new Member;
+		$member->name=Input::get('name');
+		$member->sex=Input::get('sex');
+		$member->univ_id=Input::get('univ_id');
+		$member->college=Input::get('college');
+		$member->major=Input::get('major');
+		$member->stu_num=Input::get('stu_num');
+		$member->id_num=Input::get('id_num');
+		$member->degree=Input::get('degree');
+		$member->year_entry=Input::get('year_entry');
+		$member->email=Input::get('email');
+		$member->team_id=Auth::user()->team->id;
+		$member->leader=0;
+		if ($member->save()) {
+			return Redirect::to('/team');
+		} else {
+			return Redirect::to('/team')->withErrors('添加失败！');
+		}
+
+	}
+
 	public function update(Request $request,$id){
 		
 		$team = Auth::user()->team;

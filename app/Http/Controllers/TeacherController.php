@@ -17,6 +17,22 @@ use App\Teacher;
 
 class TeacherController extends Controller {
 
+	public function store(){
+
+		$teacher = new Teacher;
+		$teacher->name=Input::get('name');
+		$teacher->univ_id=Input::get('univ_id');
+		$teacher->college=Input::get('college');
+		$teacher->email=Input::get('email');
+		$teacher->team_id=Auth::user()->team->id;
+		if ($teacher->save()) {
+			return Redirect::to('/team');
+		} else {
+			return Redirect::to('/team')->withErrors('添加失败！');
+		}
+
+	}	
+
 	public function edit($id){
 		$team = Auth::user()->team;
 		$count = $team->unreadcount();

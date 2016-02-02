@@ -56,3 +56,13 @@ function check(){
 	   return false;
 	}
 }
+
+function delcheck(){
+	var teacher_count = $('#teacher_count').val();
+	if(teacher_count<2){
+		alert('请保留至少一名指导老师');
+		return false;	
+	}
+	return true;
+
+}

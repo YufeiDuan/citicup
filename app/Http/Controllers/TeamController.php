@@ -32,7 +32,6 @@ class TeamController extends Controller {
 			"members"	=>$members,
 			"teachers"	=>$teachers,
 			"univ"		=>$team->univ,
-			"teacher_count"=>$teachers->count(),
 		]);
 	}
 

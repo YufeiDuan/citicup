@@ -29,6 +29,8 @@ class HomeController extends Controller {
 	{
 		$team = Auth::user()->team;
 		$count = $team->unreadcount();
+		Session::put('team',$team);
+		Session::put('count',$count);
 		View::share('data',['count'=>$count,'name'=>$team->name]);
 		return view('home');
 	}

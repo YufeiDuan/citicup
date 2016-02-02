@@ -71,6 +71,7 @@
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<input name="_method" type="hidden" value="PUT">
 				<input type="submit" id="save" value="保存" onclick="save()">
+				<input type="button" id="cancel" value="取消" onClick="display()">
 			</form>
 		</div>
 	</div>

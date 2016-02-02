@@ -5,6 +5,7 @@ window.onload=function(){
 	$("#team_title").attr("disabled","disabled");
 	$("#upload").hide();
 	$('#save').hide();
+	$('#cancel').hide();
 	$('#school-name').attr("disabled","disabled");
 	$('#school-name').removeAttr("onclick");
 	$('.tips').hide();
@@ -20,6 +21,7 @@ function display(){
 		$("#team_title").attr("disabled",false);
 		$("#upload").show();
 		$('#save').show();
+		$('#cancel').show();
 		$("#school-name").attr("disabled",false);
 		$('#school-name').attr("onclick","pop()");
 		$('.tips').show();
@@ -31,6 +33,7 @@ function display(){
 		$("#team_title").val(team_title);
 		$("#upload").hide();
 		$('#save').hide();
+		$('#cancel').hide();
 		$('.tips').hide();
 		$('#school-name').attr("disabled","disabled");
 		$('#school-name').removeAttr("onclick");

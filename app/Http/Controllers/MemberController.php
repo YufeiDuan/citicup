@@ -88,4 +88,3 @@ class MemberController extends Controller {
         $this->middleware('teamstate');
     }
 }
-}

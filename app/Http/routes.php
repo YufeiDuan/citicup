@@ -28,6 +28,7 @@ Route::group(['prefix' => '/', 'middleware' => 'auth'], function()
 	Route::resource('team', 'TeamController');
 	Route::resource('member','MemberController');
 	Route::resource('teacher','TeacherController');
+	Route::resource('report','ReportController');
 	/*
 	Route::controllers([
 	'team' => 'TeamController',
@@ -36,11 +37,3 @@ Route::group(['prefix' => '/', 'middleware' => 'auth'], function()
 	]);
 	*/
 });
-
-
-/*Route::controllers([
-	'auth' => 'LoginController',
-	'team' => 'TeamController',
-	'logo' => 'LogoController',
-	//'password' => 'Auth\PasswordController',
-]);*/

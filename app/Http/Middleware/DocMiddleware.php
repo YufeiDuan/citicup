@@ -1,6 +1,9 @@
 <?php namespace App\Http\Middleware;
 
+use Auth;
+use View;
 use Closure;
+use App\Process;
 
 class DocMiddleware {
 

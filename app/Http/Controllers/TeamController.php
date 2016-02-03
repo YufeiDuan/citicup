@@ -60,6 +60,7 @@ class TeamController extends Controller {
 
 		}
 		if($team->save()){
+			Session::put('team',$team);
 			return Redirect::to('/team');
 		}else{
 			return Redirect::to('/team')->withErrors('修改失败！');

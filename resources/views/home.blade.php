@@ -13,7 +13,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{ url('/report') }}">
                         <i class="glyphicon glyphicon-file"></i>
                         项目报告
                     </a>

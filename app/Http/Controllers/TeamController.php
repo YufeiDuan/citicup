@@ -46,25 +46,41 @@ class TeamController extends Controller {
 	public function update(){
 		$team = Auth::user()->team;
 		$count = $team->unreadcount();
-		$team->univ_id = Input::get('univ_sel');
-		$team->title = Input::get('team_title');
-		
-		if(Input::hasFile('upload'))
-		{
-			$logopath =date("Y").date("m").date("d").date("H").date("i").date("s").rand(100, 999).".jpg";
-			Storage::delete('logos/'.$team->logo);
-			$file = Input::file('upload');
-			$path = $file->move(storage_path().'/app/logos',$logopath);
-	  		Image::make($path)->resize(200, 200)->save($path);
-			$team->logo = $logopath;
+		View::share('data',['count'=>$count,'name'=>$team->name]);
+		//return Redirect::to('/report');
 
+		if(Input::has('univ_sel')){
+			$team->univ_id = Input::get('univ_sel');
+			$team->title = Input::get('team_title');
+			
+			if(Input::hasFile('upload'))
+			{
+				$logopath =date("YmdHis").rand(100, 999).".jpg";
+				Storage::delete('logos/'.$team->logo);
+				$file = Input::file('upload');
+				$path = $file->move(storage_path().'/app/logos',$logopath);
+		  		Image::make($path)->resize(200, 200)->save($path);
+				$team->logo = $logopath;
+
+			}
+			if($team->save()){
+				Session::put('team',$team);
+				return Redirect::to('/team');
+			}else{
+				return Redirect::to('/team')->withErrors('修改失败！');
+			}
 		}
-		if($team->save()){
-			Session::put('team',$team);
-			return Redirect::to('/team');
-		}else{
-			return Redirect::to('/team')->withErrors('修改失败！');
+		else
+		{
+			$team->title = Input::get('title');
+			if($team->save()){
+				Session::put('team',$team);
+				return Redirect::to('/report');
+			}else{
+				return Redirect::to('/repprt')->withErrors('修改失败！');
+			}
 		}
+		
 	}
 	public function __construct()
     {

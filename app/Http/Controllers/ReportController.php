@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Response;
 
 use Auth;
 use View;
@@ -22,7 +23,7 @@ class ReportController extends Controller {
 
 		$team = Auth::user()->team;
 		$count = $team->unreadcount();
-		View::share('data',['count'=>$count,'name'=>$team->name]);
+		View::share('data',['count'=>$count,'name'=>$team->name,'title'=>$team->title]);
 
 		return view('report');
 	}
@@ -31,16 +32,30 @@ class ReportController extends Controller {
 		$team = Auth::user()->team;
 		$count = $team->unreadcount();
 		View::share('data',['count'=>$count,'name'=>$team->name]);
-		if(Input::hasFile('fileToUpload'))
+		
+		if(Input::hasFile('report'))
 		{
-			$path =$team->id.$team->name.date("Y").date("m").date("d").date("H").date("i").date("s").rand(100, 999).".jpg";
-			//Storage::delete('reports/'.$team->logo);
-			$file = Input::file('fileToUpload');
-			$path = $file->move(storage_path().'/app/reports',$path);
-			return view('report')->withErrors('222');
-		}
+			$file = Input::file('report');
+			$filename = $file->getClientOriginalName();
+			$filesize = $file->getSize();
+			if ($filename != "") {
+				$type = $file->getClientOriginalExtension();
 
-		return view('report')->withErrors('111');
+				//上传路径
+				$path =$team->id.$team->name.date("YmdHis").rand(100, 999).".".$type;
+				//Storage::delete('reports/'.$team->logo);
+				
+				$path = $file->move(storage_path().'/app/reports',$path);
+			}
+			$size = round($filesize/1024,2);
+			$arr = array(
+			'name'=>$filename,
+			'type'=>$type,
+			'size'=>$size
+		);
+
+		return Response::json($arr);
+		}
 	}
 
 

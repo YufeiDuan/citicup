@@ -3,36 +3,51 @@
 	<meta name="file_token" content="">
 	@endsection
 	@section('rightcontent')
+	<link rel="stylesheet" href="/css/report.css" type="text/css" />
+	<script src="/js/jquery.form.js"></script>
 	<script src="/js/report.js"></script>
 	<div class="container">
-		<div class="alert alert-danger">
-			<ul>
-				@foreach ($errors->all() as $error)
-				<li>{{ $error }}</li>
-				@endforeach
-			</ul>
-		</div>
-		<div class="progress">
-			<div class="progress-bar progress-bar-info" role="progressbar"
-				aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-				style="" id="info">
-				<span class="sr-only">30% 完成（信息）</span>
-			</div>
-		</div>
-		<form id="form1" enctype="multipart/form-data" method="post" action="/report">
-			<div class="row">
-				<label for="fileToUpload">Select a File to Upload</label><br />
-				<input type="hidden" name="_token" value="{{ csrf_token() }}">
-				<input type="file" name="fileToUpload" id="fileToUpload" onchange="fileSelected();"/>
-			</div>
-			<div id="fileName"></div>
-			<div id="fileSize"></div>
-			<div id="fileType"></div>
-			<div class="row">
-				<input type="button" onclick="uploadFile()" value="Upload" />
-			</div>
-			<div id="progressNumber"></div>
+		@if (count($errors) > 0)
+				<div class="alert alert-danger">
+					<ul>
+						@foreach ($errors->all() as $error)
+						<li>{{ $error }}</li>
+						@endforeach
+					</ul>
+				</div>
+				@endif
+		<div class="row">
+		参赛题目<a href="#" onclick="display()">修改</a>
+	</div>
+		<div class="row">
+		<form action="{{ URL('/team/1') }}" method="post">
+			<input name="_method" type="hidden" value="PUT">
+			<input type="hidden" name="_token" value="{{ csrf_token() }}">
+			<input type="text" name="title" id="title" value="{{$data['title']}}" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5\@\.]/g,'')" onblur="if(this.value.replace(/^ +| +$/g,'')=='')alert('不能为空!')" maxlength="30"/>
+			<span class="tips">不超过30个字符</span>
+			<input type="submit" id="save" value="保存">
+			<input type="button" id="cancel" value="取消" onClick="display()">
 		</form>
+	</div>
+
+		<div class="row">
+			项目报告
+	</div>
+
+		<div class="row report">
+			<p>说明：</p>
+			<div class="btn">
+				<span>添加附件</span>
+				<form id='myupload' action='/report' method='post' enctype='multipart/form-data'>
+					<input id="fileupload" type="file" name="report">
+					<input type="hidden" name="_token" value="{{ csrf_token() }}">
+				</form>
+			</div>
+			<div class="progress">
+				<span class="bar"></span><span class="percent">0%</span >
+			</div>
+			<div class="files"></div>
+		</div>
 		
 	</div>
 	@endsection

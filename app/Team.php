@@ -40,5 +40,8 @@ class Team extends Model {
 		return $this->belongsTo('App\Univ');
 	}
 
+	public function report(){
+		return $this->hasOne('App\Report');
+	}
 
 }

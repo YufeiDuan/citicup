@@ -27,6 +27,7 @@ $(function () {
             },
             success: function(data) {
                 files.html("<b>上传成功："+data.name+"("+data.size+"k)</b>");
+                
                 btn.html("添加附件");
             },
             error:function(xhr){

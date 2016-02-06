@@ -35,7 +35,14 @@
 	</div>
 
 		<div class="row report">
-			<p>说明：</p>
+			<p>
+				当前项目报告状态：
+				@if(empty($data['report']))
+				未提交
+				@else
+				{{$data['report']->updated_at}} 已提交{{strstr($data['report']->path, '.')}}类型文件
+				@endif
+			</p>
 			<div class="btn">
 				<span>添加附件</span>
 				<form id='myupload' action='/report' method='post' enctype='multipart/form-data'>

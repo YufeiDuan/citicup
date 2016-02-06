@@ -15,7 +15,7 @@ use Redirect;
 
 use App\Team;
 use App\Report;
-
+use App\Config;
 
 class ReportController extends Controller {
 
@@ -23,7 +23,8 @@ class ReportController extends Controller {
 
 		$team = Auth::user()->team;
 		$count = $team->unreadcount();
-		View::share('data',['count'=>$count,'name'=>$team->name,'title'=>$team->title]);
+		$report = $team->report;
+		View::share('data',['count'=>$count,'name'=>$team->name,'title'=>$team->title,'report'=>$report]);
 
 		return view('report');
 	}
@@ -31,6 +32,7 @@ class ReportController extends Controller {
 	public function store(){
 		$team = Auth::user()->team;
 		$count = $team->unreadcount();
+		$report = $team->report;
 		View::share('data',['count'=>$count,'name'=>$team->name]);
 		
 		if(Input::hasFile('report'))
@@ -45,13 +47,27 @@ class ReportController extends Controller {
 				$path =$team->id.$team->name.date("YmdHis").rand(100, 999).".".$type;
 				//Storage::delete('reports/'.$team->logo);
 				
-				$path = $file->move(storage_path().'/app/reports',$path);
+				$file->move(storage_path().'/app/reports',$path);
+				if(empty($report)){
+					$report = new Report;
+				}
+				$report->path=$path;
+				$report->team_id=$team->id;
+				if(empty($report->freq)){
+					$report->freq=Config::first()->freq;
+				}
+				if($report->freq>0){
+					$report->freq-=1;
+				}
+				$report->save();
 			}
 			$size = round($filesize/1024,2);
 			$arr = array(
 			'name'=>$filename,
 			'type'=>$type,
-			'size'=>$size
+			'size'=>$size,
+			'time'=>date("YmdHis"),
+			'freq'=>$report->freq
 		);
 
 		return Response::json($arr);

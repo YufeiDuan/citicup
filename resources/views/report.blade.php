@@ -35,7 +35,7 @@
 	</div>
 
 		<div class="row report">
-			<p>
+			<p id="state">
 				当前项目报告状态：
 				@if(empty($data['report']))
 				未提交
@@ -43,6 +43,10 @@
 				{{$data['report']->updated_at}} 已提交{{strstr($data['report']->path, '.')}}类型文件
 				@endif
 			</p>
+			<p id="freqinfo">
+				今日剩余上传次数：{{$data['report']->freq}}
+			</p>
+			<input type="hidden" id="freq" value="{{ $data['report']->freq }}">
 			<div class="btn">
 				<span>添加附件</span>
 				<form id='myupload' action='/report' method='post' enctype='multipart/form-data'>

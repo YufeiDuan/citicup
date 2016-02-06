@@ -33,8 +33,17 @@ class ReportController extends Controller {
 		$team = Auth::user()->team;
 		$count = $team->unreadcount();
 		$report = $team->report;
-		View::share('data',['count'=>$count,'name'=>$team->name]);
+		View::share('data',['count'=>$count,'name'=>$team->name,'title'=>$team->title,'report'=>$report]);
+		if(empty($report)){
+			$report = new Report;
+			$report->freq=Config::first()->freq;
+			$report->team_id=$team->id;
+		}
 		
+		if($report->freq==0){
+			return '今日提交次数已达上限，请明日再试。';
+		}	
+
 		if(Input::hasFile('report'))
 		{
 			$file = Input::file('report');
@@ -45,17 +54,12 @@ class ReportController extends Controller {
 
 				//上传路径
 				$path =$team->id.$team->name.date("YmdHis").rand(100, 999).".".$type;
-				//Storage::delete('reports/'.$team->logo);
+				Storage::delete('reports/'.$report->path);
 				
 				$file->move(storage_path().'/app/reports',$path);
-				if(empty($report)){
-					$report = new Report;
-				}
-				$report->path=$path;
-				$report->team_id=$team->id;
-				if(empty($report->freq)){
-					$report->freq=Config::first()->freq;
-				}
+
+				$report->path=$path;				
+
 				if($report->freq>0){
 					$report->freq-=1;
 				}
@@ -66,7 +70,7 @@ class ReportController extends Controller {
 			'name'=>$filename,
 			'type'=>$type,
 			'size'=>$size,
-			'time'=>date("YmdHis"),
+			'time'=>date("Y-m-d H:i:s"),
 			'freq'=>$report->freq
 		);
 

@@ -20,7 +20,7 @@
                 </li>
                 
                 <li>
-                    <a href="#">
+                    <a href="{{ url('/document') }}">
                         <i class="glyphicon glyphicon-folder-open"></i>
                         完整作品
                     </a>

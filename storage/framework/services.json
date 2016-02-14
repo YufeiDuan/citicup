@@ -19,7 +19,7 @@
         "Illuminate\\Redis\\RedisServiceProvider",
         "Illuminate\\Auth\\Passwords\\PasswordResetServiceProvider",
         "Illuminate\\Session\\SessionServiceProvider",
-        "Illuminate\\Translation\\TranslationServiceProvider",
+        "Overtrue\\LaravelLang\\TranslationServiceProvider",
         "Illuminate\\Validation\\ValidationServiceProvider",
         "Illuminate\\View\\ViewServiceProvider",
         "Intervention\\Image\\ImageServiceProvider",
@@ -123,8 +123,8 @@
         "redis": "Illuminate\\Redis\\RedisServiceProvider",
         "auth.password": "Illuminate\\Auth\\Passwords\\PasswordResetServiceProvider",
         "auth.password.tokens": "Illuminate\\Auth\\Passwords\\PasswordResetServiceProvider",
-        "translator": "Illuminate\\Translation\\TranslationServiceProvider",
-        "translation.loader": "Illuminate\\Translation\\TranslationServiceProvider"
+        "translator": "Overtrue\\LaravelLang\\TranslationServiceProvider",
+        "translation.loader": "Overtrue\\LaravelLang\\TranslationServiceProvider"
     },
     "when": {
         "Illuminate\\Foundation\\Providers\\ArtisanServiceProvider": [
@@ -157,7 +157,7 @@
         "Illuminate\\Auth\\Passwords\\PasswordResetServiceProvider": [
 
         ],
-        "Illuminate\\Translation\\TranslationServiceProvider": [
+        "Overtrue\\LaravelLang\\TranslationServiceProvider": [
 
         ]
     }

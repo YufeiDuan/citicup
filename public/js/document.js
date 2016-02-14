@@ -1,4 +1,8 @@
 $(function () {
+	$("<option value='1'>项目计划书</option>").appendTo($("#upload_type"));
+	$("<option value='2'>技术文档</option>").appendTo($("#upload_type"));
+	$("<option value='3'>作品演示</option>").appendTo($("#upload_type"));
+	$("<option value='4'>项目花絮</option>").appendTo($("#upload_type"));
     $("#title").attr("disabled","disabled");
     $('#save').hide();
     $('#cancel').hide();
@@ -20,10 +24,10 @@ $(function () {
     files.bind('DOMNodeInserted', function(e) { 
         var content = $(e.target).text();
         var len = (content.toString()).length;
-        if(len>500){
-            files.html("请刷新页面重试");
-        }
-    }); 
+        //if(len>500){
+        //    files.html("请刷新页面重试");
+        //}
+    });
     $("#fileupload").change(function(){
         $("#myupload").ajaxSubmit({
             dataType:  'json',
@@ -82,3 +86,26 @@ function display(){
         tag=1;
     }
 }
+//弹出窗口
+	function pop(){
+		//将窗口居中
+		makeCenter();
+
+		//初始化省份列表
+
+	}
+	//隐藏窗口
+	function hide()
+	{
+		window.location.reload();
+		//$('#choose-box-wrapper').css("display","none");
+
+	}
+
+	function makeCenter()
+	{
+		$('#choose-box-wrapper').css("display","block");
+		$('#choose-box-wrapper').css("position","absolute");
+		$('#choose-box-wrapper').css("top", Math.max(0, (($(window).height() - $('#choose-box-wrapper').outerHeight()) / 2) + $(window).scrollTop()) + "px");
+		//$('#choose-box-wrapper').css("left", Math.max(0, (($(window).width() - $('#choose-box-wrapper').outerWidth()) / 2) + $(window).scrollLeft()) + "px");
+	}

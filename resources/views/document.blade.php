@@ -4,48 +4,85 @@
 	@endsection
 	@section('rightcontent')
 	<link rel="stylesheet" href="/css/report.css" type="text/css" />
+	<link rel="stylesheet" href="/css/document.css" type="text/css" />
 	<script src="/js/jquery.form.js"></script>
-	<script src="/js/report.js"></script>
+	{!!$types!!}
+	<script src="/js/document.js"></script>
 	<div class="container">
-		@if (count($errors) > 0)
-				<div class="alert alert-danger">
-					<ul>
-						@foreach ($errors->all() as $error)
-						<li>{{ $error }}</li>
-						@endforeach
-					</ul>
+		<div id="choose-box-wrapper">
+			<div id="choose-box">
+				<div id="choose-box-title">
+					<span>上传文件</span>
 				</div>
-				@endif
-		<div class="row">
-			最终作品
-	</div>
-
-		<div class="row report">
-			<p id="state">
-				当前项目报告状态：
-				@if(empty($data['report']))
-				未提交
-				@else
-				{{$data['report']->updated_at}} 已提交{{strstr($data['report']->path, '.')}}类型文件
-				@endif
-			</p>
-			<p id="freqinfo">
-				今日剩余上传次数：{{$data['report']->freq}}
-			</p>
-			<input type="hidden" id="freq" value="{{ $data['report']->freq }}">
-			<div class="btn">
-				<span>添加附件</span>
-				<form id='myupload' action='/report' method='post' enctype='multipart/form-data'>
-					<input id="fileupload" type="file" name="report">
-					<input type="hidden" name="_token" value="{{ csrf_token() }}">
-				</form>
+				<div>
+					<form id='myupload' action='/document' method='post' enctype='multipart/form-data'>
+						上传文档类别：<select id="upload_type" name="upload_type">
+							
+						</select>
+						<br>
+						<div class="btn">
+							<span>添加附件</span>
+							
+							<input id="fileupload" type="file" name="document">
+							<input type="hidden" name="_token" value="{{ csrf_token() }}">
+						</form>
+					</div>
+					<div class="progress">
+						<span class="bar"></span><span class="percent">0%</span >
+					</div>
+					<div class="files"></div>
+					<div id="choose-box-bottom">
+						<input type="botton" onclick="hide()" value="关闭" />
+					</div>
+				</div>
 			</div>
-			<div class="progress">
-				<span class="bar"></span><span class="percent">0%</span >
-			</div>
-			<div class="files"></div>
 		</div>
-		
-	</div>
-	@endsection
-</p>
+		@if (count($errors) > 0)
+		<div class="alert alert-danger">
+			<ul>
+				@foreach ($errors->all() as $error)
+				<li>{{ $error }}</li>
+				@endforeach
+			</ul>
+		</div>
+		@endif
+		<div class="row">
+			最终作品 <a href="#" onclick="pop()">上传</a>
+			<span><a href="#">文档模板下载</a></span>
+		</div>
+		<div class="row">
+			<table class="table table-striped">
+				<tr class="row">
+					<th class="col-xs-1">序号</th>
+					<th class="col-xs-2">文件名</th>
+					<th class="col-xs-2">文档类型</th>
+					<th class="col-xs-2">上传时间</th>
+					<th class="col-xs-2">操作</th>
+				</tr>
+				@foreach ($documents as $k=>$doc)
+				<tr class="row">
+					<td class="col-xs-1">
+						{{ $k+1 }}
+					</td>
+					<td class="col-xs-2">
+						{{ $doc->path }}
+					</td>
+					<td class="col-xs-2">
+						{{ $doc->type->name }}
+					</td>
+					<td class="col-xs-2">
+						{{ $doc->updated_at }}
+					</td>
+					<td class="col-xs-2">
+						<form action="{{ URL('document/'.$doc->id) }}" method="POST" style="display: inline;">
+							<input name="_method" type="hidden" value="DELETE">
+							<input type="hidden" name="_token" value="{{ csrf_token() }}">
+							<button type="submit" class="btn btn-danger">删</button>
+						</form>
+					</td>
+				</tr>
+				@endforeach
+			</table>
+		</div>
+		@endsection
+	</p>

@@ -20,7 +20,7 @@
 		参赛题目<a href="#" onclick="display()">修改</a>
 	</div>
 		<div class="row">
-		<form action="{{ URL('/team/1') }}" method="post">
+		<form action="{{ URL('/report/1') }}" method="post">
 			<input name="_method" type="hidden" value="PUT">
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 			<input type="text" name="title" id="title" value="{{$data['title']}}" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5\@\.]/g,'')" onblur="if(this.value.replace(/^ +| +$/g,'')=='')alert('不能为空!')" maxlength="30"/>

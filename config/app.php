@@ -132,7 +132,7 @@ return [
 		'Illuminate\Redis\RedisServiceProvider',
 		'Illuminate\Auth\Passwords\PasswordResetServiceProvider',
 		'Illuminate\Session\SessionServiceProvider',
-		'Overtrue\LaravelLang\TranslationServiceProvider::class',
+		'Overtrue\LaravelLang\TranslationServiceProvider',
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		//服务提供器

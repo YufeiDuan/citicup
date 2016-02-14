@@ -44,4 +44,8 @@ class Team extends Model {
 		return $this->hasOne('App\Report');
 	}
 
+	public function documents(){
+		return $this->hasMany('App\Document');
+	}
+
 }

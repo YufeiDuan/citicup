@@ -16,8 +16,11 @@ class CreateTypesTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('name',10);
+			$table->integer('team_id')->unsigned();
+			$table->foreign('team_id')->references('id')->on('teams');
 
 		});
+		
 	}
 
 	/**

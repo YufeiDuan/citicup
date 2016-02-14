@@ -78,6 +78,20 @@ class ReportController extends Controller {
 		}
 	}
 
+	public function update(){
+		$team = Auth::user()->team;
+		$old_name = $team->name;
+		$count = $team->unreadcount();
+		$team->title = Input::get('title');
+		if($team->save()){
+			View::share('data',['count'=>$count,'name'=>$team->name]);
+			return Redirect::to('/report');
+		}else{
+			View::share('data',['count'=>$count,'name'=>$old_name]);
+			return Redirect::to('/repprt')->withErrors('修改失败！');
+		}
+		
+	}
 
 	public function __construct()
     {

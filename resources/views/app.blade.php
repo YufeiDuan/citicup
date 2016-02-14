@@ -25,7 +25,7 @@
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
 						<li>
-							<a href="/home">消息中心({{ $data['count'] }})</a>
+							<a href="/mail">消息中心({{ $data['count'] }})</a>
 						</li>
 						<li>
 							<a href="/home">{{ $data['name'] }} 团队，您好！</a>

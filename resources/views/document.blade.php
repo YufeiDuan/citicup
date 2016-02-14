@@ -48,7 +48,7 @@
 		@endif
 		<div class="row">
 			最终作品 <a href="#" onclick="pop()">上传</a>
-			<span><a href="#">文档模板下载</a></span>
+			<span><a href="/template">文档模板下载</a></span>
 		</div>
 		<div class="row">
 			<table class="table table-striped">

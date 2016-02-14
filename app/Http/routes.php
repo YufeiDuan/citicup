@@ -23,13 +23,16 @@ Route::controllers([
 
 Route::group(['prefix' => '/', 'middleware' => 'auth'], function()
 {
-	Route::get('logo','LogoController@index');
+	Route::get('logo','FileGetController@index');
+	Route::get('template','FileGetController@template');
 	Route::get('team/add', 'TeamController@add');
 	Route::resource('team', 'TeamController');
 	Route::resource('member','MemberController');
 	Route::resource('teacher','TeacherController');
 	Route::resource('report','ReportController');
 	Route::resource('document','DocController');
+
+	Route::resource('mail','MailController');
 	/*
 	Route::controllers([
 	'team' => 'TeamController',

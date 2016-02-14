@@ -7,13 +7,20 @@ use Response;
 use Session;
 use Auth;
 
-class LogoController extends Controller {
+class FileGetController extends Controller {
 
 	public function index(){
 
 		$filepath = storage_path().'/app/logos/'.Auth::user()->team->logo;
 		return Response::download($filepath,'logo.jpg');
 	}
+
+	public function template(){
+		$template_folder = storage_path().'/app/';
+		$filename = 'template.zip';
+		return Response::download($template_folder.$filename,$filename);
+	}
+
 
 
 }

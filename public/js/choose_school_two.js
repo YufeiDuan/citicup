@@ -1,8 +1,8 @@
 //弹出窗口
 	function pop(){
 		//将窗口居中
-		makeCenter();
-
+		//makeCenter();
+		$('#choose').modal('show');
 		//初始化省份列表
 		initProvince();
 
@@ -15,7 +15,8 @@
 	//隐藏窗口
 	function hide()
 	{
-		$('#choose-box-wrapper').css("display","none");
+		//$('#choose-box-wrapper').css("display","none");
+		$('#choose').modal('hide');
 	}
 
 	function initProvince()
@@ -62,12 +63,4 @@
 				hide();
 			}
 		);
-	}
-
-	function makeCenter()
-	{
-		$('#choose-box-wrapper').css("display","block");
-		$('#choose-box-wrapper').css("position","absolute");
-		$('#choose-box-wrapper').css("top", Math.max(0, (($(window).height() - $('#choose-box-wrapper').outerHeight()) / 2) + $(window).scrollTop()) + "px");
-		//$('#choose-box-wrapper').css("left", Math.max(0, (($(window).width() - $('#choose-box-wrapper').outerWidth()) / 2) + $(window).scrollLeft()) + "px");
 	}

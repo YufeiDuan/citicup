@@ -1,5 +1,6 @@
 
 window.onload = function(){
+    $('#choose').modal('hide');
     var teacher_count = $('#teacher_count').val();
     if(teacher_count>1){
     $('#addteacher').hide();

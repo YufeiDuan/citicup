@@ -19,17 +19,19 @@ class MailTableSeeder extends Seeder {
         Mail::Create([
         	'from_id'	=>1,
         	'to_id'		=>2,
-        	'subject'	=>'比赛通知1',
+        	'subject'	=>'比赛通知3',
         	'content'	=>'重要通知1234353亲43差价零身份扥a扥啊aer让他出auf哦',
         	'flag_read'	=>true,
+            'uid'       =>str_random(10),
         ]);
 
         Mail::Create([
         	'from_id'	=>1,
         	'to_id'		=>2,
-        	'subject'	=>'比赛通知2',
+        	'subject'	=>'比赛通知4',
         	'content'	=>'重要通知1234353亲43差价零身份扥a扥啊aer让他出auf哦',
         	'flag_read'	=>false,
+            'uid'       =>str_random(10),
         ]);
 
     }

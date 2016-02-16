@@ -26,7 +26,7 @@ class MemberController extends Controller {
 
 	public function store(){
 		if (Member::where('id_num',Input::get('id_num'))->count()>0) {
-			return Redirect::to('/team')->withErrors('身份证号已被注册，若有疑问，请联系管理员。');
+			return Redirect::to('/team')->withErrors('身份证号已被注册，若有疑问，请联系主办方。');
 		}
 		$member = new Member;
 		$member->name=Input::get('name');

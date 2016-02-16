@@ -13,8 +13,10 @@ class MailController extends Controller {
 	{
 		$team = Auth::user()->team;
 		$count = $team->unreadcount();
+		$inbox = $team->inbox;
 		View::share('data',['count'=>$count,'name'=>$team->name]);
-		return view('mail');
+		View::share('inbox',$inbox);
+		return view('inbox');
 	}
 
 }

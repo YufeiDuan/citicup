@@ -13,18 +13,20 @@ class Team extends Model {
 	public $timestamps = false;
 
 	//收件箱邮件
-	public function recvmails(){
-		return $this->hasMany('App\Mail','to_id');
+	public function inbox(){
+		return $this->hasMany('App\Mail','to_id')->orderBy('created_at', 'desc');
+;
 	}
 
 	//发件箱邮件
-	public function sendmails(){
-		return $this->hasMany('App\Mail','from_id');
+	public function outbox(){
+		return $this->hasMany('App\Mail','from_id')->orderBy('created_at', 'desc');
+;
 	}
 
 	//未读邮件数量
 	public function unreadcount(){
-		$recvmail = $this->recvmails();
+		$recvmail = $this->inbox();
 		return $recvmail->where('flag_read','=',false)->count();
 	}
 

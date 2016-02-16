@@ -1,6 +1,7 @@
 var team_name;
 var team_title;
 window.onload=function(){
+	$('#choose').modal('hide');
 	$("#team_name").attr("disabled","disabled");
 	$("#team_title").attr("disabled","disabled");
 	$("#upload").hide();
@@ -31,6 +32,7 @@ function display(){
 		$("#team_title").attr("disabled","disabled");
 		$("#team_name").val(team_name);
 		$("#team_title").val(team_title);
+		$("#school-name").val(school_name);
 		$("#upload").hide();
 		$('#save').hide();
 		$('#cancel').hide();

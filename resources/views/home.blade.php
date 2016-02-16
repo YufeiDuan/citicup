@@ -1,7 +1,7 @@
 <p>@extends('app')
     @section('content')
     <link rel="stylesheet" href="/css/menu.css" type="text/css" />
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-xs-3">
                 
@@ -41,7 +41,7 @@
                 
             </ul>
             </div>
-            <div class="col-xs-9 rightview">
+            <div class="col-xs-9">
                 @yield('rightcontent')
             </div>
     </div>

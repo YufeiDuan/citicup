@@ -5,18 +5,21 @@
     <script src="/js/choose_school_two.js"></script>
     <link rel="stylesheet" href="/css/team.css" type="text/css" />
     <div class="container">
-        <div class="row">
-            <div id="choose-box-wrapper">
-                <div id="choose-box">
-                    <div id="choose-box-title">
-                        <span>选择学校</span>
+        <div class="modal" id="choose">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title">选择学校</h4>
                     </div>
-                    <div id="choose-a-province">
+                    <div class="modal-body">
+                        <div id="choose-a-province">
+                        </div>
+                        <div id="choose-a-school">
+                        </div>
                     </div>
-                    <div id="choose-a-school">
-                    </div>
-                    <div id="choose-box-bottom">
-                        <input type="botton" onclick="hide()" value="关闭" />
+                    <div class="modal-footer">
+                        
                     </div>
                 </div>
             </div>

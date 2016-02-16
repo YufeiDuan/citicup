@@ -8,7 +8,7 @@
 	<script src="/js/jquery.form.js"></script>
 	{!!$types!!}
 	<script src="/js/document.js"></script>
-	<div class="container">
+	<div class="container-fluid">
 		<div id="choose-box-wrapper">
 			<div id="choose-box">
 				<div id="choose-box-title">
@@ -26,7 +26,7 @@
 							<input id="fileupload" type="file" name="document">
 							<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						</form>
-					</div>
+						</div>
 					<div class="progress">
 						<span class="bar"></span><span class="percent">0%</span >
 					</div>
@@ -47,18 +47,23 @@
 		</div>
 		@endif
 		<div class="row">
-			最终作品 <a href="#" onclick="pop()">上传</a>
+			最终作品
+			<a href="#" onclick="pop()">上传</a>
 			<span><a href="/template">文档模板下载</a></span>
 		</div>
 		<div class="row">
+			@if (count($documents)==0)
+					还没有提交任何作品。
+			@else
 			<table class="table table-striped">
 				<tr class="row">
 					<th class="col-xs-1">序号</th>
 					<th class="col-xs-2">文件名</th>
 					<th class="col-xs-2">文档类型</th>
-					<th class="col-xs-2">上传时间</th>
+					<th class="col-xs-3">上传时间</th>
 					<th class="col-xs-2">操作</th>
 				</tr>
+				
 				@foreach ($documents as $k=>$doc)
 				<tr class="row">
 					<td class="col-xs-1">
@@ -70,7 +75,7 @@
 					<td class="col-xs-2">
 						{{ $doc->type->name }}
 					</td>
-					<td class="col-xs-2">
+					<td class="col-xs-3">
 						{{ $doc->updated_at }}
 					</td>
 					<td class="col-xs-2">
@@ -83,6 +88,8 @@
 				</tr>
 				@endforeach
 			</table>
+			@endif
 		</div>
+	</div>
 		@endsection
 	</p>

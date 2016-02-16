@@ -1,4 +1,5 @@
 window.onload = function(){
+    $('#choose').modal('hide');
 	var sex_sel = $("#sex_sel").attr('value');
 	$('#sex').val(sex_sel);
 	var degree_sel = $("#degree_sel").attr('value');

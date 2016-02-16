@@ -33,7 +33,7 @@
                 
             </ul>
             </div>
-            <div class="col-xs-9 rightview">
+            <div class="col-xs-9">
                 @yield('rightcontent')
             </div>
     </div>

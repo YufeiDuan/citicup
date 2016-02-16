@@ -23,6 +23,7 @@ class CreateMailsTable extends Migration {
 			$table->string('subject');
 			$table->string('content');
 			$table->boolean('flag_read');
+			$table->string('uid')->unique();
 			$table->softDeletes();
 		});
 	}

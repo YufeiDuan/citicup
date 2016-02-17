@@ -1,26 +1,10 @@
 <p>@extends('mail')
 	@section('rightcontent')
-	<link rel="stylesheet" href="/css/inbox.css" type="text/css" />
 	<script src="/js/inbox.js"></script>
-	<div class="modal" id="mail">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-				<h4 class="modal-title">模态弹出窗标题</h4>
-			</div>
-			<div class="modal-body">
-				<p>模态弹出窗主体内容</p>
-			</div>
-			<div class="modal-footer">
-				
-			</div>
-		</div>
-	</div>
-</div>
+
 	<div class="container-fluid">
 		@if (count($errors) > 0)
-		<div class="alert alert-danger">
+		<div class="alert alert-info">
 			<ul>
 				@foreach ($errors->all() as $error)
 				<li>{{ $error }}</li>
@@ -29,45 +13,55 @@
 		</div>
 		@endif
 		<div class="row">
-			<button class="btn" onclick="getChecked()">删除</button>
-			<button class="btn" onclick="viewmail()">标记为已读</button>
+			<form id="op" action="" method="post">
+				<input id="method" name="_method" type="hidden">
+				<input type="hidden" name="tag" id="op_tag">
+				<input type="hidden" name="_token" value="{{ csrf_token() }}">
+				<button class="btn" onclick="delmail()">删除</button>
+				<button class="btn" onclick="setread()">标记为已读</button>
+			</form>
+
+			
 		</div>
 		<div class="row">
 			@if (count($inbox)==0)
 					没有收到任何消息。
 			@else
-			<table class="table table-striped">
+			<table class="table table-striped" id="inbox">
+				<form id="show" action="/mail/view" method="get">
+					<input type="hidden" id="tag" name="tag">
+				</form>
 				<tr class="row">
 					<th class="col-xs-1">
 						<input id="checkAll" type="checkbox" />
 					</th>
-					<th class="col-xs-3">发件人</th>
-					<th class="col-xs-5">主题</th>
+					<th class="col-xs-2">发件人</th>
+					<th class="col-xs-6">主题</th>
 					<th class="col-xs-3">时间</th>
 				</tr>
 				@foreach ($inbox as $mail)
-				<tr class="row" onclick="">
-					<td class="col-xs-1">
+				<tr class="row">
+					<td class="col-xs-1 check">
 						<input name="chkItem" type="checkbox" value="{{$mail->uid}}" onclick="checkchange()"/>
 					</td>
 					@if (!$mail->flag_read)
-						<td class="col-xs-3">
+						<td class="col-xs-2 ctb">
 							<b>{{ $mail->sender->name }}</b>
 						</td>
-						<td class="col-xs-5">
+						<td class="col-xs-6 ctb">
 							<b>{{ $mail->subject }}</b>
 						</td>
-						<td class="col-xs-3">
+						<td class="col-xs-3 ctb">
 							<b>{{ $mail->created_at }}</b>
 						</td>
 					@else
-						<td class="col-xs-2">
+						<td class="col-xs-2 ctb">
 							{{ $mail->sender->name }}
 						</td>
-						<td class="col-xs-4">
-							{{ $mail->subject }}
+						<td class="col-xs-5 ctb">
+							{{ $mail->subject }}-{{mb_substr($mail->content,0,25-count($mail->subject))}}...
 						</td>
-						<td class="col-xs-2">
+						<td class="col-xs-3 ctb">
 							{{ $mail->created_at }}
 						</td>
 					@endif

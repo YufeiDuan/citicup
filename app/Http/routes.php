@@ -26,6 +26,8 @@ Route::group(['prefix' => '/', 'middleware' => 'auth'], function()
 	Route::get('logo','FileGetController@index');
 	Route::get('template','FileGetController@template');
 	Route::get('team/add', 'TeamController@add');
+	Route::get('mail/outbox','MailController@outbox');
+	Route::post('mail/del','MailController@dels');
 	Route::resource('team', 'TeamController');
 	Route::resource('member','MemberController');
 	Route::resource('teacher','TeacherController');

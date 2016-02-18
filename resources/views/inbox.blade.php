@@ -49,7 +49,7 @@
 							<b>{{ $mail->sender->name }}</b>
 						</td>
 						<td class="col-xs-6 ctb">
-							<b>{{ $mail->subject }}</b>
+							<b>{{ $mail->subject }}-{{mb_substr($mail->content,0,25-count($mail->subject))}}...</b>
 						</td>
 						<td class="col-xs-3 ctb">
 							<b>{{ $mail->created_at }}</b>

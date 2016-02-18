@@ -19,12 +19,14 @@ class CreateMailsTable extends Migration {
 			$table->foreign('from_id')->references('id')->on('teams');
 			$table->integer('to_id')->unsigned();
 			$table->foreign('to_id')->references('id')->on('teams');
+			$table->boolean('flag_read');
+			$table->boolean('del_s');
+			$table->boolean('del_r');
+			$table->string('uid')->unique();
 			$table->timestamps();
 			$table->string('subject');
 			$table->string('content');
-			$table->boolean('flag_read');
-			$table->string('uid')->unique();
-			$table->softDeletes();
+
 		});
 	}
 

@@ -6,9 +6,6 @@ use App\Team;
 
 class Mail extends Model {
 
-	use SoftDeletes;
-
-    protected $dates = ['deleted_at'];
 
     public function sender(){
     	return $this->hasOne('App\Team','id','from_id');

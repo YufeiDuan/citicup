@@ -54,3 +54,7 @@ function setread(){
     $("#op_tag").val(getChecked());
     $("#op").submit();
 }
+
+function dels(){
+    $("#op_tag").val(getChecked());
+}

@@ -45,7 +45,7 @@
                 </li>
                 
                 <li>
-                    <a href="#">
+                    <a href="{{ url('/mail/outbox') }}">
                         发件箱
                     </a>
                 </li>

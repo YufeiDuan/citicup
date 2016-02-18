@@ -22,6 +22,16 @@ class MailController extends Controller {
 		return view('inbox');
 	}
 
+	//发件箱
+	public function outbox(){
+		$team = Auth::user()->team;
+		$count = $team->unreadcount();
+		$outbox = $team->outbox;
+		View::share('data',['count'=>$count,'name'=>$team->name]);
+		View::share('outbox',$outbox);
+		return view('outbox');
+	}
+
 	//显示单个邮件
 	public function show(){
 		$team = Auth::user()->team;
@@ -50,7 +60,7 @@ class MailController extends Controller {
 		}
 		return redirect('/mail');
 	}
-	//删除邮件
+	//收信方删除邮件
 	public function destroy(){
 		$team = Auth::user()->team;
 		$count = $team->unreadcount();
@@ -60,10 +70,28 @@ class MailController extends Controller {
 		$tags = explode(',',$tag);
 		foreach ($tags as $t){
 			$mail = Mail::where('uid','=',$t)->first();
-			$mail->delete();
+			$mail->del_r=1;
+			$mail->save();
 		}
 		return redirect('/mail');
 	}
+
+	//发信方删除邮件
+	public function dels(){
+		$team = Auth::user()->team;
+		$count = $team->unreadcount();
+		View::share('data',['count'=>$count,'name'=>$team->name]);
+
+		$tag = Input::get('tag');
+		$tags = explode(',',$tag);
+		foreach ($tags as $t){
+			$mail = Mail::where('uid','=',$t)->first();
+			$mail->del_s=1;
+			$mail->save();
+		}
+		return redirect('/mail/outbox');
+	}
+
 	//写新邮件
 	public function store(){
 		$team = Auth::user()->team;
@@ -76,6 +104,8 @@ class MailController extends Controller {
 		$mail->from_id = $team->id;
 		$mail->to_id = 1;
 		$mail->flag_read = 0;
+		$mail->del_r = 0;
+		$mail->del_s = 0;
 		$tag = str_random(10);
 		while(Mail::where('uid','=',$tag)->count()>0){
 			$tag = str_random(10);

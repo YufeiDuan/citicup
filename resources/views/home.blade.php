@@ -27,15 +27,9 @@
                 </li>
                 
                 <li>
-                    <a href="#">
+                    <a href="{{ url('/rate') }}">
                         <i class="glyphicon glyphicon-stats"></i>
                         首轮评选
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="glyphicon glyphicon-star"></i>
-                        决赛颁奖
                     </a>
                 </li>
                 

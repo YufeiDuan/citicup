@@ -19,7 +19,7 @@ class DocMiddleware {
 		$team = Auth::user()->team;
 		$count = $team->unreadcount();
 		View::share('data',['count'=>$count,'name'=>$team->name]);
-		$process = Process::find(2);
+		$process = Process::find(3);
 		$curtime = date('Y-m-d H:i:s',time());
 		if($curtime>$process->time){
 			return view('state')->withErrors('当前时间：'.$curtime.'  最终作品已截止提交。');

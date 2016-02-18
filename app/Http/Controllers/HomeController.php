@@ -4,6 +4,7 @@ use Auth;
 use View;
 use Session;
 use App\Team;
+use App\Process;
 
 use App\Http\Controllers\Controller;
 
@@ -25,12 +26,39 @@ class HomeController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function home()
 	{
 		$team = Auth::user()->team;
 		$count = $team->unreadcount();
 		View::share('data',['count'=>$count,'name'=>$team->name]);
+		
+		$p = Process::all();
+		$team = Process::find(1);
+		$report = Process::find(2);
+		$doc = Process::find(3);
+		$curtime = date('Y-m-d H:i:s',time());
+		if($curtime>$doc->time){
+			return redirect('/rate');
+		}
+		elseif($curtime>$report->time){
+			return redirect('/document');
+		}
+		elseif($curtime>$team->time){
+			return redirect('/report');
+		}else{
+			return redirect('/team');
+		}
+
 		return view('home');
+	}
+
+	public function rate(){
+
+		$team = Auth::user()->team;
+		$count = $team->unreadcount();
+		View::share('data',['count'=>$count,'name'=>$team->name]);
+
+		return view('evaluation');
 	}
 
 }

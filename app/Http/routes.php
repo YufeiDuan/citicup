@@ -13,7 +13,7 @@
 
 Route::get('/', 'WelcomeController@index');
 
-Route::get('home', 'HomeController@index');
+
 
 //Route::post('login','LoginController@authenticate');
 
@@ -23,6 +23,8 @@ Route::controllers([
 
 Route::group(['prefix' => '/', 'middleware' => 'auth'], function()
 {
+	Route::get('home', 'HomeController@home');
+	Route::get('rate','HomeController@rate');
 	Route::get('logo','FileGetController@index');
 	Route::get('template','FileGetController@template');
 	Route::get('team/add', 'TeamController@add');
@@ -35,11 +37,5 @@ Route::group(['prefix' => '/', 'middleware' => 'auth'], function()
 	Route::resource('document','DocController');
 
 	Route::resource('mail','MailController');
-	/*
-	Route::controllers([
-	'team' => 'TeamController',
-	'logo' => 'LogoController',
-	//'password' => 'Auth\PasswordController',
-	]);
-	*/
+
 });

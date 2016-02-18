@@ -43,8 +43,15 @@ class TeamController extends Controller {
 		return view('addmember');
 	}
 
-	public function update(){
+	public function update(Request $request){
 		
+		$this->validate($request, [
+	        'univ_sel' => 'required|numeric',
+	        'team_title' => 'required|string',
+	        'team_name' => 'required|string',
+	        'upload' => 'mimes:jpeg,bmp,png'
+    	]);
+
 		$team = Auth::user()->team;
 		$count = $team->unreadcount();
 		$old_name = $team->name;

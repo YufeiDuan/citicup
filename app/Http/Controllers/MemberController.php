@@ -20,6 +20,15 @@ class MemberController extends Controller {
 	public function edit($id){
 		$team = Auth::user()->team;
 		$count = $team->unreadcount();
+		$member = Member::find($id);
+
+		if($member->leader){
+			return redirect('/team')->withErrors('队长信息暂不可修改。');
+		}
+		if($member->team_id!=$team->id){
+			return redirect('/team')->withErrors('只能修改自己团队成员信息。');
+		}
+
 		View::share('data',['count'=>$count,'name'=>$team->name]);
 		return view('member.edit')->withMember(Member::find($id));
 	}
@@ -56,16 +65,16 @@ class MemberController extends Controller {
 		View::share('data',['count'=>$count,'name'=>$team->name]);
 		
 		$this->validate($request, [
-			'name' => 'required',
-			'sex' => 'required',
-			'univ_id'=>'required',
-			'college' => 'required',
-			'major' => 'required',
-			'id_num' => 'required',
-			'stu_num' => 'required',
+			'name' => 'required|string|max:10',
+			'sex' => 'required|boolean',
+			'univ_id'=>'required|numeric',
+			'college' => 'required|string|max:10',
+			'major' => 'required|string|max:10',
+			'id_num' => 'required|max:10',
+			'stu_num' => 'required|max:10',
 			'degree' => 'required',
 			'year_entry' => 'required',
-			'email' => 'required',
+			'email' => 'required|email',
 		]);
 
 		if (Member::where('id', $id)->update(Input::only(['name', 'sex','univ_id','college','major','id_num','stu_num','degree','year_entry','email']))) {

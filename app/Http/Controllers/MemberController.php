@@ -30,13 +30,27 @@ class MemberController extends Controller {
 		}
 
 		View::share('data',['count'=>$count,'name'=>$team->name]);
-		return view('member.edit')->withMember(Member::find($id));
+		return view('member.edit')->withMember($member);
 	}
 
 	public function store(){
 		if (Member::where('id_num',Input::get('id_num'))->count()>0) {
 			return Redirect::to('/team')->withErrors('身份证号已被注册，若有疑问，请联系主办方。');
 		}
+
+		$this->validate($request, [
+			'name' => 'required|string|max:10',
+			'sex' => 'required|boolean',
+			'univ_id'=>'required|numeric|numeric',
+			'college' => 'required|string|max:20',
+			'major' => 'required|string|max:20',
+			'id_num' => 'required|string|max:18',
+			'stu_num' => 'required|numeric',
+			'degree' => 'required|numeric',
+			'year_entry' => 'required|numeric',
+			'email' => 'required|email',
+		]);
+
 		$member = new Member;
 		$member->name=Input::get('name');
 		$member->sex=Input::get('sex');
@@ -67,13 +81,13 @@ class MemberController extends Controller {
 		$this->validate($request, [
 			'name' => 'required|string|max:10',
 			'sex' => 'required|boolean',
-			'univ_id'=>'required|numeric',
-			'college' => 'required|string|max:10',
-			'major' => 'required|string|max:10',
-			'id_num' => 'required|max:10',
-			'stu_num' => 'required|max:10',
-			'degree' => 'required',
-			'year_entry' => 'required',
+			'univ_id'=>'required|numeric|numeric',
+			'college' => 'required|string|max:20',
+			'major' => 'required|string|max:20',
+			'id_num' => 'required|string|max:18',
+			'stu_num' => 'required|numeric',
+			'degree' => 'required|numeric',
+			'year_entry' => 'required|numeric',
 			'email' => 'required|email',
 		]);
 

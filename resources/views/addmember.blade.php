@@ -4,7 +4,16 @@
     <script src="/js/school.js"></script>
     <script src="/js/choose_school_two.js"></script>
     <link rel="stylesheet" href="/css/team.css" type="text/css" />
-    <div class="container">
+    <div class="container-fluid">
+        @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
         <div class="modal" id="choose">
             <div class="modal-dialog">
                 <div class="modal-content">

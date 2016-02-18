@@ -19,6 +19,13 @@ class TeacherController extends Controller {
 
 	public function store(){
 
+		$this->validate($request, [
+			'name' => 'required|string|max:10',
+			'univ_id'=>'required|numeric',
+			'college' => 'required|string|max:20',
+			'email' => 'required|email',
+		]);
+
 		$teacher = new Teacher;
 		$teacher->name=Input::get('name');
 		$teacher->univ_id=Input::get('univ_id');
@@ -37,7 +44,13 @@ class TeacherController extends Controller {
 		$team = Auth::user()->team;
 		$count = $team->unreadcount();
 		View::share('data',['count'=>$count,'name'=>$team->name]);
-		return view('teacher.edit')->withTeacher(Teacher::find($id));
+
+		$teacher = Teacher::find($id);
+		if($teacher->team_id!=$team->id){
+			return redirect('/team')->withErrors('只能修改自己团队老师信息。');
+		}
+
+		return view('teacher.edit')->withTeacher($teacher);
 	}
 
 	public function update(Request $request,$id){
@@ -47,10 +60,10 @@ class TeacherController extends Controller {
 		View::share('data',['count'=>$count,'name'=>$team->name]);
 		
 		$this->validate($request, [
-			'name' => 'required',
-			'univ_id'=>'required',
-			'college' => 'required',
-			'email' => 'required',
+			'name' => 'required|string|max:10',
+			'univ_id'=>'required|numeric',
+			'college' => 'required|string|max:20',
+			'email' => 'required|email',
 		]);
 
 		if (Teacher::where('id', $id)->update(Input::only(['name','univ_id', 'college','email']))) {
@@ -58,7 +71,6 @@ class TeacherController extends Controller {
 		} else {
 			return Redirect::to('/team')->withErrors('更新失败！');
 		}
-
 	}
 
 	public function destroy($id)

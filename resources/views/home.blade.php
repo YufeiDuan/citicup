@@ -31,7 +31,7 @@
                         <i class="glyphicon glyphicon-stats"></i>
                         首轮评选
                     </a>
-                </li>
+                </li>   
                 
             </ul>
             </div>

@@ -86,12 +86,9 @@ function display(){
         tag=1;
     }
 }
-//弹出窗口
+    //弹出窗口
 	function pop(){
-		//将窗口居中
-		makeCenter();
-
-		//初始化省份列表
+		$('#upload_modal').modal('show');
 
 	}
 	//隐藏窗口
@@ -100,12 +97,4 @@ function display(){
 		window.location.reload();
 		//$('#choose-box-wrapper').css("display","none");
 
-	}
-
-	function makeCenter()
-	{
-		$('#choose-box-wrapper').css("display","block");
-		$('#choose-box-wrapper').css("position","absolute");
-		$('#choose-box-wrapper').css("top", Math.max(0, (($(window).height() - $('#choose-box-wrapper').outerHeight()) / 2) + $(window).scrollTop()) + "px");
-		//$('#choose-box-wrapper').css("left", Math.max(0, (($(window).width() - $('#choose-box-wrapper').outerWidth()) / 2) + $(window).scrollLeft()) + "px");
 	}

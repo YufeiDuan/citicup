@@ -1,11 +1,42 @@
 <p>@extends('home')
 	@section('rightcontent')
-	<script src="/js/team.js"></script>
 	<script src="/js/school.js"></script>
 	<script src="/js/choose_school.js"></script>
+	<script src="/js/jquery.form.js"></script>
+	<script src="/js/team.js"></script>
 	<link rel="stylesheet" href="/css/team.css" type="text/css" />
-	<div class="container">
-
+	<link rel="stylesheet" href="/css/report.css" type="text/css" />
+	<div class="container-fluid">
+		<div class="modal" id="upload_modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" onclick="hideupload()" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+						<h4 class="modal-title">上传Logo</h4>
+					</div>
+					<div class="modal-body">
+						<form id='myupload' action='/team/logo' method='post' enctype='multipart/form-data' onsubmit='check()'>
+						<div class="btn">
+							<span>选择图片</span>
+							
+							<input id="fileupload" type="file" name="pic" accept=".jpg,.png">
+							<input type="hidden" name="_token" value="{{ csrf_token() }}">
+						</form>
+						</div>
+						<div class="progress">
+							<span class="bar"></span><span class="percent">0%</span >
+						</div>
+						<div class="files">
+							请选择jpg,png类型图片。
+						</div>
+						</div>
+						<div class="modal-footer">
+						
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 		<div class="modal" id="choose">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -29,15 +60,16 @@
 			团队信息 <a href="#" onclick="display()">修改</a>
 		</div>
 		<div class="row">
-			<form action="{{ URL('/team/1') }}" method="post" enctype="multipart/form-data" name="formchange" onsubmit="return(check())">
+			
 				<div class="col-xs-3">
 					<div>
 						<img src="/logo">
 					</div>
 					<div>
-						<input id="upload" type="file" name="upload" value="" accept=".jpg,.jpeg,.png">
+						<button class="btn" id="btn_upload">上传Logo</button>
 					</div>
 				</div>
+				<form action="{{ URL('/team/1') }}" method="post" name="formchange">
 				<div class="col-xs-5">
 					<table class="table">
 					<tr class="row"></tr>
@@ -85,29 +117,28 @@
 	<div class="row">
 		<table class="table table-striped">
 			<tr class="row">
-				<th class="col-xs-2">姓名</th>
-				<th class="col-xs-2">学校</th>
+				<th class="col-xs-3">姓名</th>
+				<th class="col-xs-3">学校</th>
 				<th class="col-xs-2">学院</th>
-				<th class="col-xs-1">类别</th>
+				<th class="col-xs-2">类别</th>
 				<th class="col-xs-2">操作</th>
 			</tr>
 			@foreach ($members as $member)
 			<tr class="row">
-				<td class="col-xs-2">
+				<td class="col-xs-3">
 					{{ $member->name }}
 				</td>
-				<td class="col-xs-2">
+				<td class="col-xs-3">
 					{{ $member->univ->name }}
 				</td>
 				<td class="col-xs-2">
 					{{ $member->college }}
 				</td>
-				<td class="col-xs-1">
-					@if ($member->leader)
+				<td class="col-xs-2">
+				@if ($member->leader)
 					队长
 				</td>
 				<td class="col-xs-2"></td>
-				<td class="col-xs-1">
 					@else
 					队员
 				</td>

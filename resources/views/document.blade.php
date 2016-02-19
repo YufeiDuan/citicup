@@ -9,13 +9,15 @@
 	{!!$types!!}
 	<script src="/js/document.js"></script>
 	<div class="container-fluid">
-		<div id="choose-box-wrapper">
-			<div id="choose-box">
-				<div id="choose-box-title">
-					<span>上传文件</span>
-				</div>
-				<div>
-					<form id='myupload' action='/document' method='post' enctype='multipart/form-data'>
+		<div class="modal" id="upload_modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" onclick="hide()" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+						<h4 class="modal-title">上传文件</h4>
+					</div>
+					<div class="modal-body">
+						<form id='myupload' action='/document' method='post' enctype='multipart/form-data'>
 						上传文档类别：<select id="upload_type" name="upload_type">
 							
 						</select>
@@ -27,12 +29,14 @@
 							<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						</form>
 						</div>
-					<div class="progress">
-						<span class="bar"></span><span class="percent">0%</span >
-					</div>
-					<div class="files"></div>
-					<div id="choose-box-bottom">
-						<input type="botton" onclick="hide()" value="关闭" />
+						<div class="progress">
+							<span class="bar"></span><span class="percent">0%</span >
+						</div>
+						<div class="files"></div>
+						</div>
+						<div class="modal-footer">
+						
+						</div>
 					</div>
 				</div>
 			</div>
@@ -53,7 +57,7 @@
 		</div>
 		<div class="row">
 			@if (count($documents)==0)
-					还没有提交任何作品。
+			还没有提交任何作品。
 			@else
 			<table class="table table-striped">
 				<tr class="row">
@@ -91,5 +95,5 @@
 			@endif
 		</div>
 	</div>
-		@endsection
-	</p>
+	@endsection
+</p>

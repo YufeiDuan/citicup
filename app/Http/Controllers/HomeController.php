@@ -38,7 +38,7 @@ class HomeController extends Controller {
 		$doc = Process::find(3);
 		$curtime = date('Y-m-d H:i:s',time());
 		if($curtime>$doc->time){
-			return redirect('/rate');
+			return redirect('/rate')->withInfos('正在进行首轮评选...');
 		}
 		elseif($curtime>$report->time){
 			return redirect('/document');
@@ -58,7 +58,7 @@ class HomeController extends Controller {
 		$count = $team->unreadcount();
 		View::share('data',['count'=>$count,'name'=>$team->name]);
 
-		return view('evaluation');
+		return view('evaluation')->withInfos('等待所有团队提交作品。');
 	}
 
 }

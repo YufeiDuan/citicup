@@ -12,7 +12,7 @@
 		</div>
 		@endif
 		<div class="alert alert-info">
-			正在进行首轮评选...
+			{{$infos}}
 		</div>
 	</div>
 		@endsection

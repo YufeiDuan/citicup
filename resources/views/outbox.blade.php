@@ -43,7 +43,7 @@
 						<input name="chkItem" type="checkbox" value="{{$mail->uid}}" onclick="checkchange()"/>
 					</td>
 					<td class="col-xs-2 ctb">
-						{{ $mail->sender->name }}
+						{{ $mail->receiver->name }}
 					</td>
 					<td class="col-xs-5 ctb">
 						{{ $mail->subject }}-{{mb_substr($mail->content,0,25-count($mail->subject))}}...

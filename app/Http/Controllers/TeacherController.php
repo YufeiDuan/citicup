@@ -17,6 +17,7 @@ use App\Teacher;
 
 class TeacherController extends Controller {
 
+	//teacher add
 	public function store(Request $request){
 
 		$this->validate($request, [

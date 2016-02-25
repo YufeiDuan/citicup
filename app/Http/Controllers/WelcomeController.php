@@ -35,24 +35,12 @@ class WelcomeController extends Controller {
 	 */
 	public function index()
 	{
-		/*
-		$str = 'var schoool_list = ';
-		$str.=Area::with('univs')->get()->toJson();
-		//$str.=Area::find(11)->univs->toJson();	
-
-		Storage::disk('local')->put('school.js', $str);
-		
-		// open an image file
-		$img = Image::make('img/main.jpg');
-		 
-		// resize image instance
-		$img->resize(320, 240);
-		 
-		 
-		// save image in desired format
-		$img->save('bar.jpg');
-		*/
 		return view('welcome');
+	}
+
+	public function test()
+	{
+		return view('blank');
 	}
 
 }

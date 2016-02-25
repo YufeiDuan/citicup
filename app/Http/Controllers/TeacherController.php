@@ -17,7 +17,7 @@ use App\Teacher;
 
 class TeacherController extends Controller {
 
-	public function store(){
+	public function store(Request $request){
 
 		$this->validate($request, [
 			'name' => 'required|string|max:10',

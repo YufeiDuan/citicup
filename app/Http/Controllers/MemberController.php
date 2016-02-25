@@ -33,7 +33,7 @@ class MemberController extends Controller {
 		return view('member.edit')->withMember($member);
 	}
 
-	public function store(){
+	public function store(Request $request){
 		if (Member::where('id_num',Input::get('id_num'))->count()>0) {
 			return Redirect::to('/team')->withErrors('身份证号已被注册，若有疑问，请联系主办方。');
 		}

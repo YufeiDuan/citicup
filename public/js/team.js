@@ -121,4 +121,5 @@ function delcheck(){
 
 function hideupload(){
 	$("#upload_modal").hide();
+	self.location.reload();
 }

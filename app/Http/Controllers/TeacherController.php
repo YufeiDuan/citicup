@@ -19,10 +19,12 @@ class TeacherController extends Controller {
 
 	//teacher add
 	public function store(Request $request){
-		$team = Auth::user()->team;
-		$count = $team->unreadcount();
-		View::share('data',['count'=>$count,'name'=>$team->name]);
 
+		$team = Auth::user()->team;
+		$teacher_count = $team->teachers->count();
+		if($teacher_count >1){
+			return Redirect::to('/team')->withErrors('指导老师人数已达上限。');
+		}
 		$this->validate($request, [
 			'name' => 'required|string|max:10',
 			'univ_id'=>'required|numeric',

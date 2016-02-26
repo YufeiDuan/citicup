@@ -49,7 +49,7 @@
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             姓名: <input type="text" name="name" class="form-control" required="required" value="" maxLength="10">
             <br>
-            学校: <input type="text" name="school" id="school-namet" value="点击选择" onclick="pop()" readonly="readonly" class="form-control">
+            学校: <input type="text" name="school" id="school-namet" value="点击选择" onclick="pop()" class="form-control">
             <input type="hidden" id="univ_selt" name="univ_id" value="" required="required">
 
             <br>

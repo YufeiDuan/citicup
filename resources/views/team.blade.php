@@ -144,10 +144,10 @@
 				</td>
 				<td class="col-xs-2">
 					<a href="{{ URL('member/'.$member->id.'/edit') }}" class="btn btn-success">改</a>
-					<form action="{{ URL('member/'.$member->id) }}" method="POST" style="display: inline;">
+					<form action="{{ URL('member/'.$member->id) }}" method="POST" style="display: inline;" onsubmit="return(delconfirm())">
 						<input name="_method" type="hidden" value="DELETE">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
-						<button type="submit" class="btn btn-danger">删</button>
+						<button type="submit" class="btn btn-danger del">删</button>
 					</form>
 				</td>
 				@endif
@@ -169,11 +169,11 @@
 				</td>
 				<td class="col-xs-1">
 					<a href="{{ URL('teacher/'.$teacher->id.'/edit') }}" class="btn btn-success">改</a>
-					<form action="{{ URL('teacher/'.$teacher->id) }}" method="POST" style="display: inline;" onsubmit="return(delcheck())">
+					<form action="{{ URL('teacher/'.$teacher->id) }}" method="POST" style="display: inline;" onsubmit="return(delcheck())" class="form">
 						<input type="hidden" id="teacher_count" value="{{$teachers->count()}}">
 						<input name="_method" type="hidden" value="DELETE">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
-						<button type="submit" class="btn btn-danger">删</button>
+						<button class="btn btn-danger del" type="submit">删</button>
 					</form>
 				</td>
 			</tr>

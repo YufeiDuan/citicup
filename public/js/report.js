@@ -12,10 +12,13 @@ $(function () {
     var state = $('#state');
     if(freq==0){
         $('.btn').hide();
-        $('#freqinfo').html("今日提交次数达到上限，请明日再试。");
+        $('#freqli').html("今日提交次数达到上限，请明日再试。");
     }
     if(freq==-1){
-        $('#freqinfo').html("");
+        $('#freqli').hide();
+    }
+    else{
+        $('#freqli').show();
     }
     files.bind('DOMNodeInserted', function(e) { 
         var content = $(e.target).text();
@@ -44,15 +47,18 @@ $(function () {
                 state.html("当前项目报告状态： "+data.time+" 已提交"+data.type+"类型文件");
                 var freq = $('#freq').val();
                 if(freq==-1){
-                    $('#freqinfo').html("");
+                    $('#freqli').hide();
+                    $('#freqli').html("");
                 }else{
                     freq -=1;
                     $('#freq').val(freq);
-                    $('#freqinfo').html("今日剩余上传次数："+freq);
+                    $('#freqli').show();
+                    $('#freqli').html("今日剩余上传次数："+freq);
                 }
                 if(freq==0){
                     $('.btn').hide();
-                    $('#freqinfo').html("今日提交次数达到上限，请明日再试。");
+                    $('#freqli').show();
+                    $('#freqli').html("今日提交次数达到上限，请明日再试。");
                 }
                 
 
@@ -82,3 +88,14 @@ function display(){
         tag=1;
     }
 }
+    //弹出窗口
+    function pop(){
+        $('#upload_modal').modal('show');
+
+    }
+    function hide()
+    {
+        window.location.reload();
+        //$('#choose-box-wrapper').css("display","none");
+
+    }

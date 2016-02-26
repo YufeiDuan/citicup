@@ -63,9 +63,12 @@ class DocController extends Controller {
 				$path =$upload_type.$filename;
 				//
 				if(!empty($document->path)){
-					Storage::delete('documents/'.$team->id.'/'.$document->path);
 					if($document->freq==0){
 						return '今日提交次数已达上限，请明日再试。';
+					}
+					if (Storage::exists('documents/'.$team->id.'/'.$document->path))
+					{
+					    Storage::delete('documents/'.$team->id.'/'.$document->path);
 					}
 				}
 				else{

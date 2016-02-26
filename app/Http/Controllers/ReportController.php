@@ -35,6 +35,7 @@ class ReportController extends Controller {
 		$report = $team->report;
 		View::share('data',['count'=>$count,'name'=>$team->name,'title'=>$team->title,'report'=>$report]);
 		if(empty($report)){
+			Storage::makeDirectory('reports/'.$team->id);
 			$report = new Report;
 			$report->freq=Config::first()->freq;
 			$report->team_id=$team->id;
@@ -53,10 +54,16 @@ class ReportController extends Controller {
 				$type = $file->getClientOriginalExtension();
 
 				//上传路径
-				$path =$team->id.$team->name.date("YmdHis").rand(100, 999).".".$type;
-				Storage::delete('reports/'.$report->path);
+				$path =$filename;
+				if(!empty($report->path)){
+					if (Storage::exists('reports/'.$team->id.'/'.$report->path))
+					{
+					    Storage::delete('reports/'.$team->id.'/'.$report->path);
+					}
+				}
+
 				
-				$file->move(storage_path().'/app/reports',$path);
+				$file->move(storage_path().'/app/reports/'.$team->id,$path);
 
 				$report->path=$path;				
 

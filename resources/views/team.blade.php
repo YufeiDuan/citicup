@@ -16,38 +16,18 @@
 					</div>
 					<div class="modal-body">
 						<form id='myupload' action='/team/logo' method='post' enctype='multipart/form-data' onsubmit='check()'>
-						<div class="btn">
-							<span>选择图片</span>
-							
-							<input id="fileupload" type="file" name="pic" accept=".jpg,.png">
-							<input type="hidden" name="_token" value="{{ csrf_token() }}">
-						</form>
+							<div class="btn">
+								<span>选择图片</span>
+								
+								<input id="fileupload" type="file" name="pic" accept=".jpg,.png">
+								<input type="hidden" name="_token" value="{{ csrf_token() }}">
+							</form>
 						</div>
 						<div class="progress">
 							<span class="bar"></span><span class="percent">0%</span >
 						</div>
 						<div class="files">
 							请选择jpg,png类型图片。
-						</div>
-						</div>
-						<div class="modal-footer">
-						
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="modal" id="choose">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-						<h4 class="modal-title">选择学校</h4>
-					</div>
-					<div class="modal-body">
-						<div id="choose-a-province">
-						</div>
-						<div id="choose-a-school">
 						</div>
 					</div>
 					<div class="modal-footer">
@@ -56,23 +36,53 @@
 				</div>
 			</div>
 		</div>
-		<div class="row">
-			团队信息 <a href="#" onclick="display()">修改</a>
-		</div>
-		<div class="row">
-			
-				<div class="col-xs-3">
-					<div>
-						<img src="/logo">
+	</div>
+	<div class="modal" id="choose">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+					<h4 class="modal-title">选择学校</h4>
+				</div>
+				<div class="modal-body">
+					<div id="choose-a-province">
 					</div>
-					<div>
-						<button class="btn" id="btn_upload">上传Logo</button>
+					<div id="choose-a-school">
 					</div>
 				</div>
-				<form action="{{ URL('/team/1') }}" method="post" name="formchange">
-				<div class="col-xs-5">
-					<table class="table">
-					<tr class="row"></tr>
+				<div class="modal-footer">
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	@if (count($errors) > 0)
+	<div class="row-fluid">
+		<div class="alert alert-danger">
+			<ul>
+				@foreach ($errors->all() as $error)
+				<li>{{ $error }}</li>
+				@endforeach
+			</ul>
+		</div>
+	</div>
+	@endif
+	<div class="row-fluid">
+		团队信息 <a href="#" onclick="display()">修改</a>
+	</div>
+	<div class="row">
+		
+		<div class="col-xs-3">
+			<div>
+				<img src="/logo">
+			</div>
+			<div>
+				<button class="btn" id="btn_upload">上传Logo</button>
+			</div>
+		</div>
+		<form action="{{ URL('/team/1') }}" method="post" name="formchange">
+			<div class="col-xs-9">
+				<table class="table">
 					<tr class="row">
 						<td>团队名称：</td>
 						<td>
@@ -95,15 +105,6 @@
 						</td>
 					</tr>
 				</table>
-				@if (count($errors) > 0)
-				<div class="alert alert-danger">
-					<ul>
-						@foreach ($errors->all() as $error)
-						<li>{{ $error }}</li>
-						@endforeach
-					</ul>
-				</div>
-				@endif
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<input name="_method" type="hidden" value="PUT">
 				<input type="submit" id="save" value="保存" onclick="save()">
@@ -111,10 +112,10 @@
 			</form>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row-fluid">
 		成员信息 <a href="{{url('/team/add')}}">添加</a>
 	</div>
-	<div class="row">
+	<div class="row-fluid">
 		<table class="table table-striped">
 			<tr class="row">
 				<th class="col-xs-3">姓名</th>
@@ -135,51 +136,60 @@
 					{{ $member->college }}
 				</td>
 				<td class="col-xs-2">
-				@if ($member->leader)
+					@if ($member->leader)
 					队长
 				</td>
 				<td class="col-xs-2"></td>
-					@else
-					队员
-				</td>
-				<td class="col-xs-2">
-					<a href="{{ URL('member/'.$member->id.'/edit') }}" class="btn btn-success">改</a>
-					<form action="{{ URL('member/'.$member->id) }}" method="POST" style="display: inline;" onsubmit="return(delconfirm())">
-						<input name="_method" type="hidden" value="DELETE">
-						<input type="hidden" name="_token" value="{{ csrf_token() }}">
-						<button type="submit" class="btn btn-danger del">删</button>
-					</form>
-				</td>
-				@endif
-			</tr>
-			@endforeach
-			@foreach ($teachers as $teacher)
-			<tr class="row">
-				<td class="col-xs-1">
-					{{ $teacher->name }}
-				</td>
-				<td class="col-xs-2">
-					{{ $teacher->univ->name }}
-				</td>
-				<td class="col-xs-2">
-					{{ $teacher->college }}
-				</td>
-				<td class="col-xs-1">
-					指导老师
-				</td>
-				<td class="col-xs-1">
-					<a href="{{ URL('teacher/'.$teacher->id.'/edit') }}" class="btn btn-success">改</a>
-					<form action="{{ URL('teacher/'.$teacher->id) }}" method="POST" style="display: inline;" onsubmit="return(delcheck())" class="form">
-						<input type="hidden" id="teacher_count" value="{{$teachers->count()}}">
-						<input name="_method" type="hidden" value="DELETE">
-						<input type="hidden" name="_token" value="{{ csrf_token() }}">
-						<button class="btn btn-danger del" type="submit">删</button>
-					</form>
-				</td>
-			</tr>
-			@endforeach
-		</table>
+				@else
+				队员
+			</td>
+			<td class="col-xs-2">
+				<a href="{{ URL('member/'.$member->id.'/edit') }}" class="btn btn-success">改</a>
+				<form action="{{ URL('member/'.$member->id) }}" method="POST" style="display: inline;" onsubmit="return(delconfirm())">
+					<input name="_method" type="hidden" value="DELETE">
+					<input type="hidden" name="_token" value="{{ csrf_token() }}">
+					<button type="submit" class="btn btn-danger del">删</button>
+				</form>
+			</td>
+			@endif
+		</tr>
+		@endforeach
+		@foreach ($teachers as $teacher)
+		<tr class="row">
+			<td class="col-xs-1">
+				{{ $teacher->name }}
+			</td>
+			<td class="col-xs-2">
+				{{ $teacher->univ->name }}
+			</td>
+			<td class="col-xs-2">
+				{{ $teacher->college }}
+			</td>
+			<td class="col-xs-1">
+				指导老师
+			</td>
+			<td class="col-xs-1">
+				<a href="{{ URL('teacher/'.$teacher->id.'/edit') }}" class="btn btn-success">改</a>
+				<form action="{{ URL('teacher/'.$teacher->id) }}" method="POST" style="display: inline;" onsubmit="return(delcheck())" class="form">
+					<input type="hidden" id="teacher_count" value="{{$teachers->count()}}">
+					<input name="_method" type="hidden" value="DELETE">
+					<input type="hidden" name="_token" value="{{ csrf_token() }}">
+					<button class="btn btn-danger del" type="submit">删</button>
+				</form>
+			</td>
+		</tr>
+		@endforeach
+	</table>
+</div>
+	<div class="row-fluid">
+	<div class="alert alert-info">
+		<ul>
+			<li>队长信息暂不支持修改。</li>
+			<li>每个参赛团队需要至少一位指导老师。</li>
+			<li>团队组建将于2016年6月1日0时0分截止。</li>
+		</ul>
 	</div>
+</div>
 </div>
 @endsection
 </p>

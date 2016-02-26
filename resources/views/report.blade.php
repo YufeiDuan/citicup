@@ -8,6 +8,7 @@
 	<script src="/js/report.js"></script>
 	<div class="container-fluid">
 		@if (count($errors) > 0)
+		<div class="row-fluid">
 		<div class="alert alert-danger">
 			<ul>
 				@foreach ($errors->all() as $error)
@@ -15,6 +16,7 @@
 				@endforeach
 			</ul>
 		</div>
+	</div>
 		@endif
 		<div class="modal" id="upload_modal">
 			<div class="modal-dialog">
@@ -44,10 +46,10 @@
 			</div>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row-fluid">
 		参赛题目<a href="#" onclick="display()">修改</a>
 	</div>
-	<div class="row">
+	<div class="row-fluid">
 		<form action="{{ URL('/report/1') }}" method="post">
 			<input name="_method" type="hidden" value="PUT">
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -57,11 +59,10 @@
 			<input type="button" id="cancel" value="取消" onClick="display()">
 		</form>
 	</div>
-	<div class="row">
+	<div class="row-fluid">
 		项目报告<a href="#" onclick="pop()">上传</a>
 	</div>
-	<div class="row report">
-		<div class="row">
+	<div class="row-fluid">
 			@if (empty($data['report']))
 			未提交项目报告。
 			@else
@@ -86,7 +87,8 @@
 				</tr>
 			</table>
 			@endif
-		</div>
+	</div>
+	<div class="row-fluid">
 		<div class="alert alert-info">
 			<ul>
 				@if(!empty($data['report']))

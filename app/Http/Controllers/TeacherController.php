@@ -19,6 +19,9 @@ class TeacherController extends Controller {
 
 	//teacher add
 	public function store(Request $request){
+		$team = Auth::user()->team;
+		$count = $team->unreadcount();
+		View::share('data',['count'=>$count,'name'=>$team->name]);
 
 		$this->validate($request, [
 			'name' => 'required|string|max:10',
@@ -32,7 +35,7 @@ class TeacherController extends Controller {
 		$teacher->univ_id=Input::get('univ_id');
 		$teacher->college=Input::get('college');
 		$teacher->email=Input::get('email');
-		$teacher->team_id=Auth::user()->team->id;
+		$teacher->team_id=$team->id;
 		if ($teacher->save()) {
 			return Redirect::to('/team');
 		} else {

@@ -30,6 +30,8 @@ function checkchange(){
     }
 }
 
+
+
 function getChecked(){
     var result = new Array();
         $("[name = chkItem]:checkbox").each(function () {
@@ -41,11 +43,27 @@ function getChecked(){
     return result.join(",");
 }
 
+function empcheck(){
+    if(getChecked()==""){
+        alert("未选择任何邮件。");
+        return false;
+    }
+    if($("#method").val()=="DELETE"){
+        if(confirm( '确认删除？ ')==false){
+            return false;
+        }
+        return true;
+    }
+    return true;
+}
+
 function delmail(){
+    
     $("#op").attr("action", "/mail/del");
     $("#method").val("DELETE");
     $("#op_tag").val(getChecked());
     $("#op").submit();
+    
 }
 
 function setread(){
@@ -55,6 +73,7 @@ function setread(){
     $("#op").submit();
 }
 
+//outbox.blade.php发送方删除
 function dels(){
     $("#op_tag").val(getChecked());
 }

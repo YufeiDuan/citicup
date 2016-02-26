@@ -86,6 +86,12 @@ function display(){
         tag=1;
     }
 }
+function delconfirm(){
+    if(confirm( '确认删除？ ')==false){
+        return false;
+    }
+    return true;
+}
     //弹出窗口
 	function pop(){
 		$('#upload_modal').modal('show');

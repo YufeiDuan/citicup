@@ -13,10 +13,10 @@
 		</div>
 		@endif
 		<div class="row">
-			<form id="op" action="/mail/del" method="post">
+			<form id="op" action="/mail/del" method="post" onsubmit="empcheck()">
 				<input type="hidden" name="tag" id="op_tag">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
-				<button class="btn" onclick="dels()">删除</button>
+				<button class="btn" onclick="dels()" type="button">删除</button>
 			</form>
 
 			

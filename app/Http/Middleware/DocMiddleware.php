@@ -19,6 +19,10 @@ class DocMiddleware {
 		$team = Auth::user()->team;
 		$count = $team->unreadcount();
 		View::share('data',['count'=>$count,'name'=>$team->name]);
+		$report = $team->report;
+		if(empty($report)){
+			return view('state')->withErrors('请先提交项目报告。');
+		}
 		$process = Process::find(3);
 		$curtime = date('Y-m-d H:i:s',time());
 		if($curtime>$process->time){

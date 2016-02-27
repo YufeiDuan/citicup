@@ -19,6 +19,10 @@ class ReportMiddleware {
 		$team = Auth::user()->team;
 		$count = $team->unreadcount();
 		View::share('data',['count'=>$count,'name'=>$team->name]);
+		$membercount = $team->members->count();
+		if($membercount<3){
+			return view('state')->withErrors('请先完成团队组建，每支参赛队伍要求至少3名参赛成员。');
+		}
 		$process = Process::find(2);
 		$curtime = date('Y-m-d H:i:s',time());
 		if($curtime>$process->time){

@@ -49,7 +49,7 @@
             <br>
             <input type="hidden" name="sex_sel" id="sex_sel" value="{{$member->sex}}"/>
             学校: <input type="text" name="school" id="school-name" value="{{$member->univ->name}}" onclick="pop()" readonly="readonly" class="form-control">
-                  <input type="hidden" id="univ_sel" name="univ_id" value="{{$member->univ->id}}" required="required">
+                  <input type="hidden" id="univ_sel" name="univ_id" value="{{$member->univ->id}}" required="required" placeholder="点击选择">
 
             <br>
             学院:<input type="text" name="college" class="form-control" required="required" value="{{ $member->college }}" maxLength="20" required="required" placeholder="必填项,请输入学院全称，不超过20个字符">

@@ -47,16 +47,16 @@
    <div class="tab-pane fade" id="teacher">
       <form action="{{ URL('/teacher') }}" method="POST" name="formaddt" onsubmit="return(check())">   
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            姓名: <input type="text" name="name" class="form-control" required="required" value="" maxLength="10">
+            姓名: <input type="text" name="name" class="form-control" required="required" value="" maxLength="10" placeholder="必填项,不超过10个字符">
             <br>
             学校: <input type="text" name="school" id="school-namet" value="点击选择" onclick="pop()" class="form-control">
             <input type="hidden" id="univ_selt" name="univ_id" value="" required="required">
 
             <br>
-            学院:<input type="text" name="college" class="form-control" required="required" value="" maxLength="20" required="required">
+            学院:<input type="text" name="college" class="form-control" required="required" value="" maxLength="20" required="required" placeholder="必填项,请输入学院全称，不超过20个字符">
             <br> 
 
-            Email: <input type="text" name="email" class="form-control" required="required" value="" required="required">
+            Email: <input type="text" name="email" class="form-control" required="required" value="" required="required" placeholder="必填项">
             <br>
             <button class="btn btn-lg btn-info">保存</button>
             <input class="btn btn-lg btn-info" type="button" value="返回" onClick="javascript:history.back();">

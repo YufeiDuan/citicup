@@ -20,7 +20,7 @@ class LoginController extends Controller {
         {
             return redirect()->intended('home');
         }
-        return redirect('/')
+        return redirect('/test')
 					->withInput($request->only('email', 'remember'))
 					->withErrors([
 						'email' => $this->getFailedLoginMessage($request),

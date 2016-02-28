@@ -87,3 +87,17 @@ a:link,a:visited,a:hover {
     display: block;
     width: 200px;
 }
+
+.affix-top {
+    position: relative;
+}
+.affix {
+    top: 20px;
+}
+.affix,
+.affix-bottom {
+    width: 213px;
+}
+.affix-bottom {
+    position: absolute;
+}

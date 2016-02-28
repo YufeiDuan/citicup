@@ -105,7 +105,7 @@
 
         
         <div class="col-md-3" role="complementary">
-          <nav class="bs-docs-sidebar">
+          <nav class="bs-docs-sidebar ">
             <ul class="nav navbar-nav bs-docs-sidenav" id="menu">
             
                 <li class="dropdown-toggle" data-toggle="dropdown">
@@ -145,12 +145,13 @@
 				    <li><a href="#callout-third-party-libs">作品评分项分值</a></li>
 				  </ul>
 				</li>
-
+				<div>
+					<a class="back-to-top" style="color:#999;font-size:13px;" href="#top">
+		              返回顶部
+		            </a>
+				</div>
               
             </ul>
-            <a class="back-to-top" style="color:#999;font-size:13px"href="#top">
-              返回顶部
-            </a>
             
             
           </nav>
@@ -159,6 +160,8 @@
         
       </div>
     </div>
+    <div class="footer">
+    	版权所有：西安交通大学软件学院</div>
 	</body>
 </html>
 <!--<div class="title">Laravel 5</div>

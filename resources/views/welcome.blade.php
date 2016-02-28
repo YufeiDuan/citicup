@@ -146,7 +146,7 @@
 				    <li><a href="#callout-third-party-libs">作品评分项分值</a></li>
 				  </ul>
 				</li>
-				<div>
+				<div style="width:200px;">
 					<a class="back-to-top" style="color:#999;font-size:13px;" href="#top">
 		              返回顶部
 		            </a>

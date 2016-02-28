@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 	<head>
 		<title>2016花旗杯</title>
@@ -13,7 +14,7 @@
 	</head>
 	<body>
 		<div class="">
-			<div class=" bgimg">
+			<div class="bgimg">
 				<div class="box">
 					<div class="login_box">
 						
@@ -51,7 +52,7 @@
 							
 						</form>
 						<div class="reg">
-						<a>没有团队？</a><a href="#">立即组建</a>
+						<a>没有团队？</a><a href="/register">立即组建</a>
 					</div>
 					</div>
 				</div>
@@ -61,7 +62,7 @@
 		  <div class="container bs-docs-container">
 
       <div class="row">
-        <div class="col-md-9" role="main">
+        <div class="col-md-9 docs" role="main" >
           <div class="bs-docs-section">
               <h1 id="cp-overview" class="page-header">大赛介绍</h1>
               <h2 id="cp-showing">大赛概要</h2>
@@ -104,7 +105,7 @@
         </div>
 
         
-        <div class="col-md-3" role="complementary">
+        <div class="col-md-3 scrollspy" role="complementary">
           <nav class="bs-docs-sidebar ">
             <ul class="nav navbar-nav bs-docs-sidenav" id="menu">
             

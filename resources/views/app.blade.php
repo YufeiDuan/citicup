@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<htm>
 	<head>
 		@yield('head')
 		<meta charset="utf-8">

@@ -101,3 +101,6 @@ a:link,a:visited,a:hover {
 .affix-bottom {
     position: absolute;
 }
+.docs{
+	position: relative;
+}

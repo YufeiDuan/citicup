@@ -13,6 +13,9 @@
 //首页
 Route::get('/test', 'WelcomeController@index');
 Route::get('/','WelcomeController@test');
+
+//注册
+Route::get('/register','WelcomeController@register');
 //认证
 Route::controllers([
 	'auth' => 'LoginController',

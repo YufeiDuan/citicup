@@ -43,6 +43,9 @@ class Authenticate {
 				return redirect()->guest('/');
 			}
 		}
+		else if($this->auth->user()->state==0){
+			return redirect('/auth/validate');
+		}
 		return $next($request);
 	}
 

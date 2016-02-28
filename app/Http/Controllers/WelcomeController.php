@@ -43,4 +43,8 @@ class WelcomeController extends Controller {
 		return view('blank');
 	}
 
+	public function register(){
+		return view('register');
+	}
+
 }

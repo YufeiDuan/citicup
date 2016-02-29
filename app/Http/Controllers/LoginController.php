@@ -4,7 +4,10 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use Carbon\Carbon;
+
 use Auth;
+use Route;
 use Mail;
 use App\User;
 use App\Validate;
@@ -52,6 +55,7 @@ class LoginController extends Controller {
 		return redirect('/');
 	}
 
+	//注册
 	public function postRegister(Request $request){
 		$this->validate($request, [
 			'email' => 'required|email|max:255|unique:authens',
@@ -85,8 +89,53 @@ class LoginController extends Controller {
 		}
 
 	}
-
+	//注册成功页面
 	public function getValidate(){
 		return view('regsuccess');
+	}
+	//重发验证邮件
+	public function getResend(){
+		$user = Auth::user();
+		if(empty($user)){
+			return redirect('/test')->withErrors('请先登录');
+		}
+		$validate = $user->validate;
+		$curtime = Carbon::now()->subMinutes(2);
+		if($curtime>$validate->updated_at){
+			//send mail
+			$token = str_random(20);
+			while(validate::where('token','=',$token)->count()>0){
+				$tag = str_random(20);
+			}
+			$validate->token = $token;
+			$validate->save();
+			Mail::queue('emails.validate', ['token'=>$token], function($message) use($user)
+			{
+				$message->from('citicup@126.com','CitiCup|XJTU 2016');
+			    $message->to($user->email)->subject('[请勿回复]验证您的邮箱');
+			});
+			$info='邮件已重新发送。';
+		}
+		else{
+			$info='操作过于频繁，请2分钟后重试。';
+		}
+		return view('regsuccess')->withInfo($info);
+	}
+	//url验证
+	public function validateemail(){
+		$token = Route::input('token');
+		$validate = Validate::where('token','=',$token)->first();
+		if(empty($validate)){
+			$info='无效链接';
+		}else{
+			$curtime = Carbon::now()->subDays(1);
+			if($curtime>$validate->updated_at){
+				$info='链接已过期，请点击重新发送验证邮件';
+			}else{
+				$info='验证中';
+			}
+		}
+		
+		return view('regsuccess')->withInfo($info);
 	}
 }

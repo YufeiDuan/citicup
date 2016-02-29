@@ -16,6 +16,8 @@ Route::get('/','WelcomeController@test');
 
 //注册
 Route::get('/register','WelcomeController@register');
+//url验证
+Route::get('/validate/{token}','LoginController@validateemail');
 //认证
 Route::controllers([
 	'auth' => 'LoginController',

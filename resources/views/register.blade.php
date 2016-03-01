@@ -1,20 +1,10 @@
-<html>
-	<head>
-		<title>2016花旗杯</title>
-		
-		<!--<link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>-->
-				<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
-		<script src="/js/jquery.min.js"></script>
-		<script src="/js/bootstrap.min.js"></script>
-		<script src="/js/register.js"></script>
-	</head>
-	<body>
-	<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			<div class="panel panel-default">
-				<div class="panel-heading">创建团队</div>
-				<div class="panel-body">
+@extends('reg')
+	@section('head')
+	<script src="/js/register.js"></script>
+	@endsection
+@section('title')创建团队
+@endsection
+@section('content')
 					@if (count($errors) > 0)
 						<div class="alert alert-danger">
 							<ul>
@@ -65,10 +55,5 @@
 							</ul>
 						</div>
 					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-</body>
-</html>
+
+	@endsection

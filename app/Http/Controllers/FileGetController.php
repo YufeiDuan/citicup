@@ -20,10 +20,4 @@ class FileGetController extends Controller {
 		$filename = 'template.zip';
 		return Response::download($template_folder.$filename,$filename);
 	}
-
-	public function __construct()
-    {
-        $this->middleware('home');
-    }
-
 }

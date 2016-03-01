@@ -31,7 +31,6 @@ class Kernel extends HttpKernel {
 		'reportstate' => 'App\Http\Middleware\ReportMiddleware',
 		'docstate' => 'App\Http\Middleware\DocMiddleware',
 		'regstate' => 'App\Http\Middleware\RegMiddleware',
-		'home' => 'App\Http\Middleware\HomeMiddleware',
 	];
 
 }

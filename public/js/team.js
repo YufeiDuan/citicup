@@ -131,5 +131,7 @@ function delconfirm(){
 
 function hideupload(){
 	$("#upload_modal").hide();
-	self.location.reload();
+	//self.location.reload();
+	n = Math.random(100);
+	$("#logo").attr("src","/logo/"+n);
 }

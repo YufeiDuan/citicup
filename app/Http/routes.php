@@ -24,14 +24,14 @@ Route::controllers([
 	'reg' => 'RegisterController',
 ]);
 
-Route::group(['prefix' => '/', 'middleware' => ['auth','home']], function()
+Route::group(['prefix' => '/', 'middleware' => 'auth'], function()
 {
 	//用户主页
 	Route::get('home', 'HomeController@home');
 	//首轮评选
 	Route::get('rate','HomeController@rate');
 	//Logo
-	Route::get('logo','FileGetController@logo');
+	Route::get('logo/{r}','FileGetController@logo');
 	//模板下载
 	Route::get('template','FileGetController@template');
 	//添加成员/老师

@@ -74,7 +74,7 @@
 		
 		<div class="col-xs-3">
 			<div>
-				<img src="/logo">
+				<img src="/logo/460351733" id="logo">
 			</div>
 			<div>
 				<button class="btn" id="btn_upload">上传Logo</button>

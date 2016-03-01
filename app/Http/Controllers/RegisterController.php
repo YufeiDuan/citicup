@@ -60,10 +60,7 @@ class RegisterController extends Controller {
 	public function getResend(){
 		$user = Auth::user();
 		if(empty($user)){
-			return redirect('/test')->withErrors('请先登录');
-		}
-		if($user->state==2){
-			return redirect('/team/1');
+			return redirect('/')->withErrors('请先登录');
 		}
 		$validate = $user->validate;
 		$curtime = Carbon::now()->subMinutes(2);
@@ -92,13 +89,12 @@ class RegisterController extends Controller {
 		$token = Route::input('token');
 		$validate = Validate::where('token','=',$token)->first();
 		if(empty($validate)){
-			$info='无效链接';
+			$info='链接已失效';
 		}else{
 			$curtime = Carbon::now()->subDays(1);
 			if($curtime>$validate->updated_at){
-				$info='链接已过期，请点击重新发送验证邮件';
+				$info='链接已失效，请点击重新发送验证邮件';
 			}else{
-				$info='验证中';
 				$user = $validate->user;
 				$user->state=2;
 				$user->save();
@@ -111,7 +107,7 @@ class RegisterController extends Controller {
 	}
 
 	public function getTeam(){
-
+		return view('newteam');
 	}
 
 	public function __construct()

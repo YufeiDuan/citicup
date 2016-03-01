@@ -35,6 +35,10 @@ class TeamController extends Controller {
 			"univ"		=>$team->univ,
 		]);
 	}
+	//添加团队
+	public function show(){
+
+	}
 
 	//添加成员
 	public function add(){

@@ -30,6 +30,8 @@ class Kernel extends HttpKernel {
 		'teamstate' => 'App\Http\Middleware\TeamMiddleware',
 		'reportstate' => 'App\Http\Middleware\ReportMiddleware',
 		'docstate' => 'App\Http\Middleware\DocMiddleware',
+		'regstate' => 'App\Http\Middleware\RegMiddleware',
+		'home' => 'App\Http\Middleware\HomeMiddleware',
 	];
 
 }

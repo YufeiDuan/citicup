@@ -15,22 +15,23 @@ Route::get('/test', 'WelcomeController@index');
 Route::get('/','WelcomeController@test');
 
 //注册
-Route::get('/register','WelcomeController@register');
+Route::get('/register','RegisterController@register');
 //url验证
-Route::get('/validate/{token}','LoginController@validateemail');
+Route::get('/validate/{token}','RegisterController@validateemail');
 //认证
 Route::controllers([
 	'auth' => 'LoginController',
+	'reg' => 'RegisterController',
 ]);
 
-Route::group(['prefix' => '/', 'middleware' => 'auth'], function()
+Route::group(['prefix' => '/', 'middleware' => ['auth','home']], function()
 {
 	//用户主页
 	Route::get('home', 'HomeController@home');
 	//首轮评选
 	Route::get('rate','HomeController@rate');
 	//Logo
-	Route::get('logo','FileGetController@index');
+	Route::get('logo','FileGetController@logo');
 	//模板下载
 	Route::get('template','FileGetController@template');
 	//添加成员/老师

@@ -25,7 +25,7 @@
 						</div>
 					@endif
 
-					<form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/register') }}" onsubmit="return(check())">
+					<form class="form-horizontal" role="form" method="POST" action="{{ url('/reg/register') }}" onsubmit="return(check())">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 						<div class="form-group">

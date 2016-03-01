@@ -61,4 +61,9 @@ class HomeController extends Controller {
 		return view('evaluation')->withInfos('等待所有团队提交作品。');
 	}
 
+	public function __construct()
+    {
+        $this->middleware('home');
+    }
+
 }

@@ -9,7 +9,7 @@ use Auth;
 
 class FileGetController extends Controller {
 
-	public function index(){
+	public function logo(){
 
 		$filepath = storage_path().'/app/logos/'.Auth::user()->team->logo;
 		return Response::download($filepath,'logo.jpg');
@@ -21,6 +21,9 @@ class FileGetController extends Controller {
 		return Response::download($template_folder.$filename,$filename);
 	}
 
-
+	public function __construct()
+    {
+        $this->middleware('home');
+    }
 
 }

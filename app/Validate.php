@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\User;
+
 class Validate extends Model {
 
 	

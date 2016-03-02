@@ -30,7 +30,7 @@ window.onload=function(){
         var content = $(e.target).text();
         var len = (content.toString()).length;
         if(len>500){
-            files.html("请刷新页面重试");
+            //files.html("请刷新页面重试");
         }
     }); 
     $("#fileupload").change(function(){

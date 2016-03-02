@@ -86,7 +86,7 @@
             <br>
             在读学历: <select class="form-control" id="degree" name="degree" required="required">
                       <option value="0">大专</option>
-                      <option value="1">本科</option>
+                      <option value="1"  selected>本科</option>
                       <option value="2">硕士</option>
                       <option value="3">博士</option>
                   </select>

@@ -5,6 +5,7 @@ use View;
 use Closure;
 use App\Process;
 use Redirect;
+use Request;
 
 class RegMiddleware {
 
@@ -29,15 +30,32 @@ class RegMiddleware {
 				return view('info')->withErrors('当前时间：'.$curtime.'  大赛报名已截止。');
 			}
 			else if($user->state==0){
-				return view('regsuccess');
+				$url = $request->url();
+				if(str_contains($url,'validate/')||ends_with($url,'resend')||ends_with($url,'validate')){
+					return $next($request);
+				}else{
+					return view('regsuccess');
+				}
+				
 			}
 			else if($user->state==2){
 				//已验证邮件，未完善资料
 				//return view('newteam');
+				$url = $request->url();
+				if(ends_with($url,'logo')||ends_with($url,'team')){
+					return $next($request);
+				}else{
+					return redirect('/reg/team');
+				}
 			}
 			else if($user->state==3){
 				//填写团队信息，未填写队长信息
-				//return view('newmember');
+				$url = $request->url();
+				if(ends_with($url,'member')){
+					return $next($request);
+				}else{
+					return redirect('/reg/member');
+				}
 			}
 		}
 		

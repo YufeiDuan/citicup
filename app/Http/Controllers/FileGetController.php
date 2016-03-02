@@ -16,7 +16,7 @@ class FileGetController extends Controller {
 		if(empty($team->logo)){
 			$filepath = storage_path().'/app/logos/logo.png';
 		}else{
-			$filepath = storage_path().'/app/logos/'.$logo;
+			$filepath = storage_path().'/app/logos/'.$team->logo;
 		}
 		
 		return Response::download($filepath,'logo.jpg');

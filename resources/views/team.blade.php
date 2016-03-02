@@ -73,7 +73,7 @@
 	<div class="row">
 		
 		<div class="col-xs-3">
-			<div>
+			<div class="logo">
 				<img src="/logo/460351733" id="logo">
 			</div>
 			<div>

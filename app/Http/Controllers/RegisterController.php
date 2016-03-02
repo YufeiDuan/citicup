@@ -12,6 +12,8 @@ use Mail;
 use App\User;
 use App\Validate;
 use App\Team;
+use App\Member;
+use App\Teacher;
 use Input;
 use Storage;
 use Image;
@@ -181,9 +183,61 @@ class RegisterController extends Controller {
 		$user->save();
 		return redirect('/reg/member');
 	}
-
+	//添加成员页
 	public function getMember(){
 		return view('newmember');
+	}
+
+	public function postMember(Request $request){
+		if (Member::where('id_num',Input::get('id_num'))->count()>0) {
+			return redirect()->back()->withErrors('身份证号已被注册，若有疑问，请联系主办方。');
+		}
+
+		$this->validate($request, [
+			'leader_name' => 'required|string|max:10',
+			'leader_sex' => 'required|boolean',
+			'univ_sel'=>'required|numeric|numeric',
+			'leader_college' => 'required|string|max:20',
+			'leader_major' => 'required|string|max:20',
+			'id_num' => 'required|string|max:18|unique:members',
+			'stu_num' => 'required|string|max:15',
+			'degree' => 'required|numeric',
+			'year_entry' => 'required|numeric',
+			'leader_email' => 'required|email',
+
+			'teacher_name' => 'required|string|max:10',
+			'univ_id'=>'required|numeric',
+			'teacher_college' => 'required|string|max:20',
+			'teacher_email' => 'required|email',
+		]);
+
+		$user = Auth::user();
+		$member = new Member;
+		$member->name=Input::get('leader_name');
+		$member->sex=Input::get('leader_sex');
+		$member->univ_id=Input::get('univ_sel');
+		$member->college=Input::get('leader_college');
+		$member->major=Input::get('leader_major');
+		$member->stu_num=Input::get('stu_num');
+		$member->id_num=Input::get('id_num');
+		$member->degree=Input::get('degree');
+		$member->year_entry=Input::get('year_entry');
+		$member->email=Input::get('leader_email');
+		$member->team_id=$user->team->id;
+		$member->leader=1;
+		$member->save();
+
+		$teacher = new Teacher;
+		$teacher->name=Input::get('teacher_name');
+		$teacher->univ_id=Input::get('univ_id');
+		$teacher->college=Input::get('teacher_college');
+		$teacher->email=Input::get('teacher_email');
+		$teacher->team_id=$user->team->id;
+		$teacher->save();
+
+		$user->state=1;
+		$user->save();
+		return redirect('/home');
 	}
 
 	public function __construct()

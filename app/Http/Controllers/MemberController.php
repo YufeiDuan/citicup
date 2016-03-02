@@ -34,9 +34,9 @@ class MemberController extends Controller {
 	}
 
 	public function store(Request $request){
-		if (Member::where('id_num',Input::get('id_num'))->count()>0) {
-			return Redirect::to('/team')->withErrors('身份证号已被注册，若有疑问，请联系主办方。');
-		}
+		//if (Member::where('id_num',Input::get('id_num'))->count()>0) {
+		//	return Redirect::to('/team')->withErrors('身份证号已被注册，若有疑问，请联系主办方。');
+		//}
 
 		$this->validate($request, [
 			'name' => 'required|string|max:10',
@@ -44,7 +44,7 @@ class MemberController extends Controller {
 			'univ_id'=>'required|numeric|numeric',
 			'college' => 'required|string|max:20',
 			'major' => 'required|string|max:20',
-			'id_num' => 'required|string|max:18',
+			'id_num' => 'required|string|max:18|unique:members',
 			'stu_num' => 'required|string|max:15',
 			'degree' => 'required|numeric',
 			'year_entry' => 'required|numeric',

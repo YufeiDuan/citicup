@@ -68,7 +68,12 @@ class TeamController extends Controller {
 				//$type = $file->getClientOriginalExtension();
 				$logopath =date("YmdHis").rand(100, 999).".jpg";
 				//上传路径
-				Storage::delete('logos/'.$team->logo);
+				if(!empty($team->logo)){
+					if(Storage::exists('logos/'.$team->logo)){
+						Storage::delete('logos/'.$team->logo);						
+					}
+				}
+				
 				
 				$path = $file->move(storage_path().'/app/logos',$logopath);
 

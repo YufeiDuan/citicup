@@ -36,7 +36,7 @@
 			<div class="form-group">
 				<label class="col-md-2 control-label">姓名</label>
 				<div class="col-md-8">
-					<input type="text" class="form-control" name="leader_name" required="required"  maxLength="10" placeholder="必填项">
+					<input type="text" class="form-control" name="leader_name" required="required" value="{{ old('leader_name') }}" maxLength="10" placeholder="必填项">
 				</div>
 			</div>
 			<div class="form-group">
@@ -58,28 +58,28 @@
 			<div class="form-group">
 				<label class="col-md-2 control-label">学院</label>
 				<div class="col-md-8">
-					<input type="text" class="form-control" name="leader_college" required="required"  maxLength="20" placeholder="必填项,请输入学院全称，不超过20个字符">
+					<input type="text" class="form-control" name="leader_college" required="required"  maxLength="20" placeholder="必填项,请输入学院全称，不超过20个字符" value="{{ old('leader_college') }}">
 				</div>
 			</div>
 
 			<div class="form-group">
 				<label class="col-md-2 control-label">专业</label>
 				<div class="col-md-8">
-					<input type="text" class="form-control" name="leader_major" required="required"  maxLength="20" placeholder="必填项,请输入专业名称，不超过20个字符">
+					<input type="text" class="form-control" name="leader_major" required="required"  maxLength="20" placeholder="必填项,请输入专业名称，不超过20个字符" value="{{ old('leader_major') }}">
 				</div>
 			</div>
 
 			<div class="form-group">
 				<label class="col-md-2 control-label">学号</label>
 				<div class="col-md-8">
-					<input type="text" class="form-control" name="stu_num" required="required"  maxLength="15" placeholder="必填项,请输入数字字母组合">
+					<input type="text" class="form-control" name="stu_num" required="required"  maxLength="15" placeholder="必填项,请输入数字字母组合"value="{{ old('stu_num') }}">
 				</div>
 			</div>
 
 			<div class="form-group">
 				<label class="col-md-2 control-label">身份证号</label>
 				<div class="col-md-8">
-					<input type="text" class="form-control" name="id_num" id="id_num" required="required"  maxLength="18" placeholder="必填项,请输入正确的18位身份证号" onblur="checkid()" >
+					<input type="text" class="form-control" name="id_num" id="id_num" required="required"  maxLength="18" placeholder="必填项,请输入正确的18位身份证号" onblur="checkid()" value="{{ old('id_num') }}" >
 				</div>
 				<span id="id_info"></span>
 			</div>
@@ -118,7 +118,7 @@
             <div class="form-group">
 				<label class="col-md-2 control-label">电子邮箱</label>
 				<div class="col-md-8">
-					<input type="email" class="form-control" name="leader_email" required="required" placeholder="必填项">
+					<input type="email" class="form-control" name="leader_email" required="required" placeholder="必填项" value="{{ old('leader_email') }}">
 				</div>
 			</div>
 			
@@ -130,7 +130,7 @@
             <div class="form-group">
 				<label class="col-md-2 control-label">姓名</label>
 				<div class="col-md-8">
-					<input type="text" class="form-control" name="teacher_name" required="required"  maxLength="10" placeholder="必填项">
+					<input type="text" class="form-control" name="teacher_name" required="required"  maxLength="10" placeholder="必填项" value="{{ old('teacher_name') }}">
 				</div>
 			</div>
             <div class="form-group">
@@ -143,14 +143,14 @@
 			<div class="form-group">
 				<label class="col-md-2 control-label">学院</label>
 				<div class="col-md-8">
-					<input type="text" class="form-control" name="teacher_college" required="required"  maxLength="20" placeholder="必填项,请输入学院全称，不超过20个字符">
+					<input type="text" class="form-control" name="teacher_college" required="required"  maxLength="20" placeholder="必填项,请输入学院全称，不超过20个字符" value="{{ old('teacher_college') }}">
 				</div>
 			</div>
 
             <div class="form-group">
 				<label class="col-md-2 control-label">电子邮箱</label>
 				<div class="col-md-8">
-					<input type="email" class="form-control" name="teacher_email" required="required" placeholder="必填项">
+					<input type="email" class="form-control" name="teacher_email" required="required" placeholder="必填项" value="{{ old('teacher_email') }}">
 				</div>
 			</div>
 
@@ -166,8 +166,7 @@
 				<ul>
 					<li>每个团队只需注册一个账号。</li>
 					<li>请由队长进行团队注册操作。</li>
-					<li>若未上传团队Logo，将使用默认Logo。</li>
-					<li>参赛题目可稍后填写，但不应晚于项目报告截止日期。</li>
+					<li>团队组建将于2016年6月30日0时0分截止。</li>
 				</ul>
 			</div>
 		</form>

@@ -34,7 +34,7 @@ class RegisterController extends Controller {
 
 		$count = User::where('email','=',$request['email'])->count();
 		if($count>0){
-			return redirect('/register')->withErrors('该邮箱已被注册');
+			return redirect()->back()->withErrors('该邮箱已被注册')->withInput();
 		}else{
 			$user = User::create([
 			'email' => $request['email'],
@@ -43,7 +43,7 @@ class RegisterController extends Controller {
 			]);
 			$token = str_random(20);
 			while(validate::where('token','=',$token)->count()>0){
-				$tag = str_random(20);
+				$token = str_random(20);
 			}
 			Validate::create([
 				'authen_id'=> $user->id,
@@ -75,7 +75,7 @@ class RegisterController extends Controller {
 			//send mail
 			$token = str_random(20);
 			while(validate::where('token','=',$token)->count()>0){
-				$tag = str_random(20);
+				$token = str_random(20);
 			}
 			$validate->token = $token;
 			$validate->save();
@@ -105,6 +105,7 @@ class RegisterController extends Controller {
 				$user = $validate->user;
 				$user->state=2;
 				$user->save();
+				$validate->delete();
 				Auth::login($user);
 				return redirect('/reg/team');
 			}
@@ -190,7 +191,7 @@ class RegisterController extends Controller {
 
 	public function postMember(Request $request){
 		if (Member::where('id_num',Input::get('id_num'))->count()>0) {
-			return redirect()->back()->withErrors('身份证号已被注册，若有疑问，请联系主办方。');
+			return redirect()->back()->withErrors('身份证号已被注册，若有疑问，请联系主办方。')->withInput();
 		}
 
 		$this->validate($request, [

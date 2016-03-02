@@ -18,10 +18,13 @@ Route::get('/','WelcomeController@test');
 Route::get('/register','RegisterController@register');
 //url验证
 Route::get('/validate/{token}','RegisterController@validateemail');
+//重置密码验证
+Route::get('/password/{token}','PasswordController@reset');
 //认证
 Route::controllers([
 	'auth' => 'LoginController',
 	'reg' => 'RegisterController',
+	'pwd' => 'PasswordController',
 ]);
 
 Route::group(['prefix' => '/', 'middleware' => 'auth'], function(){

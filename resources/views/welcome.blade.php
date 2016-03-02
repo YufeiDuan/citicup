@@ -41,7 +41,7 @@
 										<input type="checkbox" name="remember"><span>记住我</span>
 									</label>
 									<div class="forget">
-										<a href="#">忘记密码</a>
+										<a href="{{url('/pwd/apply')}}">忘记密码</a>
 									</div>
 								</div>
 							</div>
@@ -52,7 +52,7 @@
 							
 						</form>
 						<div class="reg">
-						<a>没有团队？</a><a href="/register">立即组建</a>
+						<a>没有团队？</a><a href="{{url('/register')}}">立即组建</a>
 					</div>
 					</div>
 				</div>

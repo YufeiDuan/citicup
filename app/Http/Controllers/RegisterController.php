@@ -11,6 +11,11 @@ use Route;
 use Mail;
 use App\User;
 use App\Validate;
+use App\Team;
+use Input;
+use Storage;
+use Image;
+use Response;
 
 class RegisterController extends Controller {
 
@@ -105,9 +110,80 @@ class RegisterController extends Controller {
 		
 		return view('regsuccess')->withInfo($info);
 	}
-
+	//创建团队页
 	public function getTeam(){
 		return view('newteam');
+	}
+	//上传Logo
+	public function postLogo(Request $request){
+		$this->validate($request, [
+	        'pic' => 'required|mimes:jpeg,bmp,png'
+    	]);
+
+		$user = Auth::user();
+		$team = $user->team;
+		if(empty($team)){
+			$team = Team::create([
+					'authen_id' => $user->id,
+				]);
+		}
+
+		if(Input::hasFile('pic'))
+		{
+			$file = Input::file('pic');
+			$filename = $file->getClientOriginalName();
+			$filesize = $file->getSize();
+			if ($filename != "") {
+				//$type = $file->getClientOriginalExtension();
+				$logopath =date("YmdHis").rand(100, 999).".jpg";
+				//上传路径
+				//Storage::delete('logos/'.$team->logo);
+				
+				$path = $file->move(storage_path().'/app/logos',$logopath);
+
+				Image::make($path)->resize(200, 200)->save($path);
+				$team->logo = $logopath;			
+
+				$team->save();
+			}
+			$size = round($filesize/1024,2);
+			$arr = array(
+			'name'=>$filename,
+			'size'=>$size,
+			'time'=>date("Y-m-d H:i:s"),
+		);
+
+		return Response::json($arr);
+		}
+	}
+	//创建团队
+	public function postTeam(Request $request){
+		$this->validate($request, [
+			'univ_sel' => 'required|numeric',
+	        'title' => 'string',
+	        'name' => 'required|string',
+		]);
+
+		$user = Auth::user();
+		$team = $user->team;
+		if(empty($team)){
+			$team = Team::create([
+				'authen_id' => $user->id,
+			]);
+		}
+		$team->univ_id=Input::get('univ_sel');
+		$team->name=Input::get('name');
+		if(empty(Input::get('title'))){
+			$team->title=Input::get('title');
+		}
+		$team->save();
+		$user->state=3;
+		$user->save();
+		return redirect('/reg/member');
+	}
+
+	public function getMember(){
+		return view('newmember');
 	}
 
 	public function __construct()

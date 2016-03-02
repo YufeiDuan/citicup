@@ -1,0 +1,9 @@
+#logo{
+	overflow:hidden;
+	width:150px;
+}
+#btn_upload{
+	display:block;
+	margin: auto;
+	margin-top: 10px;
+}

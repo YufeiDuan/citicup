@@ -77,7 +77,7 @@
 				<img src="/logo/460351733" id="logo">
 			</div>
 			<div>
-				<button class="btn" id="btn_upload">上传Logo</button>
+				<button class="btn" id="btn_upload" type="button">上传Logo</button>
 			</div>
 		</div>
 		<form action="{{ URL('/team/1') }}" method="post" name="formchange">
@@ -187,6 +187,7 @@
 			<li>每支参赛队伍要求至少3名参赛成员。为了确保竞争实力，建议跨IT和金融等相关专业组队。</li>
 			<li>队长信息暂不支持修改。</li>
 			<li>参赛队伍队伍可根据需要邀请1-2名指导老师，但每支队伍至多不能超过2位指导老师。</li>
+			<li>参赛题目可稍后填写，但不应晚于项目报告截止日期。</li>
 			<li>团队组建将于2016年6月30日0时0分截止。</li>
 		</ul>
 	</div>

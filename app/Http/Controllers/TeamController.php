@@ -93,7 +93,7 @@ class TeamController extends Controller {
 		
 		$this->validate($request, [
 	        'univ_sel' => 'required|numeric',
-	        'team_title' => 'required|string',
+	        'team_title' => 'string',
 	        'team_name' => 'required|string',
     	]);
 

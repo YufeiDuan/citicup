@@ -33,11 +33,11 @@ class RegMiddleware {
 			}
 			else if($user->state==2){
 				//已验证邮件，未完善资料
-				return view('newteam');
+				//return view('newteam');
 			}
 			else if($user->state==3){
 				//填写团队信息，未填写队长信息
-				return view('newmember');
+				//return view('newmember');
 			}
 		}
 		

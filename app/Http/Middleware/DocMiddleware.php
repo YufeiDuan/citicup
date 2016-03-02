@@ -19,6 +19,9 @@ class DocMiddleware {
 		$team = Auth::user()->team;
 		$count = $team->unreadcount();
 		View::share('data',['count'=>$count,'name'=>$team->name]);
+		if(empty($team->title)){
+			return view('state')->withErrors('请先填写参赛题目。');
+		}
 		$report = $team->report;
 		if(empty($report)){
 			return view('state')->withErrors('请先提交项目报告。');

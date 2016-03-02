@@ -84,8 +84,13 @@ class ReportController extends Controller {
 		return Response::json($arr);
 		}
 	}
+	//更新参赛题目
+	public function update(Request $request){
 
-	public function update(){
+		$this->validate($request, [
+	        'title' => 'required|string',
+    	]);
+
 		$team = Auth::user()->team;
 		$old_name = $team->name;
 		$count = $team->unreadcount();

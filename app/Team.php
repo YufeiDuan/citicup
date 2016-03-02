@@ -12,6 +12,7 @@ class Team extends Model {
 	//
 	public $timestamps = false;
 
+	protected $fillable = ['authen_id', 'name', 'univ_id', 'title', 'logo'];
 	//收件箱邮件
 	public function inbox(){
 		return $this->hasMany('App\Mail','to_id')->where('del_r','=','0')->orderBy('created_at', 'desc');

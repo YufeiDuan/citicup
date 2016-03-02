@@ -11,7 +11,14 @@ class FileGetController extends Controller {
 
 	public function logo(){
 
-		$filepath = storage_path().'/app/logos/'.Auth::user()->team->logo;
+		$team = Auth::user()->team;
+
+		if(empty($team->logo)){
+			$filepath = storage_path().'/app/logos/logo.png';
+		}else{
+			$filepath = storage_path().'/app/logos/'.$logo;
+		}
+		
 		return Response::download($filepath,'logo.jpg');
 	}
 

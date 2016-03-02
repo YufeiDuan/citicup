@@ -97,6 +97,7 @@
 					<input type="hidden" id="freq" value="{{ $data['report']->freq }}">
 				</li>
 				@endif
+				<li>参赛题目应在本阶段完成填写。</li>
 				<li>项目报告只保留最新一次上传的文档。</li>
 				<li>项目报告将于2016年6月1日0时0分截止提交。</li>
 			</ul>

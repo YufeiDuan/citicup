@@ -48,7 +48,7 @@
 			<div class="form-group">
 				<label class="col-md-2 control-label">参赛题目</label>
 				<div class="col-md-8">
-					<input type="password" class="form-control" name="title" id="title" placeholder="非必填项，可稍后填写" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5\@\.]/g,'')"maxlength="30" />
+					<input type="text" class="form-control" name="title" id="title" placeholder="非必填项，可稍后填写" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5\@\.]/g,'')"maxlength="30" />
 				</div>
 			</div>
 			<div class="form-group">

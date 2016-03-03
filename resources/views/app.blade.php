@@ -40,7 +40,8 @@
 				</div>
 			</div>
 		</nav>
-		<div class="row time">
+		<div class="box">
+		<div class="time">
 		<div class="clearfix course_nr">
 	<ul class="course_nr2">
 		<li>
@@ -87,6 +88,7 @@
 		</li>
 		
 	</ul>
+</div>
 </div>
 </div>
 		<!-- Scripts -->

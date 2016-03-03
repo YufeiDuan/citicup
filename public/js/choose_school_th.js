@@ -18,7 +18,7 @@
 		//makeCenter();
 		$('#choose').modal('show');
 		//初始化省份列表
-		initProvince();
+		initProvincet();
 
 		//默认情况下, 给第一个省份添加choosen样式
 		$('[province-id="11"]').addClass('choosen');
@@ -51,6 +51,28 @@
 				item.addClass('choosen');
 				//更新大学列表
 				initSchool(province);
+			}
+		);
+	}
+
+	function initProvincet()
+	{
+		//原先的省份列表清空
+		$('#choose-a-province').html('');
+		for(i=0;i<schoolList.length;i++)
+		{
+			$('#choose-a-province').append('<a class="province-item" item-id="'+i+'" province-id="'+schoolList[i].id+'">'+schoolList[i].name+'</a>');
+		}
+		//添加省份列表项的click事件
+		$('.province-item').bind('click', function(){
+				var item=$(this);
+				var province = item.attr('item-id');
+				var choosenItem = item.parent().find('.choosen');
+				if(choosenItem)
+					$(choosenItem).removeClass('choosen');
+				item.addClass('choosen');
+				//更新大学列表
+				initSchoolt(province);
 			}
 		);
 	}

@@ -81,30 +81,27 @@
 			</div>
 		</div>
 		<form action="{{ URL('/team/1') }}" method="post" name="formchange">
-			<div class="col-xs-9">
-				<table class="table">
-					<tr class="row">
-						<td>团队名称：</td>
-						<td>
-							<input type="text" name="team_name" id="team_name" value="{{$team->name}}" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5\@\.]/g,'')" onblur="if(this.value.replace(/^ +| +$/g,'')=='')alert('不能为空!')" maxlength="20"/>
-							<span class="tips">不超过20个字符</span>
-						</td>
-					</tr>
-					<tr class="row">
-						<td>所属高校：</td>
-						<td class="hrefselect">
-							<input type="text" name="school" id="school-name" value="{{$univ->name}}" onclick="pop()" readonly="readonly">
-							<input type="hidden" id="univ_sel" name="univ_sel" value="{{$univ->id}}">
-						</td>
-					</tr>
-					<tr class="row">
-						<td>参赛题目：</td>
-						<td>
-							<input type="text" name="team_title" id="team_title" value="{{$team->title}}" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5\@\.]/g,'')" onblur="if(this.value.replace(/^ +| +$/g,'')=='')alert('不能为空!')" maxlength="30"/>
-							<span class="tips">不超过30个字符</span>
-						</td>
-					</tr>
-				</table>
+			<div class="col-md-9">
+				<div class="form-group">
+					<label class="col-md-3 control-label">团队名称</label>
+					<div class="col-md-9">
+						<input type="text" class="form-control" name="team_name" id="team_name" value="{{ $team->name }}" required="required" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5\@\.]/g,'')" onblur="if(this.value.replace(/^ +| +$/g,'')=='')alert('不能为空!')" maxlength="20"/ placeholder="不超过20个字符">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-3 control-label">所属高校</label>
+					<div class="col-md-9">
+						<input type="text" name="school" id="school-name" value="{{$univ->name}}" onclick="pop()" class="form-control" readonly="readonly">
+						<input type="hidden" id="univ_sel" name="univ_sel" value="{{$univ->id}}">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-3 control-label">参赛题目</label>
+					<div class="col-md-9">
+						<input type="text" class="form-control" name="team_title" id="team_title" value="{{ $team->title }}" required="required" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5\@\.]/g,'')" maxlength="30"/ placeholder="不超过30个字符">
+					</div>
+				</div>
+	
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<input name="_method" type="hidden" value="PUT">
 				<input type="submit" id="save" value="保存" onclick="save()">

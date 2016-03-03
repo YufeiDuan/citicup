@@ -96,8 +96,6 @@
 		<script src="/js/bootstrap.min.js"></script>
 		<script type="text/javascript">
 			$(function(){
-				
-				//首页大事记
 				$('.course_nr2 li').hover(function(){
 					$(this).find('.shiji').slideDown(600);
 				},function(){

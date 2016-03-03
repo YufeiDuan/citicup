@@ -110,7 +110,6 @@ class RegisterController extends Controller {
 				return redirect('/reg/team');
 			}
 		}
-		
 		return view('regsuccess')->withInfo($info);
 	}
 	//创建团队页

@@ -14,12 +14,12 @@ use App\Validate;
 use App\Http\Controllers\Controller;
 
 class PasswordController extends Controller {
-
+	//申请重置密码
 	public function getApply()
 	{
 		return view('pwdapply');
 	}
-
+	//验证，发送邮件
 	public function postApply(Request $request){
 		$this->validate($request, [
 	        'email' => 'required|email|max:255',
@@ -56,6 +56,7 @@ class PasswordController extends Controller {
 
 		return view('info')->withErrors('发送邮件成功，请查看邮件并重置密码。若未收到邮件，请两分钟后重试。');
 	}
+	//重置密码链接验证
 	public function reset(){
 		$token = Route::input('token');
 		$validate = Validate::where('token','=',$token)->first();
@@ -66,11 +67,22 @@ class PasswordController extends Controller {
 			if($curtime>$validate->updated_at){
 				$info='链接已失效，请重新操作。';
 			}else{
+				Auth::loginUsingId($validate->authen_id);
 				$validate->delete();
 				return view('reset');
 			}
 		}
-		
 		return view('info')->withErrors($info);
+	}
+	//重置密码
+	public function postReset(Request $request){
+		$this->validate($request, [
+			'password' => 'required|confirmed|min:6',
+		]);
+		$user = Auth::user();
+		$user->password = bcrypt($request['password']);
+		$user->save();
+		Auth::logout();
+		return redirect('/')->withErrors('密码重置成功，请重新登录');
 	}
 }

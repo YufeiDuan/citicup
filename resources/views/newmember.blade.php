@@ -30,7 +30,7 @@
 		<div class="col-md-10">
 			
 			<div class="form-group">
-				<label class="col-md-2"><h4>队长信息</h4></label>
+				<label class="col-md-4"><h4>队长信息</h4></label>
 			</div>
 	
 			<div class="form-group">
@@ -123,7 +123,7 @@
 			</div>
 			
 			<div class="form-group">
-				<label class="col-md-3"><h4>指导老师信息</h4></label>
+				<label class="col-md-4"><h4>指导老师信息</h4></label>
 			</div>
            
 

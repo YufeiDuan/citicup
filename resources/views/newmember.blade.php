@@ -1,12 +1,16 @@
 @extends('reg')
 @section('head')
 	<script src="/js/newteam.js"></script>
-	<script src="/js/school.js"></script>
-	<script src="/js/choose_school_th.js"></script>
+	<script src="/js/s.js"></script>
+	<script src="/js/jquery-ui.min.js"></script>
+	<link href="{{ asset('/css/jquery-ui.min.css') }}" rel="stylesheet">
 	<script src="/js/jquery.form.js"></script>
+	<script src="/js/search.js"></script>
 	<link href="{{ asset('/css/newteam.css') }}" rel="stylesheet">
 	<link href="{{ asset('/css/report.css') }}" rel="stylesheet">
 	<link href="{{ asset('/css/team.css') }}" rel="stylesheet">
+	<link href="{{ asset('/css/search.css') }}" rel="stylesheet">
+
 @endsection
 @section('title')
 填写成员信息
@@ -22,10 +26,8 @@
 	</ul>
 </div>
 @endif
-<form class="form-horizontal" role="form" method="POST" action="{{ url('/reg/member') }}" onsubmit="return(checkadd())" name="add">
+<form class="form-horizontal" role="form" method="POST" action="{{ url('/reg/member') }}" onsubmit="" name="add">
 	<input type="hidden" name="_token" value="{{ csrf_token() }}">
-	<input type="hidden" id="univ_sel" name="univ_sel" required="required">
-	<input type="hidden" id="univ_selt" name="univ_id" required="required">
 	<div class="row">
 		<div class="col-md-10">
 			
@@ -51,7 +53,7 @@
 			<div class="form-group">
 				<label class="col-md-2 control-label">学校</label>
 				<div class="col-md-8">
-					<input type="text" class="form-control" name="leader_school" id="school-name" required="required"  maxLength="10" placeholder="必填项，点击选择" onclick="pop()" >
+					<input required="required" type="text" class="form-control school" autocomplete="off" placeholder="必填项，请输入学校全称" name="leader_univ"/>
 				</div>
 			</div>
            
@@ -136,7 +138,7 @@
             <div class="form-group">
 				<label class="col-md-2 control-label">学校</label>
 				<div class="col-md-8">
-					<input type="text" class="form-control" name="teacher_school" id="school-namet" required="required"  maxLength="10"  placeholder="必填项，点击选择" onclick="popt()" >
+					<input required="required" type="text" class="form-control school" autocomplete="off" placeholder="必填项，请输入学校全称" name="teacher_univ"/>
 				</div>
 			</div>
 
@@ -172,25 +174,5 @@
 		</form>
 	</div>
 </div>
-
-	<div class="modal" id="choose">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-					<h4 class="modal-title">选择学校</h4>
-				</div>
-				<div class="modal-body">
-					<div id="choose-a-province">
-					</div>
-					<div id="choose-a-school">
-					</div>
-				</div>
-				<div class="modal-footer">
-					
-				</div>
-			</div>
-		</div>
-	</div>
 
 @endsection

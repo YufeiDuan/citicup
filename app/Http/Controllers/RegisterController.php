@@ -219,10 +219,11 @@ class RegisterController extends Controller {
 			return redirect()->back()->withErrors('身份证号已被注册，若有疑问，请联系主办方。')->withInput();
 		}
 
+
 		$this->validate($request, [
 			'leader_name' => 'required|string|max:10',
 			'leader_sex' => 'required|boolean',
-			'univ_sel'=>'required|numeric|numeric',
+			'leader_univ'=>'required|string',
 			'leader_college' => 'required|string|max:20',
 			'leader_major' => 'required|string|max:20',
 			'id_num' => 'required|string|max:18|unique:members',
@@ -232,16 +233,32 @@ class RegisterController extends Controller {
 			'leader_email' => 'required|email',
 
 			'teacher_name' => 'required|string|max:10',
-			'univ_id'=>'required|numeric',
+			'teacher_univ'=>'required|string',
 			'teacher_college' => 'required|string|max:20',
 			'teacher_email' => 'required|email',
 		]);
+
+		$l_univ = Univ::where(['name' => Input::get('leader_univ')])->first();
+		if(empty($l_univ)){
+			$l_univ = Univ::create([
+				'name' => Input::get('leader_univ'),
+				'area_id' => 99,
+				]);
+		}
+
+		$t_univ = Univ::where(['name' => Input::get('teacher_univ')])->first();
+		if(empty($t_univ)){
+			$t_univ = Univ::create([
+				'name' => Input::get('teacher_univ'),
+				'area_id' => 99,
+				]);
+		}
 
 		$user = Auth::user();
 		$member = new Member;
 		$member->name=Input::get('leader_name');
 		$member->sex=Input::get('leader_sex');
-		$member->univ_id=Input::get('univ_sel');
+		$member->univ_id=$l_univ->id;
 		$member->college=Input::get('leader_college');
 		$member->major=Input::get('leader_major');
 		$member->stu_num=Input::get('stu_num');
@@ -255,7 +272,7 @@ class RegisterController extends Controller {
 
 		$teacher = new Teacher;
 		$teacher->name=Input::get('teacher_name');
-		$teacher->univ_id=Input::get('univ_id');
+		$teacher->univ_id=$t_univ->id;
 		$teacher->college=Input::get('teacher_college');
 		$teacher->email=Input::get('teacher_email');
 		$teacher->team_id=$user->team->id;

@@ -2,8 +2,10 @@
 @section('head')
 	<script src="/js/newteam.js"></script>
 	<script src="/js/s.js"></script>
-	<script src="/js/jquery.form.js"></script>
 	<script src="/js/search.js"></script>
+	<script src="/js/jquery.form.js"></script>
+	<script src="/js/jquery-ui.min.js"></script>
+	<link href="{{ asset('/css/jquery-ui.min.css') }}" rel="stylesheet">
 	<link href="{{ asset('/css/newteam.css') }}" rel="stylesheet">
 	<link href="{{ asset('/css/report.css') }}" rel="stylesheet">
 	<link href="{{ asset('/css/team.css') }}" rel="stylesheet">
@@ -43,7 +45,7 @@
 			<div class="form-group">
 				<label class="col-md-3 control-label">所属高校</label>
 				<div class="col-md-8">
-					<div class="autoComplete"> <input required="required" type="text" class="form-control" autocomplete="off" placeholder="必填项，请输入学校全称" name="univ"/> <ul><li></li></ul> </div>
+					<input required="required" type="text" class="form-control school" autocomplete="off" placeholder="必填项，请输入学校全称" name="univ"/>
 				</div>
 			</div>
 			<div class="form-group">

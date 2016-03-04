@@ -67,16 +67,6 @@ function check(){
 	}
 }
 
-function checkadd(){
-    
-
-    if(($('#univ_sel').val()=="")||($('#univ_selt').val()=="")){
-        alert('请选择学校');
-        return false;
-    }
-    return true;
-}
-
 //增加身份证验证
 function checkid(){
     var　sId = add.id_num.value;

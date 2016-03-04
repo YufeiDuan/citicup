@@ -14,6 +14,7 @@ use App\Validate;
 use App\Team;
 use App\Member;
 use App\Teacher;
+use App\Univ;
 use Input;
 use Storage;
 use Image;
@@ -114,15 +115,22 @@ class RegisterController extends Controller {
 	}
 	//创建团队页
 	public function getTeam(){
+		$user = Auth::user();
+		if(empty($user)){
+			return redirect('/')->withErrors('请先登录');
+		}
 		return view('newteam');
 	}
 	//上传Logo
 	public function postLogo(Request $request){
+		$user = Auth::user();
+		if(empty($user)){
+			return redirect('/')->withErrors('请先登录');
+		}
 		$this->validate($request, [
 	        'pic' => 'required|mimes:jpeg,bmp,png'
     	]);
 
-		$user = Auth::user();
 		$team = $user->team;
 		if(empty($team)){
 			$team = Team::create([
@@ -160,20 +168,30 @@ class RegisterController extends Controller {
 	}
 	//创建团队
 	public function postTeam(Request $request){
+		$user = Auth::user();
+		if(empty($user)){
+			return redirect('/')->withErrors('请先登录');
+		}
 		$this->validate($request, [
-			'univ_sel' => 'required|numeric',
+			'univ' => 'required|string',
 	        'title' => 'string',
 	        'name' => 'required|string',
 		]);
 
-		$user = Auth::user();
+		$univ = Univ::where(['name' => Input::get('univ')])->first();
+		if(empty($univ)){
+			$univ = Univ::create([
+				'name' => Input::get('univ'),
+				'area_id' => 99,
+				]);
+		}
 		$team = $user->team;
 		if(empty($team)){
 			$team = Team::create([
 				'authen_id' => $user->id,
 			]);
 		}
-		$team->univ_id=Input::get('univ_sel');
+		$team->univ_id = $univ->id;
 		$team->name=Input::get('name');
 		if(empty(Input::get('title'))){
 			$team->title=Input::get('title');
@@ -185,10 +203,18 @@ class RegisterController extends Controller {
 	}
 	//添加成员页
 	public function getMember(){
+		$user = Auth::user();
+		if(empty($user)){
+			return redirect('/')->withErrors('请先登录');
+		}
 		return view('newmember');
 	}
 
 	public function postMember(Request $request){
+		$user = Auth::user();
+		if(empty($user)){
+			return redirect('/')->withErrors('请先登录');
+		}
 		if (Member::where('id_num',Input::get('id_num'))->count()>0) {
 			return redirect()->back()->withErrors('身份证号已被注册，若有疑问，请联系主办方。')->withInput();
 		}

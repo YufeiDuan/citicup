@@ -11,6 +11,8 @@ class Univ extends Model {
 
 	protected $hidden = ['area_id'];
 
+	protected $fillable =['area_id','name'];
+
 	public function teams(){
 		return $this->hasMany('App\Team');
 	}

@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers;
 
-//use Storage;
+use Storage;
 //use Image;
 use App\Area;
 use App\Univ;
@@ -40,6 +40,8 @@ class WelcomeController extends Controller {
 
 	public function test()
 	{
+		$univ = Univ::all()->toJson();
+		Storage::put('a.txt', $univ);
 		return view('blank');
 	}
 

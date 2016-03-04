@@ -1,0 +1,30 @@
+.autoComplete {position:relative;width:100%;float:left;}
+
+.autoComplete input{
+	width: 100%;
+	
+}
+
+.autoComplete ul{
+	z-index:99;
+	padding:0px;
+	border-width:1px;
+	border-style:solid;
+	border-color: #ccc;
+	width:100%;
+	background:white;
+	display:none;
+	position:absolute;
+	overflow-y:scroll;
+	height: 250px; 
+}
+.autoComplete li{
+	list-style:none;
+}
+.autoComplete li a {
+	display:block;
+	color:#000;
+	text-decoration:none;
+	padding:1px 0 2px 5px;
+}
+.autoComplete li a:hover {color:#000;background:#ccc;border:none;}

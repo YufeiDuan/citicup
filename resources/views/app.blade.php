@@ -105,8 +105,7 @@
 				
 			});
 		</script>
-		<script src="/js/search.js"></script>
-		<div class="autoComplete"> <input value="input" /> <ul><li></li></ul> </div>
+
 		@yield('content')
 	</body>
 </html>

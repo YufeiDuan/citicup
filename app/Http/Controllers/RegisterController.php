@@ -193,9 +193,7 @@ class RegisterController extends Controller {
 		}
 		$team->univ_id = $univ->id;
 		$team->name=Input::get('name');
-		if(empty(Input::get('title'))){
-			$team->title=Input::get('title');
-		}
+		$team->title=Input::get('title');
 		$team->save();
 		$user->state=3;
 		$user->save();

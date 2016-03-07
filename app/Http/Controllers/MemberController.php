@@ -67,7 +67,7 @@ class MemberController extends Controller {
 		if ($member->save()) {
 			return Redirect::to('/team');
 		} else {
-			return Redirect::to('/team')->withErrors('添加失败！');
+			return redirect()->back()->withErrors('添加失败，请稍后重试。')->withInput();
 		}
 
 	}
@@ -90,11 +90,11 @@ class MemberController extends Controller {
 			'year_entry' => 'required|numeric',
 			'email' => 'required|email',
 		]);
-
+		
 		if (Member::where('id', $id)->update(Input::only(['name', 'sex','univ_id','college','major','id_num','stu_num','degree','year_entry','email']))) {
 			return Redirect::to('/team');
 		} else {
-			return Redirect::to('/team')->withErrors('更新失败！');
+			return redirect()->back()->withErrors('修改失败，请稍后重试。')->withInput();
 		}
 
 	}

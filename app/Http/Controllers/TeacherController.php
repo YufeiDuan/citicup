@@ -14,6 +14,7 @@ use Redirect;
 
 use App\Team;
 use App\Teacher;
+use App\Univ;
 
 class TeacherController extends Controller {
 
@@ -27,21 +28,29 @@ class TeacherController extends Controller {
 		}
 		$this->validate($request, [
 			'name' => 'required|string|max:10',
-			'univ_id'=>'required|numeric',
+			'school'=>'required|string',
 			'college' => 'required|string|max:20',
 			'email' => 'required|email',
 		]);
 
+		$univ = Univ::where(['name' => Input::get('school')])->first();
+		if(empty($univ)){
+			$univ = Univ::create([
+				'name' => Input::get('school'),
+				'area_id' => 99,
+				]);
+		}
+
 		$teacher = new Teacher;
 		$teacher->name=Input::get('name');
-		$teacher->univ_id=Input::get('univ_id');
+		$teacher->univ_id=$univ->id;
 		$teacher->college=Input::get('college');
 		$teacher->email=Input::get('email');
 		$teacher->team_id=$team->id;
 		if ($teacher->save()) {
 			return Redirect::to('/team');
 		} else {
-			return Redirect::to('/team')->withErrors('添加失败！');
+			return redirect()->back()->withErrors('添加失败，请稍后重试。')->withInput();
 		}
 
 	}	
@@ -67,15 +76,23 @@ class TeacherController extends Controller {
 		
 		$this->validate($request, [
 			'name' => 'required|string|max:10',
-			'univ_id'=>'required|numeric',
+			'school'=>'required|string',
 			'college' => 'required|string|max:20',
 			'email' => 'required|email',
 		]);
 
+		$univ = Univ::where(['name' => Input::get('school')])->first();
+		if(empty($univ)){
+			$univ = Univ::create([
+				'name' => Input::get('school'),
+				'area_id' => 99,
+				]);
+		}
+
 		if (Teacher::where('id', $id)->update(Input::only(['name','univ_id', 'college','email']))) {
 			return Redirect::to('/team');
 		} else {
-			return Redirect::to('/team')->withErrors('更新失败！');
+			return redirect()->back()->withErrors('修改失败，请稍后重试。')->withInput();
 		}
 	}
 

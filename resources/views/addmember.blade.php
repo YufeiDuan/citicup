@@ -1,9 +1,11 @@
 <p>@extends('home')
     @section('rightcontent')
     <script src="/js/memberadd.js"></script>
-    <script src="/js/school.js"></script>
-    <script src="/js/choose_school_two.js"></script>
+    <script src="/js/s.js"></script>
+    <script src="/js/jquery-ui.min.js"></script>
+    <script src="/js/search.js"></script>
     <link rel="stylesheet" href="/css/team.css" type="text/css" />
+    <link href="{{ asset('/css/search.css') }}" rel="stylesheet">
     <div class="container-fluid">
         @if (count($errors) > 0)
         <div class="alert alert-danger">
@@ -14,25 +16,7 @@
             </ul>
         </div>
         @endif
-        <div class="modal" id="choose">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title">选择学校</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div id="choose-a-province">
-                        </div>
-                        <div id="choose-a-school">
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <div class="row">
         <input type="hidden" id="teacher_count" value="{{ $data['teacher_count'] }}"/>
         <span id="info"></span>
@@ -46,10 +30,16 @@
    
    <div class="tab-pane fade" id="teacher">
       <form action="{{ URL('/teacher') }}" method="POST" name="formaddt" onsubmit="return(check())">   
+        <div class="form-group">
+            <label class="col-md-4 control-label">姓名</label>
+            <div class="col-md-6">
+                <input type="text" class="form-control" name="password" id="pwd" required="required" value="{{ old('name') }}" placeholder="必填项,不超过10个字符" >
+            </div>
+        </div>
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             姓名: <input type="text" name="name" class="form-control" required="required" value="{{ old('name') }}" maxLength="10" placeholder="必填项,不超过10个字符">
             <br>
-            学校: <input type="text" name="school" id="school-namet" value="点击选择" onclick="pop()" class="form-control">
+            学校: <input type="text" name="school" id="school-namet" value="点击选择" class="form-control">
             <input type="hidden" id="univ_selt" name="univ_id" value="" required="required">
 
             <br>

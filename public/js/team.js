@@ -4,6 +4,7 @@ window.onload=function(){
 	$('#choose').modal('hide');
 	$("#team_name").attr("disabled","disabled");
 	$("#team_title").attr("disabled","disabled");
+	$("#school").attr("disabled","disabled");
 	$("#btn_upload").hide();
 	$('#save').hide();
 	$('#cancel').hide();

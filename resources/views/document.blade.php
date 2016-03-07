@@ -21,7 +21,7 @@
 								
 							</select>
 							<br>
-							<div class="btn">
+							<div class="btni">
 								<span>添加附件</span>
 								
 								<input id="fileupload" type="file" name="document">

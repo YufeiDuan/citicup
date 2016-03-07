@@ -1,11 +1,13 @@
 <p>@extends('home')
 	@section('rightcontent')
-	<script src="/js/school.js"></script>
-	<script src="/js/choose_school.js"></script>
+	<script src="/js/s.js"></script>
 	<script src="/js/jquery.form.js"></script>
 	<script src="/js/team.js"></script>
+	<script src="/js/jquery-ui.min.js"></script>
+	<script src="/js/search.js"></script>
 	<link rel="stylesheet" href="/css/team.css" type="text/css" />
 	<link rel="stylesheet" href="/css/report.css" type="text/css" />
+	<link href="{{ asset('/css/search.css') }}" rel="stylesheet">
 	<div class="container-fluid">
 		<div class="modal" id="upload_modal">
 			<div class="modal-dialog">
@@ -16,7 +18,7 @@
 					</div>
 					<div class="modal-body">
 						<form id='myupload' action='/team/logo' method='post' enctype='multipart/form-data' onsubmit='check()'>
-							<div class="btn">
+							<div class="btni">
 								<span>选择图片</span>
 								
 								<input id="fileupload" type="file" name="pic" accept=".jpg,.png">
@@ -37,25 +39,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="modal" id="choose">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-					<h4 class="modal-title">选择学校</h4>
-				</div>
-				<div class="modal-body">
-					<div id="choose-a-province">
-					</div>
-					<div id="choose-a-school">
-					</div>
-				</div>
-				<div class="modal-footer">
-					
-				</div>
-			</div>
-		</div>
-	</div>
+
 	@if (count($errors) > 0)
 	<div class="row-fluid">
 		<div class="alert alert-danger">
@@ -71,13 +55,13 @@
 		团队信息 <a href="#" onclick="display()">修改</a>
 	</div>
 	<div class="row">
-		
+
 		<div class="col-xs-3">
 			<div class="logo">
 				<img src="/logo/460351733" id="logo">
 			</div>
 			<div>
-				<button class="btn" id="btn_upload" type="button">上传Logo</button>
+				<button class="btn btn-info" id="btn_upload" type="button">上传Logo</button>
 			</div>
 		</div>
 		<form action="{{ URL('/team/1') }}" method="post" name="formchange">
@@ -85,20 +69,20 @@
 				<div class="form-group">
 					<label class="col-md-3 control-label">团队名称</label>
 					<div class="col-md-9">
-						<input type="text" class="form-control" name="team_name" id="team_name" value="{{ $team->name }}" required="required" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5\@\.]/g,'')" onblur="if(this.value.replace(/^ +| +$/g,'')=='')alert('不能为空!')" maxlength="20"/ placeholder="不超过20个字符">
+						<input type="text" class="form-control" name="team_name" id="team_name" value="{{ $team->name }}" required="required" onblur="if(this.value.replace(/^ +| +$/g,'')=='')alert('不能为空!')" maxlength="20"/ placeholder="不超过20个字符">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-md-3 control-label">所属高校</label>
 					<div class="col-md-9">
-						<input type="text" name="school" id="school-name" value="{{$univ->name}}" onclick="pop()" class="form-control" readonly="readonly">
-						<input type="hidden" id="univ_sel" name="univ_sel" value="{{$univ->id}}">
+						<input type="text" name="school" id="school-name" value="{{$univ->name}}" class="form-control school">
+
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-md-3 control-label">参赛题目</label>
 					<div class="col-md-9">
-						<input type="text" class="form-control" name="team_title" id="team_title" value="{{ $team->title }}" required="required" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5\@\.]/g,'')" maxlength="30"/ placeholder="不超过30个字符">
+						<input type="text" class="form-control" name="team_title" id="team_title" value="{{ $team->title }}" maxlength="30"/ placeholder="不超过30个字符">
 					</div>
 				</div>
 	

@@ -27,7 +27,7 @@
 					</div>
 					<div class="modal-body">
 						<form id='myupload' action='/report' method='post' enctype='multipart/form-data'>
-							<div class="btn">
+							<div class="btni">
 								<span>添加附件</span>
 								
 								<input id="fileupload" type="file" name="report">
@@ -49,15 +49,20 @@
 	<div class="row-fluid">
 		参赛题目<a href="#" onclick="display()">修改</a>
 	</div>
-	<div class="row-fluid">
-		<form action="{{ URL('/report/1') }}" method="post">
-			<input name="_method" type="hidden" value="PUT">
-			<input type="hidden" name="_token" value="{{ csrf_token() }}">
-			<input type="text" name="title" id="title" value="{{$data['title']}}" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5\@\.]/g,'')" onblur="if(this.value.replace(/^ +| +$/g,'')=='')alert('不能为空!')" maxlength="30"/>
-			<span class="tips">不超过30个字符</span>
-			<input type="submit" id="save" value="保存">
-			<input type="button" id="cancel" value="取消" onClick="display()">
-		</form>
+	<div class="row-fluid col-md-12">
+		<div class="form-group">
+			<form action="{{ URL('/report/1') }}" method="post">
+				<input name="_method" type="hidden" value="PUT">
+				<input type="hidden" name="_token" value="{{ csrf_token() }}">
+				<div class="col-md-4">
+					<input type="text" name="title" id="title" class="form-control" value="{{$data['title']}}" onblur="if(this.value.replace(/^ +| +$/g,'')=='')alert('不能为空!')"placeholder="不超过30个字符" maxlength="30"/>
+				</div>
+				<div class="col-md-4">
+					<input class="btn btn-success" type="submit" id="save" value="保存">
+					<input class="btn btn-danger" type="button" id="cancel" value="取消" onClick="display()">
+				</div>
+			</form>
+		</div>
 	</div>
 	<div class="row-fluid">
 		项目报告<a href="#" onclick="pop()">上传</a>

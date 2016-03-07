@@ -14,6 +14,7 @@ use Redirect;
 use Response;
 
 use App\Team;
+use App\Univ;
 use App\Member;
 use App\Teacher;
 
@@ -97,7 +98,7 @@ class TeamController extends Controller {
 	public function update(Request $request){
 		
 		$this->validate($request, [
-	        'univ_sel' => 'required|numeric',
+	        'school' => 'required|string',
 	        'team_title' => 'string',
 	        'team_name' => 'required|string',
     	]);
@@ -106,10 +107,17 @@ class TeamController extends Controller {
 		$count = $team->unreadcount();
 		$old_name = $team->name;
 
-		$team->univ_id = Input::get('univ_sel');
+		$univ = Univ::where(['name' => Input::get('school')])->first();
+		if(empty($univ)){
+			$univ = Univ::create([
+				'name' => Input::get('school'),
+				'area_id' => 99,
+				]);
+		}
+
+		$team->univ_id = $univ->id;
 		$team->title = Input::get('team_title');
 		$team->name = Input::get('team_name');
-		
 		
 
 		if($team->save()){

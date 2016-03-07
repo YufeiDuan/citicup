@@ -82,7 +82,7 @@
 					</div>
 					<div class="modal-body">
 						<form id='myupload' action='/reg/logo' method='post' enctype='multipart/form-data' onsubmit='check()'>
-							<div class="btn">
+							<div class="btni">
 								<span>选择图片</span>
 								
 								<input id="fileupload" type="file" name="pic" accept=".jpg,.png">

@@ -1,10 +1,11 @@
 var team_name;
 var team_title;
 window.onload=function(){
+	n = Math.random(100);
+	$("#logo").attr("src","/logo/"+n);
 	$('#choose').modal('hide');
 	$("#team_name").attr("disabled","disabled");
 	$("#team_title").attr("disabled","disabled");
-	$("#school").attr("disabled","disabled");
 	$("#btn_upload").hide();
 	$('#save').hide();
 	$('#cancel').hide();
@@ -73,7 +74,6 @@ function display(){
 		$('#save').show();
 		$('#cancel').show();
 		$("#school-name").attr("disabled",false);
-		$('#school-name').attr("onclick","pop()");
 		$('.tips').show();
 		tag=0;
 	}else{
@@ -87,7 +87,6 @@ function display(){
 		$('#cancel').hide();
 		$('.tips').hide();
 		$('#school-name').attr("disabled","disabled");
-		$('#school-name').removeAttr("onclick");
 		tag=1;
 	}
 	

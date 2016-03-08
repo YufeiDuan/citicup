@@ -13,6 +13,7 @@ use Image;
 use Redirect;
 
 use App\Team;
+use App\Univ;
 use App\Member;
 
 class MemberController extends Controller {
@@ -41,7 +42,7 @@ class MemberController extends Controller {
 		$this->validate($request, [
 			'name' => 'required|string|max:10',
 			'sex' => 'required|boolean',
-			'univ_id'=>'required|numeric|numeric',
+			'school'=>'required|string',
 			'college' => 'required|string|max:20',
 			'major' => 'required|string|max:20',
 			'id_num' => 'required|string|max:18|unique:members',
@@ -51,10 +52,18 @@ class MemberController extends Controller {
 			'email' => 'required|email',
 		]);
 
+		$univ = Univ::where(['name' => Input::get('school')])->first();
+		if(empty($univ)){
+			$univ = Univ::create([
+				'name' => Input::get('school'),
+				'area_id' => 99,
+				]);
+		}
+
 		$member = new Member;
 		$member->name=Input::get('name');
 		$member->sex=Input::get('sex');
-		$member->univ_id=Input::get('univ_id');
+		$member->univ_id=$univ->id;
 		$member->college=Input::get('college');
 		$member->major=Input::get('major');
 		$member->stu_num=Input::get('stu_num');
@@ -90,7 +99,7 @@ class MemberController extends Controller {
 			'year_entry' => 'required|numeric',
 			'email' => 'required|email',
 		]);
-		
+
 		if (Member::where('id', $id)->update(Input::only(['name', 'sex','univ_id','college','major','id_num','stu_num','degree','year_entry','email']))) {
 			return Redirect::to('/team');
 		} else {

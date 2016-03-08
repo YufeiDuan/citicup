@@ -1,8 +1,17 @@
 <p>@extends('home')
     @section('rightcontent')
     <script src="/js/memberedit.js"></script>
-    <script src="/js/school.js"></script>
-    <script src="/js/choose_school.js"></script>
+    <script src="/js/s.js"></script>
+    <script src="/js/jquery-ui.min.js"></script>
+    <script src="/js/search.js"></script>
+    <link href="{{ asset('/css/search.css') }}" rel="stylesheet">
+    <script>
+        $(function () {
+            $('#sex').val("{{$member->sex}}");
+            $('#degree').val("{{$member->degree}}");
+            $('#year_entry').val("{{$member->year_entry}}");
+        });
+    </script>
     <link rel="stylesheet" href="/css/team.css" type="text/css" />
     <div class="container-fluid">
         @if (count($errors) > 0)
@@ -14,61 +23,79 @@
             </ul>
         </div>
         @endif
-        <div class="modal" id="choose">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title">选择学校</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div id="choose-a-province">
-                        </div>
-                        <div id="choose-a-school">
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <div class="row">
             修改信息
         </div>
         <div class="row">
-        <form action="{{ URL('/member/'.$member->id) }}" method="POST" name="formchange">
+        <form action="{{ URL('/member/'.$member->id) }}" method="POST" name="formchange" class="form-horizontal">
             <input name="_method" type="hidden" value="PUT">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            姓名: <input type="text" name="name" class="form-control" required="required" value="{{ $member->name }}" maxLength="10" placeholder="必填项">
-            <br>
-            性别: <select class="form-control" name="sex" id="sex" required="required">
+            
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">姓名</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="name" required="required" value="{{ $member->name }}" maxLength="10" placeholder="必填项,不超过10个字符" >
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label">性别</label>
+                <div class="col-md-6">
+                    <select class="form-control" name="sex" id="sex" required="required">
                       <option value="1">男</option>
                       <option value="0">女</option>
                   </select>
-            <br>
-            <input type="hidden" name="sex_sel" id="sex_sel" value="{{$member->sex}}"/>
-            学校: <input type="text" name="school" id="school-name" value="{{$member->univ->name}}" onclick="pop()" readonly="readonly" class="form-control">
-                  <input type="hidden" id="univ_sel" name="univ_id" value="{{$member->univ->id}}" required="required" placeholder="点击选择">
-
-            <br>
-            学院:<input type="text" name="college" class="form-control" required="required" value="{{ $member->college }}" maxLength="20" required="required" placeholder="必填项,请输入学院全称，不超过20个字符">
-            <br> 
-            专业: <input type="text" name="major" class="form-control" required="required" value="{{ $member->major }}" maxLength="20" required="required" placeholder="必填项,请输入专业名称，不超过20个字符">
-            <br>
-            学号: <input type="text" name="stu_num" class="form-control" required="required" value="{{ $member->stu_num }}" maxLength="15" required="required" placeholder="必填项,请输入数字字母组合">
-            <br>
-            身份证号: <span id="id_info"></span><input type="text" name="id_num" id="id_num" class="form-control" required="required" value="{{ $member->id_num }}" maxLength="18" required="required" onblur="check()" placeholder="必填项,请输入正确的18位身份证号">
-            <br>
-            在读学历: <select class="form-control" id="degree" name="degree" required="required">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label">学校</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control school" name="school" required="required" value="{{ $member->univ->name }}" placeholder="必填项,请输入学校全称" >
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label">学院</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="college" required="required" value="{{ $member->college }}" maxLength="20" placeholder="必填项,请输入学院全称,不超过20个字符" >
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label">专业</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="major" required="required" value="{{ $member->major }}" maxLength="20" placeholder="必填项,请输入专业名称,不超过20个字符" >
+                </div>
+            </div>            
+            <div class="form-group">
+                <label class="col-md-4 control-label">学号</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="stu_num" required="required" value="{{ $member->stu_num }}" placeholder="必填项,请输入数字字母组合" >
+                </div>
+            </div>  
+            <div class="form-group">
+                <label class="col-md-4 control-label">身份证号</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="id_num" id="id_num"  required="required" value="{{ $member->id_num }}" maxLength="18" onblur="checkid()" placeholder="必填项,请输入正确的18位身份证号">
+                </div>
+                <div class="col-md-2 control-label">
+                    <span id="id_info"></span>
+                </div>
+            </div>  
+            <div class="form-group">
+                <label class="col-md-4 control-label">在读学历</label>
+                <div class="col-md-6">
+                    <select class="form-control" name="degree" id="degree" required="required">
                       <option value="0">大专</option>
                       <option value="1"  selected>本科</option>
                       <option value="2">硕士</option>
                       <option value="3">博士</option>
                   </select>
-                <input type="hidden" name="degree_sel" id="degree_sel" value="{{$member->degree}}"/>
-            <br>
-            入学年份: <select class="form-control" name="year_entry" id="year_entry" required="required">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label">入学年份</label>
+                <div class="col-md-6">
+                    <select class="form-control" name="year_entry" id="year_entry" required="required" >
                         <option value="2016">2016</option>
                         <option value="2015">2015</option>
                         <option value="2014">2014</option>
@@ -78,17 +105,25 @@
                         <option value="2010">2010</option>
                         <option value="2009">2009</option>
                         <option value="2008">2008</option>
-                        <option value="2007">2008</option>
-                        <option value="2006">2008</option>
-                        <option value="2005">2008</option>
+                        <option value="2007">2007</option>
+                        <option value="2006">2006</option>
+                        <option value="2005">2005</option>
                   </select>
+                </div>
+            </div>            
+            <div class="form-group">
+                <label class="col-md-4 control-label">电子邮箱</label>
+                <div class="col-md-6">
+                    <input type="email" class="form-control" name="email" required="required" value="{{ $member->email }}" placeholder="必填项" >
+                </div>
+            </div>  
 
-                  <input type="hidden" name="entry_sel" id="entry_sel" value="{{$member->year_entry}}"/>
-            <br>
-            Email: <input type="text" name="email" class="form-control" required="required" value="{{ $member->email }}" required="required" placeholder="必填项">
-            <br>
-            <button class="btn btn-lg btn-info">保存</button>
-            <input class="btn btn-lg btn-info" type="button" value="返回" onClick="javascript:history.back();">
+            <div class="form-group">
+                <div class="col-md-6 col-md-offset-5">
+                   <button class="btn btn-success">保存</button>
+                    <input class="btn btn-danger" type="button" value="返回" onClick="javascript:history.back();">
+                </div>
+            </div>
         </form>
         </div>
     </div>

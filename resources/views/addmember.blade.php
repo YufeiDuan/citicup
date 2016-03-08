@@ -16,12 +16,12 @@
             </ul>
         </div>
         @endif
-
-        <div class="row">
-        <input type="hidden" id="teacher_count" value="{{ $data['teacher_count'] }}"/>
-        <div class="alert alert-info">
+        <div class="alert alert-info" id="tchinfo">
             <span id="info"></span>
         </div>
+        <div class="row">
+        <input type="hidden" id="teacher_count" value="{{ $data['teacher_count'] }}"/>
+
         <ul id="myTab" class="nav nav-tabs">
    <li class="active"><a href="#member" data-toggle="tab">
       添加队员</a>
@@ -31,7 +31,7 @@
 <div id="myTabContent" class="tab-content">
    
    <div class="tab-pane fade" id="teacher">
-      <form action="{{ URL('/teacher') }}" method="POST" name="formaddt" onsubmit="return(check())" class="form-horizontal">   
+      <form action="{{ URL('/teacher') }}" method="POST" name="formaddt" class="form-horizontal">   
         <br>
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class="form-group">

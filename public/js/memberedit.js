@@ -1,12 +1,8 @@
-window.onload = function(){
-    $('#choose').modal('hide');
-	var sex_sel = $("#sex_sel").attr('value');
-	$('#sex').val(sex_sel);
-	var degree_sel = $("#degree_sel").attr('value');
-	$('#degree').val(degree_sel);
-	var entry_sel = $("#entry_sel").attr('value');
-	$('#year_entry').val(entry_sel);
-}
+        $(function () {
+            $('#sex').val("{{$member->sex}}");
+            $('#degree').val("{{$member->degree}}");
+            $('#year_entry').val("{{$member->year_entry}}");
+        });
 
 //增加身份证验证
 function check(){

@@ -1,8 +1,10 @@
 <p>@extends('home')
     @section('rightcontent')
     <script src="/js/memberedit.js"></script>
-    <script src="/js/school.js"></script>
-    <script src="/js/choose_school.js"></script>
+    <script src="/js/s.js"></script>
+    <script src="/js/jquery-ui.min.js"></script>
+    <script src="/js/search.js"></script>
+    <link href="{{ asset('/css/search.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="/css/team.css" type="text/css" />
     <div class="container-fluid">
         @if (count($errors) > 0)
@@ -14,45 +16,49 @@
             </ul>
         </div>
         @endif
-        <div class="modal" id="choose">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title">选择学校</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div id="choose-a-province">
-                        </div>
-                        <div id="choose-a-school">
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <div class="row">
             修改信息
         </div>
         <div class="row">
-        <form action="{{ URL('/teacher/'.$teacher->id) }}" method="POST" onsubmit="return(check())" name="formchange">
+        <form action="{{ URL('/teacher/'.$teacher->id) }}" method="POST" name="formchange"class="form-horizontal">
             <input name="_method" type="hidden" value="PUT">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            姓名: <input type="text" name="name" class="form-control" required="required" value="{{ $teacher->name }}" maxLength="10" placeholder="必填项，不超过10个字符">
-            <br>
-            学校: <input type="text" name="school" id="school-name" value="{{$teacher->univ->name}}" onclick="pop()" readonly="readonly" class="form-control">
-                  <input type="hidden" id="univ_sel" name="univ_id" value="{{$teacher->univ->id}}" required="required" placeholder="点击选择">
+            
 
-            <br>
-            学院:<input type="text" name="college" class="form-control" required="required" value="{{ $teacher->college }}" maxLength="20" required="required" placeholder="必填项,请输入学院全称，不超过20个字符">
-            <br> 
+            <div class="form-group">
+                <label class="col-md-4 control-label">姓名</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="name" required="required" value="{{ $teacher->name }}" maxLength="10" placeholder="必填项,不超过10个字符" >
+                </div>
+            </div>
 
-            Email: <input type="text" name="email" class="form-control" required="required" value="{{ $teacher->email }}" required="required" placeholder="必填项">
-            <br>
-            <button class="btn btn-lg btn-info">保存</button>
-            <input class="btn btn-lg btn-info" type="button" value="返回" onClick="javascript:history.back();">
+            <div class="form-group">
+                <label class="col-md-4 control-label">学校</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control school" name="school" required="required" value="{{ $teacher->univ->name }}" placeholder="必填项,请输入学校全称" >
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label">学院</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="college" required="required" value="{{ $teacher->college }}" maxLength="20" placeholder="必填项,请输入学院全称,不超过20个字符" >
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">电子邮箱</label>
+                <div class="col-md-6">
+                    <input type="email" class="form-control" name="email" required="required" value="{{ $teacher->email }}" placeholder="必填项" >
+                </div>
+            </div>  
+
+            <div class="form-group">
+                <div class="col-md-6 col-md-offset-5">
+                   <button class="btn btn-success">保存</button>
+                    <input class="btn btn-danger" type="button" value="返回" onClick="javascript:history.back();">
+                </div>
+            </div>
         </form>
         </div>
     </div>

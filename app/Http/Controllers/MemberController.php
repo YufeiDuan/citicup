@@ -35,9 +35,9 @@ class MemberController extends Controller {
 	}
 
 	public function store(Request $request){
-		//if (Member::where('id_num',Input::get('id_num'))->count()>0) {
-		//	return Redirect::to('/team')->withErrors('身份证号已被注册，若有疑问，请联系主办方。');
-		//}
+		if (Member::where('id_num',Input::get('id_num'))->count()>0) {
+			return redirect()->back()->withInput()->withErrors('身份证号已被注册，若有疑问，请联系主办方。');
+		}
 
 		$this->validate($request, [
 			'name' => 'required|string|max:10',
@@ -82,7 +82,15 @@ class MemberController extends Controller {
 	}
 
 	public function update(Request $request,$id){
-		
+		$member = Member::find($id);
+		$team = Auth::user()->team;
+		if($member->leader){
+			return redirect('/team')->withErrors('队长信息暂不可修改。');
+		}
+		if($member->team_id!=$team->id){
+			return redirect('/team')->withErrors('只能修改自己团队成员信息。');
+		}
+
 		$team = Auth::user()->team;
 		$count = $team->unreadcount();
 		View::share('data',['count'=>$count,'name'=>$team->name]);
@@ -90,7 +98,7 @@ class MemberController extends Controller {
 		$this->validate($request, [
 			'name' => 'required|string|max:10',
 			'sex' => 'required|boolean',
-			'univ_id'=>'required|numeric|numeric',
+			'school'=>'required|string',
 			'college' => 'required|string|max:20',
 			'major' => 'required|string|max:20',
 			'id_num' => 'required|string|max:18',
@@ -100,7 +108,24 @@ class MemberController extends Controller {
 			'email' => 'required|email',
 		]);
 
-		if (Member::where('id', $id)->update(Input::only(['name', 'sex','univ_id','college','major','id_num','stu_num','degree','year_entry','email']))) {
+		$univ = Univ::where(['name' => Input::get('school')])->first();
+		if(empty($univ)){
+			$univ = Univ::create([
+				'name' => Input::get('school'),
+				'area_id' => 99,
+				]);
+		}
+		$member->name=Input::get('name');
+		$member->sex=Input::get('sex');
+		$member->univ_id=$univ->id;
+		$member->college=Input::get('college');
+		$member->major=Input::get('major');
+		$member->stu_num=Input::get('stu_num');
+		$member->id_num=Input::get('id_num');
+		$member->degree=Input::get('degree');
+		$member->year_entry=Input::get('year_entry');
+		$member->email=Input::get('email');
+		if ($member->save()) {
 			return Redirect::to('/team');
 		} else {
 			return redirect()->back()->withErrors('修改失败，请稍后重试。')->withInput();
@@ -110,7 +135,15 @@ class MemberController extends Controller {
 
 	public function destroy($id)
 	{
+		$team = Auth::user()->team;
 		$member = Member::find($id);
+
+		if($member->leader){
+			return redirect('/team')->withErrors('队长不可删除。');
+		}
+		if($member->team_id!=$team->id){
+			return redirect('/team')->withErrors('只能修改自己团队成员信息。');
+		}
 		$member->delete();
 
 		return Redirect::to('/team');

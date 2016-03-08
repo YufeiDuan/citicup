@@ -69,7 +69,12 @@ class TeacherController extends Controller {
 	}
 
 	public function update(Request $request,$id){
-		
+		$team = Auth::user()->team;
+		$teacher = Teacher::find($id);
+		if($teacher->team_id!=$team->id){
+			return redirect('/team')->withErrors('只能修改自己团队老师信息。');
+		}
+
 		$team = Auth::user()->team;
 		$count = $team->unreadcount();
 		View::share('data',['count'=>$count,'name'=>$team->name]);
@@ -88,8 +93,12 @@ class TeacherController extends Controller {
 				'area_id' => 99,
 				]);
 		}
+		$teacher->name=Input::get('name');
+		$teacher->univ_id=$univ->id;
+		$teacher->college=Input::get('college');
+		$teacher->email=Input::get('email');
 
-		if (Teacher::where('id', $id)->update(Input::only(['name','univ_id', 'college','email']))) {
+		if ($teacher->save()) {
 			return Redirect::to('/team');
 		} else {
 			return redirect()->back()->withErrors('修改失败，请稍后重试。')->withInput();
@@ -98,7 +107,12 @@ class TeacherController extends Controller {
 
 	public function destroy($id)
 	{
+		$team = Auth::user()->team;
 		$teacher = Teacher::find($id);
+		if($teacher->team_id!=$team->id){
+			return redirect('/team')->withErrors('只能修改自己团队老师信息。');
+		}
+
 		$teacher->delete();
 
 		return Redirect::to('/team');

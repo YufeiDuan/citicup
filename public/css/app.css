@@ -1,12 +1,13 @@
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Hiragino Sans GB, WenQuanYi Micro Hei, Microsoft YaHei, Verdana, Aril, sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
 
 body {
   margin: 0;
+  font-family: "Roboto", Hiragino Sans GB, WenQuanYi Micro Hei, Microsoft YaHei, Verdana, Aril, sans-serif;
 }
 article,
 aside,

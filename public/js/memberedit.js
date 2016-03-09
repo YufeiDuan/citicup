@@ -1,8 +1,4 @@
-        $(function () {
-            $('#sex').val("{{$member->sex}}");
-            $('#degree').val("{{$member->degree}}");
-            $('#year_entry').val("{{$member->year_entry}}");
-        });
+
 
 //增加身份证验证
 function check(){

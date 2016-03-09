@@ -40,8 +40,8 @@ class WelcomeController extends Controller {
 
 	public function test()
 	{
-		$univ = Univ::all()->toJson();
-		Storage::put('a.txt', $univ);
+		//$univ = Univ::all()->toJson();
+		//Storage::put('a.txt', $univ);
 		return view('blank');
 	}
 

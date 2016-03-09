@@ -1,9 +1,13 @@
 .logo{
+	margin-top: 20px;
 	overflow:hidden;
 	text-align: center;
 }
 .logo img{
 	width:100px;
+}
+.logobtn{
+	margin-top: 10px;
 }
 
 #choose-box-wrapper{

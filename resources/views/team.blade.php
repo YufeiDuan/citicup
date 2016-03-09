@@ -59,12 +59,13 @@
 		<div class="col-xs-3">
 			<div class="logo">
 				<img src="" id="logo">
-			</div>
-			<div>
-				<button class="btn btn-info" id="btn_upload" type="button">上传Logo</button>
+
+			<div class="logobtn">
+				<button class="btn btn-success" id="btn_upload" type="button">上传Logo</button>
 			</div>
 		</div>
-		<form action="{{ URL('/team/1') }}" method="post" name="formchange">
+		</div>
+		<form action="{{ URL('/team/1') }}" method="post" name="formchange" class="form-horizontal">
 			<div class="col-md-9">
 				<div class="form-group">
 					<label class="col-md-3 control-label">团队名称</label>
@@ -88,8 +89,13 @@
 	
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<input name="_method" type="hidden" value="PUT">
-				<input type="submit" id="save" value="保存" onclick="save()">
-				<input type="button" id="cancel" value="取消" onClick="display()">
+				<div class="form-group">
+					<div class="col-md-9 col-md-offset-3">
+						<input class="btn btn-success" type="submit" id="save" value="保存" onclick="save()">
+						<input class="btn btn-danger" type="button" id="cancel" value="取消" onClick="display()">
+					</div>
+				</div>
+
 			</form>
 		</div>
 	</div>

@@ -2,7 +2,6 @@
 @section('head')
 	<script src="/js/newteam.js"></script>
 	<script src="/js/s.js"></script>
-	<script src="/js/search.js"></script>
 	<script src="/js/jquery.form.js"></script>
 	<script src="/js/jquery-ui.min.js"></script>
 	<link href="{{ asset('/css/jquery-ui.min.css') }}" rel="stylesheet">

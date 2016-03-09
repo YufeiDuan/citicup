@@ -3,7 +3,8 @@
 	<head>
 		<title>2016花旗杯</title>
 		
-		<!--<link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>-->
+		<!-- Fonts -->
+		<link href='//fonts.useso.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
 				<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
 		<script src="/js/jquery.min.js"></script>
 		<script src="/js/bootstrap.min.js"></script>

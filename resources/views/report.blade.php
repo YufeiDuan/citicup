@@ -46,12 +46,13 @@
 			</div>
 		</div>
 	</div>
-	<div class="row-fluid">
-		参赛题目<a href="#" onclick="display()">修改</a>
+	<div class="row-fluid xgxdiv" >
+		<h4 class="xgxtitle">参赛题目</h4> <a href="#" onclick="display()"><i class="glyphicon glyphicon-edit"></i>修改</a>
+
 	</div>
 	<div class="row-fluid col-md-12">
-		<div class="form-group">
-			<form action="{{ URL('/report/1') }}" method="post">
+		<form action="{{ URL('/report/1') }}" method="post" class="form-horizontal">
+			<div class="form-group">
 				<input name="_method" type="hidden" value="PUT">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<div class="col-md-4">
@@ -61,23 +62,26 @@
 					<input class="btn btn-success" type="submit" id="save" value="保存">
 					<input class="btn btn-danger" type="button" id="cancel" value="取消" onClick="display()">
 				</div>
-			</form>
-		</div>
+			</div>
+		</form>
 	</div>
-	<div class="row-fluid">
-		项目报告<a href="#" onclick="pop()">上传</a>
+	<div class="row-fluid xgxdiv">
+		<h4 class="xgxtitle">项目报告</h4> <a href="#" onclick="pop()"><i class="glyphicon glyphicon-upload"></i>上传</a>
 	</div>
 	<div class="row-fluid">
 			@if (empty($data['report']))
 			未提交项目报告。
 			@else
-			<table class="table table-striped">
-				<tr class="row">
-					<th class="col-xs-1">序号</th>
-					<th class="col-xs-5">文件名</th>
-					<th class="col-xs-2">文档类型</th>
-					<th class="col-xs-4">上传时间</th>
-				</tr>
+			<table class="table table-hover table-striped">
+				<thead>
+					<tr class="row">
+						<th class="col-xs-1">序号</th>
+						<th class="col-xs-5">文件名</th>
+						<th class="col-xs-2">文档类型</th>
+						<th class="col-xs-4">上传时间</th>
+					</tr>
+				</thead>
+				<tbody>
 				<tr class="row">
 					<td class="col-xs-1">1</td>
 					<td class="col-xs-5">
@@ -90,6 +94,7 @@
 						{{ $data['report']->updated_at }}
 					</td>
 				</tr>
+				</tbody>
 			</table>
 			@endif
 	</div>

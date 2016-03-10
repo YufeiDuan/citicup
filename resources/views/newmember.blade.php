@@ -8,7 +8,6 @@
 	<link href="{{ asset('/css/newteam.css') }}" rel="stylesheet">
 	<link href="{{ asset('/css/report.css') }}" rel="stylesheet">
 	<link href="{{ asset('/css/team.css') }}" rel="stylesheet">
-	<link href="{{ asset('/css/search.css') }}" rel="stylesheet">
 
 @endsection
 @section('title')

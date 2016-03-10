@@ -4,7 +4,6 @@
 	@endsection
 	@section('rightcontent')
 	<link rel="stylesheet" href="/css/report.css" type="text/css" />
-	<link rel="stylesheet" href="/css/document.css" type="text/css" />
 	<script src="/js/jquery.form.js"></script>
 	<script src="/js/document.js"></script>
 	<div class="container-fluid">
@@ -51,16 +50,16 @@
 	</div>
 </div>
 	@endif
-	<div class="row-fluid">
-		最终作品
-		<a href="#" onclick="pop()">上传</a>
-		<span><a href="/template">文档模板下载</a></span>
+	<div class="row-fluid xgxdiv">
+		<h4 class="xgxtitle">最终作品</h4> <a href="#" onclick="pop()"><i class="glyphicon glyphicon-upload"></i>上传</a>
+		<span style="float:right"><a href="/template"><i class="glyphicon glyphicon-download"></i>文档模板下载</a></span>
 	</div>
 	<div class="row-fluid">
 		@if (count($documents)==0)
 		还没有提交任何作品。
 		@else
-		<table class="table table-striped">
+		<table class="table table-striped table-hover">
+			<thead>
 			<tr class="row">
 				<th class="col-xs-1">序号</th>
 				<th class="col-xs-2">文件名</th>
@@ -68,7 +67,8 @@
 				<th class="col-xs-3">上传时间</th>
 				<th class="col-xs-2">操作</th>
 			</tr>
-			
+			</thead>
+			<tbody>
 			@foreach ($documents as $k=>$doc)
 			<tr class="row">
 				<td class="col-xs-1">
@@ -87,11 +87,12 @@
 					<form action="{{ URL('document/'.$doc->id) }}" method="POST" style="display: inline;" onsubmit="return(delconfirm())">
 						<input name="_method" type="hidden" value="DELETE">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
-						<button type="submit" class="btn btn-danger">删</button>
+						<button type="submit" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></button>
 					</form>
 				</td>
 			</tr>
 			@endforeach
+			</tbody>
 		</table>
 		@endif
 	</div>

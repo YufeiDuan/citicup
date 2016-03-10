@@ -5,7 +5,6 @@
     <script src="/js/jquery-ui.min.js"></script>
     <script src="/js/search.js"></script>
     <link rel="stylesheet" href="/css/team.css" type="text/css" />
-    <link href="{{ asset('/css/search.css') }}" rel="stylesheet">
     <div class="container-fluid">
         @if (count($errors) > 0)
         <div class="alert alert-danger">

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 		<title>2016花旗杯</title>
 		
 		<!-- Fonts -->
 		<link href='//fonts.useso.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
-				<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+		<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
 		<script src="/js/jquery.min.js"></script>
 		<script src="/js/bootstrap.min.js"></script>
 		<script src="/js/welcome.js"></script>

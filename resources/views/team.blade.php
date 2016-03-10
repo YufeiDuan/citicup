@@ -54,7 +54,7 @@
 	</div>
 	<div class="row">
 
-		<div class="col-xs-3">
+		<div class="col-md-3 col-md-offset-1">
 			<div class="logo">
 				<img src="" id="logo" class="img-rounded img-thumbnail">
 
@@ -64,7 +64,7 @@
 		</div>
 		</div>
 		<form action="{{ URL('/team/1') }}" method="post" name="formchange" class="form-horizontal teamedit">
-			<div class="col-md-9">
+			<div class="col-md-8">
 				<div class="form-group">
 					<label class="col-md-2 control-label">团队名称</label>
 					<div class="col-md-7">

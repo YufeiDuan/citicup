@@ -28,7 +28,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-3">
+            <div class="col-md-2">
                 
             <ul id="main-nav" class="nav nav-tabs nav-stacked">
                 <li>
@@ -52,7 +52,7 @@
                 
             </ul>
             </div>
-            <div class="col-xs-9">
+            <div class="col-md-9">
                 @yield('rightcontent')
             </div>
     </div>

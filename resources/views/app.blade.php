@@ -117,7 +117,7 @@
 		});
 	</script>
 	<div class="content-fluid">
-		<div class="row">
+		<div class="row row-fluid">
 			<div class="col-md-10 col-md-offset-1">
 				@yield('content')
 			</div>

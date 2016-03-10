@@ -2,8 +2,8 @@
     @section('content')
     <link rel="stylesheet" href="/css/menu.css" type="text/css" />
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-3">
+        <div class="row row-fluid">
+            <div class="col-md-2 menu">
                 
             <ul id="main-nav" class="nav nav-tabs nav-stacked">
                 <li>
@@ -35,7 +35,7 @@
                 
             </ul>
             </div>
-            <div class="col-xs-9">
+            <div class="col-md-9">
                 @yield('rightcontent')
             </div>
     </div>

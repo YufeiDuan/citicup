@@ -6233,3 +6233,12 @@ label,
 .checkbox label {
   font-weight: 300;
 }
+
+.xgxtitle{
+  display : inline;
+  margin-right: 10px;
+}
+.xgxdiv{
+  border-bottom:solid 1px #dddddd;
+  margin-bottom: 10px;
+}

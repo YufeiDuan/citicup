@@ -58,42 +58,42 @@
 		<div class="time">
 			<div class="clearfix course_nr">
 				<ul class="disp">
-					<li style="background:url(/img/1.png) no-repeat center top; ">
+					<li id="s1" style="background:url(/img/1.png) no-repeat center top; ">
 						Mar 15
 						<div class="shiji">
 							<h5>Mar 15</h5>
 							<p>比赛启动</p>
 						</div>
 					</li>
-					<li style="background:url(/img/2.png) no-repeat center top; ">
+					<li id="s2" style="background:url(/img/2.png) no-repeat center top; ">
 						Jun 30
-						<div class="shiji">
+						<div class="shiji" >
 							<h5>Jun 30</h5>
 							<p>团队组建</p>
 						</div>
 					</li>
-					<li style="background:url(/img/3.png) no-repeat center top; ">
+					<li  id="s3" style="background:url(/img/3.png) no-repeat center top; ">
 						Aug 1
 						<div class="shiji">
 							<h5>Aug 1</h5>
 							<p>项目报告</p>
 						</div>
 					</li>
-					<li style="background:url(/img/4.png) no-repeat center top; ">
+					<li id="s4" style="background:url(/img/4.png) no-repeat center top; ">
 						Sep 15
-						<div class="shiji">
+						<div class="shiji" >
 							<h5>Sep 15</h5>
 							<p>完整作品</p>
 						</div>
 					</li>
-					<li style="background:url(/img/5.png) no-repeat center top; ">
+					<li id="s5" style="background:url(/img/5.png) no-repeat center top; ">
 						Oct 15
 						<div class="shiji">
 							<h5>Oct 15</h5>
 							<p>首轮评选</p>
 						</div>
 					</li>
-					<li style="background:url(/img/6.png) no-repeat center top; ">
+					<li  id="s6" style="background:url(/img/6.png) no-repeat center top; ">
 						Nov 20
 						<div class="shiji">
 							<h5>Nov 20</h5>
@@ -108,12 +108,12 @@
 	<!-- Scripts -->
 	<script type="text/javascript">
 		$(function(){
-			$('.disp li').hover(function(){
+			$('.disp li:not(#s1,#s2)').hover(function(){
 				$(this).find('.shiji').slideDown(600);
 			},function(){
 				$(this).find('.shiji').slideUp(400);
 			});
-			
+			$('#s1,#s2').find('.shiji').slideDown(600);
 		});
 	</script>
 	<div class="content-fluid">

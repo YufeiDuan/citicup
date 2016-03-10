@@ -50,21 +50,21 @@
 		</div>
 	</div>
 	@endif
-	<div class="row-fluid">
-		团队信息 <a href="#" onclick="display()">修改</a>
+	<div class="row-fluid xgxdiv">
+		<h4 class="xgxtitle">团队信息</h4> <a href="#" onclick="display()"><i class="glyphicon glyphicon-edit"></i>修改</a>
 	</div>
 	<div class="row">
 
 		<div class="col-xs-3">
 			<div class="logo">
-				<img src="" id="logo">
+				<img src="" id="logo" class="img-rounded img-thumbnail">
 
 			<div class="logobtn">
 				<button class="btn btn-success" id="btn_upload" type="button">上传Logo</button>
 			</div>
 		</div>
 		</div>
-		<form action="{{ URL('/team/1') }}" method="post" name="formchange" class="form-horizontal">
+		<form action="{{ URL('/team/1') }}" method="post" name="formchange" class="form-horizontal teamedit">
 			<div class="col-md-9">
 				<div class="form-group">
 					<label class="col-md-3 control-label">团队名称</label>
@@ -98,11 +98,12 @@
 			</form>
 		</div>
 	</div>
-	<div class="row-fluid">
-		成员信息 <a href="{{url('/team/add')}}">添加</a>
+	<div class="row-fluid xgxdiv">
+		<h4 class="xgxtitle">成员信息</h4> <a href="{{url('/team/add')}}"><i class="glyphicon glyphicon-user"></i>添加</a>
 	</div>
 	<div class="row-fluid">
-		<table class="table table-striped">
+		<table class="table table-hover table-striped ">
+			<thead>
 			<tr class="row">
 				<th class="col-xs-3">姓名</th>
 				<th class="col-xs-3">学校</th>
@@ -110,6 +111,8 @@
 				<th class="col-xs-2">类别</th>
 				<th class="col-xs-2">操作</th>
 			</tr>
+		</thead>
+		<tbody>
 			@foreach ($members as $member)
 			<tr class="row">
 				<td class="col-xs-3">
@@ -130,11 +133,11 @@
 				队员
 			</td>
 			<td class="col-xs-2">
-				<a href="{{ URL('member/'.$member->id.'/edit') }}" class="btn btn-success">改</a>
+				<a href="{{ URL('member/'.$member->id.'/edit') }}" class="btn btn-success"><i class="glyphicon glyphicon-edit"></i></a>
 				<form action="{{ URL('member/'.$member->id) }}" method="POST" style="display: inline;" onsubmit="return(delconfirm())">
 					<input name="_method" type="hidden" value="DELETE">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
-					<button type="submit" class="btn btn-danger del">删</button>
+					<button type="submit" class="btn btn-danger del"><i class="glyphicon glyphicon-trash"></i></button>
 				</form>
 			</td>
 			@endif
@@ -155,16 +158,17 @@
 				指导老师
 			</td>
 			<td class="col-xs-1">
-				<a href="{{ URL('teacher/'.$teacher->id.'/edit') }}" class="btn btn-success">改</a>
+				<a href="{{ URL('teacher/'.$teacher->id.'/edit') }}" class="btn btn-success"><i class="glyphicon glyphicon-edit"></i></a>
 				<form action="{{ URL('teacher/'.$teacher->id) }}" method="POST" style="display: inline;" onsubmit="return(delcheck())" class="form">
 					<input type="hidden" id="teacher_count" value="{{$teachers->count()}}">
 					<input name="_method" type="hidden" value="DELETE">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
-					<button class="btn btn-danger del" type="submit">删</button>
+					<button class="btn btn-danger del" type="submit"><i class="glyphicon glyphicon-trash"></i></button>
 				</form>
 			</td>
 		</tr>
 		@endforeach
+	</tbody>
 	</table>
 </div>
 	<div class="row-fluid">

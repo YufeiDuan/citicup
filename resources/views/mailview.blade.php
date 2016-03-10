@@ -3,7 +3,7 @@
 
 	<div class="container-fluid">
 		<div class="row">
-			<button class="btn" onclick="location='/mail'">返回</button>
+			<a href="{{ $back }}">返回</a>
 		</div>
 		<div class="row">
 			<h4>{{$mail->subject}}</h4>

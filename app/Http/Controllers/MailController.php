@@ -42,7 +42,7 @@ class MailController extends Controller {
 		$mail->flag_read=1;
 		$mail->save();
 		View::share('mail',$mail);
-		return view('mailview');
+		return view('mailview')->withBack(Input::get('f'));
 	}
 
 	//设置已读

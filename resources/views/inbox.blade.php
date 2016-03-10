@@ -32,6 +32,7 @@
 			@else
 			<table class="table table-striped table-hover" id="inbox">
 				<form id="show" action="/mail/view" method="get">
+					<input type="hidden" name="f" value="/mail">
 					<input type="hidden" id="tag" name="tag">
 				</form>
 				<thead>

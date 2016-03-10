@@ -73,7 +73,7 @@ function setread(){
     $("#op").submit();
 }
 
-//outbox.blade.php发送方删除
+//发送方删除
 function dels(){
     $("#op_tag").val(getChecked());
 }

@@ -15,7 +15,7 @@
 		<div class="row" style="border-bottom:solid 1px #dddddd;margin-bottom:5px;font-size:15px;">
 			时  间：{{$mail->created_at}}
 		</div>
-		<div class="row" style="font-size:15px;">
+		<div class="row" style="font-size:15px;line-height:25px;">
 			{{$mail->content}}
 		</div>	
 	</div>

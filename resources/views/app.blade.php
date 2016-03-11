@@ -116,7 +116,7 @@
 			$('#s1,#s2').find('.shiji').slideDown(600);
 		});
 	</script>
-	<div class="content-fluid">
+	<div class="content-fluid" style="border-top:solid 1px #eeeeee;padding-top:15px;">
 		<div class="row row-fluid">
 			<div class="col-md-10 col-md-offset-1">
 				@yield('content')

@@ -4,7 +4,6 @@
 	@endsection
 	@section('rightcontent')
 	<link rel="stylesheet" href="/css/report.css" type="text/css" />
-	<script src="/js/jquery.form.js"></script>
 	<script src="/js/document.js"></script>
 	<div class="container-fluid">
 		<div class="modal" id="upload_modal">

@@ -6,6 +6,7 @@ use Closure;
 use App\Process;
 use Redirect;
 use Request;
+use Input;
 
 class RegMiddleware {
 
@@ -58,7 +59,6 @@ class RegMiddleware {
 				}
 			}
 		}
-		
 		return $next($request);
 	}
 

@@ -2,16 +2,15 @@
 <html lang="zh-CN">
 	<head>
 		<title>2016花旗杯</title>
-
+		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
 
 		<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 		<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-		<script src="/js/welcome.js"></script>
+		<script src="{{ asset('/js/welcome.js') }}"></script>
 
-		<link href="{{ asset('/css/docs.min.css') }}" rel="stylesheet">
-		<link rel="stylesheet" href="/css/welcome.css" type="text/css" />
+		<link rel="stylesheet" href="{{ asset('/css/welcome.css') }}">
 	</head>
 	<body>
 		<div class="">

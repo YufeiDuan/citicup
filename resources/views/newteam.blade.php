@@ -2,12 +2,9 @@
 @section('head')
 	<script src="/js/newteam.js"></script>
 	<script src="/js/s.js"></script>
-	<script src="/js/jquery.form.js"></script>
-	<script src="/js/jquery-ui.min.js"></script>
-	<link href="{{ asset('/css/jquery-ui.min.css') }}" rel="stylesheet">
+
 	<link href="{{ asset('/css/newteam.css') }}" rel="stylesheet">
 	<link href="{{ asset('/css/report.css') }}" rel="stylesheet">
-	<link href="{{ asset('/css/team.css') }}" rel="stylesheet">
 @endsection
 @section('title')
 创建团队

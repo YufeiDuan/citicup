@@ -4,7 +4,6 @@
 	@endsection
 	@section('rightcontent')
 	<link rel="stylesheet" href="/css/report.css" type="text/css" />
-	<script src="/js/jquery.form.js"></script>
 	<script src="/js/report.js"></script>
 	<div class="container-fluid">
 		@if (count($errors) > 0)

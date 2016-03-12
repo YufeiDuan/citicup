@@ -9,23 +9,6 @@ body {
   margin: 0;
   font-family: "微软雅黑", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-body {
-  font-family: "微软雅黑", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.42857143;
-  color: #333333;
-  background-color: #ffffff;
-}
-input,
-button,
-select,
-textarea {
-  font-family: "微软雅黑", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: inherit;
-  line-height: inherit;
-}
-
-
 h1,
 h2,
 h3,
@@ -42,6 +25,14 @@ h6,
   font-weight: 500;
   line-height: 1.1;
   color: inherit;
+}
+
+.form-control[disabled],
+.form-control[readonly],
+fieldset[disabled] .form-control {
+  cursor: not-allowed;
+  background-color: #F8F8FF;
+  opacity: 1;
 }
 
 body,

@@ -1,14 +1,13 @@
 <p>@extends('home')
 	@section('rightcontent')
 	<script src="/js/s.js"></script>
-	<script src="/js/jquery.form.js"></script>
 	<script src="/js/team.js"></script>
 
 	<link rel="stylesheet" href="/css/team.css" type="text/css" />
 	<link rel="stylesheet" href="/css/report.css" type="text/css" />
 	<div class="container-fluid">
 		<div class="modal" id="upload_modal">
-			<div class="modal-dialog">
+			<div class="modal-dialog">	
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" onclick="hideupload()" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>

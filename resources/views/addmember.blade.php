@@ -2,8 +2,6 @@
     @section('rightcontent')
     <script src="/js/memberadd.js"></script>
     <script src="/js/s.js"></script>
-    <script src="/js/jquery-ui.min.js"></script>
-    <script src="/js/search.js"></script>
     <link rel="stylesheet" href="/css/team.css" type="text/css" />
     <div class="container-fluid">
         @if (count($errors) > 0)

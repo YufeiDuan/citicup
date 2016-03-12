@@ -208,15 +208,37 @@ class RegisterController extends Controller {
 		return view('newmember');
 	}
 
+
 	public function postMember(Request $request){
 		$user = Auth::user();
-		if(empty($user)){
+		if (empty($user)){
 			return redirect('/')->withErrors('请先登录');
 		}
 		if (Member::where('id_num',Input::get('id_num'))->count()>0) {
 			return redirect()->back()->withErrors('身份证号已被注册，若有疑问，请联系主办方。')->withInput();
 		}
-
+		$idcard = Input::get('id_num');
+		$flag=1;
+		if(strlen($idcard)!=18){  
+	        $flag=0;
+	    }  
+	    $idcard_base = substr($idcard, 0, 17);  
+	    $verify_code = substr($idcard, 17, 1);  
+	    $factor = array(7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2);  
+	    $verify_code_list = array('1', '0', 'X', '9', '8', '7', '6', '5', '4', '3', '2');  
+	    $total = 0;  
+	    for($i=0; $i<17; $i++){  
+	        $total += substr($idcard_base, $i, 1)*$factor[$i];  
+	    }  
+	    $mod = $total % 11;  
+	    if($verify_code == $verify_code_list[$mod]){  
+	        $flag=1;
+	    }else{  
+	        $flag=0;
+	    }
+	    if($flag==0){
+	    	return redirect()->back()->withInput()->withErrors('身份证号有误，若有疑问，请联系主办方。');
+	    }
 
 		$this->validate($request, [
 			'leader_name' => 'required|string|max:10',
@@ -280,6 +302,7 @@ class RegisterController extends Controller {
 		$user->save();
 		return redirect('/home');
 	}
+
 
 	public function __construct()
     {

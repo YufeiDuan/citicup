@@ -3,7 +3,7 @@
 	<script src="/js/s.js"></script>
 	<script src="/js/jquery.form.js"></script>
 	<script src="/js/team.js"></script>
-	<script src="/js/jquery-ui.min.js"></script>
+
 	<link rel="stylesheet" href="/css/team.css" type="text/css" />
 	<link rel="stylesheet" href="/css/report.css" type="text/css" />
 	<div class="container-fluid">

@@ -65,20 +65,20 @@
 		<form action="{{ URL('/team/1') }}" method="post" name="formchange" class="form-horizontal teamedit">
 			<div class="col-md-8">
 				<div class="form-group">
-					<label class="col-md-2 control-label">团队名称</label>
+					<label class="col-md-3 control-label">团队名称</label>
 					<div class="col-md-7">
 						<input type="text" class="form-control" name="team_name" id="team_name" value="{{ $team->name }}" required="required" onblur="if(this.value.replace(/^ +| +$/g,'')=='')alert('不能为空!')" maxlength="20"/ placeholder="不超过20个字符">
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-md-2 control-label">所属高校</label>
+					<label class="col-md-3 control-label">所属高校</label>
 					<div class="col-md-7">
 						<input type="text" name="school" id="school-name" value="{{$univ->name}}" class="form-control school">
 
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-md-2 control-label">参赛题目</label>
+					<label class="col-md-3 control-label">参赛题目</label>
 					<div class="col-md-7">
 						<input type="text" class="form-control" name="team_title" id="team_title" value="{{ $team->title }}" maxlength="30"/ placeholder="不超过30个字符">
 					</div>

@@ -63,3 +63,13 @@ label,
 * html .ui-autocomplete {
   height: 300px;
 }
+.tooltip { 
+  font-size: 18px; 
+  font-family: "微软雅黑", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #cccccc; 
+  background-color: #000000;
+}
+.tooltip-inner{
+  color:#fff;
+  background-color:#000;
+}

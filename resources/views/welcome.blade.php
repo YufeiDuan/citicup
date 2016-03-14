@@ -17,21 +17,31 @@
 			<div class="bgimg">
 				<div class="box">
 					<div class="login_box">
-						
-						<div class="info">
-							@if (count($errors) > 0)
-								@foreach ($errors->all() as $error)
-								{{ $error }}
-								@endforeach
-								@endif
-						</div>
-						
+
+						@if (count($errors) > 0)
+						<script type="text/javascript">
+							$(function() {
+							  $('#email').attr('title',"{{$errors->first()}}");
+							  $("#email").tooltip('show');
+							  $('#email').tooltip({
+							    trigger: 'manual'
+							  })
+							  .on('focus', function() {
+							    $(this).tooltip('hide');
+							  })
+							  .on('blur', function() {
+							    $(this).tooltip('hide');
+							  });
+							});
+						</script>
+						@endif
+
 						<form role="form" method="POST" action="{{ url('/auth/login') }}">
 							<div class="inputbox">
 								<input type="hidden" name="_token" value="{{ csrf_token() }}">
 									
 
-									<input type="email" name="email" value="{{ old('email') }}" placeholder="邮箱" class="form-control input" style="background-color:#fff">
+									<input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="请输入邮箱" class="form-control input" style="background-color:#fff" data-toggle="tooltip" title="默认的 Tooltip">
 									<br>
 
 									<input type="password" name="password" placeholder="请输入密码" class="input form-control">

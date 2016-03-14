@@ -37,9 +37,7 @@ class LoginController extends Controller {
         }
         return redirect('/test')
 					->withInput($request->only('email', 'remember'))
-					->withErrors([
-						'email' => $this->getFailedLoginMessage($request),
-					]);
+					->withErrors($this->getFailedLoginMessage($request));
     }
 
     protected function getFailedLoginMessage(Request $request)

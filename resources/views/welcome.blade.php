@@ -11,6 +11,7 @@
 		<script src="{{ asset('/js/welcome.js') }}"></script>
 
 		<link rel="stylesheet" href="{{ asset('/css/welcome.css') }}">
+		<link rel="stylesheet" href="{{ asset('/css/docs.min.css') }}">
 	</head>
 	<body>
 		<div class="">

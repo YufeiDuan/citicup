@@ -29,16 +29,7 @@ class TeamController extends Controller {
 
 	//添加团队
 	public function show(){
-
-	}
-
-	//添加成员
-	public function add(){
-		$team = Auth::user()->team;
-		$count = $team->unreadcount();
-		$teacher_count = $team->teachers->count();
-		View::share('data',['count'=>$count,'name'=>$team->name,'teacher_count'=>$teacher_count]);
-		return view('addmember');
+		
 	}
 
 	//更新团队Logo
@@ -47,9 +38,6 @@ class TeamController extends Controller {
 		$this->validate($request, [
 	        'pic' => 'required|mimes:jpeg,bmp,png'
     	]);
-
-		$team = Auth::user()->team;
-		$count = $team->unreadcount();
 
 		if(Input::hasFile('pic'))
 		{
@@ -112,10 +100,8 @@ class TeamController extends Controller {
 		
 
 		if($team->save()){
-			View::share('data',['count'=>$count,'name'=>$team->name]);
 			return Redirect::to('/team');
 		}else{
-			View::share('data',['count'=>$count,'name'=>$old_name]);
 			return Redirect::to('/team')->withErrors('修改失败！');
 		}
 

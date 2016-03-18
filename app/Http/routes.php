@@ -63,7 +63,11 @@ Route::get('/xgx','WelcomeController@admin');
 Route::group(['namespace' => 'Admin'], function()
 {
     Route::controllers([
-		'admin' => 'AuthController',
+		'adminauth' => 'AuthController',
 	]);
-
+});
+Route::group(['prefix' => 'admin','namespace' => 'Admin'], function()
+{
+    //管理员主页
+	Route::get('home', 'HomeController@home');
 });

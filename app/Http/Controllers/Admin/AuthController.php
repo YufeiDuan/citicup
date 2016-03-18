@@ -25,8 +25,8 @@ class AuthController extends Controller {
         	if($ret==1){
         		if($admin->state==1){
 			        Session::put('admin', $admin);
-			        //return redirect('/admin');
-			        return redirect()->back()->withErrors($ret);
+			        return redirect('/admin/home');
+			        //return redirect()->back()->withErrors($ret);
         		}
         	}
         }

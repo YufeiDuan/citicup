@@ -66,8 +66,9 @@ Route::group(['namespace' => 'Admin'], function()
 		'adminauth' => 'AuthController',
 	]);
 });
-Route::group(['prefix' => 'admin','namespace' => 'Admin'], function()
+Route::group(['prefix' => 'admin','middleware' => 'admin','namespace' => 'Admin'], function()
 {
     //管理员主页
 	Route::get('home', 'HomeController@home');
+	Route::resource('team','TeamController');
 });

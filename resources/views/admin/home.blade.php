@@ -34,7 +34,7 @@
 			<div class="row">
 				<div class="col-md-10 col-md-offset-1">
 					<div class="navbar-header">
-						<a class="navbar-brand" href="/home">CitiCup</a>
+						<a class="navbar-brand" href="/admin/home">CitiCup</a>
 					</div>
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav navbar-right">
@@ -62,27 +62,27 @@
                 
             <ul id="main-nav" class="nav nav-tabs nav-stacked">
                 <li>
-                    <a href="{{ url('/team') }}">
+                    <a href="{{ url('/admin/team') }}">
                         <i class="glyphicon glyphicon-user"></i>
                         团队管理
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url('/report') }}">
+                    <a href="{{ url('/admin/report') }}">
                         <i class="glyphicon glyphicon-file"></i>
                         项目报告
                     </a>
                 </li>
                 
                 <li>
-                    <a href="{{ url('/document') }}">
+                    <a href="{{ url('/admin/document') }}">
                         <i class="glyphicon glyphicon-folder-open"></i>
                         完整作品
                     </a>
                 </li>
                 
                 <li>
-                    <a href="{{ url('/rate') }}">
+                    <a href="{{ url('/admin/message') }}">
                         <i class="glyphicon glyphicon-stats"></i>
                         消息中心
                     </a>

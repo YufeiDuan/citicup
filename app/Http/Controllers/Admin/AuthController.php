@@ -10,8 +10,6 @@ use App\Admin;
 
 class AuthController extends Controller {
 
-
-
 	public function postLogin(Request $request)
     {
     	$this->validate($request, [
@@ -24,7 +22,7 @@ class AuthController extends Controller {
         	$ret = password_verify($request['password'],$admin->password);
         	if($ret==1){
         		if($admin->state==1){
-			        Session::put('admin', $admin);
+			        Session::put('fay', $admin);
 			        return redirect('/admin/home');
 			        //return redirect()->back()->withErrors($ret);
         		}

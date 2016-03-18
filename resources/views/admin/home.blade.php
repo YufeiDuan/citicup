@@ -52,7 +52,7 @@
 	</nav>
 
 
-	<div class="content-fluid" style="border-top:solid 1px #eeeeee;padding-top:15px;">
+	<div class="content-fluid" style="padding-top:15px;">
 		<div class="row row-fluid">
 			<div class="col-md-10 col-md-offset-1">
 				<link rel="stylesheet" href="/css/menu.css" type="text/css" />
@@ -90,7 +90,7 @@
                 
             </ul>
             </div>
-            <div class="col-md-9">
+            <div class="col-md-9" style="margin-left:20px;">
                 @yield('rightcontent')
             </div>
     </div>

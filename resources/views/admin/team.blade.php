@@ -1,5 +1,13 @@
 <p>@extends('admin.home')
 	@section('rightcontent')
+	<script type="text/javascript">
+	function delconfirm(){
+		if(confirm( '确认删除？ ')==false){
+			return false;
+		}
+		return true;
+	}
+	</script>
 		<div class="contrainer-fluid">
 			<div class="row-fluid xgxdiv">
 				<h4 class="xgxtitle">所有团队</h4> <a href="{{url('/team/add')}}"><i class="glyphicon glyphicon-user"></i>添加</a>
@@ -31,8 +39,8 @@
 					{{ $team->title }}
 				</td>
 				<td class="col-xs-2">
-					<a href="{{ URL('') }}" class="btn btn-success"><i class="glyphicon glyphicon-edit"></i></a>
-					<form action="{{ URL('') }}" method="POST" style="display: inline;" onsubmit="return(delconfirm())">
+					<a href="{{ URL('/admin/team/'.$team->id) }}" class="btn btn-success"><i class="glyphicon glyphicon-edit"></i></a>
+					<form action="{{ URL('/admin/team/'.$team->id) }}" method="POST" style="display: inline;" onsubmit="return(delconfirm())">
 						<input name="_method" type="hidden" value="DELETE">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						<button type="submit" class="btn btn-danger del"><i class="glyphicon glyphicon-trash"></i></button>

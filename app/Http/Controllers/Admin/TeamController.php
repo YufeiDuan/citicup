@@ -22,14 +22,20 @@ use App\Teacher;
 class TeamController extends Controller {
 
 	public function index(){
-		$teams = Team::all();
+		$teams = Team::where('id','>',1)->get();
 		View::share('teams',$teams);
 		return view('admin.team');
 	}
 
-	//添加团队
-	public function show(){
-		
+	public function show($id){
+		$team = Team::find($id);
+		$members = $team->members;
+		$teachers = $team->teachers;
+		View::share('team',$team);
+		View::share('members',$members);
+		View::share('teachers',$teachers);
+		return view('admin.teamshow');
+
 	}
 
 	//更新团队Logo

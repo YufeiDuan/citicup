@@ -70,5 +70,9 @@ Route::group(['prefix' => 'admin','middleware' => 'admin','namespace' => 'Admin'
 {
     //管理员主页
 	Route::get('home', 'HomeController@home');
+	//get logo
+	Route::get('logo/{id}/{r}','TeamController@logo');
+	//update logo
+	Route::post('team/logo','TeamController@updatelogo');
 	Route::resource('team','TeamController');
 });

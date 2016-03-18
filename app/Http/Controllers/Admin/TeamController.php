@@ -38,6 +38,18 @@ class TeamController extends Controller {
 
 	}
 
+	public function logo(Request $request){
+		$id = $request->route('id');
+		$team = Team::find($id);
+		if(empty($team->logo)){
+			$filepath = storage_path().'/app/logos/logo.png';
+		}else{
+			$filepath = storage_path().'/app/logos/'.$team->logo;
+		}
+		
+		return Response::download($filepath,'logo.jpg');
+	}
+
 	//更新团队Logo
 	public function updatelogo(Request $request){
 
@@ -45,6 +57,7 @@ class TeamController extends Controller {
 	        'pic' => 'required|mimes:jpeg,bmp,png'
     	]);
 
+		$team = Team::find(Input::get('team_id'));
 		if(Input::hasFile('pic'))
 		{
 			$file = Input::file('pic');

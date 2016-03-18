@@ -2,7 +2,12 @@
 	@section('rightcontent')
 	<script src="/js/s.js"></script>
 	<script src="/js/teama.js"></script>
-
+	<script type="text/javascript">
+		$(function () {
+			n = Math.random(100);
+			$("#logo").attr("src","/admin/logo/{{$team->id}}/"+n);
+		});
+	</script>
 	<link rel="stylesheet" href="/css/team.css" type="text/css" />
 	<link rel="stylesheet" href="/css/report.css" type="text/css" />
 	<div class="container-fluid">
@@ -14,12 +19,13 @@
 						<h4 class="modal-title">上传Logo</h4>
 					</div>
 					<div class="modal-body">
-						<form id='myupload' action='/team/logo' method='post' enctype='multipart/form-data' onsubmit='check()'>
+						<form id='myupload' action='/admin/team/logo' method='post' enctype='multipart/form-data' onsubmit='check()'>
 							<div class="btni">
 								<span>选择图片</span>
-								
 								<input id="fileupload" type="file" name="pic" accept=".jpg,.png">
 								<input type="hidden" name="_token" value="{{ csrf_token() }}">
+								<input type="hidden" name="team_id" id="team_id" value="{{$team->id}}">
+
 							</form>
 						</div>
 						<div class="progress">
@@ -28,9 +34,6 @@
 						<div class="files">
 							请选择jpg,png类型图片。
 						</div>
-					</div>
-					<div class="modal-footer">
-						
 					</div>
 				</div>
 			</div>
@@ -62,7 +65,7 @@
 			</div>
 		</div>
 		</div>
-		<form action="{{ URL('/team/1') }}" method="post" name="formchange" class="form-horizontal teamedit">
+		<form action="{{ URL('/admin/team/1') }}" method="post" name="formchange" class="form-horizontal teamedit">
 			<div class="col-md-8">
 				<div class="form-group">
 					<label class="col-md-3 control-label">团队名称</label>

@@ -32,15 +32,12 @@ Route::group(['prefix' => '/', 'middleware' => 'auth'], function(){
 	Route::get('logo/{r}','FileGetController@logo');
 });
 
-
-
 Route::group(['prefix' => '/', 'middleware' => ['auth','home']], function()
 {
 	//用户主页
 	Route::get('home', 'HomeController@home');
 	//首轮评选
 	Route::get('rate','HomeController@rate');
-
 	//模板下载
 	Route::get('template','FileGetController@template');
 	//添加成员/老师
@@ -51,12 +48,22 @@ Route::group(['prefix' => '/', 'middleware' => ['auth','home']], function()
 	Route::get('mail/outbox','MailController@outbox');
 	//发信方删信
 	Route::post('mail/del','MailController@dels');
-	
 	Route::resource('team', 'TeamController');
 	Route::resource('member','MemberController');
 	Route::resource('teacher','TeacherController');
 	Route::resource('report','ReportController');
 	Route::resource('document','DocController');
 	Route::resource('mail','MailController');
+});
+
+
+//Admin
+Route::get('/xgx','WelcomeController@admin');
+
+Route::group(['namespace' => 'Admin'], function()
+{
+    Route::controllers([
+		'admin' => 'AuthController',
+	]);
 
 });

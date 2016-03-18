@@ -45,4 +45,9 @@ class WelcomeController extends Controller {
 		return view('blank');
 	}
 
+	public function admin()
+	{
+		return view('admin.login');
+	}
+
 }

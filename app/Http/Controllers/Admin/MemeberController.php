@@ -111,7 +111,7 @@ class MemberController extends Controller {
 		$member->year_entry=Input::get('year_entry');
 		$member->email=Input::get('email');
 		if ($member->save()) {
-			return Redirect::to('/team');
+			return Redirect::to('/admin/team/'.Session::get('team')->id);
 		} else {
 			return redirect()->back()->withErrors('修改失败，请稍后重试。')->withInput();
 		}
@@ -120,18 +120,11 @@ class MemberController extends Controller {
 
 	public function destroy($id)
 	{
-		$team = Auth::user()->team;
 		$member = Member::find($id);
 
-		if($member->leader){
-			return redirect('/team')->withErrors('队长不可删除。');
-		}
-		if($member->team_id!=$team->id){
-			return redirect('/team')->withErrors('只能修改自己团队成员信息。');
-		}
 		$member->delete();
 
-		return Redirect::to('/team');
+		return Redirect::to('/admin/team/'.Session::get('team')->id);
 	}
 
 }

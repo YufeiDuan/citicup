@@ -55,7 +55,7 @@
 				<input name="_method" type="hidden" value="PUT">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<div class="col-md-4">
-					<input type="text" name="title" id="title" class="form-control" value="{{$data['title']}}" onblur="if(this.value.replace(/^ +| +$/g,'')=='')alert('不能为空!')"placeholder="不超过30个字符" maxlength="30" style="color:#00"/>
+					<input type="text" name="title" id="title" class="form-control" value="{{$data['title']}}" onblur="if(this.value.replace(/^ +| +$/g,'')=='')alert('不能为空!')"placeholder="不超过30个字符" maxlength="30"/>
 				</div>
 				<div class="col-md-4">
 					<input class="btn btn-success" type="submit" id="save" value="保存">

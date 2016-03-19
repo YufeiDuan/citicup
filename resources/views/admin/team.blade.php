@@ -21,7 +21,7 @@
 	@endif
 		<div class="contrainer-fluid">
 			<div class="row-fluid xgxdiv">
-				<h4 class="xgxtitle">所有团队</h4> <a href="{{url('')}}"><i class="glyphicon glyphicon-user"></i>添加</a>
+				<h4 class="xgxtitle">所有团队</h4>
 			</div>
 	<div class="row-fluid">
 		<table class="table table-hover table-striped ">

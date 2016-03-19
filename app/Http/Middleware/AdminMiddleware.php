@@ -2,6 +2,8 @@
 
 use Closure;
 use Session;
+use App\Team;
+use View;
 
 class AdminMiddleware {
 
@@ -9,6 +11,9 @@ class AdminMiddleware {
 	{
 		if (Session::has('fay'))
 		{
+			$team = Team::find(1);
+			$unrc = $team->unreadcount();
+			View::share('unrc',$unrc);
 			return $next($request);
 		}else{
 			return redirect('/');

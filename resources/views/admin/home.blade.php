@@ -85,6 +85,9 @@
                     <a href="{{ url('/admin/message') }}">
                         <i class="glyphicon glyphicon-stats"></i>
                         消息中心
+                        @if($unrc>0)
+                        ({{$unrc}})
+                        @endif
                     </a>
                 </li>   
                 

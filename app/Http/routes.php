@@ -48,6 +48,7 @@ Route::group(['prefix' => '/', 'middleware' => ['auth','home']], function()
 	Route::get('mail/outbox','MailController@outbox');
 	//发信方删信
 	Route::post('mail/del','MailController@dels');
+
 	Route::resource('team', 'TeamController');
 	Route::resource('member','MemberController');
 	Route::resource('teacher','TeacherController');
@@ -74,5 +75,7 @@ Route::group(['prefix' => 'admin','middleware' => 'admin','namespace' => 'Admin'
 	Route::get('logo/{id}/{r}','TeamController@logo');
 	//update logo
 	Route::post('team/logo','TeamController@updatelogo');
+	//addmember
+	Route::get('team/add','TeamController@add');
 	Route::resource('team','TeamController');
 });

@@ -125,8 +125,11 @@ class TeamController extends Controller {
 		}else{
 			return Redirect::to('/team')->withErrors('修改失败！');
 		}
+	}
 
-		
+	//添加成员
+	public function add(){
+		return view('admin.addmember');
 	}
 	
 }

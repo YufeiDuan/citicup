@@ -38,7 +38,7 @@ class MemberController extends Controller {
 		if (Member::where('id_num',Input::get('id_num'))->count()>0) {
 			return redirect()->back()->withInput()->withErrors('身份证号已被注册，若有疑问，请联系主办方。');
 		}
-				$idcard = Input::get('id_num');
+		$idcard = Input::get('id_num');
 		$flag=1;
 		if(strlen($idcard)!=18){  
 	        $flag=0;
@@ -112,7 +112,10 @@ class MemberController extends Controller {
 		if($member->team_id!=$team->id){
 			return redirect('/team')->withErrors('只能修改自己团队成员信息。');
 		}
-				$idcard = Input::get('id_num');
+		if (Member::where('id_num',Input::get('id_num'))->count()>0) {
+			return redirect()->back()->withInput()->withErrors('身份证号已被注册，若有疑问，请联系主办方。');
+		}
+		$idcard = Input::get('id_num');
 		$flag=1;
 		if(strlen($idcard)!=18){  
 	        $flag=0;

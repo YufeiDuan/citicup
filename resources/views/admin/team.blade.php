@@ -8,6 +8,17 @@
 		return true;
 	}
 	</script>
+	@if (count($errors) > 0)
+	<div class="row-fluid">
+		<div class="alert alert-danger">
+			<ul>
+				@foreach ($errors->all() as $error)
+				<li>{{ $error }}</li>
+				@endforeach
+			</ul>
+		</div>
+	</div>
+	@endif
 		<div class="contrainer-fluid">
 			<div class="row-fluid xgxdiv">
 				<h4 class="xgxtitle">所有团队</h4> <a href="{{url('')}}"><i class="glyphicon glyphicon-user"></i>添加</a>

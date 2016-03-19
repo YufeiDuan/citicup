@@ -6,6 +6,7 @@ use App\Mail;
 use App\Member;
 use App\Teacher;
 use App\Univ;
+use App\User;
 
 class Team extends Model {
 
@@ -50,5 +51,4 @@ class Team extends Model {
 	public function documents(){
 		return $this->hasMany('App\Document');
 	}
-
 }

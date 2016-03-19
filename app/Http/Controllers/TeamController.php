@@ -18,7 +18,6 @@ use App\Univ;
 use App\Member;
 use App\Teacher;
 
-
 class TeamController extends Controller {
 
 	public function index(){

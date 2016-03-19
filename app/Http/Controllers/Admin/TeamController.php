@@ -16,6 +16,8 @@ use App\Team;
 use App\Univ;
 use App\Member;
 use App\Teacher;
+use App\Validate;
+use App\User;
 
 
 class TeamController extends Controller {
@@ -129,6 +131,45 @@ class TeamController extends Controller {
 	//添加成员
 	public function add(){
 		return view('admin.addmember');
+	}
+
+	public function destroy($id){
+		$team = Team::find($id);
+		//修改用户状态
+		$user = User::find($team->authen_id);
+		$user->state=2;
+		$user->save();
+		//删除成员，指导老师，邮件，报告，作品（如果有）
+		$members = $team->members;
+		$teachers = $team->teachers;
+		$report = $team->report;
+		$documents = $team->documents;
+		$validate = Validate::where('authen_id','=',$user->id)->get();
+		$inbox = $team->inbox;
+		$outbox = $team->outbox;
+		foreach ($validate as $v) {
+			$v->delete();
+		}
+		foreach ($inbox as $i) {
+			$i->delete();
+		}
+		foreach ($outbox as $o) {
+			$o->delete();
+		}
+		foreach ($documents as $d) {
+			$d->delete();
+		}
+		if(!empty($report)){
+			$report->delete();
+		}
+		foreach ($members as $m) {
+			$m->delete();
+		}
+		foreach ($teachers as $t) {
+			$t->delete();
+		}
+		$team->delete();
+		return redirect('/admin/team')->withErrors('团队删除成功。');
 	}
 	
 }

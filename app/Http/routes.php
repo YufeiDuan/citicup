@@ -78,4 +78,6 @@ Route::group(['prefix' => 'admin','middleware' => 'admin','namespace' => 'Admin'
 	//addmember
 	Route::get('team/add','TeamController@add');
 	Route::resource('team','TeamController');
+	Route::resource('member','MemberController');
+	//Route::resource('teacher','TeacherController');
 });

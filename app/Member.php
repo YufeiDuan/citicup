@@ -10,4 +10,8 @@ class Member extends Model {
 	public function univ(){
 		return $this->belongsTo('App\Univ');
 	}
+
+	public function team(){
+		return $this->belongsTo('App\Team');
+	}
 }

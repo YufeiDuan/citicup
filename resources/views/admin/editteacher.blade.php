@@ -19,7 +19,7 @@
             修改信息
         </div>
         <div class="row">
-        <form action="{{ URL('/teacher/'.$teacher->id) }}" method="POST" name="formchange"class="form-horizontal">
+        <form action="{{ URL('/admin/teacher/'.$teacher->id) }}" method="POST" name="formchange"class="form-horizontal">
             <input name="_method" type="hidden" value="PUT">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             

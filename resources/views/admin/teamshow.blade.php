@@ -160,7 +160,7 @@
 			</td>
 			<td class="col-xs-1">
 				<a href="{{ URL('admin/teacher/'.$teacher->id.'/edit') }}" class="btn btn-success"><i class="glyphicon glyphicon-edit"></i></a>
-				<form action="{{ URL('admin/teacher/'.$teacher->id) }}" method="POST" style="display: inline;" onsubmit="return(delcheck())" class="form">
+				<form action="{{ URL('admin/teacher/'.$teacher->id) }}" method="POST" style="display: inline;" onsubmit="return(delconfirm())" class="form">
 					<input type="hidden" id="teacher_count" value="{{$teachers->count()}}">
 					<input name="_method" type="hidden" value="DELETE">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">

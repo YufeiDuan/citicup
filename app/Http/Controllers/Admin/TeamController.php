@@ -31,6 +31,7 @@ class TeamController extends Controller {
 		$team = Team::find($id);
 		$members = $team->members;
 		$teachers = $team->teachers;
+		Session::put('team',$team);
 		View::share('team',$team);
 		View::share('members',$members);
 		View::share('teachers',$teachers);
@@ -38,6 +39,7 @@ class TeamController extends Controller {
 
 	}
 
+	//get logo
 	public function logo(Request $request){
 		$id = $request->route('id');
 		$team = Team::find($id);
@@ -46,7 +48,6 @@ class TeamController extends Controller {
 		}else{
 			$filepath = storage_path().'/app/logos/'.$team->logo;
 		}
-		
 		return Response::download($filepath,'logo.jpg');
 	}
 
@@ -57,7 +58,7 @@ class TeamController extends Controller {
 	        'pic' => 'required|mimes:jpeg,bmp,png'
     	]);
 
-		$team = Team::find(Input::get('team_id'));
+		$team =Session::get('team');
 		if(Input::hasFile('pic'))
 		{
 			$file = Input::file('pic');
@@ -80,6 +81,7 @@ class TeamController extends Controller {
 				$team->logo = $logopath;			
 
 				$team->save();
+				Session::put('team',$team);
 			}
 			$size = round($filesize/1024,2);
 			$arr = array(
@@ -101,8 +103,7 @@ class TeamController extends Controller {
 	        'team_name' => 'required|string',
     	]);
 
-		$team = Auth::user()->team;
-		$count = $team->unreadcount();
+		$team = Session::get('team');
 		$old_name = $team->name;
 
 		$univ = Univ::where(['name' => Input::get('school')])->first();
@@ -119,6 +120,7 @@ class TeamController extends Controller {
 		
 
 		if($team->save()){
+			Session::put('team',$team);
 			return Redirect::to('/team');
 		}else{
 			return Redirect::to('/team')->withErrors('修改失败！');

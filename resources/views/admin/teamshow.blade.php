@@ -65,25 +65,25 @@
 			</div>
 		</div>
 		</div>
-		<form action="{{ URL('/admin/team/1') }}" method="post" name="formchange" class="form-horizontal teamedit">
+		<form action="{{ URL('/admin/team/'.$team->id) }}" method="post" name="formchange" class="form-horizontal teamedit">
 			<div class="col-md-8">
 				<div class="form-group">
 					<label class="col-md-3 control-label">团队名称</label>
 					<div class="col-md-7">
-						<input type="text" class="form-control" name="team_name" id="team_name" value="{{ $team->name }}" required="required" maxlength="20"/ placeholder="不超过20个字符">
+						<input type="text" class="form-control finput" name="team_name" id="team_name" value="{{ $team->name }}" required="required" maxlength="20"/ placeholder="不超过20个字符">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-md-3 control-label">所属高校</label>
 					<div class="col-md-7">
-						<input type="text" name="school" id="school-name" value="{{$team->univ->name}}" class="form-control school">
+						<input type="text" name="school" id="school-name" value="{{$team->univ->name}}" class="form-control school finput">
 
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-md-3 control-label">参赛题目</label>
 					<div class="col-md-7">
-						<input type="text" class="form-control" name="team_title" id="team_title" value="{{ $team->title }}" maxlength="30"/ placeholder="不超过30个字符">
+						<input type="text" class="form-control finput" name="team_title" id="team_title" value="{{ $team->title }}" maxlength="30"/ placeholder="不超过30个字符">
 					</div>
 				</div>
 	
@@ -92,7 +92,6 @@
 				<div class="form-group">
 					<div class="col-md-9 col-md-offset-3">
 						<input class="btn btn-success" type="submit" id="save" value="保存" onclick="save()">
-						<input class="btn btn-danger" type="button" id="cancel" value="取消" onClick="display()">
 					</div>
 				</div>
 
@@ -100,7 +99,7 @@
 		</div>
 	</div>
 	<div class="row-fluid xgxdiv">
-		<h4 class="xgxtitle">成员信息</h4> <a href="{{url('/team/add')}}"><i class="glyphicon glyphicon-user"></i>添加</a>
+		<h4 class="xgxtitle">成员信息</h4> <a href="{{url('/admin/team/add')}}"><i class="glyphicon glyphicon-user"></i>添加</a>
 	</div>
 	<div class="row-fluid">
 		<table class="table table-hover table-striped ">

@@ -1,15 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
 //首页
 Route::get('/test', 'WelcomeController@index');
 Route::get('/','WelcomeController@test');
@@ -69,7 +59,7 @@ Route::group(['namespace' => 'Admin'], function()
 });
 Route::group(['prefix' => 'admin','middleware' => 'admin','namespace' => 'Admin'], function()
 {
-    //管理员主页
+    //admin home page
 	Route::get('home', 'HomeController@home');
 	//get logo
 	Route::get('logo/{id}/{r}','TeamController@logo');
@@ -83,4 +73,5 @@ Route::group(['prefix' => 'admin','middleware' => 'admin','namespace' => 'Admin'
 	Route::resource('member','MemberController');
 	Route::resource('teacher','TeacherController');
 	Route::resource('report','ReportController');
+	Route::resource('document','DocController');
 });

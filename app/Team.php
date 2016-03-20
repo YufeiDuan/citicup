@@ -8,6 +8,7 @@ use App\Teacher;
 use App\Univ;
 use App\User;
 use App\Report;
+use App\Document;
 
 class Team extends Model {
 
@@ -53,5 +54,14 @@ class Team extends Model {
 
 	public function documents(){
 		return $this->hasMany('App\Document');
+	}
+
+	public function doccount(){
+		$docs = Document::where('team_id','=',$this->id)->get();
+		$arr = array(0,0,0,0);
+		foreach ($docs as $doc){
+			$arr[($doc->type_id)-1]=1;
+		}
+		return $arr;
 	}
 }

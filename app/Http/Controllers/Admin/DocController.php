@@ -29,24 +29,28 @@ class DocController extends Controller {
 
 	public function show($id){
 		$team = Team::find($id);
-		$report = $team->report;
-		if(empty($report)){
-			return Redirect::to('/admin/report');
+		$path = storage_path().'/app/documents/'.$team->id;
+		if(file_exists ($path)){
+			$filename = 'document('.$team->id.').zip';
+			$zipFileName = storage_path().'/app/'.$filename;
+
+			HZip::zipDir($path, $zipFileName); 
+
+	        return Response::download($zipFileName,$filename);
 		}else{
-			$filepath = storage_path().'/app/reports/'.$team->id.'/'.$report->path;
+			return Redirect::to('/admin/document')->withErrors('该团队未提交任何作品。'.$path);
 		}
-		return Response::download($filepath,$report->path);
 	}
 
 	public function dlall(){
 
-		$path = storage_path() . '/app/reports';
+		$path = storage_path() . '/app/documents';
 
-        $zipFileName = storage_path().'/app/report.zip';
+        $zipFileName = storage_path().'/app/document.zip';
 
 		HZip::zipDir($path, $zipFileName); 
 
-        return Response::download($zipFileName,'reports.zip');
+        return Response::download($zipFileName,'document.zip');
                 
 	}
 	

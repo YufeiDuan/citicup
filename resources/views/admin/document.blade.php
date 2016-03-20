@@ -69,7 +69,9 @@
 
 
 					<td class="col-xs-1">
-						<a href="{{ URL('/admin/report/'.$team->id) }}" class="btn btn-success"><i class="glyphicon glyphicon-download"></i></a>
+						@if($team->doccount()[4])
+						<a href="{{ URL('/admin/document/'.$team->id) }}" class="btn btn-success"><i class="glyphicon glyphicon-download"></i></a>
+						@endif
 					</td>
 				</tr>
 				@endforeach

@@ -69,6 +69,8 @@ Route::group(['prefix' => 'admin','middleware' => 'admin','namespace' => 'Admin'
 	Route::get('team/add','TeamController@add');
 	//download report all
 	Route::get('report/all','ReportController@dlall');
+	//download document all
+	Route::get('document/all','DocController@dlall');
 	Route::resource('team','TeamController');
 	Route::resource('member','MemberController');
 	Route::resource('teacher','TeacherController');

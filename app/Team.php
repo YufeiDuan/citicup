@@ -58,7 +58,8 @@ class Team extends Model {
 
 	public function doccount(){
 		$docs = Document::where('team_id','=',$this->id)->get();
-		$arr = array(0,0,0,0);
+		$arr = array(0,0,0,0,0);
+		$arr[4]=$docs->count();
 		foreach ($docs as $doc){
 			$arr[($doc->type_id)-1]=1;
 		}

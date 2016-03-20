@@ -36,7 +36,9 @@
 						<div class="progress">
 							<span class="bar"></span><span class="percent">0%</span >
 						</div>
-						<div class="files"></div>
+						<div class="files">
+							建议使用英文文件名。
+						</div>
 					</div>
 					<div class="modal-footer">
 						

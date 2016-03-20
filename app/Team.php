@@ -7,6 +7,7 @@ use App\Member;
 use App\Teacher;
 use App\Univ;
 use App\User;
+use App\Report;
 
 class Team extends Model {
 
@@ -17,13 +18,11 @@ class Team extends Model {
 	//收件箱邮件
 	public function inbox(){
 		return $this->hasMany('App\Mail','to_id')->where('del_r','=','0')->orderBy('created_at', 'desc');
-;
 	}
 
 	//发件箱邮件
 	public function outbox(){
 		return $this->hasMany('App\Mail','from_id')->where('del_s','=','0')->orderBy('created_at', 'desc');
-;
 	}
 
 	//未读邮件数量
@@ -46,6 +45,10 @@ class Team extends Model {
 
 	public function report(){
 		return $this->hasOne('App\Report');
+	}
+
+	public function reportcount(){
+		return Report::where('team_id','=',$this->id)->count();
 	}
 
 	public function documents(){

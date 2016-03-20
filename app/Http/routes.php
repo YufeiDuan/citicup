@@ -77,7 +77,10 @@ Route::group(['prefix' => 'admin','middleware' => 'admin','namespace' => 'Admin'
 	Route::post('team/logo','TeamController@updatelogo');
 	//addmember
 	Route::get('team/add','TeamController@add');
+	//download report all
+	Route::get('report/all','ReportController@dlall');
 	Route::resource('team','TeamController');
 	Route::resource('member','MemberController');
 	Route::resource('teacher','TeacherController');
+	Route::resource('report','ReportController');
 });

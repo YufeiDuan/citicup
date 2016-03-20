@@ -2,7 +2,7 @@
     @section('content')
     <link rel="stylesheet" href="/css/menu.css" type="text/css" />
     <script src="/js/mail.js"></script>
-    <div class="container">
+    <div class="container-fluid">
         <div class="modal" id="mail">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -27,8 +27,8 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-2">
+        <div class="row-fluid">
+            <div class="col-md-3">
                 
             <ul id="main-nav" class="nav nav-tabs nav-stacked">
                 <li>

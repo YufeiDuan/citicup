@@ -40,12 +40,14 @@
                
                 <li>
                     <a href="{{ url('/mail') }}">
+                        <i class="glyphicon glyphicon-inbox"></i>
                         收件箱
                     </a>
                 </li>
                 
                 <li>
                     <a href="{{ url('/mail/outbox') }}">
+                        <i class="glyphicon glyphicon-envelope"></i>
                         发件箱
                     </a>
                 </li>

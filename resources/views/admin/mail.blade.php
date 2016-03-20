@@ -69,20 +69,20 @@
             <ul id="main-nav" class="nav nav-tabs nav-stacked">
                 <li>
                     <a href="{{ url('/admin/mail/new') }}">
-                        <i class="glyphicon glyphicon-user"></i>
+                        <i class="glyphicon glyphicon-file"></i>
                         写信
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url('/admin/mail/inbox') }}">
-                        <i class="glyphicon glyphicon-file"></i>
+                    <a href="{{ url('/admin/mail') }}">
+                        <i class="glyphicon glyphicon-inbox"></i>
                         收件箱
                     </a>
                 </li>
                 
                 <li>
                     <a href="{{ url('/admin/mail/outbox') }}">
-                        <i class="glyphicon glyphicon-folder-open"></i>
+                        <i class="glyphicon glyphicon-envelope"></i>
                         发件箱
                     </a>
                 </li>

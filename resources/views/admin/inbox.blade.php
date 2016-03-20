@@ -1,6 +1,6 @@
 <p>@extends('admin.mail')
 	@section('rightcontent')
-	<script src="/js/inbox.js"></script>
+	<script src="/js/inboxa.js"></script>
 
 	<div class="container-fluid">
 		@if (count($errors) > 0)
@@ -29,8 +29,8 @@
 
 			@else
 			<table class="table table-striped table-hover" id="inbox">
-				<form id="show" action="/mail/view" method="get">
-					<input type="hidden" name="f" value="/mail">
+				<form id="show" action="/admin/mail/view" method="get">
+					<input type="hidden" name="f" value="/admin/mail">
 					<input type="hidden" id="tag" name="tag">
 				</form>
 				<thead>

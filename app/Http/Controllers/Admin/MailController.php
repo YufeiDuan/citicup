@@ -14,7 +14,6 @@ class MailController extends Controller {
 	public function index()
 	{
 		$team = Team::find(1);
-		$count = $team->unreadcount();
 		$inbox = $team->inbox;
 		View::share('inbox',$inbox);
 		return view('admin.inbox');
@@ -22,38 +21,44 @@ class MailController extends Controller {
 
 	//发件箱
 	public function outbox(){
-		$team = Auth::user()->team;
-		$count = $team->unreadcount();
+		$team = Team::find(1);
 		$outbox = $team->outbox;
-		View::share('data',['count'=>$count,'name'=>$team->name]);
 		View::share('outbox',$outbox);
-		return view('outbox');
+		return view('admin.outbox');
 	}
 	//写信页面
 	public function newmail(){
 		$teams = Team::where('id','>','1')->get();
+		View::share('recv',1);
+		View::share('subject','');
 		View::share('teams',$teams);
-		return view('admin.newmail');
+		return view('admin.mailnew');
+	}
+
+	public function reply(){
+		$mail = Session::get('mail');
+		View::share('recv',$mail->from_id);
+		View::share('subject','Re: '.$mail->subject);
+		$teams = Team::where('id','>','1')->get();
+		View::share('teams',$teams);
+		return view('admin.mailnew');
 	}
 
 	//显示单个邮件
 	public function show(){
-		$team = Auth::user()->team;
-		$count = $team->unreadcount();
-		View::share('data',['count'=>$count,'name'=>$team->name]);
+		$team = Team::find(1);
 		
 		$mail = Mail::where('uid','=',Input::get('tag'))->first();
 		$mail->flag_read=1;
 		$mail->save();
+		Session::put('mail',$mail);
 		View::share('mail',$mail);
-		return view('mailview')->withBack(Input::get('f'));
+		return view('admin.mailview')->withBack(Input::get('f'));
 	}
 
 	//设置已读
 	public function update(){
-		$team = Auth::user()->team;
-		$count = $team->unreadcount();
-		View::share('data',['count'=>$count,'name'=>$team->name]);
+		$team = Team::find(1);
 
 		$tag = Input::get('tag');
 		$tags = explode(',',$tag);
@@ -62,13 +67,11 @@ class MailController extends Controller {
 			$mail->flag_read=1;
 			$mail->save();
 		}
-		return redirect('/mail');
+		return redirect('/admin/mail');
 	}
 	//收信方删除邮件
 	public function destroy(){
-		$team = Auth::user()->team;
-		$count = $team->unreadcount();
-		View::share('data',['count'=>$count,'name'=>$team->name]);
+		$team = Team::find(1);
 
 		$tag = Input::get('tag');
 		$tags = explode(',',$tag);
@@ -77,7 +80,7 @@ class MailController extends Controller {
 			$mail->del_r=1;
 			$mail->save();
 		}
-		return redirect('/mail');
+		return redirect('/admin/mail');
 	}
 
 	//发信方删除邮件
@@ -93,7 +96,7 @@ class MailController extends Controller {
 			$mail->del_s=1;
 			$mail->save();
 		}
-		return redirect('/mail/outbox');
+		return redirect('/admin/mail/outbox');
 	}
 
 	//写新邮件

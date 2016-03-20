@@ -2,9 +2,12 @@
 	@section('rightcontent')
 
 	<div class="container-fluid" style="margin-left:30px;">
-		<div class="col-md-10 col-md-offset-1">
+		<div class="col-md-10">
 		<div class="row">
 			<a href="{{ $back }}"><i class="glyphicon glyphicon-chevron-left"></i>返回</a>
+			@if($back=='/admin/mail')
+			<a href="{{ url('/admin/mail/reply') }}" style="margin-left:30px;"><i class="glyphicon glyphicon-share-alt"></i>回复</a>
+			@endif
 		</div>
 		<div class="row">
 			<h3><b>{{$mail->subject}}</b></h3>

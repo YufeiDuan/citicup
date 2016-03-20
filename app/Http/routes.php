@@ -71,13 +71,14 @@ Route::group(['prefix' => 'admin','middleware' => 'admin','namespace' => 'Admin'
 	Route::get('report/all','ReportController@dlall');
 	//download document all
 	Route::get('document/all','DocController@dlall');
-	//发件箱
+	//outbox
 	Route::get('mail/outbox','MailController@outbox');
-	//发信方删信
+	//delete mails by sender
 	Route::post('mail/del','MailController@dels');
-	//写邮件
+	//write new mail
 	Route::get('mail/new','MailController@newmail');
-
+	//reply mail
+	Route::get('mail/reply','MailController@reply');
 	Route::resource('team','TeamController');
 	Route::resource('member','MemberController');
 	Route::resource('teacher','TeacherController');

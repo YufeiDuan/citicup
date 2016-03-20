@@ -76,4 +76,5 @@ function setread(){
 //发送方删除
 function dels(){
     $("#op_tag").val(getChecked());
+    $("#op").submit();
 }

@@ -1,6 +1,6 @@
 <p>@extends('admin.mail')
 	@section('rightcontent')
-	<script src="/js/inbox.js"></script>
+	<script src="/js/inboxa.js"></script>
 
 	<div class="container-fluid">
 		@if (count($errors) > 0)
@@ -13,7 +13,7 @@
 		</div>
 		@endif
 		<div class="row row-fluid">
-			<form id="op" action="/admin/mail/del" method="post" onsubmit="empcheck()">
+			<form id="op" action="/admin/mail/del" method="post" onsubmit="return(empcheck())">
 				<input type="hidden" name="tag" id="op_tag">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<a href='#' onclick="dels()"><i class="glyphicon glyphicon-trash"></i>删除</a>

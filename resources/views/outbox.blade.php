@@ -13,7 +13,7 @@
 		</div>
 		@endif
 		<div class="row row-fluid">
-			<form id="op" action="/mail/del" method="post" onsubmit="empcheck()">
+			<form id="op" action="/mail/del" method="post" onsubmit="return(empcheck())">
 				<input type="hidden" name="tag" id="op_tag">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<a href='#' onclick="dels()"><i class="glyphicon glyphicon-trash"></i>删除</a>

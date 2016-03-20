@@ -85,9 +85,7 @@ class MailController extends Controller {
 
 	//发信方删除邮件
 	public function dels(){
-		$team = Auth::user()->team;
-		$count = $team->unreadcount();
-		View::share('data',['count'=>$count,'name'=>$team->name]);
+		$team = Team::find(1);
 
 		$tag = Input::get('tag');
 		$tags = explode(',',$tag);

@@ -64,7 +64,7 @@
 				<link rel="stylesheet" href="/css/menu.css" type="text/css" />
     <div class="container-fluid">
         <div class="row row-fluid">
-            <div class="col-md-2 menu">
+            <div class="col-md-3">
                 
             <ul id="main-nav" class="nav nav-tabs nav-stacked">
                 <li>
@@ -90,7 +90,7 @@
                 
             </ul>
             </div>
-            <div class="col-md-9" style="margin-left:20px;">
+            <div class="col-md-9">
                 @yield('rightcontent')
             </div>
     </div>

@@ -22,7 +22,7 @@
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <button class="btn btn-success" type="submit">发送</button>
                         </form>
-                          <button class="btn btn-danger" onclick="cancel()">取消</button>
+                          <button class="btn btn-danger" type="button" onclick="cancel()">取消</button>
                     </div>
                 </div>
             </div>

@@ -38,7 +38,13 @@
 					</div>
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav navbar-right">
-
+							<li>
+								<a href="/admin/mail">消息中心                        
+									@if($unrc>0)
+                        			({{$unrc}})
+                        			@endif
+                        		</a>
+							</li>
 							<li>
 								<a href="{{ url('/adminauth/logout') }}">登出</a>
 								
@@ -81,15 +87,6 @@
                     </a>
                 </li>
                 
-                <li>
-                    <a href="{{ url('/admin/message') }}">
-                        <i class="glyphicon glyphicon-stats"></i>
-                        消息中心
-                        @if($unrc>0)
-                        ({{$unrc}})
-                        @endif
-                    </a>
-                </li>   
                 
             </ul>
             </div>

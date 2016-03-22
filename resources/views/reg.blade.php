@@ -11,10 +11,10 @@
 		<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
 		<link href="//cdn.bootcss.com/jqueryui/1.11.4/jquery-ui.min.css" rel="stylesheet">
 
-		<script src="//cdn.bootcss.com/jquery.form/3.51/jquery.form.min.js"></script>
 		<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 		<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 		<script src="//cdn.bootcss.com/jqueryui/1.11.4/jquery-ui.min.js"></script>
+		<script src="//cdn.bootcss.com/jquery.form/3.51/jquery.form.min.js"></script>
 	
 
 
@@ -33,7 +33,7 @@
 
 	</head>
 	<body>
-	<div class="contrainer-fluid">
+	<div class="contrainer-fluid" style="margin-top:50px;">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<div class="panel panel-default">

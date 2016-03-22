@@ -1,4 +1,6 @@
 @extends('reg')
+@section('title')CitiCup 2016
+@endsection
 	@section('content')
 
 		@if (count($errors) > 0)

@@ -50,7 +50,7 @@ class PasswordController extends Controller {
 
 		Mail::queue('emails.password', ['token'=>$token], function($message) use($user)
 		{
-			$message->from('citicup@126.com','CitiCup|XJTU 2016');
+			$message->from('citicup@xjtu.edu.cn','CitiCup|XJTU 2016');
 		    $message->to($user->email)->subject('[请勿回复]重置密码');
 		});
 
@@ -68,7 +68,6 @@ class PasswordController extends Controller {
 				$info='链接已失效，请重新操作。';
 			}else{
 				Auth::loginUsingId($validate->authen_id);
-				$validate->delete();
 				return view('reset');
 			}
 		}
@@ -77,11 +76,15 @@ class PasswordController extends Controller {
 	//重置密码
 	public function postReset(Request $request){
 		$this->validate($request, [
-			'password' => 'required|confirmed|min:6',
+			'password' => 'required|confirmed|min:6|max:16',
 		]);
 		$user = Auth::user();
 		$user->password = bcrypt($request['password']);
 		$user->save();
+		$validate = Validate::where('authen_id','=',$user->id)->get();
+		foreach ($validate as $v){
+			$v->delete();
+		}
 		Auth::logout();
 		return redirect('/')->withErrors('密码重置成功，请重新登录');
 	}

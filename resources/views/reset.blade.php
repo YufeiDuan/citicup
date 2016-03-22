@@ -21,14 +21,16 @@
 						<div class="form-group">
 							<label class="col-md-4 control-label">新密码</label>
 							<div class="col-md-6">
-								<input type="password" class="form-control" name="password">
+								<input type="password" class="form-control pwdd" name="password" id="pwd" placeholder="请输入6-16位数字、字母或常用符号">
+								<span id="pwd_info"></span>
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label class="col-md-4 control-label">确认密码</label>
 							<div class="col-md-6">
-								<input type="password" class="form-control" name="password_confirmation">
+								<input type="password" class="form-control pwdd" name="password_confirmation" id="pwd_c" placeholder="请输入6-16位数字、字母或常用符号">
+							<span id="pwd_c_info"></span>
 							</div>
 						</div>
 

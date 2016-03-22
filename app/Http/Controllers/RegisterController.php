@@ -30,7 +30,7 @@ class RegisterController extends Controller {
 	public function postRegister(Request $request){
 		$this->validate($request, [
 			'email' => 'required|email|max:255|unique:authens',
-			'password' => 'required|confirmed|min:6',
+			'password' => 'required|confirmed|min:6|max:16',
 		]);
 
 		$count = User::where('email','=',$request['email'])->count();
@@ -53,7 +53,7 @@ class RegisterController extends Controller {
 			Auth::login($user);
 			Mail::queue('emails.validate', ['token'=>$token], function($message) use($user)
 			{
-				$message->from('citicup@126.com','CitiCup|XJTU 2016');
+				$message->from('citicup@xjtu.edu.cn','CitiCup|XJTU 2016');
 			    $message->to($user->email)->subject('[请勿回复]验证您的邮箱');
 			});
 			return view('regsuccess');
@@ -82,7 +82,7 @@ class RegisterController extends Controller {
 			$validate->save();
 			Mail::queue('emails.validate', ['token'=>$token], function($message) use($user)
 			{
-				$message->from('citicup@126.com','CitiCup|XJTU 2016');
+				$message->from('citicup@xjtu.edu.cn','CitiCup|XJTU 2016');
 			    $message->to($user->email)->subject('[请勿回复]验证您的邮箱');
 			});
 			$info='邮件已重新发送。';

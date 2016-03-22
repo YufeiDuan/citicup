@@ -27,6 +27,9 @@ class PasswordController extends Controller {
 
 		$email = Input::get('email');
 		$user = User::where('email','=',$email)->first();
+		if(empty($user)){
+			return redirect()->back()->withErrors("邮箱不存在。");
+		}
 		$validate = $user->validate;
 		$token = str_random(20);
 		while(validate::where('token','=',$token)->count()>0){

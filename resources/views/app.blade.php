@@ -131,9 +131,6 @@
 			</div>
 		</div>
 	</div>
-	<div class="footer">
-    	版权所有：西安交通大学软件学院 陕ICP备05001571号
-    	<br>
-    </div>
+
 </body>
 </html>

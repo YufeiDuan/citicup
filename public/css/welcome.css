@@ -105,3 +105,7 @@ a:link,a:visited,a:hover {
 .docs{
 	position: relative;
 }
+.noteam{
+	font-size: 16px;
+	color:#337ab7;
+}

@@ -116,14 +116,25 @@
 	<!-- Scripts -->
 	<script type="text/javascript">
 		$(function(){
-			$('.disp li:not(#s1,#s2)').hover(function(){
-				$(this).find('.shiji').slideDown(600);
+			var t_li = $(".disp li:not(#s1,#s2)");
+			var c_li = $(".disp li:not(#s1,#s2)").find('.shiji');
+				t_li.hover(function(){
+					var i = t_li.index($(this));
+					function way(){
+					//t_li.removeClass("cur").eq(i).addClass("cur");
+					c_li.eq(i).slideDown(250);
+				}
+				timer=setTimeout(way,100);
 			},function(){
-				$(this).find('.shiji').slideUp(400);
+				clearTimeout(timer);
+				$(this).find('.shiji').slideUp(150);
 			});
-			$('#s1,#s2').find('.shiji').slideDown(600);
+
+			$('#s1,#s2').find('.shiji').slideDown(300);
+
 		});
 	</script>
+
 	<div class="content-fluid" style="border-top:solid 1px #eeeeee;padding-top:15px;">
 		<div class="row row-fluid">
 			<div class="col-md-10 col-md-offset-1">

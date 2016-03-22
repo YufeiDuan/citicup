@@ -42,7 +42,7 @@
 								<input type="hidden" name="_token" value="{{ csrf_token() }}">
 									
 
-									<input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="请输入邮箱" class="form-control input" style="background-color:#fff" data-toggle="tooltip" title="默认的 Tooltip">
+									<input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="请输入邮箱" class="form-control input" style="background-color:#fff" data-toggle="tooltip" title="Tooltip">
 									<br>
 
 									<input type="password" name="password" placeholder="请输入密码" class="input form-control">
@@ -63,7 +63,7 @@
 							
 						</form>
 						<div class="reg">
-						<a>没有团队？</a><a href="{{url('/register')}}">立即组建</a>
+						<span class="noteam">没有团队？</span><a href="{{url('/register')}}">立即组建</a>
 					</div>
 					</div>
 				</div>

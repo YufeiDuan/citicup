@@ -58,7 +58,7 @@
         <div class="form-group">
             <div class="col-md-6 col-md-offset-5">
                <button class="btn btn-success">保存</button>
-                <input class="btn btn-danger" type="button" value="返回" onClick="javascript:history.back();">
+                <input class="btn btn-danger" type="button" value="返回" onClick="window.location.href='/team'">
             </div>
         </div>
         </form>
@@ -155,7 +155,7 @@
             <div class="form-group">
                 <div class="col-md-6 col-md-offset-5">
                    <button class="btn btn-success">保存</button>
-                    <input class="btn btn-danger" type="button" value="返回" onClick="javascript:history.back();">
+                    <input class="btn btn-danger" type="button" value="返回" onClick="window.location.href='/team'">
                 </div>
             </div>
         </form>

@@ -1,0 +1,16 @@
+.logo{
+	margin-top: 10px;
+	overflow:hidden;
+	text-align: center;
+	margin-left: 40px;
+}
+.logo img{
+	width:130px;
+}
+.logobtn{
+	margin-top: 15px;
+}
+
+.teamedit{
+	margin-top: 10px;
+}

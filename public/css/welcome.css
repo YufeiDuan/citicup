@@ -1,0 +1,111 @@
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	display: table;
+}
+.info{
+	height: 30px;
+}
+.bgimg{
+	margin:0;
+	background-image: url(/img/main.jpg);
+	background-size:100% 100%;
+	width:100%;
+	height: 450px;
+	z-index: 0;
+
+}
+.box{
+	width:100%;
+	position: absolute;
+	margin:0px auto;
+	margin-top: 75px;
+	height: 300px;
+	z-index: 1;
+	color: white;
+}
+input.input{
+	background-color:white;
+	width:270px;
+	color:black;
+}
+.login_box{ 
+	width: 300px;
+	height: 300px;  
+	float:right;
+	margin-right: 10%;
+	background: #000;
+	opacity: 0.7;
+	z-index: 1;
+}
+tr{
+	margin-top: 10px;
+}
+.inputbox{
+	margin-top: 30px;
+	margin-right: 15px;
+	margin-left: 15px;
+}
+.checkbox{
+	margin-left: 0px;
+	text-align: left;
+	float: left;
+}
+.checkbox label span{
+	font-size: 16px;
+}
+.row img{
+	width:100%;
+}
+.forget{
+	margin-left: 130px;
+	margin-right: 0px auto;
+	text-align: right;
+	float: right;
+}
+a{
+	font-size: 16px;
+}
+a:link,a:visited,a:hover {
+	font-size:16px;
+	color:#FFF;
+	text-decoration: none
+}
+.button{
+	width: 270px;
+	margin-left:15px;
+	margin-right: 15px;
+}
+.reg{
+	margin-top: 10px;
+	margin-left: 15px;
+}
+
+.nav>li {
+    position: relative;
+    display: block;
+    width: 200px;
+}
+
+.affix-top {
+    position: relative;
+}
+.affix {
+    top: 20px;
+}
+.affix,
+.affix-bottom {
+    width: 213px;
+}
+.affix-bottom {
+    position: absolute;
+}
+.docs{
+	position: relative;
+}
+.noteam{
+	font-size: 16px;
+	color:#337ab7;
+}

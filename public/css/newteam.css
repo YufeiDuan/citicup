@@ -1,0 +1,15 @@
+#logo{
+	overflow:hidden;
+	width:130px;
+}
+#btn_upload{
+	display:block;
+	margin: auto;
+	margin-top: 10px;
+}
+.logo{
+	margin-top: 10px;
+	overflow:hidden;
+	margin: auto;
+	text-align: center;
+}

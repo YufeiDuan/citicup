@@ -45,7 +45,7 @@ class TeamController extends Controller {
 		$id = $request->route('id');
 		$team = Team::find($id);
 		if(empty($team->logo)){
-			$filepath = storage_path().'/app/logos/logo.png';
+			$filepath = storage_path().'/app/logos/logo.jpg';
 		}else{
 			$filepath = storage_path().'/app/logos/'.$team->logo;
 		}

@@ -31,7 +31,7 @@ Route::group(['prefix' => '/', 'middleware' => 'auth'], function(){
 	Route::get('logo/{r}','FileGetController@logo');
 });
 
-Route::group(['prefix' => '/', 'middleware' => ['auth','home']], function()
+Route::group(['prefix' => '/', 'middleware' => ['auth','home','http']], function()
 {
 	//用户主页
 	Route::get('home', 'HomeController@home');

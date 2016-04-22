@@ -6,7 +6,7 @@ class NormalMiddleware {
 
     public function handle($request, Closure $next)
     {
-    	$request->setTrustedProxies( [ $request->getClientIp() ] );
+    	//$request->setTrustedProxies( [ $request->getClientIp() ] );
         if ($request->secure()) {
             return redirect(url($request->getRequestUri(), [], $secure = 0));
         }

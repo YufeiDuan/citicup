@@ -33,7 +33,7 @@
 	<body>
 		<div class="container">
 			<div class="content">
-				<div class="title">Be right back.</div>
+				<div class="title">系统维护中...</div>
 			</div>
 		</div>
 	</body>

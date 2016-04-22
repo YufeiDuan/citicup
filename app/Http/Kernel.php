@@ -33,8 +33,8 @@ class Kernel extends HttpKernel {
 		'regstate' => 'App\Http\Middleware\RegMiddleware',
 		'home' => 'App\Http\Middleware\HomeMiddleware',
 		'admin' => 'App\Http\Middleware\AdminMiddleware',
-		'https' => 'App\Http\Middleware\HttpsMiddleware',
-		'http' => 'App\Http\Middleware\HttpMiddleware'
+		'ployssl' => 'App\Http\Middleware\HttpsMiddleware',
+		'ploynor' => 'App\Http\Middleware\NormalMiddleware'
 	];
 
 }

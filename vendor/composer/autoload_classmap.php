@@ -43,6 +43,8 @@ return array(
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
     'App\\Http\\Middleware\\DocMiddleware' => $baseDir . '/app/Http/Middleware/DocMiddleware.php',
     'App\\Http\\Middleware\\HomeMiddleware' => $baseDir . '/app/Http/Middleware/HomeMiddleware.php',
+    'App\\Http\\Middleware\\HttpMiddleware' => $baseDir . '/app/Http/Middleware/HttpMiddleware.php',
+    'App\\Http\\Middleware\\HttpsMiddleware' => $baseDir . '/app/Http/Middleware/HttpsMiddleware.php',
     'App\\Http\\Middleware\\RedirectIfAuthenticated' => $baseDir . '/app/Http/Middleware/RedirectIfAuthenticated.php',
     'App\\Http\\Middleware\\RegMiddleware' => $baseDir . '/app/Http/Middleware/RegMiddleware.php',
     'App\\Http\\Middleware\\ReportMiddleware' => $baseDir . '/app/Http/Middleware/ReportMiddleware.php',

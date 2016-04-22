@@ -9,7 +9,7 @@ Route::get('/validate/{token}','RegisterController@validateemail');
 Route::get('/password/{token}','PasswordController@reset');
 
 //https group
-Route::group(['middleware' => 'https'], function()
+Route::group(['middleware' => 'ployssl'], function()
 {
 	//main page
 	Route::get('/test', 'WelcomeController@index');
@@ -31,7 +31,7 @@ Route::group(['prefix' => '/', 'middleware' => 'auth'], function(){
 	Route::get('logo/{r}','FileGetController@logo');
 });
 
-Route::group(['prefix' => '/', 'middleware' => ['auth','home','http']], function()
+Route::group(['prefix' => '/', 'middleware' => ['auth','home','ploynor']], function()
 {
 	//用户主页
 	Route::get('home', 'HomeController@home');

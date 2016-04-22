@@ -1,8 +1,5 @@
 <?php
 
-//首页
-Route::get('/test', 'WelcomeController@index');
-Route::get('/','WelcomeController@test');
 
 //注册
 Route::get('/register','RegisterController@register');
@@ -10,7 +7,19 @@ Route::get('/register','RegisterController@register');
 Route::get('/validate/{token}','RegisterController@validateemail');
 //重置密码验证
 Route::get('/password/{token}','PasswordController@reset');
-//认证
+
+//https group
+Route::group(['middleware' => 'https'], function()
+{
+	//main page
+	Route::get('/test', 'WelcomeController@index');
+	Route::get('/','WelcomeController@test');
+	//auth
+	Route::controllers([
+		'auth' => 'LoginController',
+	]);
+});
+
 Route::controllers([
 	'auth' => 'LoginController',
 	'reg' => 'RegisterController',

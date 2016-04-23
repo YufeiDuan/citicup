@@ -99,7 +99,10 @@ class DocController extends Controller {
 	public function destroy($id)
 	{
 		$doc = Document::find($id);
-		Storage::delete('documents/'.Auth::user()->team->id.'/'.$doc->path);
+		if (Storage::exists('documents/'.Auth::user()->team->id.'/'.$doc->path))
+		{
+			Storage::delete('documents/'.Auth::user()->team->id.'/'.$doc->path);
+		}
 		$doc->delete();
 
 		return Redirect::to('/document');

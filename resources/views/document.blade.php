@@ -30,7 +30,7 @@
 							<span class="bar"></span><span class="percent">0%</span >
 						</div>
 						<div class="files">
-							建议使用英文文件名。
+							建议使用英文文件名, 文件大小不超过256MB.
 						</div>
 					</div>
 					<div class="modal-footer">

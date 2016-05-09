@@ -11,7 +11,7 @@ $(function () {
     var percent = $('.percent');
     var progress = $(".progress");
     var files = $(".files");
-    var btn = $(".btn span");
+    var btn = $(".btni span");
     var freq = $('#freq').val();
     var state = $('#state');
     if(freq==0){
@@ -42,6 +42,7 @@ $(function () {
                 var percentVal = percentComplete + '%';
                 bar.width(percentVal);
                 percent.html(percentVal);
+                btn.html("上传中...");
             },
             success: function(data) {
                 files.html("<b>上传成功："+data.name+"("+data.size+"KB)</b>");

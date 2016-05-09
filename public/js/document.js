@@ -14,8 +14,9 @@ $(function () {
     var btn = $(".btni span");
     var freq = $('#freq').val();
     var state = $('#state');
+    var fileupload = $('#fileupload');
     if(freq==0){
-        $('.btn').hide();
+        $('.btni').hide();
         $('#freqinfo').html("今日提交次数达到上限，请明日再试。");
     }
     if(freq==-1){
@@ -27,8 +28,8 @@ $(function () {
         //if(len>500){
         //    files.html("请刷新页面重试");
         //}
-    });
-    $("#fileupload").change(function(){
+    }); 
+    fileupload.change(function(){
         $("#myupload").ajaxSubmit({
             dataType:  'json',
             beforeSend: function() {
@@ -36,13 +37,14 @@ $(function () {
                 var percentVal = '0%';
                 bar.width(percentVal);
                 percent.html(percentVal);
+                files.html("");
                 btn.html("上传中...");
+                fileupload.attr("disabled","disabled");
             },
             uploadProgress: function(event, position, total, percentComplete) {
                 var percentVal = percentComplete + '%';
                 bar.width(percentVal);
                 percent.html(percentVal);
-                btn.html("上传中...");
             },
             success: function(data) {
                 files.html("<b>上传成功："+data.name+"("+data.size+"KB)</b>");
@@ -56,14 +58,15 @@ $(function () {
                     $('#freqinfo').html("今日剩余上传次数："+freq);
                 }
                 if(freq==0){
-                    $('.btn').hide();
+                    $('.btni').hide();
                     $('#freqinfo').html("今日提交次数达到上限，请明日再试。");
                 }
                 
-
+                fileupload.removeAttr("disabled");
                 btn.html("添加附件");
             },
             error:function(xhr){
+                fileupload.removeAttr("disabled");
                 btn.html("上传失败");
                 bar.width('0');
                 files.html(xhr.responseText);

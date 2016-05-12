@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="/css/menu.css" type="text/css" />
     <div class="container-fluid">
         <div class="row row-fluid" style="height:70%">
-            <div class="col-md-3">
+            <div class="col-md-3 menu">
                 
             <ul id="main-nav" class="nav nav-tabs nav-stacked">
                 <li>

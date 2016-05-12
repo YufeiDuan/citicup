@@ -1,10 +1,13 @@
+.menu{
+    background-color: #999999;
+    height: 800px;
+}
 #main-nav {
 
-    width: 180px;
 }
  
 #main-nav.nav-tabs.nav-stacked > li > a {
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 600;
     color: #4A515B;
     background: #E9E9E9;

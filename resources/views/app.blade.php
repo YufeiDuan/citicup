@@ -32,6 +32,8 @@
 
 </head>
 <body>
+	<div id="container">
+		<div id="header">
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="row">
@@ -62,6 +64,8 @@
 			</div>
 		</div>
 	</nav>
+</div>
+<div id="body">
 	<div class="box">
 		<div class="time">
 			<div class="clearfix course_nr">
@@ -142,6 +146,15 @@
 			</div>
 		</div>
 	</div>
+</div>
+	<div id="footer">
+		    版权所有@西安交通大学软件学院&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp
+    		地址：陕西省西安市咸宁西路28号&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp
+    		邮编：710049&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp
+    		陕ICP备05001571号 
+	</div>
+</div>
+
 
 </body>
 </html>

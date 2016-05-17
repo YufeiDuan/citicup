@@ -52,7 +52,7 @@
 							{{ $mail->receiver->name }}
 						</td>
 						<td class="col-xs-5 ctb">
-							{{ $mail->subject }} - {{mb_substr($mail->content,0,15)}}...
+							{{ $mail->subject }}
 						</td>
 						<td class="col-xs-3 ctb">
 							{{ $mail->created_at }}

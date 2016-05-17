@@ -38,14 +38,14 @@
                     </a>
                 </li>
                
-                <li>
+                <li id="inbox">
                     <a href="{{ url('/mail') }}">
                         <i class="glyphicon glyphicon-inbox"></i>
                         收件箱
                     </a>
                 </li>
                 
-                <li>
+                <li id="outbox">
                     <a href="{{ url('/mail/outbox') }}">
                         <i class="glyphicon glyphicon-envelope"></i>
                         发件箱

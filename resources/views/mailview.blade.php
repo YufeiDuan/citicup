@@ -4,7 +4,7 @@
 	<div class="container-fluid" style="margin-left:30px;">
 		<div class="col-md-10 col-md-offset-1">
 		<div class="row">
-			<a href="{{ $back }}"><i class="glyphicon glyphicon-chevron-left"></i>返回</a>
+			<a href="{{ $back }}" id="back"><i class="glyphicon glyphicon-chevron-left"></i>返回</a>
 		</div>
 		<div class="row">
 			<h3><b>{{$mail->subject}}</b></h3>

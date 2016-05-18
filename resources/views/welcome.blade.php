@@ -222,10 +222,12 @@
 				    <li><a href="#comp-major">专业</a></li>
 				    <li><a href="#comp-schedule">大赛大致日程安排</a></li>
 				    <li><a href="#comp-reward">奖励设置</a></li>
-				    <li><a href="#comp-topic">参赛题目</a></li>
+				    
+				    {{--<li><a href="#comp-topic">参赛题目</a></li>
 				    <li><a href="#comp-work">参赛作品说明</a></li>
 				    <li><a href="#comp-rule">竞赛规则</a></li>
 				    <li><a href="#comp-item">作品评分项分值</a></li>
+				    --}}
 				  </ul>
 				</li>
 

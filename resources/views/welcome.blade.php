@@ -62,7 +62,7 @@
 							
 						</form>
 						<div class="reg">
-						<span class="noteam">没有团队？</span><a href="{{url('/register')}}">立即组建</a>
+						<span class="noteam">没有团队？</span><a id="reg" href="{{url('/register')}}">立即组建</a>
 					</div>
 					</div>
 				</div>
@@ -87,7 +87,7 @@
 				<h3 id="comp-main" class="ytitle">大赛主旋律</h3>
 				<p>创新与完善</p>
 				<h3 id="comp-goal" class="ytitle">大赛目标</h3>
-				<p>引导在校大学生关注科技在金融业的应用，探索运用所学技术解决或改进目前金融业发展过程中所面临的挑战</p>
+				<p>引导在校大学生关注科技在金融业的应用，探索运用所学技术解决或改进目前金融业发展过程中所面临的挑战。</p>
 				<h3 id="comp-influence" class="ytitle">大赛影响力</h3>
 				<p>大赛及最终获奖学校,带队老师，学生团队和作品名单会在全国相关主流媒体予以报道公布。</p>
 				<h3 id="comp-object" class="ytitle">参赛对象</h3>
@@ -160,8 +160,8 @@
 					</tr>
 					<tr>
 						<td>最具投资潜力奖</td>
-						<td>经上海市大学生科技创业基金会考察并准予加入“雏鹰计划”(RMB20万免息免抵押创业贷款)、<br>或“雄鹰计划”(RMB50万创业资金+创业服务)
-(详情依照基金会网站公示www.stefg.org )</td>
+						<td>经上海市大学生科技创业基金会考察并准予加入“雏鹰计划”(RMB20万免息免抵押创业贷款)、或“雄鹰计划”(RMB50万创业资金+创业服务)
+(详情参见<a href="http://www.stefg.org">基金会网站</a>)</td>
 						<td>若干团队</td>
 					</tr>
 					<tr>
@@ -170,16 +170,32 @@
 						<td>12团队</td>
 					</tr>
 				</table>
-				<p>所有参赛学校将根据报名队伍、提交项目报告队伍、提交完整参赛作品队伍、入围决赛队伍的数量，综合排名评选出5所“最佳合作组织奖”学校。 
-所有参加并最终成功提交完整作品的团队成员均可获得大赛参赛证明。
-
-前8支队伍将成功晋级现场排名总决赛，并可选派2名队员代表现场参赛，前20其余12支队伍可选派1名队员代表参加单项奖入围赛。以上相关差旅费用均由大赛组委会承担，其他团队成员也可自愿报名现场观摩，但相关差旅费用将自理或由各合作院校自行承担。
-
-前20支队伍，确认资格有效的，由花旗金融信息服务(中国)有限公司(以下简称“花旗金融信息”)向参赛学生和带队老师颁发获奖证书和相应的奖金。奖金将经由各合作学校发放。
-
-前20队伍成员中，计算机、软件和信息管理等相关专业同学，一经面试通过即可获得花旗金融信息实习机会(签订三方协议)，实习结束后公司将根据其表现考虑是否录取。金融和管理等其它相关专业同学，也将被优先推荐至花旗银行人力资源部。</p>
 
 			<h2 id="comp-signup" class="xtitle page-header">大赛报名</h2>
+				<h3 id="signup-type" class="ytitle">大赛报名方式</h3>
+					<ol>
+					  <li>学生可自行访问“花旗杯”官方网站，点击“最新消息”中的“大赛报名详情”即可</li>
+					  <li>在线浏览并访问2016年“花旗杯”承办单位西安交通大学网站<a class="disp" href="http://citicup.xjtu.edu.cn">http://citicup,xjtu.edu.cn</a> 进行注册</li>
+					</ol>
+				<h3 id="contact-info" class="ytitle">组委会联系方式</h3>
+					<address>
+					  <strong>徐静/陆骞/陈泰然</strong><br>
+					  <abbr title="Phone">联系电话:</abbr>&nbsp;021-28960965&nbsp;/&nbsp;28961100&nbsp;/&nbsp;28960898<br>
+					  <a href="mailto:citi.cup.alumni@citi.com"><img id="mail" src="/img/mail.png"></a>
+					</address>
+				<h3 id="comp-guide" class="ytitle">大赛指导机构</h3>
+					<p>花旗金融信息科技教育项目顾问委员会</p>
+				<h3 id="comp-review" class="ytitle">大赛评审机构</h3>
+					<p>“花旗杯”金融创新应用大赛专家评审委员会</p>
+				<h3 id="comp-desc" class="ytitle">大赛说明</h3>
+					<p>大赛进展通报、大赛详细说明及评选规则请邮件或传真查询大赛组委会。<br>
+					花旗金融信息服务(中国)有限公司拥有本次大赛的最终解释权。<br>
+					赞助机构：<a href="https://www.citibank.com.cn/">花旗中国</a><br>
+					指导单位：<a href="http://www.sheitc.gov.cn/">上海市经济和信息化委员会</a><br>
+					主办单位：<a href="http://www.citigroup.com/china/csts/index_cn.html">花旗金融信息服务(中国)有限公司</a><br>
+					承办单位：<a href="http://www.xjtu.edu.cn">西安交通大学</a><br>
+					协办单位：<a href="http://www.stefg.org">上海市大学生科技创业基金会</a></p>
+
 
           </div>
 
@@ -215,7 +231,6 @@
 				<li class="dropdown-toggle" data-toggle="dropdown">
 				  <a href="#comp-signup" class="mainmenu">大赛报名</a>
 				  <ul class="nav sub-menu">
-				    <li><a href="#signup-time">大赛报名时间</a></li>
 				    <li><a href="#signup-type">大赛报名方式</a></li>
 				    <li><a href="#contact-info">组委会联系方式</a></li>
 				    <li><a href="#comp-guide">大赛指导机构</a></li>
@@ -244,9 +259,9 @@
     </div>
     <div class="footer">
     	<div class="copyright">
-    		版权所有@西安交通大学软件学院&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp
-    		地址：陕西省西安市咸宁西路28号&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp
-    		邮编：710049&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp
+    		版权所有@西安交通大学软件学院&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+    		地址：陕西省西安市咸宁西路28号&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+    		邮编：710049&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
     		陕ICP备05001571号 
 		</div>
     </div>

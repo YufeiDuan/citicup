@@ -63,10 +63,10 @@ tr{
 	text-align: right;
 	float: right;
 }
-a{
+#reg{
 	font-size: 16px;
 }
-a:link,a:visited,a:hover {
+#reg:link,#reg:visited,#reg:hover {
 	font-size:16px;
 	color:#FFF;
 	text-decoration: none
@@ -135,4 +135,15 @@ a:link,a:visited,a:hover {
 p{
 	line-height: 160%;
 	font-size: 15px;
+}
+li{
+	line-height: 160%;
+}
+#mail{
+	width: 200px;
+}
+#outlink:link,#outlink:visited,#outlink:hover {
+	font-size:16px;
+	color:#FFF;
+	text-decoration: none
 }

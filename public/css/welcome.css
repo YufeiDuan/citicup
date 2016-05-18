@@ -107,3 +107,25 @@ a:link,a:visited,a:hover {
 	font-size: 16px;
 	color:#337ab7;
 }
+.xtitle{
+	border-left-width: 5px;
+	border-left-style: solid;
+	border-left-color: #528cd3;
+	padding-left: 5px;
+}
+.ytitle{
+	border-left-width: 3px;
+	border-left-style: solid;
+	border-left-color: #528cd3;
+	padding-left: 5px;
+}
+#back{
+	color:#999;
+	font-size:15px;
+}
+.zback{
+	width: 200px;
+}
+#placeholder{
+	height:10px;
+}

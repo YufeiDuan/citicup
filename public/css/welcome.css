@@ -132,3 +132,7 @@ a:link,a:visited,a:hover {
 #schedule{
 	width: 600px;
 }
+p{
+	line-height: 160%;
+	font-size: 15px;
+}

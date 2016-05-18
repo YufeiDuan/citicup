@@ -140,10 +140,13 @@ li{
 	line-height: 160%;
 }
 #mail{
-	width: 200px;
+	width: 170px;
 }
-#outlink:link,#outlink:visited,#outlink:hover {
-	font-size:16px;
+.outlink:link,.outlink:visited,.outlink:hover {
+	color:#333;
+	text-decoration: none
+}
+#se:link,#se:visited,#se:hover {
 	color:#FFF;
 	text-decoration: none
 }

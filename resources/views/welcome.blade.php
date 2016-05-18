@@ -175,12 +175,13 @@
 				<h3 id="signup-type" class="ytitle">大赛报名方式</h3>
 					<ol>
 					  <li>学生可自行访问“花旗杯”官方网站，点击“最新消息”中的“大赛报名详情”即可</li>
-					  <li>在线浏览并访问2016年“花旗杯”承办单位西安交通大学网站<a class="disp" href="http://citicup.xjtu.edu.cn">http://citicup,xjtu.edu.cn</a> 进行注册</li>
+	font-size:16px;
+					  <li>在线浏览并访问2016年“花旗杯”承办单位西安交通大学网站<a class="outlink" href="http://citicup.xjtu.edu.cn">http://citicup,xjtu.edu.cn</a> 进行注册</li>
 					</ol>
 				<h3 id="contact-info" class="ytitle">组委会联系方式</h3>
 					<address>
 					  <strong>徐静/陆骞/陈泰然</strong><br>
-					  <abbr title="Phone">联系电话:</abbr>&nbsp;021-28960965&nbsp;/&nbsp;28961100&nbsp;/&nbsp;28960898<br>
+					  <abbr title="Phone">P:</abbr>&nbsp;021-28960965&nbsp;/&nbsp;28961100&nbsp;/&nbsp;28960898<br>
 					  <a href="mailto:citi.cup.alumni@citi.com"><img id="mail" src="/img/mail.png"></a>
 					</address>
 				<h3 id="comp-guide" class="ytitle">大赛指导机构</h3>
@@ -190,11 +191,11 @@
 				<h3 id="comp-desc" class="ytitle">大赛说明</h3>
 					<p>大赛进展通报、大赛详细说明及评选规则请邮件或传真查询大赛组委会。<br>
 					花旗金融信息服务(中国)有限公司拥有本次大赛的最终解释权。<br>
-					赞助机构：<a href="https://www.citibank.com.cn/">花旗中国</a><br>
-					指导单位：<a href="http://www.sheitc.gov.cn/">上海市经济和信息化委员会</a><br>
-					主办单位：<a href="http://www.citigroup.com/china/csts/index_cn.html">花旗金融信息服务(中国)有限公司</a><br>
-					承办单位：<a href="http://www.xjtu.edu.cn">西安交通大学</a><br>
-					协办单位：<a href="http://www.stefg.org">上海市大学生科技创业基金会</a></p>
+					赞助机构：<a class="outlink" href="https://www.citibank.com.cn/">花旗中国</a><br>
+					指导单位：<a class="outlink" href="http://www.sheitc.gov.cn/">上海市经济和信息化委员会</a><br>
+					主办单位：<a class="outlink" href="http://www.citigroup.com/china/csts/index_cn.html">花旗金融信息服务(中国)有限公司</a><br>
+					承办单位：<a class="outlink" href="http://www.xjtu.edu.cn" target="_blank">西安交通大学</a><br>
+					协办单位：<a class="outlink" href="http://www.stefg.org">上海市大学生科技创业基金会</a></p>
 
 
           </div>
@@ -259,7 +260,7 @@
     </div>
     <div class="footer">
     	<div class="copyright">
-    		版权所有@西安交通大学软件学院&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+    		版权所有@<a id="se" href="http://se.xjtu.edu.cn">西安交通大学软件学院</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
     		地址：陕西省西安市咸宁西路28号&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
     		邮编：710049&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
     		陕ICP备05001571号 

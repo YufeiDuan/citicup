@@ -15,6 +15,7 @@
 					</div>
 					<div class="modal-body">
 						<form id='myupload' action='/document' method='post' enctype='multipart/form-data'>
+							
 							上传文档类别：<select id="upload_type" name="upload_type">
 								
 							</select>

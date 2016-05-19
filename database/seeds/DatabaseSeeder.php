@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder {
 		//$this->call('UnivTableSeeder');
 		//$this->call('AuthenTableSeeder');
 		//$this->call('AdminTableSeeder');
-		$this->call('ProcessTableSeeder');
+		//$this->call('ProcessTableSeeder');
+		$this->call('ConfigTableSeeder');
 	}
 
 }

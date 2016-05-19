@@ -24,7 +24,6 @@ class DocController extends Controller {
 		$team = Auth::user()->team;
 		$count = $team->unreadcount();
 		$documents = $team->documents;
-		$types = ('1 23');
 		/*
 		foreach($documents as $doc){
 			if(!array_key_exists($doc->type_id,$types))
@@ -33,7 +32,6 @@ class DocController extends Controller {
 		*/
 		View::share('data',['count'=>$count,'name'=>$team->name]);
 		View::share('documents',$documents);
-		View::share('types',"<script> var types=\"$types\";</script>");
 		return view('document');
 	}
 

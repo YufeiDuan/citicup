@@ -31,6 +31,12 @@ class AdminTableSeeder extends Seeder {
             'password'  =>password_hash('chenmo5aiU', PASSWORD_BCRYPT),
             'state'     =>1,
         ]);
+        Admin::Create([
+            'id'        =>3,
+            'name'      =>'xujing',
+            'password'  =>password_hash('3t7zMe', PASSWORD_BCRYPT),
+            'state'     =>1,
+        ]);
 
 
     }

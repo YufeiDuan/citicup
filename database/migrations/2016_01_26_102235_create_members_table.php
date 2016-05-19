@@ -20,11 +20,10 @@ class CreateMembersTable extends Migration {
 			$table->integer('univ_id')->unsigned();
 			$table->foreign('univ_id')->references('id')->on('univs');
 			$table->string('college',20);
-			$table->string('major',20);
-			$table->string('stu_num',15);
+			$table->string('phone',15);
 			$table->string('id_num',18)->unique();
 			$table->tinyInteger('degree');
-			$table->integer('year_entry');
+			$table->tinyInteger('grade');
 			$table->string('email');
 			$table->integer('team_id')->unsigned();
 			$table->foreign('team_id')->references('id')->on('teams');

@@ -22,6 +22,9 @@ class CreateTeamsTable extends Migration {
 			$table->string('logo',50);
 			$table->integer('authen_id')->unsigned()->nullable();
 			$table->foreign('authen_id')->references('id')->on('authens');
+			$table->text('addr');
+			$table->text('introduction_eng')->nullable();;
+			$table->text('introduction_chn')->nullable();;
 		});
 	}
 

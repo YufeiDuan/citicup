@@ -18,8 +18,8 @@ class DatabaseSeeder extends Seeder {
 		
 		//$this->call('AreaTableSeeder');
 		//$this->call('UnivTableSeeder');
-		//$this->call('AuthenTableSeeder');
-		$this->call('AdminTableSeeder');
+		$this->call('AuthenTableSeeder');
+		//$this->call('AdminTableSeeder');
 	}
 
 }

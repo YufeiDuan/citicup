@@ -54,7 +54,7 @@ class AreaTableSeeder extends Seeder {
 		Area::create(['id'=>70,'name'=>'香港']);
 		Area::create(['id'=>71,'name'=>'澳门']);
 		Area::create(['id'=>72,'name'=>'台湾']);
-
+		Area::create(['id'=>99,'name'=>'其他']);
     }
 
 }

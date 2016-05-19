@@ -66,11 +66,9 @@ class MemberController extends Controller {
 			'sex' => 'required|boolean',
 			'school'=>'required|string',
 			'college' => 'required|string|max:20',
-			'major' => 'required|string|max:20',
-			'id_num' => 'required|string|max:18|unique:members',
-			'stu_num' => 'required|string|max:15',
 			'degree' => 'required|numeric',
-			'year_entry' => 'required|numeric',
+			'grade' => 'required|numeric',
+			'phone' => 'required|string|size:11',
 			'email' => 'required|email',
 		]);
 
@@ -87,11 +85,10 @@ class MemberController extends Controller {
 		$member->sex=Input::get('sex');
 		$member->univ_id=$univ->id;
 		$member->college=Input::get('college');
-		$member->major=Input::get('major');
-		$member->stu_num=Input::get('stu_num');
+		$member->phone=Input::get('phone');
 		$member->id_num=Input::get('id_num');
 		$member->degree=Input::get('degree');
-		$member->year_entry=Input::get('year_entry');
+		$member->grade=Input::get('grade');
 		$member->email=Input::get('email');
 		$member->team_id=Auth::user()->team->id;
 		$member->leader=0;
@@ -147,11 +144,9 @@ class MemberController extends Controller {
 			'sex' => 'required|boolean',
 			'school'=>'required|string',
 			'college' => 'required|string|max:20',
-			'major' => 'required|string|max:20',
-			'id_num' => 'required|string|max:18',
-			'stu_num' => 'required|string|max:15',
 			'degree' => 'required|numeric',
-			'year_entry' => 'required|numeric',
+			'grade' => 'required|numeric',
+			'phone' => 'required|string|size:11',
 			'email' => 'required|email',
 		]);
 

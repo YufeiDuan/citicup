@@ -20,12 +20,14 @@ use App\Config;
 class ReportController extends Controller {
 
 	public function index(){
-
 		$team = Auth::user()->team;
 		$count = $team->unreadcount();
 		$report = $team->report;
-		View::share('data',['count'=>$count,'name'=>$team->name,'title'=>$team->title,'report'=>$report]);
-
+		View::share('data',['count'=>$count,'name'=>$team->name,
+			'title'=>$team->title,
+			'introduction_eng'=>$team->introduction_eng,
+			'introduction_chn'=>$team->introduction_chn,
+			'report'=>$report]);
 		return view('report');
 	}
 
@@ -40,11 +42,9 @@ class ReportController extends Controller {
 			$report->freq=Config::first()->freq;
 			$report->team_id=$team->id;
 		}
-		
 		if($report->freq==0){
 			return '今日提交次数已达上限，请明日再试。';
 		}	
-
 		if(Input::hasFile('report'))
 		{
 			$file = Input::file('report');
@@ -61,12 +61,8 @@ class ReportController extends Controller {
 					    Storage::delete('reports/'.$team->id.'/'.$report->path);
 					}
 				}
-
-				
 				$file->move(storage_path().'/app/reports/'.$team->id,$path);
-
 				$report->path=$path;				
-
 				if($report->freq>0){
 					$report->freq-=1;
 				}
@@ -84,25 +80,42 @@ class ReportController extends Controller {
 		return Response::json($arr);
 		}
 	}
-	//更新参赛题目
-	public function update(Request $request){
-
-		$this->validate($request, [
-	        'title' => 'required|string',
-    	]);
-
+	//更新参赛题目/项目简介
+	public function update(Request $request,$id){
 		$team = Auth::user()->team;
-		$old_name = $team->name;
 		$count = $team->unreadcount();
-		$team->title = Input::get('title');
-		if($team->save()){
-			View::share('data',['count'=>$count,'name'=>$team->name]);
-			return Redirect::to('/report');
-		}else{
-			View::share('data',['count'=>$count,'name'=>$old_name]);
-			return Redirect::to('/repprt')->withErrors('修改失败！');
+		View::share('data',['count'=>$count,'name'=>$team->name]);
+		if($id == 1){
+			$this->validate($request, [
+		        'title' => 'required|string',
+	    	]);
+			$team->title = Input::get('title');
+			if($team->save()){
+				return Redirect::to('/report');
+			}else{
+				return Redirect::to('/report')->withErrors('修改失败！');
+			}
 		}
-		
+		else if($id == 2){
+			$this->validate($request, [
+		        'introduction_chn' => 'required|string|max:200',
+		        'introduction_eng' => 'required|string',
+	    	]);
+	    	$text = Input::get('introduction_eng');
+
+		    if(count(explode(' ', $text)) > 200){
+		        return redirect()->back()->withInput()->withErrors('英文词数过多！');
+			}else{
+				$team->introduction_eng = $text;
+				$team->introduction_chn = $request->input('introduction_chn');
+				if($team->save()){
+		    		return redirect()->back();
+				}else{
+					return Redirect::to('/report')->withErrors('修改失败！');
+				}
+			}
+		}
+		return redirect()->back();
 	}
 
 	public function __construct()

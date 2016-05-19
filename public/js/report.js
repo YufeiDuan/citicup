@@ -1,17 +1,32 @@
+function lenOfIntroduction(val){
+    var wom = val.match(/\S+/g);
+    return {
+        charactersNoSpaces : val.replace(/\s+/g, '').length,
+        characters         : val.length,
+        words              : wom ? wom.length : 0,
+        lines              : val.split(/\r*\n/).length
+    };
+}
+
 $(function () {
     $("#title").attr("disabled","disabled");
+    $(".introduction").attr("disabled","disabled");
     $('#save').hide();
     $('#cancel').hide();
+    $('#save2').hide();
+    $('#cancel2').hide();
     $('.tips').hide();
     var bar = $('.bar');
     var percent = $('.percent');
     var progress = $(".progress");
     var files = $(".files");
-    var btn = $(".btn span");
+    var btn = $(".btni span");
     var freq = $('#freq').val();
     var state = $('#state');
+    var chn_info = $('#chn_info');
+    var eng_info = $('#eng_info');
     if(freq==0){
-        $('.btn').hide();
+        btn.hide();
         $('#freqli').html("今日提交次数达到上限，请明日再试。");
     }
     if(freq==-1){
@@ -24,9 +39,9 @@ $(function () {
         var content = $(e.target).text();
         var len = (content.toString()).length;
         if(len>500){
-            files.html("请刷新页面重试");
+            //files.html("请刷新页面重试");
         }
-    }); 
+    });
     $("#fileupload").change(function(){
         $("#myupload").ajaxSubmit({
             dataType:  'json',
@@ -36,6 +51,7 @@ $(function () {
                 bar.width(percentVal);
                 percent.html(percentVal);
                 btn.html("上传中...");
+                fileupload.attr("disabled","disabled");
             },
             uploadProgress: function(event, position, total, percentComplete) {
                 var percentVal = percentComplete + '%';
@@ -56,21 +72,37 @@ $(function () {
                     $('#freqli').html("今日剩余上传次数："+freq);
                 }
                 if(freq==0){
-                    $('.btn').hide();
+                    btn.hide();
                     $('#freqli').show();
                     $('#freqli').html("今日提交次数达到上限，请明日再试。");
                 }
                 
-
+                fileupload.removeAttr("disabled");
                 btn.html("添加附件");
             },
             error:function(xhr){
                 btn.html("上传失败");
+                fileupload.removeAttr("disabled");
                 bar.width('0');
                 files.html(xhr.responseText);
             }
         });
     });
+    $("#chn").bind('input propertychange', function() {
+        var chn = this.value;
+        var lenc = chn.length;
+        chn_info.html(lenc);
+
+    });
+    $("#eng").bind('input propertychange', function() {
+        var eng = this.value;
+        var len = lenOfIntroduction(eng);
+        eng_info.html(len.words);
+        if(len.words>200){
+            alert("英文简介词数过多，请删减！");
+        }
+    });
+    
 });
 var tag=1;
 function display(){
@@ -88,14 +120,30 @@ function display(){
         tag=1;
     }
 }
-    //弹出窗口
-    function pop(){
-        $('#upload_modal').modal('show');
-
+var tag2=1;
+function display2(){
+    if(tag2==1){
+        $(".introduction").attr("disabled",false);
+        $('#save2').show();
+        $('#cancel2').show();
+        $('.tips').show();
+        tag2=0;
+    }else{
+        $(".introduction").attr("disabled","disabled");
+        $('#save2').hide();
+        $('#cancel2').hide();
+        $('.tips').hide();
+        tag2=1;
     }
-    function hide()
-    {
-        window.location.reload();
-        //$('#choose-box-wrapper').css("display","none");
+}
+//弹出窗口
+function pop(){
+    $('#upload_modal').modal('show');
 
-    }
+}
+function hide()
+{
+    window.location.reload();
+    //$('#choose-box-wrapper').css("display","none");
+
+}

@@ -9,6 +9,7 @@ return array(
     'AdminTableSeeder' => $baseDir . '/database/seeds/AdminTableSeeder.php',
     'AreaTableSeeder' => $baseDir . '/database/seeds/AreaTableSeeder.php',
     'AuthenTableSeeder' => $baseDir . '/database/seeds/AuthenTableSeeder.php',
+    'ConfigTableSeeder' => $baseDir . '/database/seeds/ConfigTableSeeder.php',
     'CreateAdminsTable' => $baseDir . '/database/migrations/2016_01_27_122222_create_admins_table.php',
     'CreateAreasTable' => $baseDir . '/database/migrations/2016_01_26_102224_create_areas_table.php',
     'CreateAuthensTable' => $baseDir . '/database/migrations/2016_01_26_102218_create_authens_table.php',
@@ -464,5 +465,6 @@ return array(
     'SessionHandlerInterface' => $vendorDir . '/symfony/http-foundation/Symfony/Component/HttpFoundation/Resources/stubs/SessionHandlerInterface.php',
     'TestCase' => $baseDir . '/tests/TestCase.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
+    'TypeTableSeeder' => $baseDir . '/database/seeds/TypeTableSeeder.php',
     'UnivTableSeeder' => $baseDir . '/database/seeds/UnivTableSeeder.php',
 );

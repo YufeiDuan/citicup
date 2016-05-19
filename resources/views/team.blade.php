@@ -103,34 +103,34 @@
 		<table class="table table-hover table-striped ">
 			<thead>
 			<tr class="row">
-				<th class="col-xs-3">姓名</th>
-				<th class="col-xs-3">学校</th>
-				<th class="col-xs-2">学院</th>
-				<th class="col-xs-2">类别</th>
-				<th class="col-xs-2">操作</th>
+				<th class="col-sm-2">姓名</th>
+				<th class="col-sm-3">学校</th>
+				<th class="col-sm-3">学院</th>
+				<th class="col-sm-2">类别</th>
+				<th class="col-sm-2">操作</th>
 			</tr>
 		</thead>
 		<tbody>
 			@foreach ($members as $member)
 			<tr class="row">
-				<td class="col-xs-3">
+				<td class="col-sm-2">
 					{{ $member->name }}
 				</td>
-				<td class="col-xs-3">
+				<td class="col-sm-3">
 					{{ $member->univ->name }}
 				</td>
-				<td class="col-xs-2">
+				<td class="col-sm-3">
 					{{ $member->college }}
 				</td>
-				<td class="col-xs-2">
+				<td class="col-sm-2">
 					@if ($member->leader)
 					队长
 				</td>
-				<td class="col-xs-2"></td>
+				<td class="col-sm-2"></td>
 				@else
 				队员
 			</td>
-			<td class="col-xs-2">
+			<td class="col-sm-2">
 				<a href="{{ URL('member/'.$member->id.'/edit') }}" class="btn btn-success"><i class="glyphicon glyphicon-edit"></i></a>
 				<form action="{{ URL('member/'.$member->id) }}" method="POST" style="display: inline;" onsubmit="return(delconfirm())">
 					<input name="_method" type="hidden" value="DELETE">
@@ -143,19 +143,19 @@
 		@endforeach
 		@foreach ($teachers as $teacher)
 		<tr class="row">
-			<td class="col-xs-1">
+			<td class="col-sm-2">
 				{{ $teacher->name }}
 			</td>
-			<td class="col-xs-2">
+			<td class="col-sm-3">
 				{{ $teacher->univ->name }}
 			</td>
-			<td class="col-xs-2">
+			<td class="col-sm-3">
 				{{ $teacher->college }}
 			</td>
-			<td class="col-xs-1">
+			<td class="col-sm-2">
 				指导老师
 			</td>
-			<td class="col-xs-1">
+			<td class="col-sm-1">
 				<a href="{{ URL('teacher/'.$teacher->id.'/edit') }}" class="btn btn-success"><i class="glyphicon glyphicon-edit"></i></a>
 				<form action="{{ URL('teacher/'.$teacher->id) }}" method="POST" style="display: inline;" onsubmit="return(delcheck())" class="form">
 					<input type="hidden" id="teacher_count" value="{{$teachers->count()}}">

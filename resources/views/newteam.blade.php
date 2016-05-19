@@ -50,6 +50,24 @@
 				</div>
 			</div>
 			<div class="form-group">
+				<label class="col-md-3 control-label">证书邮寄地址</label>
+				<div class="col-md-3">
+					<input type="text" class="form-control" name="addr1" placeholder="省(直辖市)"/>
+				</div>
+				<div class="col-md-2 addr">
+					<input type="text" class="form-control" name="addr2" placeholder="市"/>
+				</div>
+				<div class="col-md-3">
+					<input type="text" class="form-control" name="addr3" placeholder="区(县)"/>
+				</div>			
+
+			</div>
+			<div class="form-group">
+				<div class="col-md-8 col-md-offset-3">
+					<input type="text" class="form-control" name="addr4" placeholder="详细地址"/>
+				</div>
+			</div>
+			<div class="form-group">
 				<div class="col-md-6 col-md-offset-4">
 					<button type="submit" class="btn btn-primary">
 					下一步
@@ -59,15 +77,14 @@
 			<div class="alert alert-info">
 				<ul>
 					<li>每个团队只需注册一个账号。</li>
+					<li>团队名称填写后不可修改。</li>
 					<li>请由队长进行团队注册操作。</li>
 					<li>若未上传团队Logo，将使用默认Logo。</li>
 					<li>参赛题目可稍后填写，但不应晚于项目报告截止日期。</li>
-					<li>团队组建将于2016年6月30日0时0分截止。</li>
+					<li>团队组建将于2016年7月15日0时0分截止。</li>
 				</ul>
 			</div>
 		</form>
-	</div>
-</div>
 		<div class="modal" id="upload_modal">
 			<div class="modal-dialog">
 				<div class="modal-content">

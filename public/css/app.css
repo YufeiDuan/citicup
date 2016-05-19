@@ -112,3 +112,7 @@ body {
   color:#FFF;
   text-decoration: none;
 }
+#news:link,#news:visited,#news:hover {
+  color:#5e5e5e;
+  text-decoration: none;
+}

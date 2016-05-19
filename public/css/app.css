@@ -108,3 +108,7 @@ body {
   background-color: #3C3C3C;
   color:#ffffff;
 }
+#se:link,#se:visited,#se:hover {
+  color:#FFF;
+  text-decoration: none
+}

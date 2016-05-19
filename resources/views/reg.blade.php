@@ -33,30 +33,41 @@
 
 	</head>
 	<body>
-	<div class="contrainer-fluid" style="margin-top:50px;">
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			<div class="panel panel-default">
-				<div class="panel-heading">@yield('title')
-					<div style="text-align:right;float:right">
-						<a href="{{ url('/auth/logout') }}">
-							@if(Auth::user())
-							登出
-							@else
-							返回首页
-							@endif
-						</a>
-					</div>
-				</div>
-				<div class="panel-body">
-					
-					@yield('content')
+	<div id="container">
+		<div id="header">
+		</div>
+		<div id="body">
+			<div class="contrainer-fluid" style="margin-top:50px;">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+						<div class="panel panel-default">
+							<div class="panel-heading">@yield('title')
+								<div style="text-align:right;float:right">
+									<a href="{{ url('/auth/logout') }}">
+										@if(Auth::user())
+										登出
+										@else
+										返回首页
+										@endif
+									</a>
+								</div>
+							</div>
+							<div class="panel-body">
+								
+								@yield('content')
 
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
+		<div id="footer">
+			版权所有@<a id="se" href="http://se.xjtu.edu.cn">西安交通大学软件学院</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+    		地址：陕西省西安市咸宁西路28号&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+    		邮编：710049&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+    		陕ICP备05001571号 
+		</div>
 	</div>
-</div>
-
 	</body>
 </html>

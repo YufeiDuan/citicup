@@ -71,44 +71,44 @@
 			<div class="clearfix course_nr">
 				<ul class="disp">
 					<li id="s1" style="background:url(/img/1.png) no-repeat center top; ">
-						Mar 15
+						Jun 5
 						<div class="shiji">
-							<h5>Mar 15</h5>
+							<h5>Jun 5</h5>
 							<p>比赛启动</p>
 						</div>
 					</li>
 					<li id="s2" style="background:url(/img/2.png) no-repeat center top; ">
-						Jun 30
+						Jul 15
 						<div class="shiji" >
-							<h5>Jun 30</h5>
+							<h5>Jul 15</h5>
 							<p>团队组建</p>
 						</div>
 					</li>
 					<li  id="s3" style="background:url(/img/3.png) no-repeat center top; ">
-						Aug 1
+						Aug 12
 						<div class="shiji">
-							<h5>Aug 1</h5>
+							<h5>Aug 12</h5>
 							<p>项目报告</p>
 						</div>
 					</li>
 					<li id="s4" style="background:url(/img/4.png) no-repeat center top; ">
-						Sep 15
+						Sep 16
 						<div class="shiji" >
-							<h5>Sep 15</h5>
+							<h5>Sep 16</h5>
 							<p>完整作品</p>
 						</div>
 					</li>
 					<li id="s5" style="background:url(/img/5.png) no-repeat center top; ">
-						Oct 15
+						Oct 20
 						<div class="shiji">
-							<h5>Oct 15</h5>
+							<h5>Oct 20</h5>
 							<p>首轮评选</p>
 						</div>
 					</li>
 					<li  id="s6" style="background:url(/img/6.png) no-repeat center top; ">
-						Nov 20
+						Nov 17
 						<div class="shiji">
-							<h5>Nov 20</h5>
+							<h5>Nov 17</h5>
 							<p>决赛颁奖</p>
 						</div>
 					</li>

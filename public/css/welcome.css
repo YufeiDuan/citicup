@@ -26,9 +26,6 @@ body {
 	z-index: 1;
 	color: white;
 }
-.myinput{
-	width:270px;
-}
 .login_box{ 
 	width: 300px;
 	height: 300px;  
@@ -41,15 +38,23 @@ body {
 tr{
 	margin-top: 10px;
 }
+
+.myinput{
+	height: 40px;
+}
 .inputbox{
 	margin-top: 30px;
-	margin-right: 15px;
-	margin-left: 15px;	
+	margin-right: 35px;
+	margin-left: 35px;	
 }
 .checkbox{
 	margin-left: 0px;
 	text-align: left;
 	float: left;
+}
+.mybtn{
+	height: 40px;
+	font-size: 16px;
 }
 .checkbox label span{
 	font-size: 16px;

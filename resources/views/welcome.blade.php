@@ -37,33 +37,44 @@
 						</script>
 						@endif
 
-						<form role="form" method="POST" action="{{ url('/auth/login') }}">
-							<div class="inputbox">
-								<input type="hidden" name="_token" value="{{ csrf_token() }}">
-									
-								<input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="请输入邮箱" class="form-control myinput" data-toggle="tooltip" title="Tooltip">
-								<br>
+	
+						<div class="inputbox">
+							<form role="form" method="POST" action="{{ url('/auth/login') }}"  class="form-horizontal">
+							<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-								<input type="password" name="password" placeholder="请输入密码" class="myinput form-control">
+							<div class="input-group form-group">
+						      <div class="input-group-addon">
+						      	<i class="glyphicon glyphicon-envelope"></i>
+						      </div>
+						      <input type="email" id="email" name="email" class="form-control myinput" placeholder="请输入邮箱" value="{{ old('email') }}"  data-toggle="tooltip" title="Tooltip">
+						    </div>
+
+						    <div class="input-group form-group">
+						      <div class="input-group-addon">
+						      	<i class="glyphicon glyphicon-lock"></i>
+						      </div>
+						      <input type="password" id="password" name="password" class="form-control myinput" placeholder="请输入密码">
+						    </div>
+						    <div class="form-group">
 
 								<div class="checkbox">
-								<label>
-									<input type="checkbox" name="remember"><span>记住我</span>
-								</label>
-								<div class="forget">
-									<a href="{{url('/pwd/apply')}}">忘记密码</a>
-								</div>
+									<label>
+										<input type="checkbox" name="remember"><span>记住我</span>
+									</label>
+									<div class="forget">
+										<a href="{{url('/pwd/apply')}}">忘记密码</a>
+									</div>
 								</div>
 							</div>
-							
-							<div class="button">
-								<button type="submit" class="btn btn-success btn-block">登录</button>
+						    <div class="form-group">
+								<button type="submit" class="mybtn btn btn-success btn-block">登&nbsp;&nbsp;&nbsp;&nbsp;录</button>
 							</div>
-							
-						</form>
+							</form>
+						</div>
+
 						<div class="reg">
 						<span class="noteam">没有团队？</span><a id="reg" href="{{url('/register')}}">立即组建</a>
-					</div>
+						</div>
 					</div>
 				</div>
 			</div>

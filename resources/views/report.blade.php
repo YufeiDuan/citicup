@@ -118,22 +118,22 @@
 			<table class="table table-hover table-striped">
 				<thead>
 					<tr class="row">
-						<th class="col-xs-1">序号</th>
-						<th class="col-xs-5">文件名</th>
-						<th class="col-xs-2">文档类型</th>
-						<th class="col-xs-4">上传时间</th>
+						<th class="col-md-1">序号</th>
+						<th class="col-md-5">文件名</th>
+						<th class="col-md-2">文档类型</th>
+						<th class="col-md-4">上传时间</th>
 					</tr>
 				</thead>
 				<tbody>
 				<tr class="row">
-					<td class="col-xs-1">1</td>
-					<td class="col-xs-5">
+					<td class="col-md-1">1</td>
+					<td class="col-md-5">
 						{{ $data['report']->path }}
 					</td>
-					<td class="col-xs-2">
+					<td class="col-md-2">
 						项目报告
 					</td>
-					<td class="col-xs-4">
+					<td class="col-md-4">
 						{{ $data['report']->updated_at }}
 					</td>
 				</tr>

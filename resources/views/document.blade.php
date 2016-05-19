@@ -15,7 +15,7 @@
 					</div>
 					<div class="modal-body">
 						<form id='myupload' action='/document' method='post' enctype='multipart/form-data'>
-							
+
 							上传文档类别：<select id="upload_type" name="upload_type">
 								
 							</select>
@@ -64,29 +64,29 @@
 		<table class="table table-striped table-hover">
 			<thead>
 			<tr class="row">
-				<th class="col-xs-1">序号</th>
-				<th class="col-xs-2">文件名</th>
-				<th class="col-xs-2">文档类型</th>
-				<th class="col-xs-3">上传时间</th>
-				<th class="col-xs-2">操作</th>
+				<th class="col-md-1">序号</th>
+				<th class="col-md-5">文件名</th>
+				<th class="col-md-2">文档类型</th>
+				<th class="col-md-3">上传时间</th>
+				<th class="col-md-1">操作</th>
 			</tr>
 			</thead>
 			<tbody>
 			@foreach ($documents as $k=>$doc)
 			<tr class="row">
-				<td class="col-xs-1">
+				<td class="col-md-1">
 					{{ $k+1 }}
 				</td>
-				<td class="col-xs-2">
+				<td class="col-md-5">
 					{{ $doc->path }}
 				</td>
-				<td class="col-xs-2">
+				<td class="col-md-2">
 					{{ $doc->type->name }}
 				</td>
-				<td class="col-xs-3">
+				<td class="col-md-3">
 					{{ $doc->updated_at }}
 				</td>
-				<td class="col-xs-2">
+				<td class="col-md-1">
 					<form action="{{ URL('document/'.$doc->id) }}" method="POST" style="display: inline;" onsubmit="return(delconfirm())">
 						<input name="_method" type="hidden" value="DELETE">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">

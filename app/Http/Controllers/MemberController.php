@@ -110,6 +110,8 @@ class MemberController extends Controller {
 			return redirect('/team')->withErrors('只能修改自己团队成员信息。');
 		}
 		if (Member::where('id_num',Input::get('id_num'))->count()>0) {
+			$membertemp = Member::where('id_num',Input::get('id_num'))->first();
+			if($membertemp->id != $member->id)
 			return redirect()->back()->withInput()->withErrors('身份证号已被注册，若有疑问，请联系主办方。');
 		}
 		$idcard = Input::get('id_num');
@@ -161,11 +163,10 @@ class MemberController extends Controller {
 		$member->sex=Input::get('sex');
 		$member->univ_id=$univ->id;
 		$member->college=Input::get('college');
-		$member->major=Input::get('major');
-		$member->stu_num=Input::get('stu_num');
+		$member->phone=Input::get('phone');
 		$member->id_num=Input::get('id_num');
 		$member->degree=Input::get('degree');
-		$member->year_entry=Input::get('year_entry');
+		$member->grade=Input::get('grade');
 		$member->email=Input::get('email');
 		if ($member->save()) {
 			return Redirect::to('/team');

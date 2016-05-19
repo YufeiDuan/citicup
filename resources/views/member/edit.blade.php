@@ -7,7 +7,7 @@
         $(function () {
             $('#sex').val("{{$member->sex}}");
             $('#degree').val("{{$member->degree}}");
-            $('#year_entry').val("{{$member->year_entry}}");
+            $('#grade').val("{{$member->grade}}");
         });
     </script>
 
@@ -59,18 +59,6 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-md-4 control-label">专业</label>
-                <div class="col-md-6">
-                    <input type="text" class="form-control" name="major" required="required" value="{{ $member->major }}" maxLength="20" placeholder="必填项,请输入专业名称,不超过20个字符" >
-                </div>
-            </div>            
-            <div class="form-group">
-                <label class="col-md-4 control-label">学号</label>
-                <div class="col-md-6">
-                    <input type="text" class="form-control" name="stu_num" required="required" value="{{ $member->stu_num }}" placeholder="必填项,请输入数字字母组合" >
-                </div>
-            </div>  
-            <div class="form-group">
                 <label class="col-md-4 control-label">身份证号</label>
                 <div class="col-md-6">
                     <input type="text" class="form-control" name="id_num" id="id_num"  required="required" value="{{ $member->id_num }}" maxLength="18" onblur="checkid()" placeholder="必填项,请输入正确的18位身份证号">
@@ -84,29 +72,31 @@
                 <div class="col-md-6">
                     <select class="form-control" name="degree" id="degree" required="required">
                       <option value="0">大专</option>
-                      <option value="1"  selected>本科</option>
+                      <option value="1">本科</option>
                       <option value="2">硕士</option>
                       <option value="3">博士</option>
                   </select>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-md-4 control-label">入学年份</label>
+                <label class="col-md-4 control-label">在读年级</label>
                 <div class="col-md-6">
-                    <select class="form-control" name="year_entry" id="year_entry" required="required" >
-                        <option value="2016">2016</option>
-                        <option value="2015">2015</option>
-                        <option value="2014">2014</option>
-                        <option value="2013">2013</option>
-                        <option value="2012">2012</option>
-                        <option value="2011">2011</option>
-                        <option value="2010">2010</option>
-                        <option value="2009">2009</option>
-                        <option value="2008">2008</option>
-                        <option value="2007">2007</option>
-                        <option value="2006">2006</option>
-                        <option value="2005">2005</option>
+                    <select class="form-control" name="grade" id="grade" required="required">
+                        <option value="1">一</option>
+                        <option value="2">二</option>
+                        <option value="3">三</option>
+                        <option value="4">四</option>
+                        <option value="5">五</option>
+                        <option value="6">六</option>
+                        <option value="7">七</option>
+                        <option value="8">八</option>
                   </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label">手机号码</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="phone" required="required"  maxLength="11" placeholder="必填项,请输入11位手机号码"value="{{ $member->phone }}">
                 </div>
             </div>            
             <div class="form-group">

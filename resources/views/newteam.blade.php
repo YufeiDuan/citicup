@@ -52,19 +52,19 @@
 			<div class="form-group">
 				<label class="col-md-3 control-label">证书邮寄地址</label>
 				<div class="col-md-3">
-					<input type="text" class="form-control" name="addr1" placeholder="省(直辖市)"/>
+					<input type="text" class="form-control" name="province" placeholder="省(直辖市)" required="required"/>
 				</div>
 				<div class="col-md-2 addr">
-					<input type="text" class="form-control" name="addr2" placeholder="市"/>
+					<input type="text" class="form-control" name="city" placeholder="市" required="required"/>
 				</div>
 				<div class="col-md-3">
-					<input type="text" class="form-control" name="addr3" placeholder="区(县)"/>
+					<input type="text" class="form-control" name="area" placeholder="区(县)" required="required"/>
 				</div>			
 
 			</div>
 			<div class="form-group">
 				<div class="col-md-8 col-md-offset-3">
-					<input type="text" class="form-control" name="addr4" placeholder="详细地址"/>
+					<input type="text" class="form-control" name="detail_addr" placeholder="详细地址" required="required"/>
 				</div>
 			</div>
 			<div class="form-group">
@@ -75,9 +75,9 @@
 				</div>
 			</div>
 			<div class="alert alert-info">
+				<h5>注意事项</h5>
 				<ul>
 					<li>每个团队只需注册一个账号。</li>
-					<li>团队名称填写后不可修改。</li>
 					<li>请由队长进行团队注册操作。</li>
 					<li>若未上传团队Logo，将使用默认Logo。</li>
 					<li>参赛题目可稍后填写，但不应晚于项目报告截止日期。</li>

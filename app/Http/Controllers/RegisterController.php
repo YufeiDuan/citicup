@@ -176,7 +176,12 @@ class RegisterController extends Controller {
 			'univ' => 'required|string',
 	        'title' => 'string',
 	        'name' => 'required|string',
+	        'province' => 'required|string',
+	        'city' => 'required|string',
+	        'area' => 'required|string',
+	        'detail_addr' => 'required|string',
 		]);
+
 
 		$univ = Univ::where(['name' => Input::get('univ')])->first();
 		if(empty($univ)){
@@ -185,15 +190,19 @@ class RegisterController extends Controller {
 				'area_id' => 99,
 				]);
 		}
+
 		$team = $user->team;
-		if(empty($team)){
+
+		if(!($team)){
 			$team = Team::create([
 				'authen_id' => $user->id,
+				'univ_id' => $univ->id,
 			]);
 		}
-		$team->univ_id = $univ->id;
+		
 		$team->name=Input::get('name');
 		$team->title=Input::get('title');
+		$team->addr = Input::get('province');
 		$team->save();
 		$user->state=3;
 		$user->save();
@@ -245,11 +254,10 @@ class RegisterController extends Controller {
 			'leader_sex' => 'required|boolean',
 			'leader_univ'=>'required|string',
 			'leader_college' => 'required|string|max:20',
-			'leader_major' => 'required|string|max:20',
+			'phone' => 'required|string|size:11',
 			'id_num' => 'required|string|max:18|unique:members',
-			'stu_num' => 'required|string|max:15',
 			'degree' => 'required|numeric',
-			'year_entry' => 'required|numeric',
+			'grade' => 'required|numeric',
 			'leader_email' => 'required|email',
 
 			'teacher_name' => 'required|string|max:10',
@@ -280,11 +288,10 @@ class RegisterController extends Controller {
 		$member->sex=Input::get('leader_sex');
 		$member->univ_id=$l_univ->id;
 		$member->college=Input::get('leader_college');
-		$member->major=Input::get('leader_major');
-		$member->stu_num=Input::get('stu_num');
+		$member->phone=Input::get('phone');
 		$member->id_num=Input::get('id_num');
 		$member->degree=Input::get('degree');
-		$member->year_entry=Input::get('year_entry');
+		$member->grade=Input::get('grade');
 		$member->email=Input::get('leader_email');
 		$member->team_id=$user->team->id;
 		$member->leader=1;

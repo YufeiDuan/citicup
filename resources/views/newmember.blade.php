@@ -1,7 +1,7 @@
 @extends('reg')
 @section('head')
-	<script src="/js/newteam.js"></script>
-	<script src="/js/s.js"></script>
+	<script src="{{ asset('/js/newteam.js') }}"></script>
+	<script src="{{ asset('/js/s.js') }}"></script>
 	<link href="{{ asset('/css/newteam.css') }}" rel="stylesheet">
 	<link href="{{ asset('/css/report.css') }}" rel="stylesheet">
 	<link href="{{ asset('/css/team.css') }}" rel="stylesheet">
@@ -48,7 +48,7 @@
 			<div class="form-group">
 				<label class="col-md-2 control-label">学校</label>
 				<div class="col-md-8">
-					<input required="required" type="text" class="form-control school" autocomplete="off" placeholder="必填项，请输入学校全称" name="leader_univ"/>
+					<input required="required" type="text" class="form-control school" autocomplete="off" placeholder="必填项，请输入学校全称" value="{{ old('leader_univ') }}" name="leader_univ"/>
 				</div>
 			</div>
            
@@ -56,20 +56,6 @@
 				<label class="col-md-2 control-label">学院</label>
 				<div class="col-md-8">
 					<input type="text" class="form-control" name="leader_college" required="required"  maxLength="20" placeholder="必填项,请输入学院全称，不超过20个字符" value="{{ old('leader_college') }}">
-				</div>
-			</div>
-
-			<div class="form-group">
-				<label class="col-md-2 control-label">专业</label>
-				<div class="col-md-8">
-					<input type="text" class="form-control" name="leader_major" required="required"  maxLength="20" placeholder="必填项,请输入专业名称，不超过20个字符" value="{{ old('leader_major') }}">
-				</div>
-			</div>
-
-			<div class="form-group">
-				<label class="col-md-2 control-label">学号</label>
-				<div class="col-md-8">
-					<input type="text" class="form-control" name="stu_num" required="required"  maxLength="15" placeholder="必填项,请输入数字字母组合"value="{{ old('stu_num') }}">
 				</div>
 			</div>
 
@@ -93,22 +79,25 @@
 				</div>
 			</div>
             <div class="form-group">
-				<label class="col-md-2 control-label">入学年份</label>
+				<label class="col-md-2 control-label">在读年级</label>
 				<div class="col-md-8">
-					<select class="form-control" name="year_entry" id="year_entry" required="required">
-                        <option value="2016">2016</option>
-                        <option value="2015">2015</option>
-                        <option value="2014">2014</option>
-                        <option value="2013">2013</option>
-                        <option value="2012">2012</option>
-                        <option value="2011">2011</option>
-                        <option value="2010">2010</option>
-                        <option value="2009">2009</option>
-                        <option value="2008">2008</option>
-                        <option value="2007">2007</option>
-                        <option value="2006">2006</option>
-                        <option value="2005">2005</option>
+					<select class="form-control" name="grade" id="grade" required="required">
+                        <option value="1">一</option>
+                        <option value="2">二</option>
+                        <option value="3">三</option>
+                        <option value="4">四</option>
+                        <option value="5">五</option>
+                        <option value="6">六</option>
+                        <option value="7">七</option>
+                        <option value="8">八</option>
                   </select>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-md-2 control-label">手机号码</label>
+				<div class="col-md-8">
+					<input type="text" class="form-control" name="phone" required="required"  maxLength="11" placeholder="必填项,请输入11位手机号码"value="{{ old('phone') }}">
 				</div>
 			</div>
             
@@ -163,7 +152,7 @@
 				<ul>
 					<li>每个团队只需注册一个账号。</li>
 					<li>请由队长进行团队注册操作。</li>
-					<li>团队组建将于2016年6月30日0时0分截止。</li>
+					<li>团队组建将于2016年7月15日0时0分截止。</li>
 				</ul>
 			</div>
 		</form>

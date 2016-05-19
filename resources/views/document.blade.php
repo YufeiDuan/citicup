@@ -56,7 +56,9 @@
 	</div>
 	<div class="row-fluid">
 		@if (count($documents)==0)
-		还没有提交任何作品。
+			<div class="alert alert-info">
+				未提交任何作品。
+			</div>
 		@else
 		<table class="table table-striped table-hover">
 			<thead>

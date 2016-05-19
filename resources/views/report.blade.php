@@ -111,7 +111,9 @@
 	</div>
 	<div class="row-fluid">
 			@if (empty($data['report']))
-			未提交项目报告。
+			<div class="alert alert-info">
+				未提交项目报告。
+			</div>
 			@else
 			<table class="table table-hover table-striped">
 				<thead>

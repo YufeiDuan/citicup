@@ -23,6 +23,7 @@ $(function () {
     var btn = $(".btni span");
     var freq = $('#freq').val();
     var state = $('#state');
+    var fileupload = $('#fileupload');
     var chn_info = $('#chn_info');
     var eng_info = $('#eng_info');
     if(freq==0){
@@ -42,7 +43,7 @@ $(function () {
             //files.html("请刷新页面重试");
         }
     });
-    $("#fileupload").change(function(){
+    fileupload.change(function(){
         $("#myupload").ajaxSubmit({
             dataType:  'json',
             beforeSend: function() {

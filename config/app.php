@@ -147,6 +147,9 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
 
+		//PHPExcel
+		'Maatwebsite\Excel\ExcelServiceProvider::class',
+
 	],
 
 	/*
@@ -196,6 +199,7 @@ return [
 		'View'      => 'Illuminate\Support\Facades\View',
 		//别名配置
 		'Image' => 'Intervention\Image\Facades\Image',
+		'Excel' => 'Maatwebsite\Excel\Facades\Excel::class',
 
 	],
 

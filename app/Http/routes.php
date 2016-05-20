@@ -56,6 +56,8 @@ Route::group(['prefix' => '/', 'middleware' => ['auth','home','ploynor']], funct
 	Route::resource('mail','MailController');
 });
 
+Route::get('export','Admin\ExcelController@export');
+
 
 //https admin group
 Route::group(['middleware' => 'ployssl'], function()

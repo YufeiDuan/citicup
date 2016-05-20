@@ -57,16 +57,21 @@ Route::group(['prefix' => '/', 'middleware' => ['auth','home','ploynor']], funct
 });
 
 
-//Admin
-Route::get('/xgx','WelcomeController@admin');
-
-Route::group(['namespace' => 'Admin'], function()
+//https admin group
+Route::group(['middleware' => 'ployssl'], function()
 {
-    Route::controllers([
-		'adminauth' => 'AuthController',
-	]);
+	Route::get('/xgx','WelcomeController@admin');
+
+	Route::group(['namespace' => 'Admin'], function()
+	{
+	    Route::controllers([
+			'adminauth' => 'AuthController',
+		]);
+	});
 });
-Route::group(['prefix' => 'admin','middleware' => 'admin','namespace' => 'Admin'], function()
+
+
+Route::group(['prefix' => 'admin','middleware' => ['admin','ployssl'],'namespace' => 'Admin'], function()
 {
     //admin home page
 	Route::get('home', 'HomeController@home');

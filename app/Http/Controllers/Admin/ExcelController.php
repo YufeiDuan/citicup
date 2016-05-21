@@ -34,7 +34,12 @@ class ExcelController extends Controller
             $teams = Team::where('id','>',1)->get();
             $sheet->setColumnFormat(array('J'=>'@'));
             $sheet->loadView('excel.team')->with(["teams" => $teams]);
-            
+            $sheet->setWidth(array(
+                'A' => 4.13, 'B' => 13.5,  'C' => 21.13, 'D' => 11.25,
+                'E' => 11.25,'F' => 10.05, 'G' => 13.75, 'H' => 13.75,
+                'I' => 11,   'J' => 11.13, 'K' => 11,    'L' => 9.25,
+                'M' => 12.13,'N' => 8.38
+            ));
         });    
         $lastrow= $excel->getActiveSheet()->getHighestRow();    
         $excel->getActiveSheet()->getStyle('A1:N'.$lastrow)->getAlignment()->setWrapText(true); 
@@ -54,12 +59,7 @@ class ExcelController extends Controller
                 $row->setAlignment('center');
                 $row->setValignment('center');
             });
-            $sheet->setWidth(array(
-                'A' => 4.13, 'B' => 13.5,  'C' => 21.13, 'D' => 11.25,
-                'E' => 11.25,'F' => 10.05, 'G' => 13.75, 'H' => 13.75,
-                'I' => 11,   'J' => 11.13, 'K' => 11,    'L' => 9.25,
-                'M' => 12.13,'N' => 8.38
-            ));
+
             //$sheet->setRowHeight(16.5);
             //$sheet->setBorder('A1:M1', 'thin');
             $sheet->setHeight(array(1=>45.75));

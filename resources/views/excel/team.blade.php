@@ -6,7 +6,7 @@
 </head>
 <body>
     <table>
-        <tr>
+        <tr class="header">
             <th>序号</th>
             <th>队名</th>
             <th>项目名称</th>
@@ -25,11 +25,11 @@
         @foreach ($teams as $i=>$team)
 
             <tr>        
-                <td rowspan="{{ $team->members->count() }}">{{ $i+1 }}</td>
-                <td rowspan="{{ $team->members->count() }}">{{ $team->name }}</td>
-                <td rowspan="{{ $team->members->count() }}">{{ $team->title }}</td>
-                <td rowspan="{{ $team->members->count() }}">{{ $team->reportcount() }}</td>
-                <td rowspan="{{ $team->members->count() }}">{{ $team->doccount()[7] }}</td>
+                <td rowspan="{{ $number = $team->members->count() }}">{{ $i+1 }}</td>
+                <td rowspan="{{ $number }}">{{ $team->name }}</td>
+                <td rowspan="{{ $number }}">{{ $team->title }}</td>
+                <td rowspan="{{ $number }}">{{ $team->reportcount() }}</td>
+                <td rowspan="{{ $number }}">{{ $team->doccount()[7] }}</td>
 
                 @for ($j = 0,$s = $team->members->first(); $j < 1; $j++)
                     <td>{{ $s->name }}</td>
@@ -41,14 +41,13 @@
                     <td>{{ $s->email }}</td>
                 @endfor
                 
-                <td rowspan="{{ $team->members->count() }}">{{ $team->addr}}</td>
-                <td rowspan="{{ $team->members->count() }}">
+                <td rowspan="{{ $number }}">{{ $team->addr}}</td>
+                <td rowspan="{{ $number }}">
                     @foreach ($team->teachers as $t)
                         {{$t->name.'('.$t->univ->name.$t->college.')'}}<br>
                     @endforeach
                 </td>
             </tr>
-
 
                 @foreach ($team->members as $mc=>$m)
                 @if($mc!=0)
@@ -71,9 +70,6 @@
                 @endforeach
 
             @endforeach
-        
-
-
     </table>
 </body>
 </html>

@@ -30,7 +30,17 @@ class ExcelController extends Controller
         // Call them separately
         //$excel->setDescription('A demonstration to change the file properties');
 
-
+        $excel->sheet('Team', function($sheet){
+            $teams = Team::where('id','>',1)->get();
+            $sheet->setColumnFormat(array('J'=>'@'));
+            $sheet->loadView('excel.team')->with(["teams" => $teams]);
+            
+        });    
+        $lastrow= $excel->getActiveSheet()->getHighestRow();    
+        $excel->getActiveSheet()->getStyle('A1:N'.$lastrow)->getAlignment()->setWrapText(true); 
+        $excel->getActiveSheet()->setBorder('A1:N'.$lastrow, 'thin');
+        $excel->export('xlsx');
+        });
         //Sheet
         /*
         $excel->sheet('Team',function($sheet){
@@ -84,6 +94,5 @@ class ExcelController extends Controller
 
         });
         */
-        })->export('xlsx');
     }
 }

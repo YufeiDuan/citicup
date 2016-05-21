@@ -56,10 +56,15 @@ class Team extends Model {
 		return $this->hasMany('App\Document');
 	}
 
+	/*
+	return array
+	[0~6] : type 1~7 state,1-submitted
+	[7]	  : count for documents submitted.
+	*/
 	public function doccount(){
 		$docs = Document::where('team_id','=',$this->id)->get();
-		$arr = array(0,0,0,0,0);
-		$arr[4]=$docs->count();
+		$arr = array(0,0,0,0,0,0,0,0);
+		$arr[7]=$docs->count();
 		foreach ($docs as $doc){
 			$arr[($doc->type_id)-1]=1;
 		}

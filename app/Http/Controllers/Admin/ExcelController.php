@@ -30,6 +30,9 @@ class ExcelController extends Controller
         // Call them separately
         //$excel->setDescription('A demonstration to change the file properties');
 
+
+        //Sheet
+        /*
         $excel->sheet('Team',function($sheet){
             $cellHeader = ['序号','队名','项目名称','中期报告','最终作品',
                     '队员姓名','学校','学院','年级','身份证号码','手机','邮箱','证书邮寄地址','指导老师'];
@@ -66,13 +69,21 @@ class ExcelController extends Controller
                 }else if($doccount==0){
                     $line[4]='未提交';
                 }
-                
+                $strTeacherName = '';
+                foreach ($teachers as $t) {
+                    $strTeacherName .= $t->name.'('.$t->univ->name.$t->college.'),';
+                }
+                $line[13]= substr($strTeacherName,0,-1);
                 $sheet->appendRow($line);
+
+                $countLine += $members->count();
             }
-            $sheet->setBorder('A1:M1000', 'thin');
+            $sheet->setBorder('A1:N'.$countLine, 'thin');
+            $sheet->getStyle('A1:N' . $sheet->getHighestRow())
+            ->getAlignment()->setWrapText(true); 
 
         });
-
+        */
         })->export('xlsx');
     }
 }

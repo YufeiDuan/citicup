@@ -17,8 +17,8 @@ class HZip
         } elseif (is_dir($filePath)) { 
           $zipFile->addEmptyDir($localPath); 
           self::folderToZip($filePath, $zipFile, $exclusiveLength); 
-        } 
-      } 
+        }
+      }
     } 
     closedir($handle); 
   } 
@@ -28,7 +28,7 @@ class HZip
     $pathInfo = pathInfo($sourcePath); 
     $parentPath = $pathInfo['dirname']; 
     $dirName = $pathInfo['basename']; 
-    $dirName = iconv('UTF-8','GBK',$dirName);
+    //$dirName = iconv('UTF-8','UTF-8',$dirName);
     $sourcePath=$parentPath.'/'.$dirName;
     $z = new ZipArchive(); 
     $z->open($outZipPath, ZIPARCHIVE::CREATE);

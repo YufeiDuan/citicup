@@ -41,12 +41,16 @@ class ReportController extends Controller {
 	}
 
 	public function dlall(){
+		if (Storage::exists('reports.zip'))
+		{
+		    Storage::delete('reports.zip');
+		}
 
 		$path = storage_path() . '/app/reports';
 
-        $zipFileName = storage_path().'/app/report.zip';
+        $zipFileName = storage_path().'/app/reports.zip';
 
-		HZip::zipDir($path, $zipFileName); 
+		HZip::zipDir($path, $zipFileName);
 
         return Response::download($zipFileName,'reports.zip');
                 

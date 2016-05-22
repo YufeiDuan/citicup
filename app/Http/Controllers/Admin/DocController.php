@@ -43,15 +43,18 @@ class DocController extends Controller {
 	}
 
 	public function dlall(){
+		if (Storage::exists('documents.zip'))
+		{
+		    Storage::delete('documents.zip');
+		}
 
 		$path = storage_path() . '/app/documents';
 
-        $zipFileName = storage_path().'/app/document.zip';
+        $zipFileName = storage_path().'/app/documents.zip';
 
 		HZip::zipDir($path, $zipFileName); 
 
-        return Response::download($zipFileName,'document.zip');
-                
+        return Response::download($zipFileName,'documents.zip');
 	}
 	
 }

@@ -31,9 +31,10 @@
     margin-bottom: 4px;
 }
 
-/*二级菜单样式*/
+.secondmenu{
+}
 .secondmenu a {
-    font-size: 10px;
+    font-size: 14px;
     color: #4A515B;
     text-align: center;
 }

@@ -56,7 +56,7 @@ class ExcelController extends Controller
 
     public function exportDetails(){
 
-        Excel::create('Details'.date('YmdHis',time()), function($excel) {
+        Excel::create('Details_'.date('YmdHis',time()), function($excel) {
 
         // Set the title
         $excel->setTitle('CitiCup 2016 Team Information');

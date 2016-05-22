@@ -86,8 +86,26 @@
                         完整作品
                     </a>
                 </li>
-                
-                
+
+                <li>
+                    <a href="{{ url('/admin/document') }}">
+                        <i class="glyphicon glyphicon-folder-open"></i>
+                        完整作品
+                    </a>
+                </li>
+                <li>
+				<a href="#export" class="nav-header collapsed" data-toggle="collapse">
+				<i class="glyphicon glyphicon-download-alt"></i>
+				导出信息
+				<span class="pull-right glyphicon glyphicon-chevron-down"></span>
+				</a>
+				<ul id="export" class="nav nav-list collapse secondmenu" style="height: 0px;">
+					<li class="secondmenu"><a href="{{ url('/admin/export/teams') }}">团队概览</a></li>
+					<li class="secondmenu"><a href="{{ url('/admin/export/details') }}">作品详细</a></li>
+				</ul>
+
+				
+
             </ul>
             </div>
             <div class="col-md-9">

@@ -56,7 +56,9 @@ Route::group(['prefix' => '/', 'middleware' => ['auth','home','ploynor']], funct
 	Route::resource('mail','MailController');
 });
 
-Route::get('export','Admin\ExcelController@exportTeam');
+Route::get('exportT','Admin\ExcelController@exportTeams');
+
+Route::get('export','Admin\ExcelController@exportDetails');
 
 
 //https admin group

@@ -56,6 +56,10 @@ class Team extends Model {
 		return $this->hasMany('App\Document');
 	}
 
+	public function documentByType($type_id){
+		return $this->hasMany('App\Document')->where('type_id','=',$type_id)->first();
+	}
+
 	/*
 	return array
 	[0~6] : type 1~7 state,1-submitted

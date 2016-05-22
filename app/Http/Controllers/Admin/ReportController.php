@@ -5,6 +5,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Response;
 
+use App\Extensions\Facades\DlResponse;
+
 use View;
 use Session;
 use Storage;
@@ -35,7 +37,7 @@ class ReportController extends Controller {
 		}else{
 			$filepath = storage_path().'/app/reports/'.$team->id.'/'.$report->path;
 		}
-		return Response::download($filepath,$report->path);
+		return DlResponse::download($filepath,$report->path);
 	}
 
 	public function dlall(){

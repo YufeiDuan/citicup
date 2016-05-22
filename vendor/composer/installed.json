@@ -3567,5 +3567,57 @@
             "laravel",
             "lpm"
         ]
+    },
+    {
+        "name": "chumper/zipper",
+        "version": "0.6.1",
+        "version_normalized": "0.6.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Chumper/Zipper.git",
+            "reference": "313e364259398557bdcc2f68e6ff20d71aaea811"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Chumper/Zipper/zipball/313e364259398557bdcc2f68e6ff20d71aaea811",
+            "reference": "313e364259398557bdcc2f68e6ff20d71aaea811",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/filesystem": "5.x",
+            "illuminate/support": "5.x",
+            "php": ">=5.3.0"
+        },
+        "require-dev": {
+            "mockery/mockery": "dev-master",
+            "phpunit/phpunit": "3.7.*"
+        },
+        "time": "2015-02-16 11:38:11",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Chumper\\Zipper": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache2"
+        ],
+        "authors": [
+            {
+                "name": "Nils Plaschke",
+                "email": "github@nilsplaschke.de",
+                "homepage": "http://nilsplaschke.de",
+                "role": "Developer"
+            }
+        ],
+        "description": "This is a little neat helper for the ZipArchive methods with handy functions",
+        "homepage": "http://github.com/Chumper/zipper",
+        "keywords": [
+            "archive",
+            "laravel",
+            "zip"
+        ]
     }
 ]

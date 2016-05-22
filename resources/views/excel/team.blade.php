@@ -47,8 +47,20 @@
                 </td>
 
                 @for ($j = 0,$s = $team->members->first(); $j < 1; $j++)
-                    <td>{{ $s->name }}</td>
-                    <td>{{ $s->sex }}</td>
+                    <td>
+                        @if ($s->leader)
+                            <b>{{ $s->name }}</b>
+                        @else
+                            {{ $s->name }}
+                        @endif
+                    </td>
+                    <td>
+                        @if ($s->sex)
+                        男
+                        @else
+                        女
+                        @endif
+                    </td>
                     <td>{{ $s->univ->name }}</td>
                     <td>{{ $s->college }}</td>
                     <td>
@@ -73,7 +85,7 @@
 
                     </td>
                     <td><span>{{ $s->id_num }}</span></td>
-                    <td>{{ $s->phone }}</td>
+                    <td><span>{{ $s->phone }}</span></td>
                     <td>{{ $s->email }}</td>
                 @endfor
                 
@@ -93,8 +105,20 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td>{{ $m->name }}</td>
-                    <td>{{ $m->sex }}</td>
+                    <td>
+                        @if ($m->leader)
+                            <b>{{ $m->name }}</b>
+                        @else
+                            {{ $m->name }}
+                        @endif
+                    </td>
+                    <td>
+                        @if ($m->sex)
+                        男
+                        @else
+                        女
+                        @endif
+                    </td>
                     <td>{{ $m->univ->name }}</td>
                     <td>{{ $m->college }}</td>
                     <td>
@@ -118,7 +142,7 @@
                     ?>
                     </td>
                     <td><span>{{ $m->id_num }}</span></td>
-                    <td>{{ $m->phone }}</td>
+                    <td><span>{{ $m->phone }}</span></td>
                     <td>{{ $m->email }}</td>
 
                 </tr>

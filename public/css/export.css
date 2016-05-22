@@ -6,3 +6,9 @@ table th{
 	text-align: center;
 	vertical-align: middle;
 }
+table td{
+	vertical-align: middle;
+}
+b{
+	font-size: 11px;
+}

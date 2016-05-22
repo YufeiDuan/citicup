@@ -36,14 +36,14 @@ class ExcelController extends Controller
             $sheet->loadView('excel.team')->with(["teams" => $teams]);
             $sheet->setWidth(array(
                 'A' => 4.13, 'B' => 13.5,  'C' => 21.13, 'D' => 11.25,
-                'E' => 11.25,'F' => 10.05, 'G' => 13.75, 'H' => 13.75,
-                'I' => 11,   'J' => 11.13, 'K' => 11,    'L' => 9.25,
-                'M' => 12.13,'N' => 8.38
+                'E' => 11.25,'F' => 10.05, 'G'=>5, 'H' => 13.75, 
+                'I' => 13.75,'J' => 11,    'K' => 11.13, 'L' => 11,
+                'M' => 9.25,'N' => 12.13,'O' => 8.38
             ));
         });    
         $lastrow= $excel->getActiveSheet()->getHighestRow();    
-        $excel->getActiveSheet()->getStyle('A1:N'.$lastrow)->getAlignment()->setWrapText(true); 
-        $excel->getActiveSheet()->setBorder('A1:N'.$lastrow, 'thin');
+        $excel->getActiveSheet()->getStyle('A1:O'.$lastrow)->getAlignment()->setWrapText(true); 
+        $excel->getActiveSheet()->setBorder('A1:O'.$lastrow, 'thin');
         $excel->export('xlsx');
         });
         //Sheet

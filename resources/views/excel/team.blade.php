@@ -13,6 +13,7 @@
             <th>中期报告</th>
             <th>最终作品</th>
             <th>队员姓名</th>
+            <th>性别</th>
             <th>学校</th>
             <th>学院</th>
             <th>年级</th>
@@ -28,14 +29,49 @@
                 <td rowspan="{{ $number = $team->members->count() }}">{{ $i+1 }}</td>
                 <td rowspan="{{ $number }}">{{ $team->name }}</td>
                 <td rowspan="{{ $number }}">{{ $team->title }}</td>
-                <td rowspan="{{ $number }}">{{ $team->reportcount() }}</td>
-                <td rowspan="{{ $number }}">{{ $team->doccount()[7] }}</td>
+                <td rowspan="{{ $number }}">
+                    @if ($team->reportcount()==0)
+                        未提交
+                    @else
+                        已提交
+                    @endif
+                </td>
+                <td rowspan="{{ $number }}">
+                    <?php 
+                        switch ($team->doccount()[7]): 
+                            case 0: echo "未提交"; break; 
+                            case 7: echo "已提交"; break; 
+                            default: echo "部分提交"; 
+                        endswitch; 
+                    ?>
+                </td>
 
                 @for ($j = 0,$s = $team->members->first(); $j < 1; $j++)
                     <td>{{ $s->name }}</td>
+                    <td>{{ $s->sex }}</td>
                     <td>{{ $s->univ->name }}</td>
                     <td>{{ $s->college }}</td>
-                    <td>{{ $s->degree.$s->grade }}</td>
+                    <td>
+                        <?php 
+                        switch ($s->degree): 
+                            case 0: echo "专"; break; 
+                            case 1: echo "大"; break; 
+                            case 2: echo "硕"; break; 
+                            case 3: echo "博"; break; 
+                        endswitch; 
+                        switch ($s->grade): 
+                            case 1: echo "一"; break; 
+                            case 2: echo "二"; break; 
+                            case 3: echo "三"; break; 
+                            case 4: echo "四"; break; 
+                            case 5: echo "五"; break; 
+                            case 6: echo "六"; break; 
+                            case 7: echo "七"; break; 
+                            case 8: echo "八"; break; 
+                        endswitch; 
+                    ?>
+
+                    </td>
                     <td><span>{{ $s->id_num }}</span></td>
                     <td>{{ $s->phone }}</td>
                     <td>{{ $s->email }}</td>
@@ -58,9 +94,29 @@
                     <td></td>
                     <td></td>
                     <td>{{ $m->name }}</td>
+                    <td>{{ $m->sex }}</td>
                     <td>{{ $m->univ->name }}</td>
                     <td>{{ $m->college }}</td>
-                    <td>{{ $m->degree.$m->grade }}</td>
+                    <td>
+                    <?php 
+                        switch ($m->degree): 
+                            case 0: echo "专"; break; 
+                            case 1: echo "大"; break; 
+                            case 2: echo "硕"; break; 
+                            case 3: echo "博"; break; 
+                        endswitch; 
+                        switch ($m->grade): 
+                            case 1: echo "一"; break; 
+                            case 2: echo "二"; break; 
+                            case 3: echo "三"; break; 
+                            case 4: echo "四"; break; 
+                            case 5: echo "五"; break; 
+                            case 6: echo "六"; break; 
+                            case 7: echo "七"; break; 
+                            case 8: echo "八"; break; 
+                        endswitch; 
+                    ?>
+                    </td>
                     <td><span>{{ $m->id_num }}</span></td>
                     <td>{{ $m->phone }}</td>
                     <td>{{ $m->email }}</td>

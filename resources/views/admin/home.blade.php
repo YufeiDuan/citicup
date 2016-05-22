@@ -95,13 +95,13 @@
                 </li>
                 <li>
 				<a href="#export" class="nav-header collapsed" data-toggle="collapse">
-				<i class="glyphicon glyphicon-download-alt"></i>
+				<i class="glyphicon glyphicon-cloud-download"></i>
 				导出信息
 				<span class="pull-right glyphicon glyphicon-chevron-down"></span>
 				</a>
 				<ul id="export" class="nav nav-list collapse secondmenu" style="height: 0px;">
-					<li class="secondmenu"><a href="{{ url('/admin/export/teams') }}">团队概览</a></li>
-					<li class="secondmenu"><a href="{{ url('/admin/export/details') }}">作品详细</a></li>
+					<li class="secondmenu"><a href="{{ url('/admin/export/teams') }}"><i class="glyphicon glyphicon-user"></i>团队概览</a></li>
+					<li class="secondmenu"><a href="{{ url('/admin/export/details') }}"><i class="glyphicon glyphicon-file"></i>作品详细</a></li>
 				</ul>
 
 				

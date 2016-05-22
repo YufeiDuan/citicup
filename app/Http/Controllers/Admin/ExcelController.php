@@ -52,53 +52,5 @@ class ExcelController extends Controller
         $excel->getActiveSheet()->setBorder('A1:O'.$lastrow, 'thin');
         $excel->export('xlsx');
         });
-        //Sheet
-        /*
-        $excel->sheet('Team',function($sheet){
-            $cellHeader = ['序号','队名','项目名称','中期报告','最终作品',
-                    '队员姓名','学校','学院','年级','身份证号码','手机','邮箱','证书邮寄地址','指导老师'];
-            $sheet->appendRow($cellHeader);
-            $sheet->row(1, function($row) {
-                $row->setBackground('#333399');
-                $row->setFontColor('#ffffff');
-                $row->setFontWeight('bold');
-                $row->setAlignment('center');
-                $row->setValignment('center');
-            });
-
-            //$sheet->setRowHeight(16.5);
-            //$sheet->setBorder('A1:M1', 'thin');
-            $sheet->setHeight(array(1=>45.75));
-            $teams = Team::where('id','>',1)->get();
-            $countLine = 1;
-            $countInTeam = 0;
-            foreach ($teams as $i => $team) {
-                $members = $team->members;
-                $teachers = $team->teachers;
-                $line = array($i+1,$team->name,$team->title,'未提交','部分提交','','','','','','','',$team->addr,'');
-                if($team->reportcount()){
-                    $line[3]='已提交';
-                }
-                $doccount = $team->doccount()[7];
-                if($doccount==7){
-                    $line[4]='全部提交';
-                }else if($doccount==0){
-                    $line[4]='未提交';
-                }
-                $strTeacherName = '';
-                foreach ($teachers as $t) {
-                    $strTeacherName .= $t->name.'('.$t->univ->name.$t->college.'),';
-                }
-                $line[13]= substr($strTeacherName,0,-1);
-                $sheet->appendRow($line);
-
-                $countLine += $members->count();
-            }
-            $sheet->setBorder('A1:N'.$countLine, 'thin');
-            $sheet->getStyle('A1:N' . $sheet->getHighestRow())
-            ->getAlignment()->setWrapText(true); 
-
-        });
-        */
     }
 }

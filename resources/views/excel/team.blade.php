@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="cn">
 <head>
-    <meta charset="UTF-8">
     <link rel="stylesheet" href="css/export.css" type="text/css" />
 </head>
 <body>

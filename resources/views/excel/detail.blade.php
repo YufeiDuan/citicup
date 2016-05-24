@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="cn">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="css/export.css" type="text/css" />
 </head>
 <body>

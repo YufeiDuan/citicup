@@ -149,6 +149,8 @@ return [
 
 		//PHPExcel
 		'Maatwebsite\Excel\ExcelServiceProvider',
+		//zipper
+		'Chumper\Zipper\ZipperServiceProvider',
 
 	],
 
@@ -200,6 +202,7 @@ return [
 		//别名配置
 		'Image' => 'Intervention\Image\Facades\Image',
 		'Excel' => 'Maatwebsite\Excel\Facades\Excel',
+		'Zipper' => 'Chumper\Zipper\Zipper',
 
 	],
 

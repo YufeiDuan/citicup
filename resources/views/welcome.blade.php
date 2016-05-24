@@ -4,7 +4,7 @@
 		<title>2016花旗杯</title>
 		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
-		< link rel="shortcut icon" type="image/x-icon" href="{{ asset('/img/xjtu.ico') }}" />
+		< link rel="shortcut icon" href="/img/xjtu.ico" />
 
 		<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 		<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>

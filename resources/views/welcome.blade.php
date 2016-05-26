@@ -108,7 +108,7 @@
 				<p>金融信息技术领域相关课题</p>
 
 				<h3 id="comp-schedule" class="ytitle">大赛大致日程安排</h3>
-				<table class="table" id="schedule">
+				<table class="table table-bordered" align="center" id="schedule">
 					<tr>
 						<td>即日起至7月15日</td>
 						<td>大赛组委会接受在线注册</td>
@@ -211,7 +211,7 @@
 					<li>前20队伍成员中，计算机、软件和信息管理等相关专业同学，一经面试通过即可获得花旗金融信息实习机会(签订三方协议)，实习结束后公司将根据其表现考虑是否录取。金融和管理等其它相关专业同学，也将被优先推荐至花旗银行人力资源部。</li>
 				</ul>
 
-				<table class="table" id="schedule">
+				<table class="table table-bordered" align="center" id="schedule">
 					<tr>
 						<th style="width:120px;">奖项</th>
 						<th style="width:400px;">奖励</th>

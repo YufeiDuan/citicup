@@ -143,6 +143,7 @@ p{
 }
 li{
 	line-height: 160%;
+	font-size: 15px;
 }
 #mail{
 	width: 170px;
@@ -150,4 +151,8 @@ li{
 .outlink:link,.outlink:visited,.outlink:hover {
 	color:#333;
 	text-decoration: none
+}
+td,th{
+	vertical-align: middle !important;
+	text-align: center;
 }

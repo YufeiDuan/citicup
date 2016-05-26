@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="zh-CN">
 	<head>
-		<title>2016花旗杯</title>
+		<title>2016 CitiCup</title>
 		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
 		<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
@@ -11,6 +11,7 @@
 
 		<link rel="stylesheet" href="{{ asset('/css/welcome.css') }}">
 		<link rel="stylesheet" href="{{ asset('/css/docs.min.css') }}">
+
 	</head>
 	<body>
 		<div class="">

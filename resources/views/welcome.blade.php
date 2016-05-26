@@ -14,6 +14,11 @@
 	</head>
 	<body>
 		<div class="">
+			<div class="logo">
+				<img class="ilogo" src="img/citi.png" alt=""/>
+				<img class="ilogo" src="img/xjtu.png" alt=""/>
+				<img class="ilogo" src="img/cfg.png" alt=""/>
+			</div>
 			<div class="bgimg">
 				<div class="box">
 					<div class="login_box">

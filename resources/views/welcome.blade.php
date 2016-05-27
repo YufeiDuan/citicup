@@ -283,7 +283,7 @@
 					</tr>
 				</table>
 
-			<h2 id="comp-signup" class="xtitle page-header">大赛报名</h2>
+			<h2 id="comp-signup" class="xtitle page-header">大赛说明</h2>
 				<h3 id="signup-type" class="ytitle">大赛报名方式</h3>
 					<ol>
 					  <li>学生可自行访问“花旗杯”官方网站，点击“最新消息”中的“大赛报名详情”即可</li>
@@ -351,7 +351,7 @@
 				</li>
 
 				<li class="dropdown-toggle" data-toggle="dropdown">
-				  <a href="#comp-signup" class="mainmenu">大赛报名</a>
+				  <a href="#comp-signup" class="mainmenu">大赛说明</a>
 				  <ul class="nav sub-menu">
 				    <li><a href="#signup-type">大赛报名方式</a></li>
 				    <li><a href="#contact-info">组委会联系方式</a></li>

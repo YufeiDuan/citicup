@@ -5,6 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="renderer" content="webkit">
+		<meta http-equiv="cleartype" content="on" />
 		<title>2016 CitiCup</title>
 		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<link href="{{ asset('/css/app.css') }}" rel="stylesheet">

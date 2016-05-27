@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 	<head>
 		<meta charset="utf-8">
@@ -33,7 +33,7 @@
 	<body>
 	<div style="height:200px;margin-top:200px;">
 	<div style="text-align:center">
-	<h1>Hello, World!</h1>
+	<h1>2016 CitiCup</h1>
 	<h2>版权所有：西安交通大学软件学院</h1>
 		@if (count($errors) > 0)
 						<div class="alert alert-info">

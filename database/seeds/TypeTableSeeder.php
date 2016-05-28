@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
@@ -49,6 +49,11 @@ class TypeTableSeeder extends Seeder {
         Type::Create([
             'id'        =>7,
             'name'      =>'项目花絮',
+            'team_id'   =>1,
+        ]);
+        Type::Create([
+            'id'        =>8,
+            'name'      =>'参赛承诺书',
             'team_id'   =>1,
         ]);
     }

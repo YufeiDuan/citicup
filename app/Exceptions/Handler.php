@@ -39,7 +39,7 @@ class Handler extends ExceptionHandler {
 	{
 		if ($e instanceof ModelNotFoundException)
         {
-            // Custom logic for model not found...
+        	//$this->renderHttpException($e);
         }
 		return parent::render($request, $e);
 	}

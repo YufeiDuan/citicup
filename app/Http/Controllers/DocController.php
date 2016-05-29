@@ -58,7 +58,11 @@ class DocController extends Controller {
 				$type = $file->getClientOriginalExtension();
 
 				//上传路径
-				$path =$upload_type.$filename;
+				if($upload_type==8){
+					$path ='0-'.$filename;
+				}else{
+					$path =$upload_type.'-'.$filename;
+				}
 				//
 				if(!empty($document->path)){
 					if($document->freq==0){

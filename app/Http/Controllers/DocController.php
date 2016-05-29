@@ -23,7 +23,7 @@ class DocController extends Controller {
 
 		$team = Auth::user()->team;
 		$count = $team->unreadcount();
-		$documents = $team->documents;
+		$documents = $team->documents->sortBy('path');
 		/*
 		foreach($documents as $doc){
 			if(!array_key_exists($doc->type_id,$types))

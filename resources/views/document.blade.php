@@ -70,26 +70,22 @@
 		<table class="table table-striped table-hover">
 			<thead>
 			<tr class="row">
-				<th class="col-md-1">序号</th>
 				<th class="col-md-5">文件名</th>
 				<th class="col-md-2">文档类型</th>
-				<th class="col-md-3">上传时间</th>
+				<th class="col-md-4">上传时间</th>
 				<th class="col-md-1">操作</th>
 			</tr>
 			</thead>
 			<tbody>
 			@foreach ($documents as $k=>$doc)
 			<tr class="row">
-				<td class="col-md-1">
-					{{ $k+1 }}
-				</td>
 				<td class="col-md-5">
 					{{ $doc->path }}
 				</td>
 				<td class="col-md-2">
 					{{ $doc->type->name }}
 				</td>
-				<td class="col-md-3">
+				<td class="col-md-4">
 					{{ $doc->updated_at }}
 				</td>
 				<td class="col-md-1">

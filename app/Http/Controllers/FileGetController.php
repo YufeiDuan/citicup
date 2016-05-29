@@ -27,4 +27,10 @@ class FileGetController extends Controller {
 		$filename = 'template.zip';
 		return Response::download($template_folder.$filename,$filename);
 	}
+
+	public function commitment(){
+		$template_folder = storage_path().'/app/';
+		$filename = 'commitment.docx';
+		return Response::download($template_folder.$filename,$filename);
+	}
 }

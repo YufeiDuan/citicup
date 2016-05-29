@@ -39,6 +39,8 @@ Route::group(['prefix' => '/', 'middleware' => ['auth','home','ploynor']], funct
 	Route::get('rate','HomeController@rate');
 	//模板下载
 	Route::get('template','FileGetController@template');
+	//承诺书下载
+	Route::get('commitment','FileGetController@commitment');
 	//添加成员/老师
 	Route::get('team/add', 'TeamController@add');
 	//更新Logo

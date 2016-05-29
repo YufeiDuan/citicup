@@ -53,7 +53,13 @@
 	@endif
 	<div class="row-fluid xgxdiv">
 		<h4 class="xgxtitle">最终作品</h4> <a href="#" onclick="pop()"><i class="glyphicon glyphicon-upload"></i>上传</a>
-		<span style="float:right"><a href="/template"><i class="glyphicon glyphicon-download"></i>文档模板下载</a></span>
+		<span style="float:right;">
+			<a href="/commitment"><i class="glyphicon glyphicon-download"></i>参赛承诺书</a>
+			&nbsp;&nbsp;
+			<a href="/template"><i class="glyphicon glyphicon-download"></i>文档模板下载</a></span>
+
+
+
 	</div>
 	<div class="row-fluid">
 		@if (count($documents)==0)
@@ -102,6 +108,8 @@
 	<div class="row-fluid">
 	<div class="alert alert-info">
 		<ul>
+			<li>提交作品前，请先下载<a href="/commitment">参赛承诺书</a>，签名后将扫描件上传。</li>
+			<li>项目花絮为不计分项，其余类别都为最终作品必需项。</li>
 			<li>最终作品的每种文档类型只保留最新一次上传的文档。</li>
 			<li>请在网络条件较好的环境下上传作品。</li>
 			<li>请避免在临近截止时刻上传作品，以免网络拥堵，给您造成不便。</li>

@@ -74,20 +74,20 @@ class ExcelController extends Controller
             $sheet->setWidth(array(
                 'A' => 5, 'B' => 13,'C' => 21, 'D' => 10,
                 'E' => 5,'F' => 15, 'G'=>10, 'H' => 5, 
-                'I' => 20,'J' => 15,'K' => 20, 'L' => 10,
-                'M' => 15,'N' => 15,'O' => 10,'P'=>10,'Q'=>10,
-                'R'=>10,'S'=>10,'T'=>10,'U'=>10,'V'=>10,'W'=>10
+                'I' => 23,'J' => 15,'K' => 20, 'L' => 10,
+                'M' => 15,'N' => 15,'O' => 10,'P'=>12,'Q'=>10,
+                'R'=>10,'S'=>10,'T'=>10,'U'=>10,'V'=>10,'W'=>10,'X'=>10
             ));
         });    
         $lastrow= $excel->getActiveSheet()->getHighestRow();    
-        $excel->getActiveSheet()->getStyle('A1:W'.$lastrow)->getAlignment()->setWrapText(true); 
+        $excel->getActiveSheet()->getStyle('A1:X'.$lastrow)->getAlignment()->setWrapText(true); 
         $height = array();
         for($i=2;$i<=$lastrow;$i++){
             $height = array_add($height, $i, 20);
         }
         $excel->getActiveSheet()->setHeight($height);
 
-        $excel->getActiveSheet()->setBorder('A1:W'.$lastrow, 'thin');
+        $excel->getActiveSheet()->setBorder('A1:X'.$lastrow, 'thin');
         $excel->export('xlsx');
         });
     }

@@ -21,15 +21,16 @@
             <th>指导老师</th>
             <th>项目简介(中)</th>
             <th>项目简介(英)</th>
-            <th>中期报告</th>
-            <th>证书邮寄地址</th>
-            <th>商业计划书</th>
-            <th>技术文档</th>
-            <th>需求文档</th>
-            <th>测试文档</th>
-            <th>用户手册</th>
-            <th>源代码</th>
-            <th>项目花絮</th>
+            <th class="bckgreen">中期报告</th>
+            <th class="bckorange">证书邮寄地址</th>
+            <th class="bckred">参赛承诺书</th>
+            <th class="bckorange">商业计划书</th>
+            <th class="bckorange">技术文档</th>
+            <th class="bckorange">需求文档</th>
+            <th class="bckorange">测试文档</th>
+            <th class="bckorange">用户手册</th>
+            <th class="bckorange">源代码</th>
+            <th class="bckgray">项目花絮</th>
         </tr>
         @foreach ($teams as $i=>$team)
 
@@ -105,6 +106,13 @@
                 $doccount = $team->doccount();
 
                 ?>
+                <td rowspan="{{ $number }}">
+                    @if ($doccount[8])
+                        documents/{{$team->id}}/{{ $team->documentByType(8)->path}}
+                    @else
+                        \
+                    @endif
+                </td>
                 @for($di=0 ; $di<7 ; $di++)
                     <td rowspan="{{ $number }}">
                     @if ($doccount[$di])

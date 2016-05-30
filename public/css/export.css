@@ -12,3 +12,15 @@ table td{
 b{
 	font-size: 11px;
 }
+.bckgreen{
+	background-color: #00b050;
+}
+.bckorange{
+	background-color: #ffc000;
+}
+.bckred{
+	background-color: #f07746;
+}
+.bckgray{
+	background-color: #595959;
+}

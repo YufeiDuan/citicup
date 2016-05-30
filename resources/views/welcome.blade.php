@@ -287,10 +287,7 @@
 
 			<h2 id="comp-signup" class="xtitle page-header">大赛说明</h2>
 				<h3 id="signup-type" class="ytitle">大赛报名方式</h3>
-					<ol>
-					  <li>学生可自行访问“花旗杯”官方网站，点击“最新消息”中的“大赛报名详情”即可</li>
-					  <li>在线浏览并访问2016年“花旗杯”承办单位西安交通大学网站<a class="outlink" href="http://citicup.xjtu.edu.cn">http://citicup,xjtu.edu.cn</a> 进行注册</li>
-					</ol>
+					<p>在本网站进行注册报名</p>
 				<h3 id="contact-info" class="ytitle">组委会联系方式</h3>
 					<address>
 					  <strong>徐静/陆骞/陈泰然</strong><br>

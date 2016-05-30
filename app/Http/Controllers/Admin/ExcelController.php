@@ -37,7 +37,7 @@ class ExcelController extends Controller
             $sheet->setWidth(array(
                 'A' => 5, 'B' => 13,  'C' => 21, 'D' => 10,
                 'E' => 10,'F' => 11, 'G'=>5, 'H' => 13.75, 
-                'I' => 20,'J' => 5,    'K' => 20, 'L' => 15,
+                'I' => 20,'J' => 5,    'K' => 23, 'L' => 15,
                 'M' => 20,'N' => 15,'O' => 10
             ));
         });    
@@ -73,7 +73,7 @@ class ExcelController extends Controller
             $sheet->loadView('excel.detail')->with(["teams" => $teams]);
             $sheet->setWidth(array(
                 'A' => 5, 'B' => 13,'C' => 21, 'D' => 10,
-                'E' => 5,'F' => 15, 'G'=>10, 'H' => 5, 
+                'E' => 5,'F' => 15, 'G'=>15, 'H' => 5, 
                 'I' => 23,'J' => 15,'K' => 20, 'L' => 10,
                 'M' => 15,'N' => 15,'O' => 10,'P'=>12,'Q'=>10,
                 'R'=>10,'S'=>10,'T'=>10,'U'=>10,'V'=>10,'W'=>10,'X'=>10

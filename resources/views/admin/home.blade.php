@@ -88,12 +88,6 @@
                 </li>
 
                 <li>
-                    <a href="{{ url('/admin/document') }}">
-                        <i class="glyphicon glyphicon-folder-open"></i>
-                        完整作品
-                    </a>
-                </li>
-                <li>
 				<a href="#export" class="nav-header collapsed" data-toggle="collapse">
 				<i class="glyphicon glyphicon-cloud-download"></i>
 				导出信息

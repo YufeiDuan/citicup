@@ -18,15 +18,19 @@
 		<h4 class="xgxtitle">最终作品</h4>  <a href="/admin/document/all"><i class="glyphicon glyphicon-download"></i>下载全部</a>
 	</div>
 	<div class="row-fluid">
-					<table class="table table-hover table-striped">
+			<table class="table table-hover table-striped">
 				<thead>
 					<tr class="row">
 						<th class="col-xs-1">序号</th>
 						<th class="col-xs-2">团队名称</th>
-						<th class="col-xs-2">商业计划书</th>
-						<th class="col-xs-2">技术文档</th>
-						<th class="col-xs-2">作品演示</th>
-						<th class="col-xs-2">项目花絮</th>
+						<th class="col-xs-1">参赛<br>承诺书</th>
+						<th class="col-xs-1">商业<br>计划书</th>
+						<th class="col-xs-1">技术<br>文档</th>
+						<th class="col-xs-1">需求<br>文档</th>
+						<th class="col-xs-1">测试<br>文档</th>
+						<th class="col-xs-1">用户<br>手册</th>
+						<th class="col-xs-1">源代码</th>
+						<th class="col-xs-1">项目<br>花絮</th>
 						<th class="col-xs-1">下载</th>
 					</tr>
 				</thead>
@@ -39,33 +43,22 @@
 						{{ $team->name }}
 					</td>
 					<td clss="col-xs-2">
-						@if ( $team->doccount()[0] )
+						@if ( $team->doccount()[8] )
 						<i style="color: green;" class="glyphicon glyphicon-ok"></i>
 						@else
 						<i style="color: red;" class="glyphicon glyphicon-remove"></i>
 						@endif
 					</td>
+					@for ($i=0;$i<7;$i++)
 					<td clss="col-xs-2">
-						@if ( $team->doccount()[1] )
+						@if ( $team->doccount()[$i] )
 						<i style="color: green;" class="glyphicon glyphicon-ok"></i>
 						@else
 						<i style="color: red;" class="glyphicon glyphicon-remove"></i>
 						@endif
 					</td>
-					<td clss="col-xs-2">
-						@if ( $team->doccount()[2] )
-						<i style="color: green;" class="glyphicon glyphicon-ok"></i>
-						@else
-						<i style="color: red;" class="glyphicon glyphicon-remove"></i>
-						@endif
-					</td>
-					<td clss="col-xs-2">
-						@if ( $team->doccount()[3] )
-						<i style="color: green;" class="glyphicon glyphicon-ok"></i>
-						@else
-						<i style="color: red;" class="glyphicon glyphicon-remove"></i>
-						@endif
-					</td>
+					@endfor
+
 
 
 					<td class="col-xs-1">

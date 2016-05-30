@@ -12,8 +12,8 @@ Route::get('/password/{token}','PasswordController@reset');
 Route::group(['middleware' => 'ployssl'], function()
 {
 	//main page
-	Route::get('/test', 'WelcomeController@index');
-	Route::get('/','WelcomeController@test');
+	Route::get('/', 'WelcomeController@index');
+	Route::get('/test','WelcomeController@test');
 	//auth
 	Route::controllers([
 		'auth' => 'LoginController',

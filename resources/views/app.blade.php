@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="renderer" content="webkit">
-	<title>2016 CitiCup</title>
+	<title>2016 Citi Financial Innovation Application Competition</title>
 
 	<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 	<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
@@ -35,7 +35,7 @@
 			<div class="row">
 				<div class="col-md-10 col-md-offset-1">
 					<div class="navbar-header">
-						<a class="navbar-brand" href="/home">CitiCup 2016</a>
+						<a class="navbar-brand" style="font-size:14px;" href="/home">2016 “花旗杯”金融创新应用大赛</a>
 					</div>
 					<p class="navbar-text"><a id="news" href="#">大赛要闻</a></p>
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

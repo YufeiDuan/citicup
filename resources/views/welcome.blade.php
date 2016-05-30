@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="renderer" content="webkit">
 		<meta http-equiv="cleartype" content="on" />
-		<title>2016 CitiCup</title>
+		<title>2016 Citi Financial Innovation Application Competition</title>
 		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
 		<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>

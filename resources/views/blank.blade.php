@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="renderer" content="webkit">
-		<title>2016 CitiCup</title>
+		<title>2016 Citi Financial Innovation Application Competition</title>
 		
 		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
@@ -33,7 +33,7 @@
 	<body>
 	<div style="height:200px;margin-top:200px;">
 	<div style="text-align:center">
-	<h1>2016 CitiCup</h1>
+	<h1>2016 Citi Financial Innovation Application Competition</h1>
 	<h2>版权所有：西安交通大学软件学院</h1>
 		@if (count($errors) > 0)
 						<div class="alert alert-info">

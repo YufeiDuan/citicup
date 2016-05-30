@@ -1,5 +1,5 @@
 @extends('reg')
-@section('title')CitiCup 2016
+@section('title')2016 “花旗杯”金融创新应用大赛
 @endsection
 	@section('content')
 

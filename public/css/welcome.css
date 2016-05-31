@@ -107,7 +107,7 @@ tr{
 }
 .docs{
 	position: relative;
-	background-color: #f1fafa;
+	background-color: #f1f1f1 !important;
 
 }
 .noteam{
@@ -166,4 +166,13 @@ td,th{
 	height: 45px;
 	margin-left: 10px;
 	margin-top: 15px;
+}
+#content{
+	background-color: #f5f5f5;
+}
+body{
+	background-image: url(/img/background.jpg);
+}
+.logobck{
+	background-color: #fff;
 }

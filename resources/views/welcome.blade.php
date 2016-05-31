@@ -19,7 +19,7 @@
 
 	</head>
 	<body>
-		<div class="">
+		<div class="logobck">
 			<div class="logo">
 				<img class="ilogo" src="img/citi.png" alt=""/>
 				<img class="ilogo" src="img/xjtu.png" alt=""/>
@@ -92,7 +92,7 @@
 		</div>
 		  <div class="container bs-docs-container">
 
-      <div class="row">
+      <div class="row" id="content">
         <div class="col-md-9 docs" role="main" >
           <div class="bs-docs-section">
           	  <h2 id="comp-news" class="xtitle  page-header">大赛要闻</h2>

@@ -3,6 +3,7 @@
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Session\TokenMismatchException;
 
 class Handler extends ExceptionHandler {
 
@@ -37,6 +38,10 @@ class Handler extends ExceptionHandler {
 	 */
 	public function render($request, Exception $e)
 	{
+		if ($e instanceof TokenMismatchException)
+        {
+        	return redirect('/')->withErrors("页面超时，请重新登录");
+        }
 		if ($e instanceof ModelNotFoundException)
         {
         	//$this->renderHttpException($e);

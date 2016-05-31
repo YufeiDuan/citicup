@@ -99,14 +99,14 @@
 						Oct 20
 						<div class="shiji">
 							<h5>Oct 20</h5>
-							<p>首轮评选</p>
+							<p>首轮评选(暂定)</p>
 						</div>
 					</li>
 					<li  id="s6" style="background:url(/img/6.png) no-repeat center top; ">
 						Nov 17
 						<div class="shiji">
 							<h5>Nov 17</h5>
-							<p>决赛颁奖</p>
+							<p>决赛颁奖(暂定)</p>
 						</div>
 					</li>
 					

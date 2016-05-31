@@ -291,7 +291,7 @@
 				<h3 id="contact-info" class="ytitle">组委会联系方式</h3>
 					<address>
 					  <strong>徐静/陆骞/陈泰然</strong><br>
-					  <abbr title="Phone">P:</abbr>&nbsp;021-28960965&nbsp;/&nbsp;28961100&nbsp;/&nbsp;28960898<br>
+					  <abbr title="Phone">Phone:</abbr>&nbsp;021-28960965&nbsp;/&nbsp;28961100&nbsp;/&nbsp;28960898<br>
 					  <a href="mailto:citi.cup.alumni@citi.com"><img id="mail" src="/img/mail.png"></a>
 					</address>
 				<h3 id="comp-guide" class="ytitle">大赛指导机构</h3>

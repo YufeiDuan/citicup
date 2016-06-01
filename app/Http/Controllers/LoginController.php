@@ -35,7 +35,7 @@ class LoginController extends Controller {
             	return redirect('/reg/team');
             }
         }
-        return redirect('/test')
+        return redirect('/')
 					->withInput($request->only('email', 'remember'))
 					->withErrors($this->getFailedLoginMessage($request));
     }

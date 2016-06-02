@@ -157,9 +157,21 @@ class TeamController extends Controller {
 			$o->delete();
 		}
 		foreach ($documents as $d) {
+			if(!empty($d->path)){
+				if (Storage::exists('documents/'.$team->id.'/'.$d->path))
+				{
+				    Storage::delete('documents/'.$team->id.'/'.$d->path);
+				}
+			}
 			$d->delete();
 		}
 		if(!empty($report)){
+			if(!empty($report->path)){
+				if (Storage::exists('reports/'.$team->id.'/'.$report->path))
+				{
+				    Storage::delete('reports/'.$team->id.'/'.$report->path);
+				}
+			}
 			$report->delete();
 		}
 		foreach ($members as $m) {
@@ -167,6 +179,11 @@ class TeamController extends Controller {
 		}
 		foreach ($teachers as $t) {
 			$t->delete();
+		}
+		//delete logo
+		if (Storage::exists('logos/'.$team->logo))
+		{
+		    Storage::delete('logos/'.$team->logo));
 		}
 		$team->delete();
 		return redirect('/admin/team')->withErrors('团队删除成功。');

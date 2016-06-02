@@ -202,7 +202,7 @@ class RegisterController extends Controller {
 		$team->univ_id=$univ->id;
 		$team->name=Input::get('name');
 		$team->title=Input::get('title');
-		$team->addr = Input::get('province');
+		$team->addr = Input::get('province').' '.Input::get('city').' '.Input::get('area').' '.Input::get('detail_addr');
 		$team->save();
 		$user->state=3;
 		$user->save();

@@ -16,10 +16,10 @@ class CreateTeamsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('name',20);
-			$table->integer('univ_id')->unsigned();
+			$table->integer('univ_id')->unsigned()->nullable();
 			$table->foreign('univ_id')->references('id')->on('univs');
 			$table->string('title',50)->nullable();
-			$table->string('logo',50);
+			$table->string('logo',50)->nullable();
 			$table->integer('authen_id')->unsigned()->nullable();
 			$table->foreign('authen_id')->references('id')->on('authens');
 			$table->text('addr');

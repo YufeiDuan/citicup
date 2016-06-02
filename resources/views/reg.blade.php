@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="renderer" content="webkit">
-	<title>2016 CitiCup</title>
+	<title>2016 Citi Financial Innovation Application Competition</title>
 	
 	<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">

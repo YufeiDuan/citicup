@@ -1,11 +1,14 @@
 var team_name;
 var team_title;
+var team_addr;
+var school_name;
 window.onload=function(){
 	n = Math.random(100);
 	$("#logo").attr("src","/logo/"+n);
 	$('#choose').modal('hide');
 	$("#team_name").attr("disabled","disabled");
 	$("#team_title").attr("disabled","disabled");
+	$("#team_addr").attr("disabled","disabled");
 	$("#btn_upload").hide();
 	$('#save').hide();
 	$('#cancel').hide();
@@ -15,6 +18,7 @@ window.onload=function(){
 	team_name = $("#team_name").attr('value');
 	team_title = $("#team_title").attr('value');
 	school_name = $("#school-name").attr('value');
+	team_addr = $("#team_addr").attr('value');
 	$("#btn_upload").bind("click",function(){
         $("#upload_modal").show();
     });
@@ -70,6 +74,7 @@ function display(){
 	if(tag==1){
 		$("#team_name").attr("disabled",false);
 		$("#team_title").attr("disabled",false);
+		$("#team_addr").attr("disabled",false);
 		$("#btn_upload").show();
 		$('#save').show();
 		$('#cancel').show();
@@ -79,8 +84,10 @@ function display(){
 	}else{
 		$("#team_name").attr("disabled","disabled");
 		$("#team_title").attr("disabled","disabled");
+		$("#team_addr").attr("disabled","disabled");
 		$("#team_name").val(team_name);
 		$("#team_title").val(team_title);
+		$("#team_addr").val(team_addr);
 		$("#school-name").val(school_name);
 		$("#btn_upload").hide();
 		$('#save').hide();

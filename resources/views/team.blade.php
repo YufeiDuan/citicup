@@ -73,14 +73,21 @@
 				<div class="form-group">
 					<label class="col-md-3 control-label">所属高校</label>
 					<div class="col-md-7">
-						<input type="text" name="school" id="school-name" value="{{$univ->name}}" class="form-control school finput">
+						<input type="text" name="school" id="school-name" value="{{$univ->name}}" class="form-control school finput" required="required">
 
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-md-3 control-label">参赛题目</label>
 					<div class="col-md-7">
-						<input type="text" class="form-control finput" name="team_title" id="team_title" value="{{ $team->title }}" maxlength="30"/ placeholder="不超过30个字符">
+						<input type="text" class="form-control finput" name="team_title" id="team_title" value="{{ $team->title }}" maxlength="30" placeholder="不超过30个字符">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-md-3 control-label">证书邮寄地址</label>
+					<div class="col-md-7">
+						<input type="text" class="form-control finput" name="team_addr" id="team_addr" value="{{ $team->addr }}"  placeholder="省 市 区 街道 具体地址" required="required">
 					</div>
 				</div>
 	

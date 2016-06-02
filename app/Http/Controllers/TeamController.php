@@ -100,6 +100,7 @@ class TeamController extends Controller {
 	        'school' => 'required|string',
 	        'team_title' => 'string',
 	        'team_name' => 'required|string',
+	        'team_addr' => 'required|string',
     	]);
 
 		$team = Auth::user()->team;
@@ -117,8 +118,8 @@ class TeamController extends Controller {
 		$team->univ_id = $univ->id;
 		$team->title = Input::get('team_title');
 		$team->name = Input::get('team_name');
+		$team->addr = Input::get('team_addr');
 		
-
 		if($team->save()){
 			View::share('data',['count'=>$count,'name'=>$team->name]);
 			return Redirect::to('/team');
@@ -126,8 +127,6 @@ class TeamController extends Controller {
 			View::share('data',['count'=>$count,'name'=>$old_name]);
 			return Redirect::to('/team')->withErrors('修改失败！');
 		}
-
-		
 	}
 	public function __construct()
     {

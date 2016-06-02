@@ -199,7 +199,7 @@ class RegisterController extends Controller {
 				'univ_id' => $univ->id,
 			]);
 		}
-		
+		$team->univ_id=$univ->id;
 		$team->name=Input::get('name');
 		$team->title=Input::get('title');
 		$team->addr = Input::get('province');

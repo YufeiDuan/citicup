@@ -50,4 +50,8 @@ class WelcomeController extends Controller {
 		return view('admin.login');
 	}
 
+	public function news()
+	{
+		return view('news');
+	}
 }

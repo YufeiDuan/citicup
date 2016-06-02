@@ -183,7 +183,7 @@ class TeamController extends Controller {
 		//delete logo
 		if (Storage::exists('logos/'.$team->logo))
 		{
-		    Storage::delete('logos/'.$team->logo));
+		    Storage::delete('logos/'.$team->logo);
 		}
 		$team->delete();
 		return redirect('/admin/team')->withErrors('团队删除成功。');

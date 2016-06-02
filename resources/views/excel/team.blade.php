@@ -24,9 +24,14 @@
             <th>指导老师</th>
         </tr>
         @foreach ($teams as $i=>$team)
-
+            <?php
+                $number = $team->members->count();
+                if($number==0){
+                    $number=1;
+                }
+            ?>
             <tr>        
-                <td rowspan="{{ $number = $team->members->count() }}">{{ $i+1 }}</td>
+                <td rowspan="{{ $number }}">{{ $i+1 }}</td>
                 <td rowspan="{{ $number }}">{{ $team->name }}</td>
                 <td rowspan="{{ $number }}">{{ $team->title }}</td>
                 <td rowspan="{{ $number }}">
@@ -45,7 +50,18 @@
                         endswitch; 
                     ?>
                 </td>
-
+                @if($team->members->count()==0)
+                <td>\</td>
+                <td>\</td>
+                <td>\</td>
+                <td>\</td>
+                <td>\</td>
+                <td>\</td>
+                <td>\</td>
+                <td>\</td>
+                <td rowspan="{{ $number }}">{{ $team->addr}}</td>
+                <td>\</th>
+                @else
                 @for ($j = 0,$s = $team->members->first(); $j < 1; $j++)
                     <td>
                         @if ($s->leader)
@@ -148,7 +164,7 @@
                 </tr>
                 @endif
                 @endforeach
-
+                @endif
             @endforeach
     </table>
 </body>

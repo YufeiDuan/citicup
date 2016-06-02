@@ -33,9 +33,39 @@
             <th class="bckgray">项目花絮</th>
         </tr>
         @foreach ($teams as $i=>$team)
-
+            <?php
+                $number = $team->members->count();
+            ?>
+            @if($number==0)
+            <tr>
+                <td>{{ $i+1 }}</td>
+                <td>{{ $team->name }}</td>
+                <td>{{ $team->title }}</td>
+                <td>\</td>
+                <td>\</td>
+                <td>\</td>
+                <td>\</td>
+                <td>\</td>
+                <td>\</td>
+                <td>\</td>
+                <td>\</td>
+                <td>\</td>
+                <td>\</td>
+                <td>\</td>
+                <td>\</td>
+                <td>{{ $team->addr}}</td>
+                <td>\</td>
+                <td>\</td>
+                <td>\</td>
+                <td>\</td>
+                <td>\</td>
+                <td>\</td>
+                <td>\</td>
+                <td>\</td>
+            </tr>
+            @else
             <tr>        
-                <td rowspan="{{ $number = $team->members->count() }}">{{ $i+1 }}</td>
+                <td rowspan="{{ $number }}">{{ $i+1 }}</td>
                 <td rowspan="{{ $number }}">{{ $team->name }}</td>
                 <td rowspan="{{ $number }}">{{ $team->title }}</td>
 
@@ -173,7 +203,7 @@
                 </tr>
                 @endif
                 @endforeach
-
+                @endif
             @endforeach
     </table>
 </body>

@@ -25,7 +25,7 @@
 	<input type="hidden" id="univ_sel" name="univ_sel" >
 	<div class="row">
 		<div class="col-md-3 logo">
-			<img src="/logo/xgx" id="logo">
+			<img src="" id="logo" alt="LOGO">
 			<div>
 				<button class="btn btn-primary" id="btn_upload" type="button">上传Logo</button>
 			</div>

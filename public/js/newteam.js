@@ -9,6 +9,8 @@ $(function () {
     var btn = $(".btn span");
     var freq = $('#freq').val();
     var state = $('#state');
+    n = Math.random(100);
+    $("#logo").attr("src","/logo/"+n);
 
     files.bind('DOMNodeInserted', function(e) { 
         var content = $(e.target).text();

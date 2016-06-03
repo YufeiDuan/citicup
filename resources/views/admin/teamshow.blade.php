@@ -73,10 +73,17 @@
 						<input type="text" class="form-control finput" name="team_name" id="team_name" value="{{ $team->name }}" required="required" maxlength="20"/ placeholder="不超过20个字符">
 					</div>
 				</div>
+				<?php
+				if($team->univ){
+					$test = $team->univ->name;
+				}else{
+					$test="未填写";
+				}
+				?>
 				<div class="form-group">
 					<label class="col-md-3 control-label">所属高校</label>
 					<div class="col-md-7">
-						<input type="text" name="school" id="school-name" value="{{$team->univ->name}}" class="form-control school finput">
+						<input type="text" name="school" id="school-name" value="{{$test}}" class="form-control school finput">
 
 					</div>
 				</div>

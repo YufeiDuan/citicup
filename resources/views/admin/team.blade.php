@@ -41,13 +41,25 @@
 					{{ $k+1 }}
 				</td>
 				<td class="col-xs-3">
+					@if(!empty($team->name))
 					{{ $team->name }}
+					@else
+					未填写
+					@endif
 				</td>
 				<td class="col-xs-3">
+					@if($team->univ)
 					{{ $team->univ->name }}
+					@else
+					未填写
+					@endif
 				</td>
 				<td class="col-xs-3">
+					@if(!empty($team->title))
 					{{ $team->title }}
+					@else
+					未填写
+					@endif
 				</td>
 				<td class="col-xs-2">
 					<a href="{{ URL('/admin/team/'.$team->id) }}" class="btn btn-success"><i class="glyphicon glyphicon-edit"></i></a>

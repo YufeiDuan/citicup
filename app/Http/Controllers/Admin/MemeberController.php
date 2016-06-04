@@ -30,15 +30,14 @@ class MemberController extends Controller {
 		}
 
 		$this->validate($request, [
-			'name' => 'required|string|max:10',
+			'name' => 'required|string',
 			'sex' => 'required|boolean',
 			'school'=>'required|string',
-			'college' => 'required|string|max:20',
-			'major' => 'required|string|max:20',
+			'college' => 'required|string',
 			'id_num' => 'required|string|max:18|unique:members',
-			'stu_num' => 'required|string|max:15',
 			'degree' => 'required|numeric',
-			'year_entry' => 'required|numeric',
+			'grade' => 'required|numeric',
+			'phone' => 'required|string|size:11',
 			'email' => 'required|email',
 			'leader' => 'required|boolean',
 		]);
@@ -56,11 +55,10 @@ class MemberController extends Controller {
 		$member->sex=Input::get('sex');
 		$member->univ_id=$univ->id;
 		$member->college=Input::get('college');
-		$member->major=Input::get('major');
-		$member->stu_num=Input::get('stu_num');
 		$member->id_num=Input::get('id_num');
 		$member->degree=Input::get('degree');
-		$member->year_entry=Input::get('year_entry');
+		$member->grade=Input::get('grade');
+		$member->phone=Input::get('phone');
 		$member->email=Input::get('email');
 		$member->team_id = Session::get('team')->id;
 		$member->leader=Input::get('leader');
@@ -75,22 +73,25 @@ class MemberController extends Controller {
 		$member = Member::find($id);
 
 		if (Member::where('id_num',Input::get('id_num'))->count()>0) {
-			$member = Member::where('id_num',Input::get('id_num'))->first();
-			$str = '身份证号冲突，请检查：('.$member->team->id.')'.$member->team->name.' 团队成员 ('.$member->id.')'.$member->name;
-			return redirect()->back()->withInput()->withErrors($str);
+			$membertemp = Member::where('id_num',Input::get('id_num'))->first();
+			if($membertemp->id != $member->id){
+				$str = '身份证号冲突，请检查：('.$member->team->id.')'.$member->team->name.' 团队成员 ('.$member->id.')'.$member->name;
+				return redirect()->back()->withInput()->withErrors($str);
+			}
+			
 		}
 		
 		$this->validate($request, [
-			'name' => 'required|string|max:10',
+			'name' => 'required|string',
 			'sex' => 'required|boolean',
-			'school'=>'required|string',
-			'college' => 'required|string|max:20',
-			'major' => 'required|string|max:20',
 			'id_num' => 'required|string|max:18',
-			'stu_num' => 'required|string|max:15',
+			'school'=>'required|string',
+			'college' => 'required|string',
 			'degree' => 'required|numeric',
-			'year_entry' => 'required|numeric',
+			'grade' => 'required|numeric',
+			'phone' => 'required|string|size:11',
 			'email' => 'required|email',
+			'leader' => 'required|boolean',
 		]);
 
 		$univ = Univ::where(['name' => Input::get('school')])->first();
@@ -104,12 +105,13 @@ class MemberController extends Controller {
 		$member->sex=Input::get('sex');
 		$member->univ_id=$univ->id;
 		$member->college=Input::get('college');
-		$member->major=Input::get('major');
-		$member->stu_num=Input::get('stu_num');
 		$member->id_num=Input::get('id_num');
 		$member->degree=Input::get('degree');
-		$member->year_entry=Input::get('year_entry');
+		$member->grade=Input::get('grade');
+		$member->phone=Input::get('phone');
 		$member->email=Input::get('email');
+		$member->leader=Input::get('leader');
+
 		if ($member->save()) {
 			return Redirect::to('/admin/team/'.Session::get('team')->id);
 		} else {

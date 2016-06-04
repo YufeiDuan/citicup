@@ -65,6 +65,7 @@ class MemberController extends Controller {
 			'name' => 'required|string|max:10',
 			'sex' => 'required|boolean',
 			'school'=>'required|string',
+			'id_num' => 'required|string|max:18|unique:members',
 			'college' => 'required|string|max:20',
 			'degree' => 'required|numeric',
 			'grade' => 'required|numeric',
@@ -144,6 +145,7 @@ class MemberController extends Controller {
 		$this->validate($request, [
 			'name' => 'required|string|max:10',
 			'sex' => 'required|boolean',
+			'id_num' => 'required|string|max:18',
 			'school'=>'required|string',
 			'college' => 'required|string|max:20',
 			'degree' => 'required|numeric',

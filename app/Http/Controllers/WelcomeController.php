@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use Storage;
+use Illuminate\Http\Request;
 //use Image;
 use App\Area;
 use App\Univ;
@@ -53,5 +54,10 @@ class WelcomeController extends Controller {
 	public function news()
 	{
 		return view('news');
+	}
+
+	public function newsinfo(Request $request){
+		$num = $request->route('num');
+		return view('news.info'.$num);
 	}
 }

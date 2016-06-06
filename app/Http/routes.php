@@ -22,6 +22,7 @@ Route::group(['middleware' => 'ployssl'], function()
 
 Route::group(['prefix'=>'/news','middleware' => 'ploynor'],function(){
 	Route::get('/','WelcomeController@news');
+	Route::get('/{num}','WelcomeController@newsinfo');
 });
 
 Route::controllers([

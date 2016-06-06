@@ -176,3 +176,45 @@ body{
 .logobck{
 	background-color: #fff;
 }
+.date{
+	float: right;
+	color: #777;
+}
+.news:link,.news:visited,.news:hover {
+	font-size:16px;
+	color:#000;
+	text-decoration: none;
+}
+.title{
+	text-align: center;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #aaa;
+	margin-bottom: 15px;
+}
+.newscontent p{
+	font-size: 16px;
+	text-indent:32px;
+}
+.newsimg{
+	text-align: center !important;
+}
+.newsimg img{
+	margin: 10px;
+	width: 600px;
+
+}
+.back2home{
+	float: right;
+	height: 100%;
+	margin-right: 200px;
+}
+.back2home a{
+	vertical-align: middle;
+	line-height: 75px;
+	font-size: 20px;
+}
+.back2home a:link,.back2home a:visited,.back2home a:hover {
+	color:#006aac;
+	text-decoration: none;
+}

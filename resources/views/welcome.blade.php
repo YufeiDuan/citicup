@@ -96,7 +96,12 @@
         <div class="col-md-9 docs" role="main" >
           <div class="bs-docs-section">
           	  <h2 id="comp-news" class="xtitle  page-header">大赛要闻</h2>
-
+				<ul>
+					<li>
+						<a class="news" href="/news/1">2016“花旗杯”金融创新应用大赛在西安交大启动</a>
+						<span class="date">[2016-06-06]</span>
+					</li>
+				</ul>
               <h2 id="comp-overview" class="xtitle page-header">大赛介绍</h2>
               <h3 id="comp-showing" class="ytitle">大赛概要</h3>
               <p>为了加强对金融信息化复合型人才的培养，促进中国金融信息科技的快速发展，花旗于2004年4月正式成立了花旗金融信息科技教育项目。“花旗杯”金融创新应用大赛(原“花旗杯”金融与信息技术应用大赛，以下简称“花旗杯”大赛)作为项目的重要组成部分，旨在引导学生在校园阶段即开始重视所学知识与金融产业发展、社会进步相结合。激发学生对科学技术和金融产业的热爱，鼓励通过团队协作，综合运用所学知识，迸发金融创新的奇思妙想，提出具有商业化前景的解决方案。</p><p>

@@ -20,6 +20,11 @@ Route::group(['middleware' => 'ployssl'], function()
 	]);
 });
 
+Route::group(['prefix'=>'/news','middleware' => 'ploynor'],function(){
+	Route::get('/','NewsController@news');
+	Route::get('/{num}','NewsController@newsinfo');
+});
+
 Route::controllers([
 	'auth' => 'LoginController',
 	'reg' => 'RegisterController',

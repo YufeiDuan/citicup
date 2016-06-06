@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use Storage;
+use Illuminate\Http\Request;
 //use Image;
 use App\Area;
 use App\Univ;
@@ -49,5 +50,4 @@ class WelcomeController extends Controller {
 	{
 		return view('admin.login');
 	}
-
 }

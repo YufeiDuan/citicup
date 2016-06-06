@@ -122,9 +122,9 @@ class TeamController extends Controller {
 
 		if($team->save()){
 			Session::put('team',$team);
-			return Redirect::to('/admin/team');
+			return Redirect::to('/admin/team/'.$team->id);
 		}else{
-			return Redirect::to('/admin/team')->withErrors('修改失败！');
+			return Redirect::to('/admin/team'.$team->id)->withErrors('修改失败！');
 		}
 	}
 

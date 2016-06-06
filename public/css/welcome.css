@@ -217,3 +217,7 @@ body{
 	color:#006aac;
 	text-decoration: none;
 }
+#compnews:link,#compnews:visited,#compnews:hover{
+	color: #333;
+	text-decoration: none;
+}

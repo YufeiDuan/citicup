@@ -95,7 +95,7 @@
       <div class="row" id="content">
         <div class="col-md-9 docs" role="main" >
           <div class="bs-docs-section">
-          	  <h2 id="comp-news" class="xtitle  page-header">大赛要闻</h2>
+          	  <h2 id="comp-news" class="xtitle  page-header"><a id="compnews" href="/news">大赛要闻</a></h2>
 				<ul>
 					<li>
 						<a class="news" href="/news/1">2016“花旗杯”金融创新应用大赛在西安交大启动</a>

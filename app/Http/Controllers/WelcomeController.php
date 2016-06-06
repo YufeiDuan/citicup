@@ -50,14 +50,4 @@ class WelcomeController extends Controller {
 	{
 		return view('admin.login');
 	}
-
-	public function news()
-	{
-		return view('news');
-	}
-
-	public function newsinfo(Request $request){
-		$num = $request->route('num');
-		return view('news.info'.$num);
-	}
 }

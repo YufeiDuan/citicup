@@ -20,7 +20,10 @@
 				<img class="ilogo" src="/img/citi.png" alt=""/>
 				<img class="ilogo" src="/img/xjtu.png" alt=""/>
 				<img class="ilogo" src="/img/cfg.png" alt=""/>
-				<div class="back2home">
+				<div class="back2home" style="margin-right:200px;">
+					<a href="/news">大赛要闻</a>
+				</div>
+				<div class="back2home" style="margin-right:50px;">
 					<a href="/home">返回首页</a>
 				</div>
 			</div>

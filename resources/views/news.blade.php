@@ -15,8 +15,6 @@
 		<script src="{{ asset('/js/welcome.js') }}"></script>
 
 		<link rel="stylesheet" href="{{ asset('/css/welcome.css') }}">
-		<link rel="stylesheet" href="{{ asset('/css/docs.min.css') }}">
-
 	</head>
 	<body>
 		<div class="logobck">
@@ -24,6 +22,9 @@
 				<img class="ilogo" src="img/citi.png" alt="CITI"/>
 				<img class="ilogo" src="img/xjtu.png" alt="XJTU"/>
 				<img class="ilogo" src="img/cfg.png" alt="CFG"/>
+				<div class="back2home" style="margin-right:200px;">
+					<a href="/home">返回首页</a>
+				</div>
 			</div>
 			<div>
 				<img src="img/2.jpg" alt="2016 Citi Financial Innovation Application Competition"/>
@@ -36,7 +37,18 @@
         <div class="col-md-9 docs" role="main" >
           <div class="bs-docs-section">
           	  <h2 id="comp-news" class="xtitle  page-header">大赛要闻</h2>
-				
+				<ul>
+					<li>
+						<a class="news" href="/news/1">2016“花旗杯”金融创新应用大赛在西安交大启动</a>
+						<span class="date">[2016-06-06]</span>
+					</li>
+					<p><br></p>
+					<p><br></p>
+					<p><br></p>
+					<p><br></p>
+					<p><br></p>
+
+				</ul>
           </div>
 
 

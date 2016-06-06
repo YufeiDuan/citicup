@@ -37,7 +37,7 @@
 					<div class="navbar-header">
 						<a class="navbar-brand" style="font-size:14px;" href="/home">2016 “花旗杯”金融创新应用大赛</a>
 					</div>
-					<p class="navbar-text"><a id="news" href="#">大赛要闻</a></p>
+					<p class="navbar-text"><a id="news" href="/news">大赛要闻</a></p>
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav navbar-right">
 							<li>

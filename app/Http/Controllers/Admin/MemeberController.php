@@ -23,18 +23,18 @@ class MemberController extends Controller {
 	}
 
 	public function store(Request $request){
-		if (Member::where('id_num',Input::get('id_num'))->count()>0) {
-			$member = Member::where('id_num',Input::get('id_num'))->first();
-			$str = '身份证号冲突，请检查：('.$member->team->id.')'.$member->team->name.' 团队成员 ('.$member->id.')'.$member->name;
-			return redirect()->back()->withInput()->withErrors($str);
-		}
+		// if (Member::where('id_num',Input::get('id_num'))->count()>0) {
+		// 	$member = Member::where('id_num',Input::get('id_num'))->first();
+		// 	$str = '身份证号冲突，请检查：('.$member->team->id.')'.$member->team->name.' 团队成员 ('.$member->id.')'.$member->name;
+		// 	return redirect()->back()->withInput()->withErrors($str);
+		// }
 
 		$this->validate($request, [
 			'name' => 'required|string',
 			'sex' => 'required|boolean',
 			'school'=>'required|string',
 			'college' => 'required|string',
-			'id_num' => 'required|string|max:18|unique:members',
+			'id_num' => 'required|string|max:18',
 			'degree' => 'required|numeric',
 			'grade' => 'required|numeric',
 			'phone' => 'required|string|size:11',
@@ -72,14 +72,14 @@ class MemberController extends Controller {
 	public function update(Request $request,$id){
 		$member = Member::find($id);
 
-		if (Member::where('id_num',Input::get('id_num'))->count()>0) {
-			$membertemp = Member::where('id_num',Input::get('id_num'))->first();
-			if($membertemp->id != $member->id){
-				$str = '身份证号冲突，请检查：('.$member->team->id.')'.$member->team->name.' 团队成员 ('.$member->id.')'.$member->name;
-				return redirect()->back()->withInput()->withErrors($str);
-			}
+		// if (Member::where('id_num',Input::get('id_num'))->count()>0) {
+		// 	$membertemp = Member::where('id_num',Input::get('id_num'))->first();
+		// 	if($membertemp->id != $member->id){
+		// 		$str = '身份证号冲突，请检查：('.$member->team->id.')'.$member->team->name.' 团队成员 ('.$member->id.')'.$member->name;
+		// 		return redirect()->back()->withInput()->withErrors($str);
+		// 	}
 			
-		}
+		// }
 		
 		$this->validate($request, [
 			'name' => 'required|string',

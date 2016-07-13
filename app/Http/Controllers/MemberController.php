@@ -35,9 +35,9 @@ class MemberController extends Controller {
 	}
 
 	public function store(Request $request){
-		if (Member::where('id_num',Input::get('id_num'))->count()>0) {
-			return redirect()->back()->withInput()->withErrors('身份证号已被注册，若有疑问，请联系主办方。');
-		}
+		// if (Member::where('id_num',Input::get('id_num'))->count()>0) {
+		// 	return redirect()->back()->withInput()->withErrors('身份证号已被注册，若有疑问，请联系主办方。');
+		// }
 		$idcard = Input::get('id_num');
 		$flag=1;
 		if(strlen($idcard)!=18){  
@@ -65,7 +65,7 @@ class MemberController extends Controller {
 			'name' => 'required|string|max:10',
 			'sex' => 'required|boolean',
 			'school'=>'required|string',
-			'id_num' => 'required|string|max:18|unique:members',
+			'id_num' => 'required|string|max:18',
 			'college' => 'required|string|max:20',
 			'degree' => 'required|numeric',
 			'grade' => 'required|numeric',
@@ -110,11 +110,11 @@ class MemberController extends Controller {
 		if($member->team_id!=$team->id){
 			return redirect('/team')->withErrors('只能修改自己团队成员信息。');
 		}
-		if (Member::where('id_num',Input::get('id_num'))->count()>0) {
-			$membertemp = Member::where('id_num',Input::get('id_num'))->first();
-			if($membertemp->id != $member->id)
-			return redirect()->back()->withInput()->withErrors('身份证号已被注册，若有疑问，请联系主办方。');
-		}
+		// if (Member::where('id_num',Input::get('id_num'))->count()>0) {
+		// 	$membertemp = Member::where('id_num',Input::get('id_num'))->first();
+		// 	if($membertemp->id != $member->id)
+		// 	return redirect()->back()->withInput()->withErrors('身份证号已被注册，若有疑问，请联系主办方。');
+		// }
 		$idcard = Input::get('id_num');
 		$flag=1;
 		if(strlen($idcard)!=18){  

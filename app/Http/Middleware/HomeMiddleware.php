@@ -20,7 +20,8 @@ class HomeMiddleware {
 		$curtime = date('Y-m-d H:i:s',time());
 
 		if($curtime>$process->time){
-			return view('info')->withErrors('当前时间：'.$curtime.'  大赛报名已截止。');
+			return $next($request);
+			//return redirect("/rate");//view('info')->withErrors('当前时间：'.$curtime.'  大赛报名已截止。');
 		}
 		else{
 			$user = Auth::user();

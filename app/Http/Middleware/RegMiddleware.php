@@ -28,7 +28,7 @@ class RegMiddleware {
 			$process = Process::find(1);
 			$curtime = date('Y-m-d H:i:s',time());
 			if($curtime>$process->time){
-				return view('info')->withErrors('当前时间：'.$curtime.'  大赛报名已截止。');
+				return view('info')->withErrors('当前时间：'.$curtime.'  大赛报名已截止，您的团队未达到组建条件。');
 			}
 			else if($user->state==0){
 				$url = $request->url();

@@ -49,7 +49,7 @@
 	</div>
 	@endif
 	<div class="row-fluid xgxdiv">
-		<h4 class="xgxtitle">团队信息</h4> <a href="#" onclick="display()"><i class="glyphicon glyphicon-edit"></i>修改</a>
+		<h4 class="xgxtitle">团队信息</h4> {{-- <a href="#" onclick="display()"><i class="glyphicon glyphicon-edit"></i>修改</a> --}}
 	</div>
 	<div class="row">
 
@@ -57,9 +57,9 @@
 			<div class="logo">
 				<img src="" id="logo" class="img-rounded img-thumbnail">
 
-			<div class="logobtn">
+			{{-- <div class="logobtn">
 				<button class="btn btn-success" id="btn_upload" type="button">上传Logo</button>
-			</div>
+			</div> --}}
 		</div>
 		</div>
 		<form action="{{ URL('/team/1') }}" method="post" name="formchange" class="form-horizontal teamedit">
@@ -93,18 +93,18 @@
 	
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<input name="_method" type="hidden" value="PUT">
-				<div class="form-group">
+				{{-- <div class="form-group">
 					<div class="col-md-9 col-md-offset-3">
 						<input class="btn btn-success" type="submit" id="save" value="保存" onclick="save()">
 						<input class="btn btn-danger" type="button" id="cancel" value="取消" onClick="display()">
 					</div>
-				</div>
+				</div> --}}
 
 			</form>
 		</div>
 	</div>
 	<div class="row-fluid xgxdiv">
-		<h4 class="xgxtitle">成员信息</h4> <a href="{{url('/team/add')}}"><i class="glyphicon glyphicon-user"></i>添加</a>
+		<h4 class="xgxtitle">成员信息</h4> {{-- <a href="{{url('/team/add')}}"><i class="glyphicon glyphicon-user"></i>添加</a> --}}
 	</div>
 	<div class="row-fluid">
 		<table class="table table-hover table-striped ">
@@ -114,7 +114,7 @@
 				<th class="col-md-3">学校</th>
 				<th class="col-md-3">学院</th>
 				<th class="col-md-2">类别</th>
-				<th class="col-md-2">操作</th>
+				<th class="col-md-2">{{-- 操作 --}}</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -138,12 +138,12 @@
 				队员
 			</td>
 			<td class="col-md-2">
-				<a href="{{ URL('member/'.$member->id.'/edit') }}" class="btn btn-success"><i class="glyphicon glyphicon-edit"></i></a>
+				{{-- <a href="{{ URL('member/'.$member->id.'/edit') }}" class="btn btn-success"><i class="glyphicon glyphicon-edit"></i></a>
 				<form action="{{ URL('member/'.$member->id) }}" method="POST" style="display: inline;" onsubmit="return(delconfirm())">
 					<input name="_method" type="hidden" value="DELETE">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 					<button type="submit" class="btn btn-danger del"><i class="glyphicon glyphicon-trash"></i></button>
-				</form>
+				</form> --}}
 			</td>
 			@endif
 		</tr>
@@ -163,13 +163,13 @@
 				指导老师
 			</td>
 			<td class="col-md-1">
-				<a href="{{ URL('teacher/'.$teacher->id.'/edit') }}" class="btn btn-success"><i class="glyphicon glyphicon-edit"></i></a>
+				{{-- <a href="{{ URL('teacher/'.$teacher->id.'/edit') }}" class="btn btn-success"><i class="glyphicon glyphicon-edit"></i></a>
 				<form action="{{ URL('teacher/'.$teacher->id) }}" method="POST" style="display: inline;" onsubmit="return(delcheck())" class="form">
 					<input type="hidden" id="teacher_count" value="{{$teachers->count()}}">
 					<input name="_method" type="hidden" value="DELETE">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 					<button class="btn btn-danger del" type="submit"><i class="glyphicon glyphicon-trash"></i></button>
-				</form>
+				</form> --}}
 			</td>
 		</tr>
 		@endforeach
@@ -183,7 +183,7 @@
 			<li>队长信息暂不支持修改。</li>
 			<li>参赛队伍队伍可根据需要邀请1-2名指导老师，但每支队伍至多不能超过2位指导老师。</li>
 			<li>参赛题目可稍后填写，但不应晚于项目报告截止日期。</li>
-			<li>团队组建将于2016年7月16日0时0分截止。</li>
+			<li>团队组建已于2016年7月16日0时0分截止。</li>
 		</ul>
 	</div>
 </div>

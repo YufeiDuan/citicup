@@ -56,7 +56,7 @@
 		<span style="float:right;">
 			<a href="/commitment"><i class="glyphicon glyphicon-download"></i>参赛承诺书</a>
 			&nbsp;&nbsp;
-			<a href="/template"><i class="glyphicon glyphicon-download"></i>文档模板下载</a></span>
+			{{-- <a href="/template"><i class="glyphicon glyphicon-download"></i>文档模板下载</a></span> --}}
 
 
 

@@ -117,8 +117,8 @@
 	<!-- Scripts -->
 	<script type="text/javascript">
 		$(function(){
-			var t_li = $(".disp li:not(#s1,#s2)");
-			var c_li = $(".disp li:not(#s1,#s2)").find('.shiji');
+			var t_li = $(".disp li:not(#s1,#s2,#s3)");
+			var c_li = $(".disp li:not(#s1,#s2,#s3)").find('.shiji');
 				t_li.hover(function(){
 					var i = t_li.index($(this));
 					function way(){
@@ -131,7 +131,7 @@
 				$(this).find('.shiji').slideUp(150);
 			});
 
-			$('#s1,#s2').find('.shiji').slideDown(300);
+			$('#s1,#s2,#s3').find('.shiji').slideDown(300);
 
 		});
 	</script>

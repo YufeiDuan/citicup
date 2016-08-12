@@ -17,7 +17,7 @@
 		</div>
 	</div>
 		@endif
-		<div class="modal" id="upload_modal">
+		{{-- <div class="modal" id="upload_modal">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -45,14 +45,14 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> --}}
 	</div>
 	<div class="row-fluid xgxdiv" >
-		<h4 class="xgxtitle">参赛题目</h4> <a href="#" onclick="display()"><i class="glyphicon glyphicon-edit"></i>修改</a>
+		<h4 class="xgxtitle">参赛题目</h4>{{--  <a href="#" onclick="display()"><i class="glyphicon glyphicon-edit"></i>修改</a> --}}
 
 	</div>
 	<div class="row-fluid col-md-12">
-		<form action="{{ URL('/report/1') }}" method="post" class="form-horizontal">
+		{{-- <form action="{{ URL('/report/1') }}" method="post" class="form-horizontal"> --}}
 			<div class="form-group">
 				<input name="_method" type="hidden" value="PUT">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -61,17 +61,17 @@
 						<input type="text" name="title" id="title" class="form-control" value="{{$data['title']}}" onblur="if(this.value.replace(/^ +| +$/g,'')=='')alert('不能为空!')"placeholder="不超过30个字符" maxlength="30"/>
 					</div>
 				</div>
-				<div class="form-group">
+				{{-- <div class="form-group">
 					<div class="col-md-4 col-md-offset-4">
 						<input class="btn btn-success" type="submit" id="save" value="保存">
 						<input class="btn btn-danger" type="button" id="cancel" value="取消" onClick="display()">
 					</div>
-				</div>
+				</div> --}}
 			</div>
-		</form>
+		{{-- </form> --}}
 	</div>
 	<div class="row-fluid xgxdiv" >
-		<h4 class="xgxtitle">项目简介</h4> <a href="#" onclick="display2()"><i class="glyphicon glyphicon-edit"></i>修改</a>
+		<h4 class="xgxtitle">项目简介</h4>{{--  <a href="#" onclick="display2()"><i class="glyphicon glyphicon-edit"></i>修改</a> --}}
 
 	</div>
 	<div class="row-fluid col-md-12">
@@ -82,7 +82,7 @@
 
 				<div class="form-group">
 					<label class="col-md-2 control-label">中文简介<br>
-						<span id="chn_info">0</span>/200
+						{{-- <span id="chn_info">0</span>/200 --}}
 					</label>
 					<div class="col-md-8">
 						<textarea id="chn" class="form-control introduction" name="introduction_chn" required="required" value="" rows="5" maxLength="200" placeholder="不超过200个字。">{{$data['introduction_chn']}}</textarea>
@@ -90,24 +90,24 @@
 				</div>
 				<div class="form-group">
 					<label class="col-md-2 control-label">英文简介
-					<br>
-						<span id="eng_info">0</span>/200</label>
+				{{-- 	<br>
+						<span id="eng_info">0</span>/200 --}}</label>
 					<div class="col-md-8">
 						<textarea id="eng" class="form-control introduction" name="introduction_eng" required="required" value="" rows="5" placeholder="No more than 200 words.">{{$data['introduction_eng']}}</textarea>
 					</div>
 				</div>
-				<div class="form-group">
+				{{-- <div class="form-group">
 					<div class="col-md-4 col-md-offset-4">
 						<input class="btn btn-success" type="submit" id="save2" value="保存">
 						<input class="btn btn-danger" type="button" id="cancel2" value="取消" onClick="display2()">
 					</div>
-				</div>
+				</div> --}}
 
 			</div>
 		</form>
 	</div>
 	<div class="row-fluid xgxdiv">
-		<h4 class="xgxtitle">项目报告</h4> <a href="#" onclick="pop()"><i class="glyphicon glyphicon-upload"></i>上传</a>
+		<h4 class="xgxtitle">项目报告</h4>{{--  <a href="#" onclick="pop()"><i class="glyphicon glyphicon-upload"></i>上传</a> --}}
 	</div>
 	<div class="row-fluid">
 			@if (empty($data['report']))

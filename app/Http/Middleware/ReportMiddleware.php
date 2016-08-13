@@ -23,11 +23,11 @@ class ReportMiddleware {
 		if($membercount<3){
 			return view('state')->withErrors('请先完成团队组建，每支参赛队伍要求至少3名参赛成员。');
 		}
-		$process = Process::find(2);
-		$curtime = date('Y-m-d H:i:s',time());
-		if($curtime>$process->time){
-			return view('state')->withErrors('当前时间：'.$curtime.'  项目报告已截止提交。');
-		}
+		// $process = Process::find(2);
+		// $curtime = date('Y-m-d H:i:s',time());
+		// if($curtime>$process->time){
+		// 	return view('state')->withErrors('当前时间：'.$curtime.'  项目报告已截止提交。');
+		// }
 		return $next($request);
 	}
 

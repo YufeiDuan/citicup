@@ -1,12 +1,11 @@
 $(function () {
     $("<option value='8'>比赛承诺书</option>").appendTo($("#upload_type"));
 	$("<option value='1'>商业计划书</option>").appendTo($("#upload_type"));
-	$("<option value='2'>技术文档</option>").appendTo($("#upload_type"));
-	$("<option value='3'>需求文档</option>").appendTo($("#upload_type"));
-	$("<option value='4'>测试文档</option>").appendTo($("#upload_type"));
-    $("<option value='5'>用户手册</option>").appendTo($("#upload_type"));
-    $("<option value='6'>源代码</option>").appendTo($("#upload_type"));
-    $("<option value='7'>项目花絮</option>").appendTo($("#upload_type"));
+	$("<option value='2'>需求文档</option>").appendTo($("#upload_type"));
+	$("<option value='3'>测试文档</option>").appendTo($("#upload_type"));
+    $("<option value='4'>用户手册</option>").appendTo($("#upload_type"));
+    $("<option value='5'>源代码</option>").appendTo($("#upload_type"));
+    $("<option value='6'>项目花絮</option>").appendTo($("#upload_type"));
     $("#title").attr("disabled","disabled");
     $('#save').hide();
     $('#cancel').hide();

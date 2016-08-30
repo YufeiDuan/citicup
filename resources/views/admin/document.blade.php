@@ -25,7 +25,6 @@
 						<th class="col-xs-2">团队名称</th>
 						<th class="col-xs-1">参赛<br>承诺书</th>
 						<th class="col-xs-1">商业<br>计划书</th>
-						<th class="col-xs-1">技术<br>文档</th>
 						<th class="col-xs-1">需求<br>文档</th>
 						<th class="col-xs-1">测试<br>文档</th>
 						<th class="col-xs-1">用户<br>手册</th>
@@ -49,7 +48,7 @@
 						<i style="color: red;" class="glyphicon glyphicon-remove"></i>
 						@endif
 					</td>
-					@for ($i=0;$i<7;$i++)
+					@for ($i=0;$i<6;$i++)
 					<td clss="col-xs-2">
 						@if ( $team->doccount()[$i] )
 						<i style="color: green;" class="glyphicon glyphicon-ok"></i>

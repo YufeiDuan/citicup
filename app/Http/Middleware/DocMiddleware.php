@@ -30,11 +30,11 @@ class DocMiddleware {
 		if(empty($report)){
 			return view('state')->withErrors('请先提交项目报告。');
 		}
-		$process = Process::find(3);
-		$curtime = date('Y-m-d H:i:s',time());
-		if($curtime>$process->time){
-			return view('state')->withErrors('当前时间：'.$curtime.'  最终作品已截止提交。');
-		}
+		// $process = Process::find(3);
+		// $curtime = date('Y-m-d H:i:s',time());
+		// if($curtime>$process->time){
+		// 	return view('state')->withErrors('当前时间：'.$curtime.'  最终作品已截止提交。');
+		// }
 		return $next($request);
 	}
 

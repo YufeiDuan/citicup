@@ -52,7 +52,7 @@
 </div>
 	@endif
 	<div class="row-fluid xgxdiv">
-		<h4 class="xgxtitle">最终作品</h4> <a href="#" onclick="pop()"><i class="glyphicon glyphicon-upload"></i>上传</a>
+		<h4 class="xgxtitle">最终作品</h4>
 		<span style="float:right;">
 			<a href="/commitment"><i class="glyphicon glyphicon-download"></i>参赛承诺书</a>
 			&nbsp;&nbsp;

@@ -89,11 +89,7 @@
 					{{ $doc->updated_at }}
 				</td>
 				<td class="col-md-1">
-					<form action="{{ URL('document/'.$doc->id) }}" method="POST" style="display: inline;" onsubmit="return(delconfirm())">
-						<input name="_method" type="hidden" value="DELETE">
-						<input type="hidden" name="_token" value="{{ csrf_token() }}">
-						<button type="submit" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></button>
-					</form>
+					
 				</td>
 			</tr>
 			@endforeach

@@ -58,6 +58,6 @@ class HomeController extends Controller {
 		$count = $team->unreadcount();
 		View::share('data',['count'=>$count,'name'=>$team->name]);
 
-		return view('evaluation')->withInfos('等待所有团队提交作品。');
+		return view('evaluation')->withInfos('正在进行首轮评选...');
 	}
 }

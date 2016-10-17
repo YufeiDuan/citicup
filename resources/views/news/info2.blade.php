@@ -11,10 +11,10 @@
 	<p>经过大赛组委会评委的认真评审、打分，组委会工作人员的核对、统计，本届“花旗杯”金融创新应用大赛预赛前20强团队现已产生。</p>
 	<table class="table table-bordered" align="center" id="schedule">
     <tr>
-						<th>排名<br>Rank</th>
-						<th>团队名称<br>Team</th>
-						<th>作品名称<br>Project</th>
-            <th>学校<br>University</th>
+						<th width="10%">排名<br>Rank</th>
+						<th width="20%">团队名称<br>Team</th>
+						<th width="40%">作品名称<br>Project</th>
+            <th width="30%">学校<br>University</th>
 		</tr>
     <tr>
             <td>1</td>

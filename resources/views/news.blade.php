@@ -42,6 +42,10 @@
 						<a class="news" href="/news/1">2016“花旗杯”金融创新应用大赛在西安交大启动</a>
 						<span class="date">[2016-06-06]</span>
 					</li>
+					<li>
+						<a class="news" href="/news/2">本届“花旗杯”金融创新应用大赛预赛前20强团队现已产生</a>
+						<span class="date">[2016-10-17]</span>
+					</li>
 					<p><br></p>
 					<p><br></p>
 					<p><br></p>

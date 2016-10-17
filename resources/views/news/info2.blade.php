@@ -12,8 +12,8 @@
 	<table class="table table-bordered" align="center" id="schedule">
     <tr>
 						<th>排名<br>Rank</th>
-						<th>团队名称<br>Team</th>
-						<th>作品名称<br>Project</th>
+						<th>&nbsp;&nbsp;&nbsp;团队名称&nbsp;&nbsp;&nbsp;<br>Team</th>
+						<th>&nbsp;&nbsp;&nbsp;作品名称&nbsp;&nbsp;&nbsp;<br>Project</th>
             <th>学校<br>University</th>
 		</tr>
     <tr>

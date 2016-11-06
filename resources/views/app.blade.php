@@ -105,8 +105,8 @@
 					<li  id="s6" style="background:url(/img/6.png) no-repeat center top; ">
 						Nov 17
 						<div class="shiji">
-							<h5>Nov 17</h5>
-							<p>决赛颁奖(暂定)</p>
+							<h5>Nov 24</h5>
+							<p>决赛颁奖</p>
 						</div>
 					</li>
 					
